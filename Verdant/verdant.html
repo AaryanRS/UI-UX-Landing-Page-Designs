@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"on-error-container":"#93000a","inverse-on-surface":"#f5f1d8","on-secondary-container":"#5a6745","tertiary":"#232a10","on-secondary":"#ffffff","surface-container":"#f2efd5","tertiary-container":"#384024","primary-container":"#01472e","secondary-fixed-dim":"#becca3","on-background":"#1d1c0d","secondary":"#566342","surface-container-highest":"#e7e3ca","primary-fixed-dim":"#96d4b2","outline":"#707972","surface-container-lowest":"#ffffff","on-primary-fixed":"#002113","surface-variant":"#e7e3ca","error-container":"#ffdad6","on-primary":"#ffffff","outline-variant":"#c0c9c1","on-primary-fixed-variant":"#115137","background":"#fefae0","on-primary-container":"#79b595","tertiary-fixed-dim":"#c2cba4","secondary-fixed":"#dae8be","primary":"#002e1d","surface-dim":"#dedbc2","surface-bright":"#fefae0","on-tertiary":"#ffffff","error":"#ba1a1a","on-tertiary-fixed":"#171e06","surface-container-high":"#ede9cf","on-error":"#ffffff","inverse-surface":"#323120","primary-fixed":"#b2f0cd","surface-container-low":"#f8f4db","surface":"#fefae0","tertiary-fixed":"#dee7bf","secondary-container":"#d7e5bb","inverse-primary":"#96d4b2","on-secondary-fixed-variant":"#3f4b2c","on-tertiary-fixed-variant":"#424a2d","on-surface-variant":"#404943","on-surface":"#1d1c0d","on-secondary-fixed":"#141f05","surface-tint":"#2e694d","on-tertiary-container":"#a3ac87"},"borderRadius":{"DEFAULT":"1rem","lg":"2rem","xl":"3rem","full":"9999px"},"spacing":{"space-sm":"0.75rem","space-xs":"0.375rem","gutter-desktop":"2.5rem","gutter":"1.5rem","space-lg":"2.5rem","margin-desktop":"3rem","margin":"1.25rem","space-md":"1.5rem","space-xl":"4rem"},"fontFamily":{"label-sm":["Inter"],"display-xl-mobile":["Anton"],"body-sm":["Inter"],"display-xl":["Anton"],"headline-lg-mobile":["Anton"],"display-lg-mobile":["Anton"],"headline-md":["Anton"],"headline-sm":["Anton"],"label-lg":["Inter"],"headline-lg":["Anton"],"body-lg":["Inter"],"display-lg":["Anton"],"body-md":["Inter"],"label-md":["Inter"]},"fontSize":{"label-sm":["10px",{"lineHeight":"12px","letterSpacing":"0.2em","fontWeight":"700"}],"display-xl-mobile":["56px",{"lineHeight":"52px","letterSpacing":"-0.01em","fontWeight":"400"}],"body-sm":["13px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"400"}],"display-xl":["112px",{"lineHeight":"96px","letterSpacing":"-0.02em","fontWeight":"400"}],"headline-lg-mobile":["32px",{"lineHeight":"34px","letterSpacing":"0em","fontWeight":"400"}],"display-lg-mobile":["40px",{"lineHeight":"40px","letterSpacing":"0em","fontWeight":"400"}],"headline-md":["32px",{"lineHeight":"36px","letterSpacing":"0.01em","fontWeight":"400"}],"headline-sm":["24px",{"lineHeight":"28px","letterSpacing":"0.01em","fontWeight":"400"}],"label-lg":["14px",{"lineHeight":"16px","letterSpacing":"0.12em","fontWeight":"700"}],"headline-lg":["48px",{"lineHeight":"48px","letterSpacing":"0em","fontWeight":"400"}],"body-lg":["18px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"400"}],"display-lg":["72px",{"lineHeight":"68px","letterSpacing":"-0.01em","fontWeight":"400"}],"body-md":["15px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"14px","letterSpacing":"0.15em","fontWeight":"600"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-secondary-container selection:text-primary"><svg class="pointer-events-none fixed inset-0 z-[9999] h-full w-full opacity-[0.04] mix-blend-multiply" xmlns="http://www.w3.org/2000/svg"><filter id="analog-noise"><feturbulence basefrequency="0.78" numoctaves="3" stitchtiles="stitch" type="fractalNoise"></feturbulence><fecolormatrix type="saturate" values="0"></fecolormatrix></filter><rect filter="url(#analog-noise)" height="100%" width="100%"></rect></svg><header class="fixed top-0 inset-x-0 z-50 pointer-events-none"><div class="h-20 w-full px-margin md:px-margin-desktop flex items-center justify-between pointer-events-auto"><div class="flex items-center gap-space-sm"><img alt="Verdant Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WUWTD0y0uulSpj3ISySxRNWyXDyzaZzjLZRfnCUViZrU15q6cVO5Lp2Te-3XyMSSItcIxG7b-Unai9_t9eo6P9Qi1--GvoOK2Iz7B8fCFnO9KzWpqoOmnqxIGuh6iH-iHXcQBX_rm5uCvMqXUnFtt2jNfkYWYx-gxZkqUP2qsbL0zW7u6osMPO0BJBBEqulMjpinZWnpmJLpTVGUITBAUJslbmhIEGsq9mZMkUVsjyKDKnulD_dJpVMoQ"/><span class="font-headline-sm text-headline-sm text-primary-container tracking-wider uppercase">VERDANT</span></div><div class="hidden lg:flex items-center"><nav class="bg-surface-container-lowest/20 backdrop-blur-xl rounded-full border border-surface-container-lowest/30 px-space-md py-space-xs flex items-center gap-space-md shadow-[0_20px_40px_-15px_rgba(1,71,46,0.12)]" data-active-classes="bg-primary-container text-surface-container-lowest rounded-full px-space-sm py-space-xs font-label-sm text-label-sm"><a aria-current="page" class="uppercase tracking-[0.25em] transition-colors bg-primary-container text-surface-container-lowest rounded-full px-space-sm py-space-xs font-label-sm text-label-sm" data-path="botanicals" href="#">BOTANICALS</a><a class="font-label-sm text-label-sm uppercase tracking-[0.25em] text-primary-container hover:text-primary transition-colors py-space-xs px-space-xs" data-path="apothecary" href="#">APOTHECARY</a><a class="font-label-sm text-label-sm uppercase tracking-[0.25em] text-primary-container hover:text-primary transition-colors py-space-xs px-space-xs" data-path="philosophy" href="#">PHILOSOPHY</a><a class="font-label-sm text-label-sm uppercase tracking-[0.25em] text-primary-container hover:text-primary transition-colors py-space-xs px-space-xs" data-path="harvest" href="#">HARVEST</a><a class="font-label-sm text-label-sm uppercase tracking-[0.25em] text-primary-container hover:text-primary transition-colors py-space-xs px-space-xs" data-path="archive" href="#">ARCHIVE</a></nav></div><div class="flex items-center gap-space-sm"><button class="bg-surface-container-lowest text-primary-container rounded-full px-space-md py-space-xs font-label-sm text-label-sm uppercase tracking-widest shadow-[0_20px_40px_-15px_rgba(1,71,46,0.15)] flex items-center gap-space-xs hover:bg-surface-container-low transition-all duration-300" type="button"><span>Cart</span><span class="font-label-sm text-label-sm text-secondary">[ 03 ]</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface min-h-screen"><div class="flex flex-col w-full relative">
+<!-- Full-screen Fixed Analog Grain Filter Overlay -->
+<svg class="fixed inset-0 w-full h-full pointer-events-none z-[100] opacity-[0.04]" xmlns="http://www.w3.org/2000/svg">
+<filter id="noise">
+<feturbulence basefrequency="0.8" numoctaves="3" stitchtiles="stitch" type="fractalNoise"></feturbulence>
+</filter>
+<rect filter="url(#noise)" height="100%" width="100%"></rect>
+</svg>
+<!-- KEYFRAMES & UTILITY STYLES VIA INLINE SCRIPT-INJECTED CSS FOR FLOAT & BEZIER CURVES -->
+<script>
+    (function() {
+      const style = document.createElement('style');
+      style.innerHTML = `
+        @keyframes floatSlow {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-24px) rotate(3deg); }
+        }
+        @keyframes floatReverse {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(20px) rotate(-3.5deg); }
+        }
+        .anim-float-1 { animation: floatSlow 7.5s ease-in-out infinite; }
+        .anim-float-2 { animation: floatReverse 8.5s ease-in-out infinite 0.8s; }
+        .anim-float-3 { animation: floatSlow 6.8s ease-in-out infinite 1.4s; }
+        .bezier-cinematic { transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1); }
+      `;
+      document.head.appendChild(style);
+    })();
+  </script>
+<!-- =========================================================================
+       HERO SECTION: Full Canvas, Sage Substrate, Monumental Typography
+       ========================================================================= -->
+<section class="relative w-full min-h-screen bg-secondary-fixed flex flex-col justify-between overflow-hidden px-margin md:px-margin-desktop pt-space-xl pb-space-lg selection:bg-primary-container selection:text-surface">
+<!-- Floating Background Radial Ambient Glow -->
+<div class="absolute -top-32 -left-32 w-[38rem] h-[38rem] rounded-full bg-surface-container/60 blur-[100px] pointer-events-none"></div>
+<div class="absolute -bottom-32 -right-32 w-[42rem] h-[42rem] rounded-full bg-secondary-container/70 blur-[120px] pointer-events-none"></div>
+<!-- Micro Navigation & Botanical Ledger Header Tag -->
+<div class="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center gap-space-sm pt-space-md z-20">
+<div class="flex items-center gap-space-xs bg-surface-container-lowest/70 backdrop-blur-md px-space-md py-space-xs rounded-full shadow-[0_12px_24px_-10px_rgba(1,71,46,0.15)]">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-[0.25em] text-primary">RESERVE HARVEST BATCH: 2025.04-ALPS</span>
+</div>
+<div class="font-label-sm text-label-sm uppercase tracking-[0.3em] text-primary/80 hidden md:block">
+        SOIL PURITY: 99.98% CERTIFIED BIODYNAMIC
+      </div>
+</div>
+<!-- Centerpiece Typography & Overlapping Organic Specimen Montage -->
+<div class="relative w-full my-auto py-space-lg flex items-center justify-center min-h-[52vw] sm:min-h-[44vw] max-h-[850px]">
+<!-- GIGANTIC EDITORIAL ANTON DISPLAY HEADLINE -->
+<div class="relative z-10 w-full select-none text-center pointer-events-none">
+<h1 class="font-display-xl text-primary font-normal leading-[0.74] tracking-[-0.05em] uppercase text-[20vw] m-0 p-0 transform scale-y-[1.08] mix-blend-multiply">
+          VERDANT
+        </h1>
+</div>
+<!-- SPECIMEN CARD 1: Sliced Green Fig & Sage on Stone (Top Left Overlap) -->
+<div class="absolute left-0 sm:left-[4%] top-[2%] sm:top-[-2%] z-20 w-44 sm:w-64 md:w-80 anim-float-1 bezier-cinematic transition-transform duration-700" id="hero-img-1">
+<div class="relative p-2 bg-surface-container-lowest/80 backdrop-blur-md rounded-[3rem] shadow-[0_30px_60px_-15px_rgba(1,71,46,0.30)] group cursor-pointer">
+<div class="aspect-square w-full rounded-[2.5rem] overflow-hidden relative">
+<img class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Close up photograph of a fresh halved ripe green Adriatic fig showing rich pink fibrous seed center paired with wild sage sprigs resting on rough-hewn raw travertine slab with warm cinematic daylight, organic brutalist wellness aesthetic with forest green and cream accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMwzAYlFFc3yt2hAqwbweXhsfUz_-J5ejDKQvzJIJOf2uJ5MZzWPnpxwI4slJNx2i8BPloC6eLjL8EJns4ECjTRzQwVr2L-WaZkgVDNrkRC2mXk6kTUzoTsMfGWxKbT5plGaXqfrg_1Vr8-NH0VQ79TAFfCnBQkn0wRdzPu51TzmVIDnhntXmHYGM3sirBeW8okG1I6Sddk4eJkKyFkIlaRiiUC2JhXESqKcVpy7IL_j8IF6miBWBm"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-4 left-5 right-5 flex justify-between items-center text-surface font-label-sm text-label-sm uppercase tracking-widest">
+<span>FIG. 01</span>
+<span>PHYTO-FERMENT</span>
+</div>
+</div>
+</div>
+</div>
+<!-- SPECIMEN CARD 2: Cold-pressed Dew on Monstera Leaf (Bottom Right Overlap) -->
+<div class="absolute right-0 sm:right-[3%] -bottom-10 sm:bottom-[-6%] z-20 w-48 sm:w-72 md:w-88 anim-float-2 bezier-cinematic transition-transform duration-700" id="hero-img-2">
+<div class="relative p-2 bg-surface-container-lowest/80 backdrop-blur-md rounded-[3rem] shadow-[0_32px_64px_-16px_rgba(1,71,46,0.32)] group cursor-pointer">
+<div class="aspect-[4/5] w-full rounded-[2.5rem] overflow-hidden relative">
+<img class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Extreme macro shot of crystalline water beads and viscous olive nutrient oil drops resting on a glossy deep green tropical monstera leaf vein under diffuse morning studio sunlight, hyper-detailed organic texture, unbleached cream and forest hues" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARl-4k13z8pErLQIaWkhHL0KgJeEpjONxt9Sw-B-CbDrccByPJtj39Jk5L7LvrByigz2_kZSxTBlT_NelMadL8VZILqUg8LTicE-kO5hFUT4UbqqStzUVIILwJn6aQC-iKKs2SlsTOidjfpte9AA2I7jttJN1XnPmrMNmwXzD-jQB6d6qHP65EAJvmLIvHRqseN68nZ1M4AF5MwK0bGOpF5sb_MLS0_t7ExpKwioQGLWitdFNjw9lG"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent opacity-60"></div>
+<div class="absolute bottom-5 left-6 right-6 text-surface">
+<span class="font-label-sm text-label-sm uppercase tracking-[0.25em] block opacity-80">OLEORESIN</span>
+<span class="font-headline-sm text-headline-sm uppercase tracking-wider block">MONSTERA SEED</span>
+</div>
+</div>
+</div>
+</div>
+<!-- SPECIMEN CARD 3: Ceremonial Stone Matcha in Clay Vessel (Mid-Right Floating Accent) -->
+<div class="hidden lg:block absolute right-[28%] top-[-8%] z-15 w-52 anim-float-3 bezier-cinematic transition-transform duration-700" id="hero-img-3">
+<div class="relative p-2 bg-surface-container-high/90 backdrop-blur-md rounded-[2.8rem] shadow-[0_24px_48px_-12px_rgba(1,71,46,0.22)]">
+<div class="aspect-square w-full rounded-[2.2rem] overflow-hidden">
+<img class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" data-alt="Artisanal rustic speckled celadon stoneware bowl mounded with vivid vibrant green pulverized matcha powder alongside a handcrafted bamboo whisk on weathered raw oak workshop table, natural sunlight, organic sustainable wabi-sabi apothecary aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA50oeUGWU6EXXm0qAo5ZJ8611kidY8aLd9hkA-T3WOLVq6ZP4WxWwBn3yZftfAPBZP7JqSWludSQKSZ60S0-5zm_Chc0JhXIAQxa0CzWyxIqovy62jts1ddLtXTZh5aoQayliBGnwcJMkUPV-J2x33wQ97BTx_4cbHyPUxrmfgxti8yj4SOeVvUyJPNUwgnWP3DCuDDGJktP04EmUQgJbzhQr1S6f12w7NtyjasA0K3UIeHQmHDSk7"/>
+</div>
+<div class="py-2 px-3 text-center">
+<span class="font-label-sm text-label-sm tracking-[0.2em] text-primary uppercase">FIRST CROP SHADE MATCHA</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Editorial Bottom Narrative Strip -->
+<div class="relative z-20 w-full pt-space-md border-t border-primary/15 grid grid-cols-1 md:grid-cols-12 gap-gutter items-end">
+<div class="md:col-span-5 space-y-1">
+<span class="font-label-sm text-label-sm uppercase tracking-[0.25em] text-primary/70 block">[ 01 / ORIGIN : WILD FORAGED APOTHECARY ]</span>
+<p class="font-body-md text-body-md text-primary font-medium max-w-md">
+          Cold-pressed active botanical elixirs, micro-distilled and totally unfiltered. Formulated to restore cellular vitality using zero synthetics.
+        </p>
+</div>
+<div class="md:col-span-4 space-y-1">
+<span class="font-label-sm text-label-sm uppercase tracking-[0.25em] text-primary/70 block">[ LATITUDE 43.8° N / 100% COMPOSTABLE BIO-VESSEL ]</span>
+<p class="font-body-sm text-body-sm text-primary/90 max-w-sm">
+          Sourced exclusively from multi-generational biodynamic agroforestry reserves across the Maritime Alps and Mediterranean basins.
+        </p>
+</div>
+<div class="md:col-span-3 flex md:justify-end items-center gap-space-sm pt-space-xs md:pt-0">
+<a class="group flex items-center gap-space-xs bg-primary text-surface px-space-md py-space-sm rounded-full font-label-lg text-label-lg uppercase tracking-widest hover:scale-[1.03] -translate-y-0.5 hover:shadow-[0_16px_32px_-8px_rgba(1,71,46,0.28)] transition-all duration-300" href="#crop">
+<span>Explore Repertory</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">south_east</span>
+</a>
+</div>
+</div>
+</section>
+<!-- =========================================================================
+       SECTION 2: THE CROP (Bento Grid on Olive Ground with Curvature)
+       ========================================================================= -->
+<section class="relative w-full bg-secondary-container rounded-t-[5rem] -mt-16 z-30 pt-28 pb-32 px-margin md:px-margin-desktop transition-all" id="crop">
+<!-- Header Block: Monumental Section Title & Interactive Circular Seal Badge -->
+<div class="w-full flex flex-col lg:flex-row justify-between items-start lg:items-end gap-space-md mb-space-xl">
+<div>
+<div class="flex items-center gap-space-xs mb-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-[0.3em] text-primary/80">REPERTORY &amp; HARVEST REGISTRY</span>
+</div>
+<h2 class="font-headline-lg md:font-display-xl text-primary font-normal leading-[0.8] tracking-[-0.04em] uppercase text-[15vw] lg:text-[11vw] m-0">
+          THE CROP
+        </h2>
+</div>
+<!-- Interactive Magnetic CTA Seal Badge -->
+<div class="flex items-center gap-space-lg self-end lg:self-center">
+<a class="w-36 h-36 rounded-full bg-primary text-surface flex flex-col items-center justify-center p-4 text-center cursor-pointer shadow-[0_20px_40px_-15px_rgba(1,71,46,0.35)] hover:scale-105 hover:bg-primary-container transition-all duration-500 bezier-cinematic group" href="#apothecary">
+<span class="material-symbols-outlined text-[24px] mb-1 group-hover:rotate-45 transition-transform duration-500">eco</span>
+<span class="font-label-sm text-label-sm uppercase tracking-[0.2em] font-bold leading-tight">VIEW FULL DISPENSARY</span>
+<span class="text-[9px] tracking-widest text-secondary-fixed-dim mt-1">[ 14 EXTRACTS ]</span>
+</a>
+</div>
+</div>
+<!-- Filter Pills / Micro-Categories Bar -->
+<div class="flex flex-wrap items-center gap-space-xs mb-space-xl pb-space-xs border-b border-primary/10">
+<button class="bg-primary text-surface px-space-md py-space-xs rounded-full font-label-sm text-label-sm uppercase tracking-[0.2em] transition-all" type="button">
+        ALL HARVESTS [08]
+      </button>
+<button class="bg-surface/60 hover:bg-surface text-primary px-space-md py-space-xs rounded-full font-label-sm text-label-sm uppercase tracking-[0.2em] transition-all" type="button">
+        COLD OILS
+      </button>
+<button class="bg-surface/60 hover:bg-surface text-primary px-space-md py-space-xs rounded-full font-label-sm text-label-sm uppercase tracking-[0.2em] transition-all" type="button">
+        PULVERIZED LEAF
+      </button>
+<button class="bg-surface/60 hover:bg-surface text-primary px-space-md py-space-xs rounded-full font-label-sm text-label-sm uppercase tracking-[0.2em] transition-all" type="button">
+        PHYTO-FERMENTS
+      </button>
+<button class="bg-surface/60 hover:bg-surface text-primary px-space-md py-space-xs rounded-full font-label-sm text-label-sm uppercase tracking-[0.2em] transition-all" type="button">
+        RESIN &amp; MYRRH
+      </button>
+</div>
+<!-- 3-Column Bento Grid: Products with 2.5rem radius and hover interactions -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter-desktop">
+<!-- PRODUCT CARD 1 -->
+<div class="group relative bg-surface-container rounded-[2.5rem] overflow-hidden p-space-sm flex flex-col justify-between shadow-[0_20px_40px_-15px_rgba(1,71,46,0.12)] hover:shadow-[0_32px_64px_-20px_rgba(1,71,46,0.25)] transition-all duration-500 bezier-cinematic">
+<!-- Visual Presentation Window -->
+<div class="relative w-full aspect-[4/5] rounded-[2rem] overflow-hidden bg-primary/5">
+<img class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1200ms] bezier-cinematic" data-alt="Crisp high contrast editorial product photograph of dark amber apothecary bottle labeled N 01 Monstera Cold-Press surrounded by wet tropical leaves and mineral river rocks on raw linen canvas, daylight shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBb1Iv96JfJ0f_hsxyvfLvN8m9fuMAzWEM5z8pxbzR6sCFqGrhCPyEhAvDOEEGvafGu6vzO8YnmQTcfNvzByYQBFjAZRwcs_YFf8rHkCxQyt1KY0COiqCeixBkoFOnY0YyJ4tFWFWtSDKvyl0_bPEd_rb9FN2KfeS44c3rQYFjKGggS0Uh8Nbc6FLNDw4WDSd6IPHlYt4pxgk1H-OdXzZcPGKuV-QM03QVtMtXyafSpkpUym6GazMDA"/>
+<!-- Specimen Code Stamp -->
+<div class="absolute top-4 left-4 z-10 bg-surface/90 backdrop-blur-md px-space-sm py-1 rounded-full">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">LOT 904-CP</span>
+</div>
+<!-- Forest Glassmorphism Overlay Revealed on Hover -->
+<div class="absolute inset-0 bg-primary/40 backdrop-blur-[4px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center p-6">
+<button class="translate-y-8 group-hover:translate-y-0 transition-transform duration-500 ease-out bg-surface text-primary rounded-full px-8 py-4 uppercase font-label-lg text-label-lg tracking-widest shadow-xl hover:bg-surface-container-lowest hover:scale-105 active:scale-95" type="button">
+              QUICK DISPATCH • $78
+            </button>
+</div>
+</div>
+<!-- Metadata & Pricing Row -->
+<div class="pt-space-md px-space-xs pb-space-xs flex flex-col justify-between">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="font-headline-sm text-headline-sm text-primary uppercase tracking-wide">
+              N° 01 MONSTERA COLD-PRESS
+            </h3>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">
+              $78
+            </span>
+</div>
+<div class="flex justify-between items-center text-primary/70 pt-space-xs border-t border-primary/10">
+<span class="font-label-sm text-label-sm uppercase tracking-[0.2em]">50ML / PURE CHLOROPHYLL OLEORESIN</span>
+<span class="material-symbols-outlined text-[20px] text-primary group-hover:translate-x-1 transition-transform">add_circle</span>
+</div>
+</div>
+</div>
+<!-- PRODUCT CARD 2 -->
+<div class="group relative bg-surface-container rounded-[2.5rem] overflow-hidden p-space-sm flex flex-col justify-between shadow-[0_20px_40px_-15px_rgba(1,71,46,0.12)] hover:shadow-[0_32px_64px_-20px_rgba(1,71,46,0.25)] transition-all duration-500 bezier-cinematic">
+<!-- Visual Presentation Window -->
+<div class="relative w-full aspect-[4/5] rounded-[2rem] overflow-hidden bg-primary/5">
+<img class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1200ms] bezier-cinematic" data-alt="Editorial wellness jar featuring raw Fig and Sage bio-fermented balm resting beside sliced fresh figs and raw sage bundles on cracked limestone surface, earthy aesthetic, studio softbox illumination" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAJL_MM83Jy5ksUl4YaeNq510kKZ44iHODqzVRfWQbX6w-tyxZ1XlNvzBnPlmyQGV9QJdBEFCCSygfGmBJViYA8aJDQSYGuC6O1X9FpMdg34C2o3TW5KEiuHrkk6i0NXEIriFPJx74jjNR74Mfm5M_6fPO07IJtWhfTxAana6Pv9LzH01NgN17Pq3XNmXTffQolrtnMb3LAiOmElhxX6e5SQPLweX3-gc3aKJkHPtQL7vsRVM8b_KH"/>
+<div class="absolute top-4 left-4 z-10 bg-surface/90 backdrop-blur-md px-space-sm py-1 rounded-full">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">LOT 412-ENZ</span>
+</div>
+<!-- Forest Glassmorphism Overlay Revealed on Hover -->
+<div class="absolute inset-0 bg-primary/40 backdrop-blur-[4px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center p-6">
+<button class="translate-y-8 group-hover:translate-y-0 transition-transform duration-500 ease-out bg-surface text-primary rounded-full px-8 py-4 uppercase font-label-lg text-label-lg tracking-widest shadow-xl hover:bg-surface-container-lowest hover:scale-105 active:scale-95" type="button">
+              QUICK DISPATCH • $92
+            </button>
+</div>
+</div>
+<!-- Metadata & Pricing Row -->
+<div class="pt-space-md px-space-xs pb-space-xs flex flex-col justify-between">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="font-headline-sm text-headline-sm text-primary uppercase tracking-wide">
+              N° 02 SUNLIT FIG &amp; SAGE
+            </h3>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">
+              $92
+            </span>
+</div>
+<div class="flex justify-between items-center text-primary/70 pt-space-xs border-t border-primary/10">
+<span class="font-label-sm text-label-sm uppercase tracking-[0.2em]">100G / BIO-FERMENTED PHYTO-ENZYMES</span>
+<span class="material-symbols-outlined text-[20px] text-primary group-hover:translate-x-1 transition-transform">add_circle</span>
+</div>
+</div>
+</div>
+<!-- PRODUCT CARD 3 -->
+<div class="group relative bg-surface-container rounded-[2.5rem] overflow-hidden p-space-sm flex flex-col justify-between shadow-[0_20px_40px_-15px_rgba(1,71,46,0.12)] hover:shadow-[0_32px_64px_-20px_rgba(1,71,46,0.25)] transition-all duration-500 bezier-cinematic md:col-span-2 lg:col-span-1">
+<!-- Visual Presentation Window -->
+<div class="relative w-full aspect-[4/5] rounded-[2rem] overflow-hidden bg-primary/5">
+<img class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1200ms] bezier-cinematic" data-alt="Matte dark olive stoneware cylinder canister of Ceremonial Stone Ground Matcha tea beside an organic bamboo tea chasen whisk on raw porous sandstone pedestal, ambient daylight shadows, brutalist apothecary layout" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVxT3sUmEZPYQYf_nP_ekv3IKulhx_iB8N6DLjWA6kCGZCnCNmYjnQMGhLOdR63JQqgMRVcM6w8N0h_ZIVUVdY-SJpvJEp3J01-ppbuXCxgbP-Ri91IBOPT6ndYvUQOgo-epj2WDF8B7iQavW2EaNHmztGsbbhBz--HfadXXlfeEojASOZc7Y5eGfE0udgKLzrpBCwzaEsYYLeJLZnS4C9TYv_JZm-unPP53l2Nn6jcXJ9e4P7mV8m"/>
+<div class="absolute top-4 left-4 z-10 bg-surface/90 backdrop-blur-md px-space-sm py-1 rounded-full">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">LOT 108-MTC</span>
+</div>
+<!-- Forest Glassmorphism Overlay Revealed on Hover -->
+<div class="absolute inset-0 bg-primary/40 backdrop-blur-[4px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center p-6">
+<button class="translate-y-8 group-hover:translate-y-0 transition-transform duration-500 ease-out bg-surface text-primary rounded-full px-8 py-4 uppercase font-label-lg text-label-lg tracking-widest shadow-xl hover:bg-surface-container-lowest hover:scale-105 active:scale-95" type="button">
+              QUICK DISPATCH • $64
+            </button>
+</div>
+</div>
+<!-- Metadata & Pricing Row -->
+<div class="pt-space-md px-space-xs pb-space-xs flex flex-col justify-between">
+<div class="flex justify-between items-baseline mb-1">
+<h3 class="font-headline-sm text-headline-sm text-primary uppercase tracking-wide">
+              N° 03 CEREMONIAL MATCHA
+            </h3>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">
+              $64
+            </span>
+</div>
+<div class="flex justify-between items-center text-primary/70 pt-space-xs border-t border-primary/10">
+<span class="font-label-sm text-label-sm uppercase tracking-[0.2em]">80G / FIRST HARVEST SHADE-GROWN</span>
+<span class="material-symbols-outlined text-[20px] text-primary group-hover:translate-x-1 transition-transform">add_circle</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Brutalist Laboratory Analytical Specimen Row -->
+<div class="mt-space-xl p-space-lg bg-surface rounded-[3rem] shadow-[0_20px_40px_-15px_rgba(1,71,46,0.15)] grid grid-cols-1 md:grid-cols-4 gap-gutter items-center">
+<div class="space-y-1">
+<span class="font-label-sm text-label-sm uppercase tracking-[0.25em] text-secondary">COLD PRESS YIELD</span>
+<div class="font-headline-lg text-headline-lg text-primary leading-none">12.4%</div>
+<p class="font-body-sm text-body-sm text-primary/70">Calculated single-run extraction limit</p>
+</div>
+<div class="space-y-1">
+<span class="font-label-sm text-label-sm uppercase tracking-[0.25em] text-secondary">ACTIVE POLYPHENOLS</span>
+<div class="font-headline-lg text-headline-lg text-primary leading-none">840<span class="text-headline-sm">MG</span></div>
+<p class="font-body-sm text-body-sm text-primary/70">Per 30ml concentrated measure</p>
+</div>
+<div class="space-y-1">
+<span class="font-label-sm text-label-sm uppercase tracking-[0.25em] text-secondary">COMPOST CYCLE</span>
+<div class="font-headline-lg text-headline-lg text-primary leading-none">45<span class="text-headline-sm">DAYS</span></div>
+<p class="font-body-sm text-body-sm text-primary/70">In standard subterranean soil bed</p>
+</div>
+<div class="flex justify-start md:justify-end">
+<button class="w-full md:w-auto bg-primary text-surface px-space-md py-space-sm rounded-full font-label-sm text-label-sm uppercase tracking-widest hover:bg-primary-container transition-all" type="button">
+          DOWNLOAD DOSSIER (PDF)
+        </button>
+</div>
+</div>
+</section>
+<!-- =========================================================================
+       SECTION 3: PHILOSOPHY & BOTANICAL MANIFESTO (Cream Substrate Overlap)
+       ========================================================================= -->
+<section class="relative w-full bg-surface rounded-t-[5rem] -mt-16 z-40 pt-28 pb-32 px-margin md:px-margin-desktop">
+<!-- Botanical Provenance Overhead Badge -->
+<div class="flex items-center gap-space-xs mb-space-md">
+<span class="material-symbols-outlined text-primary text-[20px]">science</span>
+<span class="font-label-sm text-label-sm uppercase tracking-[0.3em] text-primary">PHYTO-CELLULAR MANIFESTO</span>
+</div>
+<!-- Massive Brutalist Editorial Statement -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-start">
+<div class="lg:col-span-8">
+<h2 class="font-headline-lg md:font-display-lg text-primary leading-[0.92] uppercase tracking-tight m-0">
+          WE DO NOT SYNTHESIZE NATURE. WE CONCENTRATE ITS RESISTANCE.
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-space-md max-w-2xl">
+          Modern cosmetics and supplements dilute active bio-compounds with synthetic emulsifiers and petroleum binders. Verdant operates exclusively in living whole-plant oleoresins, unadulterated cold macerations, and subterranean fungal networks.
+        </p>
+</div>
+<!-- Provenance Metrics Stamp Card -->
+<div class="lg:col-span-4 bg-surface-container-high rounded-[3rem] p-space-lg space-y-space-md">
+<span class="font-label-sm text-label-sm uppercase tracking-[0.25em] text-primary block">
+          TRACEABILITY STANDARD [VER-ISO-09]
+        </span>
+<div class="space-y-space-sm">
+<div class="flex justify-between items-center py-space-xs border-b border-primary/10">
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary">SYNTHETIC CARRIERS</span>
+<span class="font-headline-sm text-headline-sm text-primary">0.0%</span>
+</div>
+<div class="flex justify-between items-center py-space-xs border-b border-primary/10">
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary">REGENERATIVE ACRES</span>
+<span class="font-headline-sm text-headline-sm text-primary">1,480 HA</span>
+</div>
+<div class="flex justify-between items-center py-space-xs border-b border-primary/10">
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary">PLASTIC CONTAINMENT</span>
+<span class="font-headline-sm text-headline-sm text-primary">0.00 GM</span>
+</div>
+<div class="flex justify-between items-center py-space-xs">
+<span class="font-label-md text-label-md uppercase tracking-wider text-primary">MICRO-BIOME RETENTION</span>
+<span class="font-headline-sm text-headline-sm text-primary">98.4%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 3-Pillar Tactical Accordion / Feature Slabs -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-desktop mt-space-xl">
+<div class="bg-surface-container rounded-[2.5rem] p-space-lg relative overflow-hidden group hover:bg-surface-container-highest transition-colors duration-500">
+<span class="font-display-lg text-primary/10 absolute right-6 top-4 leading-none select-none">01</span>
+<span class="material-symbols-outlined text-primary text-[32px] mb-space-sm block">filter_drama</span>
+<h4 class="font-headline-sm text-headline-sm uppercase text-primary mb-space-xs">WILD SOLAR HARVEST</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Hand-foraged botanical clippings gathered strictly within dawn and midday circadian cycles when cellular sap pressure is mathematically peaked.
+        </p>
+</div>
+<div class="bg-surface-container rounded-[2.5rem] p-space-lg relative overflow-hidden group hover:bg-surface-container-highest transition-colors duration-500">
+<span class="font-display-lg text-primary/10 absolute right-6 top-4 leading-none select-none">02</span>
+<span class="material-symbols-outlined text-primary text-[32px] mb-space-sm block">water_drop</span>
+<h4 class="font-headline-sm text-headline-sm uppercase text-primary mb-space-xs">SUB-ZERO EXTRACTION</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Mechanically pressed at 4°C using stone screw presses. Zero thermal oxidation preserves the delicate terpene volatiles and living chlorophyll chains.
+        </p>
+</div>
+<div class="bg-surface-container rounded-[2.5rem] p-space-lg relative overflow-hidden group hover:bg-surface-container-highest transition-colors duration-500">
+<span class="font-display-lg text-primary/10 absolute right-6 top-4 leading-none select-none">03</span>
+<span class="material-symbols-outlined text-primary text-[32px] mb-space-sm block">recycling</span>
+<h4 class="font-headline-sm text-headline-sm uppercase text-primary mb-space-xs">ALGAE CELLULOSE PODS</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Packaged in marine macro-algae membranes and unglazed raw ceramics. Naturally dissolves back into garden humus within six weeks of disposal.
+        </p>
+</div>
+</div>
+<!-- Final Botanical Dispatch Banner -->
+<div class="mt-space-xl p-space-xl bg-primary text-surface rounded-[4rem] flex flex-col md:flex-row justify-between items-center gap-space-lg relative overflow-hidden">
+<div class="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-primary-container blur-3xl pointer-events-none"></div>
+<div class="space-y-space-xs max-w-xl relative z-10">
+<span class="font-label-sm text-label-sm uppercase tracking-[0.3em] text-secondary-fixed">COMMUNITY ALLOCATION</span>
+<h3 class="font-headline-lg text-headline-lg uppercase leading-none text-surface">
+          SECURE AUTUMN EQUINOX ALLOTMENT
+        </h3>
+<p class="font-body-md text-body-md text-surface-container-highest/80">
+          Seasonal batches are micro-metered by rainfall indices. Register your cellar coordinates to access reserve decanters before public harvest release.
+        </p>
+</div>
+<div class="relative z-10 w-full md:w-auto flex flex-col sm:flex-row gap-space-xs">
+<input class="bg-surface/10 border-2 border-surface/20 rounded-full px-6 py-4 font-label-md text-label-md uppercase tracking-wider text-surface placeholder:text-surface/50 focus:outline-none focus:border-surface" placeholder="DISPENSARY EMAIL" type="email"/>
+<button class="bg-surface text-primary rounded-full px-8 py-4 font-label-lg text-label-lg uppercase tracking-widest hover:scale-105 hover:bg-surface-container-lowest transition-all" type="button">
+          ALLOCATE
+        </button>
+</div>
+</div>
+</section>
+<!-- =========================================================================
+       SUBTLE CLIENT-SIDE PARALLAX SCRIPT (TRANSFORMS HERO CARDS VIA SCROLL)
+       ========================================================================= -->
+<script>
+    (function() {
+      const card1 = document.getElementById('hero-img-1');
+      const card2 = document.getElementById('hero-img-2');
+      const card3 = document.getElementById('hero-img-3');
+
+      window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrolled < 1200) {
+          if (card1) card1.style.transform = `translateY(${scrolled * -0.09}px) rotate(${scrolled * 0.015}deg)`;
+          if (card2) card2.style.transform = `translateY(${scrolled * 0.07}px) rotate(${scrolled * -0.012}deg)`;
+          if (card3) card3.style.transform = `translateY(${scrolled * -0.13}px)`;
+        }
+      }, { passive: true });
+    })();
+  </script>
+</div></main><footer class="w-full bg-primary-container text-secondary-container rounded-t-[5rem] mt-space-xl"><div class="w-full px-margin md:px-margin-desktop pt-space-xl pb-space-lg"><div class="grid grid-cols-1 md:grid-cols-12 gap-gutter-desktop"><div class="md:col-span-6 flex flex-col justify-between space-y-space-md"><div class="space-y-space-sm"><span class="font-label-sm text-label-sm text-secondary-fixed-dim uppercase tracking-[0.2em]">ECOLOGICAL DISPATCH</span><h3 class="font-headline-lg text-headline-lg text-surface-container-lowest uppercase leading-none">CULTIVATE PRESENCE</h3><p class="font-body-md text-body-md text-secondary-container max-w-md">Bi-weekly agricultural dispatches, clinical phytotherapy dossiers, and raw seed harvests directly from our cooperative reserves.</p></div><form class="flex items-center border-b-2 border-secondary-fixed-dim/40 py-space-xs max-w-lg focus-within:border-surface-container-lowest transition-colors"><input class="bg-transparent font-label-md text-label-md uppercase tracking-wider text-surface-container-lowest placeholder:text-secondary-fixed-dim/60 focus:outline-none w-full" placeholder="ENTER YOUR EMAIL ADDRESS" type="email"/><button aria-label="Subscribe" class="text-surface-container-lowest hover:translate-x-1 transition-transform p-space-xs" type="button"><span class="material-symbols-outlined">arrow_forward</span></button></form></div><div class="md:col-span-3 flex flex-col space-y-space-md"><span class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-secondary-fixed-dim">REPERTORY</span><nav class="flex flex-col space-y-space-sm" data-active-classes="text-surface-container-lowest font-bold"><a aria-current="page" class="uppercase tracking-wider transition-colors text-surface-container-lowest font-bold" data-path="botanicals" href="#">Botanicals</a><a class="font-label-md text-label-md uppercase tracking-wider text-secondary-container hover:text-surface-container-lowest transition-colors" data-path="apothecary" href="#">Apothecary</a><a class="font-label-md text-label-md uppercase tracking-wider text-secondary-container hover:text-surface-container-lowest transition-colors" data-path="harvest" href="#">Seasonal Harvest</a><a class="font-label-md text-label-md uppercase tracking-wider text-secondary-container hover:text-surface-container-lowest transition-colors" data-path="archive" href="#">Seed Archive</a><a class="font-label-md text-label-md uppercase tracking-wider text-secondary-container hover:text-surface-container-lowest transition-colors" data-path="formulations" href="#">Formulations</a></nav></div><div class="md:col-span-3 flex flex-col space-y-space-md"><span class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-secondary-fixed-dim">DISCOURSE</span><nav class="flex flex-col space-y-space-sm" data-active-classes="text-surface-container-lowest font-bold"><a class="font-label-md text-label-md uppercase tracking-wider text-secondary-container hover:text-surface-container-lowest transition-colors" data-path="philosophy" href="#">Soil Philosophy</a><a class="font-label-md text-label-md uppercase tracking-wider text-secondary-container hover:text-surface-container-lowest transition-colors" data-path="traceability" href="#">Traceability Dossiers</a><a class="font-label-md text-label-md uppercase tracking-wider text-secondary-container hover:text-surface-container-lowest transition-colors" data-path="sanctuary" href="#">Sanctuary Lab</a><a class="font-label-md text-label-md uppercase tracking-wider text-secondary-container hover:text-surface-container-lowest transition-colors" data-path="sustainability" href="#">Cellular Substrates</a><a class="font-label-md text-label-md uppercase tracking-wider text-secondary-container hover:text-surface-container-lowest transition-colors" data-path="contact" href="#">Direct Line</a></nav></div></div><div class="border-t border-secondary-fixed-dim/20 mt-space-xl pt-space-md flex flex-col md:flex-row justify-between items-center gap-space-sm text-secondary-fixed-dim/40 font-label-sm text-label-sm uppercase tracking-widest"><span>VERDANT BOTANICAL LABORATORIES — REGENERATIVE AGROFORESTRY</span><span>ALL CRUDE EXTRACTS TRACEABLE TO ORIGIN</span><span>© 2025 ALL RIGHTS RESERVED</span></div></div></footer></body></html>

@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-[#000000] text-[#eafff1]">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fury@portfolio: ~/dev - CRT Terminal Portfolio</title>
+  
+  <!-- Fonts: JetBrains Mono & IBM Plex Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            mono: ['"JetBrains Mono"', '"IBM Plex Mono"', 'monospace'],
+            plex: ['"IBM Plex Mono"', 'monospace'],
+          },
+          colors: {
+            phosphor: {
+              DEFAULT: '#39ff7a',
+              dim: '#2bbf5c',
+              faint: '#1c7a3c',
+              hairline: '#143614',
+              border: '#1f4d1f',
+              dark: '#050805',
+              card: '#070b07',
+            },
+            sage: '#5f8d68',
+            amberAccent: '#ffd24a',
+            cyanGlyph: '#5cf6ff',
+            inkWhite: '#eafff1',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Selection color */
+    ::selection {
+      background: rgba(57, 255, 122, 0.30);
+      color: #eafff1;
+    }
+
+    /* Phosphor CRT Glows */
+    .glow {
+      text-shadow: 0 0 8px rgba(57, 255, 122, 0.45), 0 0 24px rgba(57, 255, 122, 0.18);
+    }
+    .glow-strong {
+      text-shadow: 0 0 10px rgba(57, 255, 122, 0.65), 0 0 28px rgba(57, 255, 122, 0.35), 0 0 50px rgba(57, 255, 122, 0.2);
+    }
+    .glow-amber {
+      text-shadow: 0 0 8px rgba(255, 210, 74, 0.6), 0 0 20px rgba(255, 210, 74, 0.25);
+    }
+    .glow-box {
+      box-shadow: 0 0 20px -3px rgba(57, 255, 122, 0.15), inset 0 0 15px -3px rgba(57, 255, 122, 0.05);
+    }
+    .glow-box-hover:hover {
+      box-shadow: 0 0 25px -2px rgba(57, 255, 122, 0.28), inset 0 0 18px -2px rgba(57, 255, 122, 0.08);
+    }
+
+    /* Fixed CRT Scanline & Aperture Grille Overlay */
+    .crt-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 9999;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0) 0px,
+        rgba(0, 0, 0, 0) 2px,
+        rgba(0, 0, 0, 0.28) 3px,
+        rgba(0, 0, 0, 0) 4px
+      );
+      mix-blend-mode: multiply;
+      opacity: 0.55;
+    }
+
+    /* Vignette Screen Curvature Edge */
+    .crt-vignette {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9998;
+      box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.85), inset 0 0 40px rgba(28, 122, 60, 0.15);
+    }
+
+    /* Blinking Block Caret */
+    @keyframes blink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    .cursor-blink {
+      animation: blink 1.05s steps(1) infinite;
+    }
+
+    @keyframes pulse-amber {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.35; transform: scale(0.9); }
+    }
+    .pulse-amber-dot {
+      animation: pulse-amber 2s ease-in-out infinite;
+    }
+
+    /* Scoped Hero Name Banner with explicit !important font size */
+    .name-banner-fury {
+      font-size: 64px !important;
+      line-height: 1.05 !important;
+      letter-spacing: -0.03em !important;
+      font-weight: 800 !important;
+    }
+
+    @media (max-width: 768px) {
+      .name-banner-fury {
+        font-size: 40px !important;
+      }
+    }
+
+    /* Custom Scrollbar for True Terminal Vibe */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #050805;
+      border-left: 1px solid #143614;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1c7a3c;
+      border-radius: 2px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #39ff7a;
+    }
+  </style>
+</head>
+
+<body class="relative min-h-full font-mono bg-[#000000] text-[#eafff1] antialiased selection:bg-[#39ff7a]/30 selection:text-[#eafff1] overflow-x-hidden">
+
+  <!-- CRT Screen Layers -->
+  <div class="crt-overlay" aria-hidden="true"></div>
+  <div class="crt-vignette" aria-hidden="true"></div>
+
+  <!-- Ambient CRT Phosphor Radial Glows -->
+  <div class="fixed top-0 right-1/4 w-[750px] h-[550px] bg-[#39ff7a]/[0.07] rounded-full blur-[140px] pointer-events-none -z-10"></div>
+  <div class="fixed top-1/3 left-10 w-[600px] h-[600px] bg-[#39ff7a]/[0.045] rounded-full blur-[150px] pointer-events-none -z-10"></div>
+  <div class="fixed bottom-10 right-10 w-[500px] h-[450px] bg-[#1c7a3c]/[0.06] rounded-full blur-[130px] pointer-events-none -z-10"></div>
+
+  <!-- Page Container (1440 Max Canvas with 1120 Terminal Window) -->
+  <div class="max-w-[1440px] mx-auto px-4 sm:px-6 py-6 lg:py-10 flex flex-col items-center">
+    
+    <!-- TERMINAL WINDOW WRAPPER -->
+    <main class="w-full max-w-[1120px] bg-[#050805]/95 border border-[#143614] rounded-lg shadow-2xl shadow-[#39ff7a]/5 glow-box relative overflow-hidden backdrop-blur-sm">
+      
+      <!-- TITLE BAR (Traffic lights + prompt path + nav + status) -->
+      <header class="bg-[#070b07] border-b border-[#143614] px-4 py-2.5 flex flex-wrap items-center justify-between gap-3 text-xs select-none">
+        
+        <!-- Left: Traffic Lights & Path -->
+        <div class="flex items-center gap-3">
+          <div class="flex items-center gap-1.5" aria-hidden="true">
+            <span class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block border border-red-900/50 hover:brightness-125 transition-all"></span>
+            <span class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block border border-yellow-900/50 hover:brightness-125 transition-all"></span>
+            <span class="w-3 h-3 rounded-full bg-[#27c93f] inline-block border border-green-900/50 hover:brightness-125 transition-all"></span>
+          </div>
+          
+          <div class="flex items-center text-[#5f8d68] font-mono tracking-tight ml-2">
+            <span class="text-[#39ff7a] font-semibold glow">fury</span>
+            <span class="text-[#5f8d68]">@portfolio</span>
+            <span class="text-[#1c7a3c] mx-1">:</span>
+            <span class="text-[#5cf6ff]">~/dev</span>
+            <span class="text-[#5f8d68] ml-2 text-[10px] hidden sm:inline-block px-1.5 py-0.5 rounded bg-[#143614]/50 border border-[#1f4d1f]/60 text-[#2bbf5c]">zsh (tty1)</span>
+          </div>
+        </div>
+
+        <!-- Right: Terminal Nav Links + Available Status -->
+        <div class="flex items-center gap-5 sm:gap-6 ml-auto">
+          <nav class="flex items-center gap-4 text-xs font-mono text-[#5f8d68]" aria-label="Terminal Navigation">
+            <a href="#projects" class="hover:text-[#39ff7a] hover:glow transition-colors focus:outline-none focus:text-[#39ff7a]">~/work</a>
+            <a href="#stack" class="hover:text-[#39ff7a] hover:glow transition-colors focus:outline-none focus:text-[#39ff7a]">~/stack</a>
+            <a href="#contact" class="hover:text-[#39ff7a] hover:glow transition-colors focus:outline-none focus:text-[#39ff7a]">~/contact</a>
+          </nav>
+
+          <!-- Amber Blinking Work Status -->
+          <div class="flex items-center gap-2 pl-3 border-l border-[#143614] text-[11px] font-mono">
+            <span class="w-2 h-2 rounded-full bg-[#ffd24a] pulse-amber-dot inline-block shadow-[0_0_8px_#ffd24a]"></span>
+            <span class="text-[#ffd24a] glow-amber font-medium">available for work</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- TERMINAL SHELL SESSION BODY -->
+      <div class="p-5 sm:p-8 lg:p-10 space-y-12">
+
+        <!-- ==============================================
+             SECTION 1: whoami --full HERO
+        ================================================= -->
+        <section id="whoami" class="space-y-6">
+          <!-- Command Prompt Header -->
+          <div class="flex items-center gap-2 text-xs sm:text-sm font-mono text-[#5f8d68]">
+            <span class="text-[#5cf6ff] font-medium">fury~/dev</span>
+            <span class="text-[#39ff7a] font-bold">$</span>
+            <span class="text-[#eafff1] font-semibold">whoami --full</span>
+            <span class="text-[#1c7a3c] text-xs">// exec timestamp: 2026.04.17 08:42:19 UTC</span>
+          </div>
+
+          <!-- Hero Name Banner & Role -->
+          <div class="space-y-4 pt-1">
+            <div class="flex items-baseline flex-wrap gap-x-3">
+              <h1 class="name-banner-fury text-[#eafff1] glow-strong tracking-tight font-extrabold font-mono inline-block">
+                FURY
+              </h1>
+              <!-- Phosphor Green Underscore Cursor -->
+              <span class="inline-block w-6 h-12 sm:h-14 bg-[#39ff7a] cursor-blink align-middle glow ml-1 shadow-[0_0_12px_#39ff7a]"></span>
+            </div>
+
+            <div class="flex items-center gap-2 text-base sm:text-lg text-[#39ff7a] font-semibold font-mono tracking-tight glow">
+              <span class="text-[#5f8d68] font-normal">&gt;</span>
+              <span>Full-stack engineer &amp; indie hacker, building developer tools</span>
+            </div>
+
+            <!-- Muted Sage 2-3 line Intro -->
+            <p class="max-w-[700px] text-sm sm:text-[15px] leading-relaxed text-[#5f8d68] font-mono">
+              Obsessed with high-performance runtime architectures, local-first applications, and reactive terminal user interfaces. Currently engineering resilient distributed tooling and low-overhead CLI environments for autonomous dev workflows.
+            </p>
+
+            <!-- Wrap of ASCII '[x]' Meta Checks -->
+            <div class="flex flex-wrap items-center gap-x-6 gap-y-2 pt-2 text-xs sm:text-[13px] font-mono">
+              <div class="flex items-center gap-1.5 text-[#5f8d68]">
+                <span class="text-[#39ff7a] font-bold">[x]</span>
+                <span>location:</span>
+                <span class="text-[#eafff1]">Lisbon, PT <span class="text-[#1c7a3c]">(UTC+0)</span></span>
+              </div>
+              <div class="flex items-center gap-1.5 text-[#5f8d68]">
+                <span class="text-[#39ff7a] font-bold">[x]</span>
+                <span>experience:</span>
+                <span class="text-[#eafff1]">9+ yrs shipping code</span>
+              </div>
+              <div class="flex items-center gap-1.5 text-[#5f8d68]">
+                <span class="text-[#39ff7a] font-bold">[x]</span>
+                <span>status:</span>
+                <span class="text-[#ffd24a] glow-amber font-semibold">freelance / contract Q2-Q3</span>
+              </div>
+            </div>
+
+            <!-- Command-style CTA Buttons -->
+            <div class="flex flex-wrap items-center gap-4 pt-4">
+              <a href="#projects" class="inline-flex items-center gap-2 px-5 py-2.5 rounded bg-[#39ff7a] text-[#050805] font-bold text-xs sm:text-sm font-mono transition-all hover:bg-[#48ff84] hover:shadow-[0_0_20px_rgba(57,255,122,0.6)] focus:outline-none">
+                <span>$ ls ~/projects</span>
+                <span class="text-xs">&rarr;</span>
+              </a>
+
+              <a href="#contact" class="inline-flex items-center gap-2 px-5 py-2.5 rounded bg-[#070b07] border border-[#1f4d1f] hover:border-[#39ff7a] text-[#39ff7a] hover:text-[#eafff1] text-xs sm:text-sm font-mono transition-all hover:shadow-[0_0_15px_rgba(57,255,122,0.25)] focus:outline-none">
+                <span class="text-[#5f8d68]">$</span>
+                <span>./contact --hire</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Divider Line -->
+        <div class="w-full h-px bg-gradient-to-r from-transparent via-[#143614] to-transparent"></div>
+
+        <!-- ==============================================
+             SECTION 2: neofetch IDENTITY CARD
+        ================================================= -->
+        <section id="identity" class="space-y-4">
+          <!-- Command line -->
+          <div class="flex items-center gap-2 text-xs sm:text-sm font-mono text-[#5f8d68]">
+            <span class="text-[#5cf6ff]">fury~/dev</span>
+            <span class="text-[#39ff7a] font-bold">$</span>
+            <span class="text-[#eafff1]">neofetch --stdout</span>
+          </div>
+
+          <!-- Neofetch Panel -->
+          <div class="bg-[#070b07] border border-[#143614] rounded-md p-5 sm:p-6 glow-box">
+            <div class="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-6 lg:gap-8 items-start">
+              
+              <!-- Left Column: Glowing Green Pixel ASCII Avatar -->
+              <div class="flex flex-col items-center justify-center p-4 bg-[#050805] border border-[#143614] rounded">
+                <pre class="text-[#39ff7a] font-mono text-[11px] leading-[13px] tracking-tighter select-none glow overflow-x-auto text-center">
+    .---.
+   /     \
+  | () () |
+   \  ^  /    FURY // DEV
+    |||||
+  / ===== \   [SYS_ACTIVE]
+ / |     | \
+*  |--v--|  *
+   | === |
+   /=====\
+  /_/   \_\</pre>
+                <div class="mt-3 text-center border-t border-[#143614] pt-2 w-full">
+                  <span class="text-xs font-mono text-[#39ff7a] glow font-bold">fury@dev</span>
+                  <p class="text-[10px] text-[#5f8d68] font-mono">UID: 1000 (wheel, staff)</p>
+                </div>
+              </div>
+
+              <!-- Right Column: Neofetch Key/Value List -->
+              <div class="space-y-3 font-mono text-xs sm:text-sm">
+                <!-- Title Row -->
+                <div class="border-b border-[#143614] pb-2">
+                  <div class="text-[#eafff1] font-bold text-sm tracking-wide">
+                    <span class="text-[#39ff7a] glow">fury</span>@portfolio
+                  </div>
+                  <div class="text-[#1c7a3c] text-xs">----------------------------------------</div>
+                </div>
+
+                <!-- Neofetch Entries -->
+                <dl class="grid grid-cols-1 sm:grid-cols-[130px_1fr] gap-x-4 gap-y-2 text-xs sm:text-sm">
+                  <dt class="text-[#39ff7a] font-semibold">OS:</dt>
+                  <dd class="text-[#5f8d68]">Human v10.4 <span class="text-[#eafff1]">(engineer build, x86_64)</span></dd>
+
+                  <dt class="text-[#39ff7a] font-semibold">Host:</dt>
+                  <dd class="text-[#5f8d68]">Remote, Lisbon PT <span class="text-[#1c7a3c]">(38.7223° N, 9.1393° W)</span></dd>
+
+                  <dt class="text-[#39ff7a] font-semibold">Role:</dt>
+                  <dd class="text-[#eafff1]">Full-stack + DevTools Specialist</dd>
+
+                  <dt class="text-[#39ff7a] font-semibold">Uptime:</dt>
+                  <dd class="text-[#5f8d68]">9 yrs, 4 startups, 182k lines committed</dd>
+
+                  <dt class="text-[#39ff7a] font-semibold">Shell:</dt>
+                  <dd class="text-[#5f8d68]">zsh 5.9, neovim (custom lua), tmux 3.4</dd>
+
+                  <dt class="text-[#39ff7a] font-semibold">Stack:</dt>
+                  <dd class="text-[#eafff1]">TypeScript, Rust, Go, Node.js, Postgres</dd>
+
+                  <dt class="text-[#39ff7a] font-semibold">Focus:</dt>
+                  <dd class="text-[#5f8d68]">Agent tooling, local-first data, reactive TUI</dd>
+
+                  <dt class="text-[#39ff7a] font-semibold">Status:</dt>
+                  <dd class="text-[#ffd24a] glow-amber font-bold flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#ffd24a] inline-block"></span>
+                    <span>available for contract / tech lead advisory</span>
+                  </dd>
+                </dl>
+
+                <!-- Terminal Color Swatch Strip -->
+                <div class="pt-3 border-t border-[#143614] flex items-center gap-2">
+                  <span class="text-[10px] text-[#5f8d68] mr-1">colors:</span>
+                  <span class="w-4 h-3 rounded-sm bg-[#000000] border border-[#143614]" title="black"></span>
+                  <span class="w-4 h-3 rounded-sm bg-[#ff5f56]" title="red"></span>
+                  <span class="w-4 h-3 rounded-sm bg-[#2bbf5c]" title="green-dim"></span>
+                  <span class="w-4 h-3 rounded-sm bg-[#39ff7a] shadow-[0_0_6px_#39ff7a]" title="phosphor-green"></span>
+                  <span class="w-4 h-3 rounded-sm bg-[#ffbd2e]" title="yellow"></span>
+                  <span class="w-4 h-3 rounded-sm bg-[#5cf6ff]" title="cyan"></span>
+                  <span class="w-4 h-3 rounded-sm bg-[#5f8d68]" title="sage"></span>
+                  <span class="w-4 h-3 rounded-sm bg-[#eafff1]" title="near-white"></span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- Divider Line -->
+        <div class="w-full h-px bg-gradient-to-r from-transparent via-[#143614] to-transparent"></div>
+
+        <!-- ==============================================
+             SECTION 3: ls -la ~/projects WORK GRID
+        ================================================= -->
+        <section id="projects" class="space-y-4">
+          <!-- Command Prompt and Section Title -->
+          <div class="space-y-1">
+            <div class="flex items-center gap-2 text-xs sm:text-sm font-mono text-[#5f8d68]">
+              <span class="text-[#5cf6ff]">fury~/dev</span>
+              <span class="text-[#39ff7a] font-bold">$</span>
+              <span class="text-[#eafff1]">ls -la ~/projects</span>
+              <span class="text-[#1c7a3c] text-xs"># 4 selected targets</span>
+            </div>
+
+            <div class="flex items-baseline justify-between pt-1">
+              <div>
+                <span class="text-[11px] text-[#39ff7a] tracking-widest uppercase font-semibold">&gt; selected work</span>
+                <h2 class="text-lg sm:text-xl font-bold text-[#eafff1] font-mono tracking-tight">
+                  Things I built and shipped <span class="text-[#1c7a3c] font-normal text-xs sm:text-sm">// drwxr-xr-x</span>
+                </h2>
+              </div>
+              <span class="text-xs text-[#5f8d68] font-mono hidden sm:inline-block">total 4 directories</span>
+            </div>
+          </div>
+
+          <!-- 2x2 Work Grid of Project Cards -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5 pt-2">
+            
+            <!-- Project 1: portmux/ -->
+            <article class="bg-[#070b07] border border-[#143614] hover:border-[#1f4d1f] rounded-md p-5 flex flex-col justify-between space-y-4 transition-all duration-200 hover:-translate-y-0.5 glow-box-hover group">
+              <div class="space-y-2.5">
+                <!-- Top Baseline Row: Filename Left + Right Aligned Stars & Permissions -->
+                <div class="flex items-baseline justify-between gap-2 border-b border-[#143614] pb-2">
+                  <span class="text-base font-bold text-[#39ff7a] font-mono group-hover:glow tracking-tight">
+                    portmux<span class="text-[#1c7a3c]">/</span>
+                  </span>
+                  <div class="flex items-baseline gap-3 text-xs font-mono shrink-0">
+                    <span class="text-[#ffd24a] glow-amber font-semibold flex items-center gap-1">
+                      <span class="text-[10px]">&#9733;</span> 4.2k
+                    </span>
+                    <span class="text-[#1c7a3c] text-[11px] font-mono">-rwxr-xr-x</span>
+                  </div>
+                </div>
+
+                <!-- Description -->
+                <p class="text-xs sm:text-[13px] text-[#5f8d68] font-mono leading-relaxed">
+                  Terminal workspace multiplexer with native <span class="text-[#eafff1]">distributed port forwarding</span> and automated zero-latency socket replication.
+                </p>
+
+                <!-- Tech Tags with 1 Amber Tag -->
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <span class="px-2 py-0.5 text-[10px] font-mono rounded border border-[#ffd24a]/50 text-[#ffd24a] bg-[#ffd24a]/10 font-medium">open source</span>
+                  <span class="px-2 py-0.5 text-[10px] font-mono rounded border border-[#143614] text-[#5f8d68] bg-[#050805]">Rust</span>
+                  <span class="px-2 py-0.5 text-[10px] font-mono rounded border border-[#143614] text-[#5f8d68] bg-[#050805]">Tokio</span>
+                  <span class="px-2 py-0.5 text-[10px] font-mono rounded border border-[#143614] text-[#5f8d68] bg-[#050805]">eBPF</span>
+                </div>
+              </div>
+
+              <!-- Links Row -->
+              <div class="flex items-center gap-4 pt-2 text-xs font-mono border-t border-[#143614]/70">
+                <a href="#live-portmux" class="text-[#39ff7a] hover:text-[#eafff1] hover:underline flex items-center gap-1">
+                  <span>&rarr;</span> <span>live demo</span>
+                </a>
+                <a href="#source-portmux" class="text-[#5f8d68] hover:text-[#39ff7a] flex items-center gap-1">
+                  <span>&rarr;</span> <span>source</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- Project 2: agentd/ -->
+            <article class="bg-[#070b07] border border-[#143614] hover:border-[#1f4d1f] rounded-md p-5 flex flex-col justify-between space-y-4 transition-all duration-200 hover:-translate-y-0.5 glow-box-hover group">
+              <div class="space-y-2.5">
+                <!-- Top Baseline Row -->
+                <div class="flex items-baseline justify-between gap-2 border-b border-[#143614] pb-2">
+                  <span class="text-base font-bold text-[#39ff7a] font-mono group-hover:glow tracking-tight">
+                    agentd<span class="text-[#1c7a3c]">/</span>
+                  </span>
+                  <div class="flex items-baseline gap-3 text-xs font-mono shrink-0">
+                    <span class="text-[#ffd24a] glow-amber font-semibold flex items-center gap-1">
+                      <span class="text-[10px]">&#9733;</span> 2.8k
+                    </span>
+                    <span class="text-[#1c7a3c] text-[11px] font-mono">-rwxr-xr-x</span>
+                  </div>
+                </div>
+
+                <!-- Description -->
+                <p class="text-xs sm:text-[13px] text-[#5f8d68] font-mono leading-relaxed">
+                  Headless daemon orchestrator for <span class="text-[#eafff1]">autonomous coding agents</span> with strict sandbox boundaries and sandboxed git rollback tree.
+                </p>
+
+                <!-- Tech Tags -->
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <span class="px-2 py-0.5 text-[10px] font-mono rounded border border-[#ffd24a]/50 text-[#ffd24a] bg-[#ffd24a]/10 font-medium">SaaS engine</span>
+                  <span class="px-2 py-0.5 text-[10px] font-mono rounded border border-[#143614] text-[#5f8d68] bg-[#050805]">Go</span>
+                  <span class="px-2 py-0.5 text-[10px] font-mono rounded border border-[#143614] text-[#5f8d68] bg-[#050805]">gRPC</span>
+                  <span class="px-2 py-0.5 text-[10px] font-mono rounded border border-[#143614] text-[#5f8d68] bg-[#050805]">Docker</span>
+                </div>
+              </div>
+
+              <!-- Links Row -->
+              <div class="flex items-center gap-4 pt-2 text-xs font-mono border-t border-[#143614]/70">
+                <a href="#live-agentd" class="text-[#39ff7a] hover:text-[#eafff1] hover:underline flex items-center gap-1">
+                  <span>&rarr;</span> <span>live demo</span>
+                </a>
+                <a href="#source-agentd" class="text-[#5f8d68] hover:text-[#39ff7a] flex items-center gap-1">
+                  <span>&rarr;</span> <span>source</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- Project 3: glow-notes/ -->
+            <article class="bg-[#070b07] border border-[#143614] hover:border-[#1f4d1f] rounded-md p-5 flex flex-col justify-between space-y-4 transition-all duration-200 hover:-translate-y-0.5 glow-box-hover group">
+              <div class="space-y-2.5">
+                <!-- Top Baseline Row -->
+                <div class="flex items-baseline justify-between gap-2 border-b border-[#143614] pb-2">
+                  <span class="text-base font-bold text-[#39ff7a] font-mono group-hover:glow tracking-tight">
+                    glow-notes<span class="text-[#1c7a3c]">/</span>
+                  </span>
+                  <div class="flex items-baseline gap-3 text-xs font-mono shrink-0">
+                    <span class="text-[#ffd24a] glow-amber font-semibold flex items-center gap-1">
+                      <span class="text-[10px]">&#9733;</span> 1.9k
+                    </span>
+                    <span class="text-[#1c7a3c] text-[11px] font-mono">-rwxr-xr-x</span>
+                  </div>
+                </div>
+
+                <!-- Description -->
+                <p class="text-xs sm:text-[13px] text-[#5f8d68] font-mono leading-relaxed">
+                  Local-first CRDT personal knowledge base built on <span class="text-[#eafff1]">SQLite WASM</span> with seamless peer-to-peer sync and terminal CLI client.
+                </p>
+
+                <!-- Tech Tags -->
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <span class="px-2 py-0.5 text-[10px] font-mono rounded border border-[#ffd24a]/50 text-[#ffd24a] bg-[#ffd24a]/10 font-medium">open source</span>
+                  <span class="px-2 py-0.5 text-[10px] font-mono rounded border border-[#143614] text-[#5f8d68] bg-[#050805]">TypeScript</span>
+                  <span class="px-2 py-0.5 text-[10px] font-mono rounded border border-[#143614] text-[#5f8d68] bg-[#050805]">WASM</span>
+                  <span class="px-2 py-0.5 text-[10px] font-mono rounded border border-[#143614] text-[#5f8d68] bg-[#050805]">Yjs</span>
+                </div>
+              </div>
+
+              <!-- Links Row -->
+              <div class="flex items-center gap-4 pt-2 text-xs font-mono border-t border-[#143614]/70">
+                <a href="#live-glownotes" class="text-[#39ff7a] hover:text-[#eafff1] hover:underline flex items-center gap-1">
+                  <span>&rarr;</span> <span>live demo</span>
+                </a>
+                <a href="#source-glownotes" class="text-[#5f8d68] hover:text-[#39ff7a] flex items-center gap-1">
+                  <span>&rarr;</span> <span>source</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- Project 4: phosphor-ui/ -->
+            <article class="bg-[#070b07] border border-[#143614] hover:border-[#1f4d1f] rounded-md p-5 flex flex-col justify-between space-y-4 transition-all duration-200 hover:-translate-y-0.5 glow-box-hover group">
+              <div class="space-y-2.5">
+                <!-- Top Baseline Row -->
+                <div class="flex items-baseline justify-between gap-2 border-b border-[#143614] pb-2">
+                  <span class="text-base font-bold text-[#39ff7a] font-mono group-hover:glow tracking-tight">
+                    phosphor-ui<span class="text-[#1c7a3c]">/</span>
+                  </span>
+                  <div class="flex items-baseline gap-3 text-xs font-mono shrink-0">
+                    <span class="text-[#ffd24a] glow-amber font-semibold flex items-center gap-1">
+                      <span class="text-[10px]">&#9733;</span> 3.4k
+                    </span>
+                    <span class="text-[#1c7a3c] text-[11px] font-mono">-rwxr-xr-x</span>
+                  </div>
+                </div>
+
+                <!-- Description -->
+                <p class="text-xs sm:text-[13px] text-[#5f8d68] font-mono leading-relaxed">
+                  Headless component library designed specifically for <span class="text-[#eafff1]">browser-based terminals</span>, hardware dashboards, and cyber consoles.
+                </p>
+
+                <!-- Tech Tags -->
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <span class="px-2 py-0.5 text-[10px] font-mono rounded border border-[#ffd24a]/50 text-[#ffd24a] bg-[#ffd24a]/10 font-medium">open source</span>
+                  <span class="px-2 py-0.5 text-[10px] font-mono rounded border border-[#143614] text-[#5f8d68] bg-[#050805]">React</span>
+                  <span class="px-2 py-0.5 text-[10px] font-mono rounded border border-[#143614] text-[#5f8d68] bg-[#050805]">Tailwind</span>
+                  <span class="px-2 py-0.5 text-[10px] font-mono rounded border border-[#143614] text-[#5f8d68] bg-[#050805]">WebGL</span>
+                </div>
+              </div>
+
+              <!-- Links Row -->
+              <div class="flex items-center gap-4 pt-2 text-xs font-mono border-t border-[#143614]/70">
+                <a href="#live-phosphor" class="text-[#39ff7a] hover:text-[#eafff1] hover:underline flex items-center gap-1">
+                  <span>&rarr;</span> <span>live demo</span>
+                </a>
+                <a href="#source-phosphor" class="text-[#5f8d68] hover:text-[#39ff7a] flex items-center gap-1">
+                  <span>&rarr;</span> <span>source</span>
+                </a>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- Divider Line -->
+        <div class="w-full h-px bg-gradient-to-r from-transparent via-[#143614] to-transparent"></div>
+
+        <!-- ==============================================
+             SECTION 4: cat stack.txt SKILL METERS
+        ================================================= -->
+        <section id="stack" class="space-y-4">
+          <!-- Command Prompt Header -->
+          <div class="space-y-1">
+            <div class="flex items-center gap-2 text-xs sm:text-sm font-mono text-[#5f8d68]">
+              <span class="text-[#5cf6ff]">fury~/dev</span>
+              <span class="text-[#39ff7a] font-bold">$</span>
+              <span class="text-[#eafff1]">cat stack.txt | sort -r</span>
+            </div>
+
+            <div class="flex items-baseline justify-between pt-1">
+              <div>
+                <span class="text-[11px] text-[#39ff7a] tracking-widest uppercase font-semibold">&gt; proficiency</span>
+                <h2 class="text-lg sm:text-xl font-bold text-[#eafff1] font-mono tracking-tight">
+                  The tools I reach for <span class="text-[#1c7a3c] font-normal text-xs sm:text-sm">// self-assessed, honest</span>
+                </h2>
+              </div>
+              <span class="text-xs text-[#5f8d68] font-mono hidden sm:inline-block">[8 items indexed]</span>
+            </div>
+          </div>
+
+          <!-- Proficiency Block: Two Columns of Four Rows -->
+          <div class="bg-[#070b07] border border-[#143614] rounded-md p-5 sm:p-6 glow-box">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4">
+              
+              <!-- Left Column (4 Skills) -->
+              <div class="space-y-3.5">
+                <!-- Skill 1: TypeScript -->
+                <div class="grid grid-cols-[140px_1fr_40px] items-center gap-3 text-xs font-mono">
+                  <span class="text-[#5f8d68] truncate font-medium">TypeScript</span>
+                  <div class="h-[9px] bg-[#050805] border border-[#143614] rounded-sm overflow-hidden p-[1px]">
+                    <div class="h-full bg-gradient-to-r from-[#2bbf5c] to-[#39ff7a] rounded-sm shadow-[0_0_8px_#39ff7a]" style="width: 95%;"></div>
+                  </div>
+                  <span class="text-right text-[#39ff7a] font-semibold">95%</span>
+                </div>
+
+                <!-- Skill 2: Rust -->
+                <div class="grid grid-cols-[140px_1fr_40px] items-center gap-3 text-xs font-mono">
+                  <span class="text-[#5f8d68] truncate font-medium">Rust</span>
+                  <div class="h-[9px] bg-[#050805] border border-[#143614] rounded-sm overflow-hidden p-[1px]">
+                    <div class="h-full bg-gradient-to-r from-[#2bbf5c] to-[#39ff7a] rounded-sm shadow-[0_0_8px_#39ff7a]" style="width: 82%;"></div>
+                  </div>
+                  <span class="text-right text-[#39ff7a] font-semibold">82%</span>
+                </div>
+
+                <!-- Skill 3: Go -->
+                <div class="grid grid-cols-[140px_1fr_40px] items-center gap-3 text-xs font-mono">
+                  <span class="text-[#5f8d68] truncate font-medium">Go</span>
+                  <div class="h-[9px] bg-[#050805] border border-[#143614] rounded-sm overflow-hidden p-[1px]">
+                    <div class="h-full bg-gradient-to-r from-[#2bbf5c] to-[#39ff7a] rounded-sm shadow-[0_0_8px_#39ff7a]" style="width: 88%;"></div>
+                  </div>
+                  <span class="text-right text-[#39ff7a] font-semibold">88%</span>
+                </div>
+
+                <!-- Skill 4: Postgres / SQL -->
+                <div class="grid grid-cols-[140px_1fr_40px] items-center gap-3 text-xs font-mono">
+                  <span class="text-[#5f8d68] truncate font-medium">Postgres / SQL</span>
+                  <div class="h-[9px] bg-[#050805] border border-[#143614] rounded-sm overflow-hidden p-[1px]">
+                    <div class="h-full bg-gradient-to-r from-[#2bbf5c] to-[#39ff7a] rounded-sm shadow-[0_0_8px_#39ff7a]" style="width: 90%;"></div>
+                  </div>
+                  <span class="text-right text-[#39ff7a] font-semibold">90%</span>
+                </div>
+              </div>
+
+              <!-- Right Column (4 Skills) -->
+              <div class="space-y-3.5">
+                <!-- Skill 5: React / Next.js -->
+                <div class="grid grid-cols-[140px_1fr_40px] items-center gap-3 text-xs font-mono">
+                  <span class="text-[#5f8d68] truncate font-medium">React / Next.js</span>
+                  <div class="h-[9px] bg-[#050805] border border-[#143614] rounded-sm overflow-hidden p-[1px]">
+                    <div class="h-full bg-gradient-to-r from-[#2bbf5c] to-[#39ff7a] rounded-sm shadow-[0_0_8px_#39ff7a]" style="width: 92%;"></div>
+                  </div>
+                  <span class="text-right text-[#39ff7a] font-semibold">92%</span>
+                </div>
+
+                <!-- Skill 6: Docker / K8s -->
+                <div class="grid grid-cols-[140px_1fr_40px] items-center gap-3 text-xs font-mono">
+                  <span class="text-[#5f8d68] truncate font-medium">Docker / K8s</span>
+                  <div class="h-[9px] bg-[#050805] border border-[#143614] rounded-sm overflow-hidden p-[1px]">
+                    <div class="h-full bg-gradient-to-r from-[#2bbf5c] to-[#39ff7a] rounded-sm shadow-[0_0_8px_#39ff7a]" style="width: 78%;"></div>
+                  </div>
+                  <span class="text-right text-[#39ff7a] font-semibold">78%</span>
+                </div>
+
+                <!-- Skill 7: System Design -->
+                <div class="grid grid-cols-[140px_1fr_40px] items-center gap-3 text-xs font-mono">
+                  <span class="text-[#5f8d68] truncate font-medium">System Design</span>
+                  <div class="h-[9px] bg-[#050805] border border-[#143614] rounded-sm overflow-hidden p-[1px]">
+                    <div class="h-full bg-gradient-to-r from-[#2bbf5c] to-[#39ff7a] rounded-sm shadow-[0_0_8px_#39ff7a]" style="width: 86%;"></div>
+                  </div>
+                  <span class="text-right text-[#39ff7a] font-semibold">86%</span>
+                </div>
+
+                <!-- Skill 8: Design / UI / TUI -->
+                <div class="grid grid-cols-[140px_1fr_40px] items-center gap-3 text-xs font-mono">
+                  <span class="text-[#5f8d68] truncate font-medium">Design / UI / TUI</span>
+                  <div class="h-[9px] bg-[#050805] border border-[#143614] rounded-sm overflow-hidden p-[1px]">
+                    <div class="h-full bg-gradient-to-r from-[#2bbf5c] to-[#39ff7a] rounded-sm shadow-[0_0_8px_#39ff7a]" style="width: 74%;"></div>
+                  </div>
+                  <span class="text-right text-[#39ff7a] font-semibold">74%</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- Divider Line -->
+        <div class="w-full h-px bg-gradient-to-r from-transparent via-[#143614] to-transparent"></div>
+
+        <!-- ==============================================
+             SECTION 5: ./contact --hire CTA PANEL
+        ================================================= -->
+        <section id="contact" class="space-y-4">
+          <!-- Command Prompt Header -->
+          <div class="flex items-center gap-2 text-xs sm:text-sm font-mono text-[#5f8d68]">
+            <span class="text-[#5cf6ff]">fury~/dev</span>
+            <span class="text-[#39ff7a] font-bold">$</span>
+            <span class="text-[#eafff1]">./contact --hire</span>
+          </div>
+
+          <!-- Centered CTA Panel -->
+          <div class="bg-gradient-to-b from-[#070b07] to-[#050805] border border-[#1f4d1f] rounded-md p-6 sm:p-10 text-center space-y-6 glow-box relative overflow-hidden">
+            <div class="max-w-xl mx-auto space-y-2">
+              <h2 class="text-xl sm:text-2xl font-bold font-mono text-[#eafff1] tracking-tight">
+                Let's <span class="text-[#39ff7a] glow">build something resilient</span> together.
+              </h2>
+              <p class="text-xs sm:text-sm text-[#5f8d68] font-mono leading-relaxed">
+                Open to founding engineer roles, specialized CLI/TUI design contracts, and high-throughput systems consulting. Drop me a line directly.
+              </p>
+            </div>
+
+            <!-- Copyable Command Box with Blinking Caret -->
+            <div class="max-w-md mx-auto">
+              <div class="inline-flex items-center justify-between w-full bg-[#050805] border border-[#1f4d1f] hover:border-[#39ff7a] rounded px-4 py-3 shadow-[0_0_15px_rgba(57,255,122,0.12)] transition-all">
+                <div class="flex items-center gap-2 font-mono text-xs sm:text-sm overflow-hidden">
+                  <span class="text-[#39ff7a] font-bold select-none">$</span>
+                  <span class="text-[#5f8d68] select-none">mail</span>
+                  <span class="text-[#eafff1] font-medium selection:bg-[#39ff7a]/40">fury@reyes.dev</span>
+                  <!-- Blinking Green Caret -->
+                  <span class="inline-block w-2 h-4 bg-[#39ff7a] cursor-blink shadow-[0_0_8px_#39ff7a]" aria-hidden="true"></span>
+                </div>
+
+                <button onclick="navigator.clipboard.writeText('fury@reyes.dev'); const el = document.getElementById('copy-feedback'); el.classList.remove('hidden'); setTimeout(() => el.classList.add('hidden'), 2000);" class="text-[11px] font-mono text-[#39ff7a] hover:text-[#eafff1] bg-[#143614]/70 hover:bg-[#1f4d1f] px-2.5 py-1 rounded border border-[#1f4d1f] transition-colors shrink-0 ml-2" title="Copy to clipboard">
+                  copy
+                </button>
+              </div>
+              <p id="copy-feedback" class="text-[11px] font-mono text-[#ffd24a] glow-amber mt-2 hidden transition-all">
+                [OK] Address copied to clipboard
+              </p>
+            </div>
+
+            <!-- Four Social Pills (github, x, blog, CV.pdf) -->
+            <div class="flex flex-wrap items-center justify-center gap-2.5 pt-2">
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded border border-[#143614] hover:border-[#39ff7a] bg-[#050805] text-xs font-mono text-[#5f8d68] hover:text-[#39ff7a] transition-all hover:glow flex items-center gap-1.5">
+                <span class="text-[#39ff7a]">&rarr;</span>
+                <span>github</span>
+              </a>
+
+              <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded border border-[#143614] hover:border-[#39ff7a] bg-[#050805] text-xs font-mono text-[#5f8d68] hover:text-[#39ff7a] transition-all hover:glow flex items-center gap-1.5">
+                <span class="text-[#39ff7a]">&rarr;</span>
+                <span>x.com</span>
+              </a>
+
+              <a href="#blog" class="px-3.5 py-1.5 rounded border border-[#143614] hover:border-[#39ff7a] bg-[#050805] text-xs font-mono text-[#5f8d68] hover:text-[#39ff7a] transition-all hover:glow flex items-center gap-1.5">
+                <span class="text-[#39ff7a]">&rarr;</span>
+                <span>blog.txt</span>
+              </a>
+
+              <a href="#cv" class="px-3.5 py-1.5 rounded border border-[#143614] hover:border-[#39ff7a] bg-[#050805] text-xs font-mono text-[#5f8d68] hover:text-[#39ff7a] transition-all hover:glow flex items-center gap-1.5">
+                <span class="text-[#39ff7a]">&rarr;</span>
+                <span>CV.pdf</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- ==============================================
+           SECTION 6: SHELL-ECHO FOOTER
+      ================================================= -->
+      <footer class="bg-[#070b07] border-t border-[#143614] px-5 sm:px-8 py-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs font-mono text-[#5f8d68]">
+        <!-- Shell Echo Line + Blinking Cursor -->
+        <div class="flex items-center flex-wrap gap-1.5">
+          <span class="text-[#39ff7a] font-bold">$</span>
+          <span class="text-[#5f8d68]">echo "(c) 2026 Fury, built in the terminal, shipped fast"</span>
+          <span class="inline-block w-1.5 h-3.5 bg-[#39ff7a] cursor-blink ml-0.5 shadow-[0_0_6px_#39ff7a]" aria-hidden="true"></span>
+        </div>
+
+        <!-- Fake Git Status Line -->
+        <div class="text-[11px] text-[#1c7a3c] flex items-center gap-2">
+          <span>last commit: 2h ago</span>
+          <span>&bull;</span>
+          <span class="text-[#5f8d68]">main@a1f9e2c</span>
+          <span>&bull;</span>
+          <span class="text-[#39ff7a]">uptime 99.98%</span>
+        </div>
+      </footer>
+
+    </main>
+
+    <!-- Bottom Canvas Subtext -->
+    <div class="mt-4 text-center text-[11px] font-mono text-[#1c7a3c] flex items-center justify-center gap-3">
+      <span>[ESC] to blur</span>
+      <span>&bull;</span>
+      <span>CRT MODE: ACTIVE (P1 PHOSPHOR 525nm)</span>
+      <span>&bull;</span>
+      <span>1440w RES</span>
+    </div>
+
+  </div>
+
+</body>
+</html>

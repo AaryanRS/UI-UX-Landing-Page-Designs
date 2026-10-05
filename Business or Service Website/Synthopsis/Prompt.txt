@@ -1,0 +1,1907 @@
+# ROLE
+
+You are an elite digital product designer, creative director, UI/UX designer, frontend engineer, interaction designer, and design-system architect.
+
+Your job is to create an exceptionally polished, production-quality frontend / landing page that looks like it was designed by a world-class digital design studio for a premium technology company.
+
+The final result must feel:
+
+- Expensive
+- Futuristic
+- Technologically advanced
+- Minimal but visually rich
+- Sophisticated
+- Extremely clean
+- Highly intentional
+- Immersive
+- Modern
+- Premium
+- Original
+- Visually memorable
+
+The target quality is NOT "good looking."
+
+The target quality is:
+
+"THIS LOOKS LIKE A MILLION-DOLLAR DIGITAL PRODUCT."
+
+Do not produce a generic SaaS landing page.
+Do not produce a typical AI-generated website.
+Do not overuse gradients.
+Do not randomly add glassmorphism.
+Do not fill every empty space.
+Do not use generic startup UI patterns unless they are appropriate to the reference design.
+
+Every visual decision must feel deliberate.
+
+
+==================================================
+# 1. REFERENCE MATERIALS
+==================================================
+
+You have been provided with:
+
+1. Multiple screenshot references showing the desired frontend visual language.
+2. A separate font-reference image showing the desired typography / font style.
+3. Additional design direction:
+   - Combine the visual language of the screenshots
+   - Combine it with Cybercore aesthetics
+   - Prioritize extreme cleanliness and premium visual polish
+
+Treat the uploaded screenshots as DESIGN REFERENCES, not merely inspiration.
+
+Study them carefully before generating anything.
+
+Extract the following from the screenshots:
+
+- Overall composition
+- Page width
+- Content width
+- Section widths
+- Section heights
+- Grid structure
+- Border treatment
+- Card treatment
+- Typography hierarchy
+- Heading proportions
+- Body text proportions
+- Spacing rhythm
+- Background treatment
+- Color palette
+- Contrast
+- Shadows
+- Glow
+- Image treatment
+- Button treatment
+- Navigation structure
+- Section transitions
+- Corner radius
+- Alignment
+- Density
+- Negative space
+- Visual hierarchy
+- Interaction patterns
+- Information density
+- Decorative elements
+- Motion language
+
+Do NOT blindly copy individual sections.
+
+Instead, identify the underlying DESIGN SYSTEM and create a unified website using that system.
+
+
+==================================================
+# 2. PRIMARY DESIGN DIRECTION
+==================================================
+
+The visual identity should be a sophisticated fusion of:
+
+A. THE PROVIDED SCREENSHOTS
++
+B. CYBERCORE
++
+C. PREMIUM DIGITAL PRODUCT DESIGN
++
+D. FUTURISTIC EDITORIAL DESIGN
++
+E. HIGH-END TECHNOLOGY BRANDING
+
+
+The result should feel like:
+
+"Cybercore meets a premium futuristic creative-tech company."
+
+NOT:
+
+"Gaming website."
+
+NOT:
+
+"Neon hacker website."
+
+NOT:
+
+"Generic AI SaaS."
+
+NOT:
+
+"Template marketplace landing page."
+
+
+The Cybercore influence should be sophisticated and restrained.
+
+Use futuristic elements such as:
+
+- Dark interfaces
+- Technical geometry
+- Fine grid lines
+- Subtle neon illumination
+- Digital texture
+- Precise borders
+- Controlled glow
+- High-contrast typography
+- Futuristic UI components
+- Technical labels
+- Monospace microcopy where appropriate
+- Abstract digital patterns
+- Subtle scanline / grid influences
+- Precise alignment
+- Sharp visual hierarchy
+- Experimental but controlled typography
+
+However:
+
+DO NOT turn the entire website into neon.
+
+DO NOT use excessive cyan/purple/pink glow everywhere.
+
+DO NOT make every component glow.
+
+DO NOT use excessive animated particles.
+
+DO NOT make it look like a gaming HUD.
+
+The Cybercore influence should be approximately:
+
+70% premium minimalism
+20% futuristic/cybercore
+10% experimental visual details
+
+
+==================================================
+# 3. THE "MILLION-DOLLAR" DESIGN PRINCIPLE
+==================================================
+
+The website must communicate extreme quality through restraint.
+
+Premium design is NOT achieved by adding more effects.
+
+Premium design is achieved through:
+
+- Perfect spacing
+- Excellent typography
+- Consistent alignment
+- Strong hierarchy
+- Intentional negative space
+- Subtle depth
+- Consistent borders
+- Sophisticated color relationships
+- Controlled motion
+- High-quality imagery
+- Strong composition
+- Consistent component geometry
+- Visual rhythm
+
+Every section should look like it belongs to the SAME website.
+
+Avoid "AI design drift", where:
+
+Section 1 looks futuristic,
+Section 2 looks like a SaaS dashboard,
+Section 3 looks like a Web3 website,
+Section 4 looks like a portfolio,
+Section 5 looks like a generic pricing template.
+
+The entire website must have ONE coherent visual language.
+
+
+==================================================
+# 4. FONT — EXTREMELY IMPORTANT
+==================================================
+
+The uploaded font-reference image is the authoritative typography reference.
+
+Use the exact font style shown in that image.
+
+DO NOT replace it with:
+
+- Inter
+- Roboto
+- Arial
+- Poppins
+- Montserrat
+- Helvetica
+- Generic sans-serif
+
+unless the exact font is technically unavailable.
+
+If the exact font file is available, load and use it.
+
+If only the visual reference is available, identify the closest possible implementation while preserving:
+
+- Character geometry
+- Width
+- Weight
+- Rounded / geometric characteristics
+- Letter spacing
+- Visual rhythm
+- Futuristic personality
+
+Typography is one of the most important parts of this design.
+
+Do NOT treat typography as an afterthought.
+
+The typography system must include:
+
+DISPLAY / HERO:
+Large, confident, futuristic, visually dominant.
+
+H1:
+Extremely strong visual presence.
+
+H2:
+Large but controlled.
+
+H3:
+Medium-large section hierarchy.
+
+BODY:
+Highly readable and clean.
+
+MICROCOPY:
+Small technical labels, metadata, category labels, timestamps, status indicators, etc.
+
+BUTTONS:
+Clean and intentional.
+
+NAVIGATION:
+Compact and refined.
+
+Use optical typography rather than blindly relying on standard browser defaults.
+
+
+==================================================
+# 5. TYPOGRAPHIC CHARACTER
+==================================================
+
+Headlines should feel:
+
+- Architectural
+- Futuristic
+- Confident
+- Clean
+- Slightly experimental
+
+Do NOT make every heading uppercase.
+
+Do NOT use excessive bold weight.
+
+Do NOT use huge text simply to fill space.
+
+Typography should create hierarchy through:
+
+- Size
+- Weight
+- Line-height
+- Letter-spacing
+- Width
+- Position
+- Contrast
+
+Use large display typography where appropriate.
+
+Hero headings may be extremely large on desktop, but they must remain compositionally balanced.
+
+Recommended general hierarchy:
+
+Hero:
+clamp(56px, 7vw, 110px)
+
+Primary section headings:
+clamp(42px, 5vw, 72px)
+
+Secondary headings:
+clamp(28px, 3vw, 44px)
+
+Body:
+16px–20px
+
+Small UI:
+12px–14px
+
+These are starting points only.
+
+Adjust them based on the screenshot proportions.
+
+
+==================================================
+# 6. COLOR SYSTEM
+==================================================
+
+Base visual direction:
+
+PRIMARY BACKGROUND:
+Near-black / deep charcoal.
+
+Use dark tones rather than absolute black everywhere.
+
+Suggested tonal family:
+
+#050505
+#080808
+#0B0B0B
+#101010
+#141414
+#181818
+#1D1D1D
+
+SURFACE COLORS:
+
+#101010
+#141414
+#171717
+#1B1B1B
+
+TEXT:
+
+Primary:
+near-white
+
+#F4F4F4
+#EDEDED
+
+Secondary:
+#B8B8B8
+#969696
+
+Muted:
+#6F6F6F
+
+BORDERS:
+
+Use extremely subtle borders.
+
+Examples:
+
+rgba(255,255,255,0.06)
+rgba(255,255,255,0.08)
+rgba(255,255,255,0.12)
+
+Do not make borders visually heavy.
+
+ACCENT COLORS:
+
+Use Cybercore-inspired accents sparingly.
+
+Possible accent family:
+
+Electric cyan
+#35D6FF
+
+Electric blue
+#4D7CFF
+
+Violet
+#8B5CF6
+
+Magenta
+#FF3CAC
+
+Acid green
+#A3FF12
+
+However:
+
+DO NOT use all of these simultaneously at full intensity.
+
+Select 1 primary accent and 1–2 supporting accents.
+
+Accent colors should appear primarily in:
+
+- Interactive states
+- Small highlights
+- Glows
+- Data visualizations
+- Decorative elements
+- Important CTA elements
+- Selected navigation states
+- Gradients
+- Image treatments
+
+The website should remain predominantly dark and neutral.
+
+
+==================================================
+# 7. BACKGROUND SYSTEM
+==================================================
+
+The background should feel deep and dimensional without becoming noisy.
+
+Use a combination of:
+
+- Deep charcoal
+- Very subtle gradients
+- Fine grid patterns
+- Radial illumination
+- Soft ambient glow
+- Extremely subtle texture
+
+Possible background technique:
+
+A nearly-black base layer.
+
+Then add:
+
+1. Very subtle radial gradients.
+2. Extremely low-opacity grid.
+3. Occasional accent glow.
+4. Section-specific lighting.
+
+The grid should be almost invisible at first glance.
+
+It should reveal itself when looking closely.
+
+This is important.
+
+The user should feel:
+
+"Something is happening here."
+
+rather than:
+
+"I see a CSS grid pattern."
+
+
+==================================================
+# 8. GRID / LAYOUT SYSTEM
+==================================================
+
+Use a highly structured layout.
+
+Desktop:
+
+Maximum content width:
+approximately 1280px–1440px depending on screenshot proportions.
+
+Use consistent horizontal gutters.
+
+Suggested:
+
+padding-inline:
+32px–64px
+
+Desktop sections should align to a common grid.
+
+Use:
+
+- 12-column conceptual grid
+- Consistent gutters
+- Shared left and right edges
+- Consistent content width
+- Consistent vertical rhythm
+
+DO NOT allow sections to randomly use different widths.
+
+Major content blocks should share alignment.
+
+Create a clear visual "spine" running throughout the page.
+
+
+==================================================
+# 9. PAGE COMPOSITION
+==================================================
+
+The website should feel like one continuous experience.
+
+Suggested high-level structure:
+
+1. Premium navigation
+2. Hero
+3. Brand / trust / ecosystem strip
+4. Core value proposition
+5. Feature / capability section
+6. Interactive product showcase
+7. Visual statement / manifesto
+8. Process / workflow
+9. Pricing or conversion section if appropriate
+10. FAQ
+11. Testimonials / social proof
+12. Final CTA
+13. Premium footer
+
+Do NOT blindly use all sections.
+
+Only include sections that make sense for the actual website.
+
+If the screenshots indicate a particular structure, follow that structure.
+
+The screenshots have higher priority than this suggested structure.
+
+
+==================================================
+# 10. NAVIGATION
+==================================================
+
+The navigation must be extremely polished.
+
+Use a dark translucent / near-black surface.
+
+Possible structure:
+
+LEFT:
+Logo / brand mark
+
+CENTER:
+Primary navigation
+
+RIGHT:
+Primary CTA
+Secondary action
+Theme / utility control if appropriate
+
+The navigation should feel:
+
+- Compact
+- Expensive
+- Precise
+- Lightweight
+- Stable
+
+Use subtle borders.
+
+Avoid giant navigation bars.
+
+Avoid excessive shadows.
+
+If sticky:
+
+Use subtle backdrop blur.
+
+On scroll:
+
+Slightly reduce height.
+
+Increase background opacity.
+
+Maintain a thin border.
+
+Do not create distracting animation.
+
+
+==================================================
+# 11. HERO SECTION
+==================================================
+
+The hero must be the strongest section on the page.
+
+It needs immediate visual impact.
+
+Use a strong composition rather than simply:
+
+BIG HEADING
+SUBTEXT
+BUTTON
+
+The hero should feel designed.
+
+Potential structure:
+
+Small technical eyebrow / status indicator
+
+↓
+
+Massive headline
+
+↓
+
+Supporting statement
+
+↓
+
+Primary CTA + secondary CTA
+
+↓
+
+Subtle visual / data / image / product element
+
+The hero should have significant negative space.
+
+Do NOT fill every pixel.
+
+The hero should feel calm and powerful.
+
+Potential microcopy:
+
+"NEXT-GEN DIGITAL SYSTEM"
+"CREATIVE TECHNOLOGY / 01"
+"BUILDING THE NEXT LAYER"
+
+Use this type of microcopy only where appropriate.
+
+
+==================================================
+# 12. HERO TYPOGRAPHY
+==================================================
+
+Hero headline should occupy significant visual area.
+
+Use:
+
+- Tight line-height
+- Carefully tuned letter-spacing
+- Strong contrast
+- Controlled line breaks
+
+Do not automatically center the hero.
+
+If the reference screenshots favor left alignment, use left alignment.
+
+If a centered composition creates stronger visual hierarchy, use centered alignment.
+
+The composition should be deliberate.
+
+
+==================================================
+# 13. BUTTON DESIGN
+==================================================
+
+Buttons should look custom-designed.
+
+Avoid generic rounded SaaS buttons.
+
+Use subtle:
+
+- Borders
+- Depth
+- Gradient edge
+- Inner highlight
+- Shadow
+- Hover illumination
+
+Possible structure:
+
+[ LABEL              → ]
+
+or
+
+[ GET STARTED        ↗ ]
+
+The arrow/icon should have a subtle movement on hover.
+
+Hover:
+
+translateX(3px–5px)
+
+Transition:
+
+200ms–300ms
+
+Use restrained glow.
+
+Do NOT create giant glowing buttons.
+
+
+==================================================
+# 14. CARDS
+==================================================
+
+Cards must look premium.
+
+Do not use generic:
+
+border-radius: 20px;
+box-shadow: 0 10px 30px rgba(...)
+
+on everything.
+
+Instead, use the visual language from the screenshots.
+
+Preferred:
+
+- Small radius or controlled radius
+- Fine borders
+- Deep surfaces
+- Subtle internal gradients
+- Minimal shadows
+- Strong spacing
+
+Cards should have hierarchy.
+
+Not every card needs the same visual emphasis.
+
+Use 2–3 levels of elevation maximum.
+
+
+==================================================
+# 15. CYBERCORE DETAILS
+==================================================
+
+Introduce futuristic details very carefully.
+
+Examples:
+
+- Tiny coordinate labels
+- Technical metadata
+- Small system indicators
+- Fine lines
+- Corner brackets
+- Micro-grid
+- Data markers
+- Status dots
+- Small numerical labels
+- Thin divider lines
+- Abstract geometry
+- Digital overlays
+- Scanline-inspired details
+- Subtle chromatic accents
+- Monospace metadata
+- Small "01 / 02 / 03" section identifiers
+
+These elements should make the interface feel engineered.
+
+Do NOT make them decorative clutter.
+
+Every technical element must have a reason to exist visually.
+
+
+==================================================
+# 16. IMAGERY
+==================================================
+
+When screenshots contain images:
+
+Preserve their visual importance.
+
+Do not randomly replace prominent visual elements with generic stock images.
+
+If an image asset is provided:
+
+Use it.
+
+If an image is required but unavailable:
+
+Use a clearly marked placeholder with the correct:
+
+- Aspect ratio
+- Crop
+- Composition
+- Focal point
+- Approximate color balance
+
+The image container itself must match the design.
+
+Use:
+
+- Controlled cropping
+- Cinematic framing
+- Subtle overlays
+- Color grading consistent with the website
+
+Do not over-process images.
+
+
+==================================================
+# 17. PRODUCT / UI SHOWCASE
+==================================================
+
+If the website requires a product interface preview:
+
+Make it feel like an actual premium product.
+
+Include:
+
+- Clear hierarchy
+- Realistic spacing
+- Professional dashboard composition
+- Subtle borders
+- Small metadata
+- Strong typography
+- Realistic states
+- Meaningful information hierarchy
+
+Do NOT create fake random dashboard boxes just to fill space.
+
+Every UI element should appear intentional.
+
+
+==================================================
+# 18. SECTION TRANSITIONS
+==================================================
+
+Sections should not feel like disconnected blocks.
+
+Create visual continuity using:
+
+- Shared borders
+- Consistent gutters
+- Repeated grid lines
+- Background transitions
+- Typography
+- Alignment
+- Repeated visual motifs
+
+Avoid excessive rounded containers stacked on top of one another.
+
+The website should feel like one large engineered interface.
+
+
+==================================================
+# 19. MANIFESTO / EDITORIAL SECTION
+==================================================
+
+If appropriate, include one visually powerful statement section.
+
+Large typography.
+
+Minimal interface.
+
+Potential layout:
+
+Large quotation / statement
++
+Subtle colorful chromatic text effect
++
+Technical metadata
+
+The effect should be sophisticated.
+
+Avoid cheap rainbow text.
+
+Instead use subtle:
+
+- Chromatic aberration
+- Gradient text
+- Layered text
+- Controlled glow
+- Color offset
+- Animated highlight
+
+Keep readability high.
+
+
+==================================================
+# 20. PRICING
+==================================================
+
+If pricing exists, it must feel premium.
+
+Do not create standard SaaS pricing cards.
+
+Use strong hierarchy.
+
+Recommended:
+
+- 2–3 plans maximum unless content requires more
+- One clearly emphasized recommended plan
+- Minimal borders
+- Excellent typography
+- Clear pricing hierarchy
+- Strong CTA
+- Feature grouping
+
+The recommended plan can use a restrained accent treatment.
+
+Avoid huge gradients.
+
+Avoid excessive badges.
+
+
+==================================================
+# 21. FAQ
+==================================================
+
+FAQ should be highly readable.
+
+Possible layouts:
+
+Desktop:
+
+Large "FAQ" typography on one side.
+
+Questions on the other.
+
+OR
+
+Grid-based editorial FAQ.
+
+Each question should feel like part of the design system.
+
+Use subtle dividers.
+
+Expand/collapse interaction should be smooth.
+
+
+==================================================
+# 22. TESTIMONIALS
+==================================================
+
+Testimonials should feel authentic and premium.
+
+Use:
+
+- Small avatars
+- Name
+- Role / handle
+- Short testimonial
+- Optional company
+
+Avoid excessive quotation marks.
+
+Cards should be compact and editorial.
+
+If carousel is used:
+
+It must be smooth.
+
+No distracting autoplay.
+
+Provide accessible controls.
+
+
+==================================================
+# 23. FINAL CTA
+==================================================
+
+The final CTA should be visually powerful.
+
+Do not simply repeat the hero.
+
+Create a stronger sense of conclusion.
+
+Example structure:
+
+Small technical label
+
+Large statement
+
+Supporting copy
+
+Primary CTA
+
+Subtle ambient glow
+
+Potential background grid
+
+The CTA should feel like the natural endpoint of the experience.
+
+
+==================================================
+# 24. FOOTER
+==================================================
+
+Footer should be clean and substantial.
+
+Use:
+
+Brand
+Short description
+
+Quick links
+
+Resources
+
+Social / Connect
+
+Legal
+
+Copyright
+
+Keep alignment extremely clean.
+
+Do not overcrowd the footer.
+
+
+==================================================
+# 25. MICROINTERACTIONS
+==================================================
+
+Interactions should feel expensive.
+
+Use subtle motion.
+
+Preferred durations:
+
+150ms
+200ms
+250ms
+300ms
+400ms
+
+Use smooth easing such as:
+
+cubic-bezier(0.22, 1, 0.36, 1)
+
+Hover effects may include:
+
+- 2px–4px translation
+- Border illumination
+- Background shift
+- Subtle glow
+- Text color transition
+- Icon movement
+
+Do NOT animate everything.
+
+Motion hierarchy:
+
+PRIMARY:
+Hero entrance
+
+SECONDARY:
+CTA hover
+
+TERTIARY:
+Cards
+
+MICRO:
+Icons / indicators
+
+
+==================================================
+# 26. PAGE LOAD ANIMATION
+==================================================
+
+Initial animation should be subtle.
+
+Suggested sequence:
+
+1. Background appears
+2. Navigation fades/slides into place
+3. Hero eyebrow appears
+4. Hero headline appears
+5. Supporting copy
+6. CTA
+7. Hero visual
+
+Use staggered timing.
+
+Example:
+
+opacity: 0 → 1
+transform: translateY(16px) → 0
+
+Duration:
+500–800ms
+
+Stagger:
+50–100ms
+
+Do not make the website wait for animation before becoming usable.
+
+
+==================================================
+# 27. SCROLL ANIMATION
+==================================================
+
+Use scroll-triggered animation only where it improves storytelling.
+
+Examples:
+
+- Section reveal
+- Image parallax
+- Text reveal
+- Card stagger
+- Border illumination
+- Number transitions
+
+Avoid excessive scroll effects.
+
+Never make scrolling difficult.
+
+Never hijack scrolling.
+
+Never create nausea-inducing movement.
+
+
+==================================================
+# 28. ACCESSIBILITY
+==================================================
+
+Despite the visual-first direction, the website must remain accessible.
+
+Implement:
+
+- Semantic HTML
+- Correct heading hierarchy
+- Keyboard navigation
+- Visible focus states
+- Accessible buttons
+- Accessible forms
+- Alt text
+- ARIA labels where needed
+- Proper contrast
+- Reduced motion support
+
+Include:
+
+@media (prefers-reduced-motion: reduce)
+
+and disable non-essential animation.
+
+
+==================================================
+# 29. RESPONSIVE DESIGN
+==================================================
+
+DO NOT simply shrink the desktop design.
+
+Design responsive behavior intentionally.
+
+Desktop:
+1440px+
+Full visual experience.
+
+Laptop:
+1024px–1439px
+
+Tablet:
+768px–1023px
+
+Mobile:
+320px–767px
+
+On mobile:
+
+- Collapse navigation
+- Stack grids
+- Reduce typography proportionally
+- Preserve hierarchy
+- Maintain generous spacing
+- Avoid horizontal overflow
+- Make buttons thumb-friendly
+- Preserve image focal points
+- Keep the Cybercore visual language
+
+The mobile version should look DESIGNED.
+
+Not like a broken desktop website.
+
+
+==================================================
+# 30. MOBILE NAVIGATION
+==================================================
+
+Use a polished mobile menu.
+
+Possible:
+
+Menu icon
+
+↓
+
+Full-screen / near-full-screen dark overlay
+
+↓
+
+Large navigation links
+
+↓
+
+CTA
+
+Use smooth transitions.
+
+Do not use tiny dropdown menus.
+
+
+==================================================
+# 31. SPACING SYSTEM
+==================================================
+
+Use a consistent spacing system.
+
+Base:
+
+4px
+
+Preferred rhythm:
+
+4
+8
+12
+16
+24
+32
+40
+48
+64
+80
+96
+120
+160
+
+Large sections may use:
+
+120px–200px vertical spacing.
+
+Do not randomly use:
+
+37px
+53px
+71px
+89px
+
+unless specifically required by screenshot measurement.
+
+Create a coherent rhythm.
+
+
+==================================================
+# 32. BORDER SYSTEM
+==================================================
+
+Use consistent border logic.
+
+Primary border:
+
+rgba(255,255,255,0.08)
+
+Secondary:
+
+rgba(255,255,255,0.05)
+
+Active:
+
+accent with controlled opacity.
+
+Avoid thick borders.
+
+Avoid bright white borders.
+
+Borders should be discovered rather than announced.
+
+
+==================================================
+# 33. RADIUS SYSTEM
+==================================================
+
+Use a restrained radius system.
+
+Suggested:
+
+4px
+6px
+8px
+12px
+
+Do not make everything:
+
+border-radius: 9999px;
+
+Pills should only be used where semantically appropriate.
+
+
+==================================================
+# 34. SHADOW SYSTEM
+==================================================
+
+Use shadows extremely carefully.
+
+Preferred:
+
+subtle dark elevation
+
+and occasional accent glow.
+
+Avoid:
+
+massive black shadows.
+
+Avoid:
+
+floating-card-everywhere aesthetics.
+
+The website should feel grounded.
+
+
+==================================================
+# 35. GLOW SYSTEM
+==================================================
+
+Glow is an accent, not a default.
+
+Use glow primarily around:
+
+- Primary CTA
+- Important interactive element
+- Hero accent
+- Active state
+- Selected element
+- Special visual section
+
+Glow should have:
+
+large blur radius
+low opacity
+soft falloff
+
+Never use intense neon outlines everywhere.
+
+
+==================================================
+# 36. DESIGN CONSISTENCY RULE
+==================================================
+
+Create reusable design tokens.
+
+Use CSS variables such as:
+
+--bg-primary
+--bg-secondary
+--surface
+--surface-elevated
+--text-primary
+--text-secondary
+--text-muted
+--border-subtle
+--accent-primary
+--accent-secondary
+--radius-sm
+--radius-md
+--shadow-soft
+--container-width
+--section-spacing
+
+All components should use these tokens.
+
+Do not hardcode random values throughout the stylesheet.
+
+
+==================================================
+# 37. COMPONENT ARCHITECTURE
+==================================================
+
+Build reusable components.
+
+At minimum:
+
+Navbar
+Hero
+SectionHeader
+Button
+Card
+FeatureCard
+FeatureSection
+ProductShowcase
+TestimonialCard
+PricingCard
+FAQItem
+CTASection
+Footer
+
+If using React:
+
+Use reusable React components.
+
+If using vanilla HTML:
+
+Use clean semantic sections and reusable CSS classes.
+
+Keep JavaScript modular.
+
+
+==================================================
+# 38. CODE QUALITY
+==================================================
+
+The generated frontend must be production-ready.
+
+Avoid:
+
+- Inline styles everywhere
+- Repeated CSS
+- Huge monolithic JS
+- Unused libraries
+- Unnecessary dependencies
+- Broken responsive rules
+- Random magic numbers
+- Poor semantic HTML
+- Duplicate components
+
+Use clean structure.
+
+Suggested:
+
+/src
+  /components
+  /sections
+  /styles
+  /assets
+  /utils
+
+If the environment only accepts a single HTML file:
+
+Keep the HTML self-contained but organize the CSS and JavaScript clearly.
+
+
+==================================================
+# 39. PERFORMANCE
+==================================================
+
+Prioritize performance.
+
+Use:
+
+- Modern image formats
+- Lazy loading where appropriate
+- SVG for icons
+- Minimal JavaScript
+- CSS animations instead of JS where possible
+- Efficient DOM structure
+- Avoid unnecessary libraries
+
+Do not sacrifice visual quality unnecessarily.
+
+
+==================================================
+# 40. ICONOGRAPHY
+==================================================
+
+Icons should share one visual language.
+
+Use:
+
+- Consistent stroke width
+- Consistent size
+- Consistent optical alignment
+
+Prefer SVG.
+
+Avoid mixing:
+
+Lucide
+Font Awesome
+random Unicode
+emoji
+custom icons
+
+unless the combination is deliberately designed.
+
+
+==================================================
+# 41. DON'T DO THIS
+==================================================
+
+Absolutely avoid:
+
+❌ Generic purple AI gradient
+❌ Excessive glassmorphism
+❌ Huge rounded cards everywhere
+❌ Random floating blobs
+❌ Excessive neon
+❌ Gamer HUD aesthetic
+❌ Generic startup template
+❌ Stock-looking illustrations
+❌ Emoji as UI icons
+❌ Random 3D objects
+❌ Excessive shadows
+❌ Excessive blur
+❌ Every section having a different design
+❌ Excessive animation
+❌ Huge paragraphs
+❌ Poor typography
+❌ Inconsistent spacing
+❌ Random border radii
+❌ Generic navbar
+❌ Generic footer
+❌ Unnecessary badges
+❌ Fake statistics
+❌ Fake testimonials unless supplied
+❌ Invented brand claims
+❌ Invented product features
+❌ Unnecessary sections
+
+
+==================================================
+# 42. VISUAL QUALITY CONTROL
+==================================================
+
+Before finalizing the design, perform a mental visual QA pass.
+
+Check:
+
+TYPOGRAPHY
+
+- Is the font correct?
+- Are headings proportionally strong?
+- Are line breaks intentional?
+- Is letter spacing correct?
+- Is body text readable?
+
+LAYOUT
+
+- Do all sections share alignment?
+- Are gutters consistent?
+- Is negative space intentional?
+- Are sections balanced?
+
+COLOR
+
+- Is the dark palette sophisticated?
+- Is accent usage restrained?
+- Are there too many colors?
+
+COMPONENTS
+
+- Do buttons feel premium?
+- Do cards belong to the same system?
+- Are borders consistent?
+- Are radii consistent?
+
+CYBERCORE
+
+- Is the futuristic influence visible?
+- Is it subtle enough?
+- Does it feel premium rather than gamer-oriented?
+
+MOTION
+
+- Is animation purposeful?
+- Is it smooth?
+- Is it restrained?
+
+RESPONSIVE
+
+- Does the layout remain beautiful on mobile?
+- Are images properly cropped?
+- Does typography scale correctly?
+- Is there horizontal overflow?
+
+OVERALL
+
+Ask:
+
+"If a premium technology company paid a world-class design agency $1,000,000 for this website, would this design feel worthy of that investment?"
+
+If the answer is no, refine it before returning the result.
+
+
+==================================================
+# 43. SCREENSHOT FIDELITY RULE
+==================================================
+
+The provided screenshots are the primary visual reference.
+
+When there is a conflict between generic design conventions and the screenshots:
+
+FOLLOW THE SCREENSHOTS.
+
+Extract:
+
+- Relative proportions
+- Layout relationships
+- Visual density
+- Typography scale
+- Component placement
+- Border treatment
+- Color relationships
+- Section rhythm
+
+However, do not blindly copy content that is unrelated to the actual project.
+
+The final website should feel like the same design universe, not like a screenshot pasted into another website.
+
+
+==================================================
+# 44. ORIGINALITY RULE
+==================================================
+
+The screenshots are references for:
+
+- Visual language
+- Layout
+- Composition
+- Styling
+- Interaction
+- Typography
+- Design system
+
+Do not unnecessarily reproduce unrelated brand names, fake testimonials, proprietary content, or unrelated copy from the screenshots.
+
+Replace reference content with content relevant to the actual project.
+
+Preserve the visual structure.
+
+
+==================================================
+# 45. DESIGN-FIRST DEVELOPMENT PROCESS
+==================================================
+
+Before writing the final code, internally perform these steps:
+
+STEP 1:
+Analyze all screenshots.
+
+STEP 2:
+Identify the shared design language.
+
+STEP 3:
+Identify the font characteristics from the uploaded font reference.
+
+STEP 4:
+Extract the visual hierarchy.
+
+STEP 5:
+Create the design system.
+
+STEP 6:
+Create the page architecture.
+
+STEP 7:
+Design desktop.
+
+STEP 8:
+Design tablet.
+
+STEP 9:
+Design mobile.
+
+STEP 10:
+Add interactions.
+
+STEP 11:
+Perform visual QA.
+
+STEP 12:
+Refine spacing and typography.
+
+STEP 13:
+Only then finalize the code.
+
+
+==================================================
+# 46. IMPORTANT: DO NOT START CODING TOO EARLY
+==================================================
+
+Do not immediately generate generic HTML after seeing the screenshots.
+
+First determine:
+
+"What makes these screenshots look the way they do?"
+
+Then encode those principles into the design.
+
+The quality of the design system matters more than the number of components.
+
+
+==================================================
+# 47. VISUAL HIERARCHY
+==================================================
+
+Every viewport should have a clear visual focal point.
+
+At any moment, the user should know:
+
+1. Where am I?
+2. What is this product?
+3. Why should I care?
+4. What should I do next?
+
+Use hierarchy instead of adding visual noise.
+
+
+==================================================
+# 48. CONTENT DENSITY
+==================================================
+
+Maintain a sophisticated information density.
+
+Do not make the website feel empty.
+
+Do not make it feel overcrowded.
+
+Use:
+
+- Large typography
+- Short copy
+- Technical metadata
+- Visual components
+- Structured cards
+- Intentional whitespace
+
+Premium design often communicates more with less.
+
+
+==================================================
+# 49. DEPTH
+==================================================
+
+Create depth using layers.
+
+Example:
+
+BASE
+↓
+BACKGROUND GRID
+↓
+AMBIENT LIGHT
+↓
+SECTION SURFACE
+↓
+CONTENT
+↓
+ACCENT DETAILS
+
+Depth should be subtle.
+
+The website should feel dimensional without looking like a 3D game.
+
+
+==================================================
+# 50. FINAL OUTPUT
+==================================================
+
+Return a COMPLETE, WORKING FRONTEND.
+
+Include:
+
+1. Full HTML / JSX structure
+2. Full CSS
+3. Full JavaScript where required
+4. Responsive behavior
+5. Animations
+6. Hover states
+7. Focus states
+8. Mobile navigation
+9. Design tokens
+10. Asset references
+11. Component structure
+12. Accessibility considerations
+
+Do not provide incomplete snippets.
+
+Do not say:
+
+"Add your own styling here."
+
+Do not leave major sections unfinished.
+
+Do not use placeholder styling when the screenshot provides enough information.
+
+The result should be immediately runnable.
+
+
+==================================================
+# 51. FINAL DESIGN DIRECTIVE
+==================================================
+
+The final website must feel like:
+
+A futuristic technology company
++
+an elite creative agency
++
+a premium digital product
++
+Cybercore aesthetics
++
+editorial minimalism
++
+exceptional typography.
+
+It should feel:
+
+DARK.
+PRECISE.
+FUTURISTIC.
+EXPENSIVE.
+CLEAN.
+INTENTIONAL.
+IMMERSIVE.
+CONFIDENT.
+
+The design should make the user stop scrolling.
+
+Not because it is loud.
+
+Because it is exceptionally well designed.
+
+
+==================================================
+# 52. ABSOLUTE PRIORITY ORDER
+==================================================
+
+When making design decisions, follow this priority:
+
+1. PROVIDED SCREENSHOT REFERENCES
+2. PROVIDED FONT REFERENCE
+3. USER'S ACTUAL PRODUCT / CONTENT
+4. DESIGN SYSTEM CONSISTENCY
+5. PREMIUM VISUAL QUALITY
+6. CYBERCORE INFLUENCE
+7. ACCESSIBILITY
+8. PERFORMANCE
+9. DECORATIVE EFFECTS
+
+Never allow decorative effects to compromise the first six priorities.
+
+
+==================================================
+# 53. FINAL SELF-CRITIQUE
+==================================================
+
+Before delivering the final result, critique the design internally.
+
+Ask:
+
+- Does this look like an AI-generated template?
+- Does it look expensive?
+- Is the typography exceptional?
+- Is the spacing intentional?
+- Is the Cybercore influence tasteful?
+- Are the screenshots reflected accurately?
+- Is the website visually coherent from top to bottom?
+- Is there too much glow?
+- Is there too much decoration?
+- Are there too many cards?
+- Are there unnecessary gradients?
+- Does the hero feel memorable?
+- Does the CTA feel premium?
+- Does mobile feel designed?
+- Does every section belong to the same design system?
+
+If any answer is unsatisfactory, refine the design before producing the final code.
+
+
+==================================================
+# FINAL INSTRUCTION
+==================================================
+
+DO NOT create a generic landing page.
+
+DO NOT create a generic SaaS website.
+
+DO NOT over-design.
+
+DO NOT under-design.
+
+DO NOT blindly copy the screenshots.
+
+INSTEAD:
+
+Extract their design DNA.
+
+Combine it with sophisticated Cybercore aesthetics.
+
+Use the supplied font reference as the typography authority.
+
+Build one unified, highly polished, production-quality visual system.
+
+Make every spacing decision intentional.
+
+Make every typography decision intentional.
+
+Make every border intentional.
+
+Make every glow intentional.
+
+Make every animation intentional.
+
+Make every component feel like it belongs to the same product.
+
+The final result should look like a premium digital experience created by an elite design agency, not a website assembled by an AI.
+
+QUALITY BAR:
+
+★★★★★
+Premium
+★★★★★
+Cohesive
+★★★★★
+Futuristic
+★★★★★
+Clean
+★★★★★
+Production-ready
+★★★★★
+Visually memorable

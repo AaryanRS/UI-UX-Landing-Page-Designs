@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SYNTHOPSIS // Cybernetic Infrastructure for High-Caliber Creators</title>
+  
+  <!-- Fonts: Syne (Architectural display) + Space Grotesk (Futuristic geometric) + JetBrains Mono (Precision technical microcopy) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Syne', 'sans-serif'],
+            sans: ['"Space Grotesk"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            base: {
+              950: '#030303',
+              900: '#070708',
+              850: '#0c0d0e',
+              800: '#121316',
+              700: '#1b1d22',
+              600: '#252830',
+            },
+            cyber: {
+              cyan: '#35D6FF',
+              blue: '#4D7CFF',
+              violet: '#8B5CF6',
+              acid: '#A3FF12',
+              magenta: '#FF3CAC',
+            }
+          },
+          letterSpacing: {
+            tighter: '-0.05em',
+            tightest: '-0.08em',
+            widest: '0.25em',
+            ultra: '0.35em',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --bg-primary: #050507;
+      --bg-secondary: #0a0b0e;
+      --surface: #0f1115;
+      --surface-elevated: #161920;
+      --border-subtle: rgba(255, 255, 255, 0.07);
+      --border-medium: rgba(255, 255, 255, 0.12);
+      --accent-cyan: #35D6FF;
+      --accent-glow: rgba(53, 214, 255, 0.18);
+      --text-primary: #F4F4F6;
+      --text-secondary: #9A9EAA;
+      --text-muted: #565A66;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+      overflow-x: hidden;
+      selection-background-color: #35D6FF;
+      selection-color: #000;
+    }
+
+    ::selection {
+      background: #35D6FF;
+      color: #030303;
+    }
+
+    /* Ambient Architectural Grid System */
+    .bg-grid-cyber {
+      background-size: 56px 56px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    }
+
+    .bg-dots-cyber {
+      background-size: 28px 28px;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+    }
+
+    /* Technical Scanline effect (ultra-subtle) */
+    .scanlines {
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.015), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.015));
+      background-size: 100% 3px, 6px 100%;
+      pointer-events: none;
+    }
+
+    /* Glass and border treatments */
+    .border-subtle {
+      border: 1px solid var(--border-subtle);
+    }
+
+    .border-subtle-t { border-top: 1px solid var(--border-subtle); }
+    .border-subtle-b { border-bottom: 1px solid var(--border-subtle); }
+    .border-subtle-l { border-left: 1px solid var(--border-subtle); }
+    .border-subtle-r { border-right: 1px solid var(--border-subtle); }
+
+    .glow-cyan-soft {
+      box-shadow: 0 0 40px -10px rgba(53, 214, 255, 0.22);
+    }
+
+    .glow-cyan-button {
+      box-shadow: 0 0 25px -4px rgba(53, 214, 255, 0.4);
+    }
+
+    /* Custom technical corner markers */
+    .corner-bracket {
+      position: relative;
+    }
+    .corner-bracket::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      width: 8px;
+      height: 8px;
+      border-top: 1px solid rgba(53, 214, 255, 0.7);
+      border-left: 1px solid rgba(53, 214, 255, 0.7);
+      pointer-events: none;
+    }
+    .corner-bracket::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      right: -1px;
+      width: 8px;
+      height: 8px;
+      border-bottom: 1px solid rgba(53, 214, 255, 0.7);
+      border-right: 1px solid rgba(53, 214, 255, 0.7);
+      pointer-events: none;
+    }
+
+    /* Interactive button transform */
+    .btn-cyber {
+      position: relative;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-cyber:hover {
+      transform: translateY(-2px);
+    }
+    .btn-cyber:hover .btn-arrow {
+      transform: translateX(4px);
+    }
+
+    /* Smooth animated pulse beacon */
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.3); }
+    }
+    .animate-pulse-dot {
+      animation: pulse-dot 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    /* Metric counter glow */
+    .text-glow {
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+    }
+
+    /* Custom marquee */
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      display: flex;
+      width: 200%;
+      animation: marquee 35s linear infinite;
+    }
+    .animate-marquee:hover {
+      animation-play-state: paused;
+    }
+
+    /* Chromatic shimmer on hover */
+    .shimmer-text {
+      background: linear-gradient(90deg, #F4F4F6 0%, #A3FF12 50%, #35D6FF 100%);
+      background-size: 200% auto;
+      color: transparent;
+      -webkit-background-clip: text;
+      transition: background-position 0.6s ease;
+    }
+    .shimmer-text:hover {
+      background-position: right center;
+    }
+
+    /* Accessibility reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-base-950 font-sans antialiased text-[#EDEDED] relative">
+
+  <!-- Ambient background glow spots -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div class="absolute -top-[25vw] left-1/2 -translate-x-1/2 w-[70vw] h-[45vw] rounded-full bg-gradient-to-b from-[#35D6FF]/10 via-[#4D7CFF]/04 to-transparent blur-[130px]"></div>
+    <div class="absolute top-[45%] -left-[15vw] w-[45vw] h-[45vw] rounded-full bg-[#8B5CF6]/05 blur-[150px]"></div>
+    <div class="absolute bottom-[10%] -right-[15vw] w-[50vw] h-[50vw] rounded-full bg-[#A3FF12]/04 blur-[160px]"></div>
+    <div class="absolute inset-0 bg-grid-cyber opacity-80"></div>
+    <div class="absolute inset-0 scanlines opacity-30"></div>
+  </div>
+
+  <!-- NAVIGATION HEADER -->
+  <header class="sticky top-0 z-50 w-full backdrop-blur-xl bg-base-950/75 border-subtle-b transition-all duration-300">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+      
+      <!-- Brand Identity -->
+      <a href="#" class="flex items-center gap-3.5 group">
+        <div class="w-9 h-9 rounded bg-base-900 border border-white/15 flex items-center justify-center relative overflow-hidden group-hover:border-[#35D6FF]/60 transition-colors">
+          <div class="absolute inset-0 bg-gradient-to-br from-[#35D6FF]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <!-- Futuristic geometric glyph -->
+          <svg class="w-5 h-5 text-white group-hover:text-[#35D6FF] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <polygon points="12 2 2 7 12 12 22 7 12 2" />
+            <polyline points="2 17 12 22 22 17" />
+            <polyline points="2 12 12 17 22 12" />
+          </svg>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-display font-bold text-lg tracking-wider text-white flex items-center gap-1.5">
+            SYNTHOPSIS<span class="text-[#35D6FF] font-mono text-xs">®</span>
+          </span>
+          <span class="font-mono text-[9px] uppercase tracking-widest text-[#9A9EAA]">Core Creator OS // 2.4</span>
+        </div>
+      </a>
+
+      <!-- Center Primary Navigation -->
+      <nav class="hidden md:flex items-center gap-1 p-1.5 bg-base-900/90 rounded-full border border-white/08 backdrop-blur-md">
+        <a href="#architecture" class="px-4 py-1.5 rounded-full text-xs font-mono tracking-wider text-white/80 hover:text-white hover:bg-white/06 transition-all">
+          01 // INFRASTRUCTURE
+        </a>
+        <a href="#services" class="px-4 py-1.5 rounded-full text-xs font-mono tracking-wider text-white/80 hover:text-white hover:bg-white/06 transition-all">
+          02 // CREATOR SUITE
+        </a>
+        <a href="#performance" class="px-4 py-1.5 rounded-full text-xs font-mono tracking-wider text-white/80 hover:text-white hover:bg-white/06 transition-all">
+          03 // METRICS
+        </a>
+        <a href="#ecosystem" class="px-4 py-1.5 rounded-full text-xs font-mono tracking-wider text-white/80 hover:text-white hover:bg-white/06 transition-all">
+          04 // PROTOCOL
+        </a>
+        <a href="#deploy" class="px-4 py-1.5 rounded-full text-xs font-mono tracking-wider text-white/80 hover:text-white hover:bg-white/06 transition-all">
+          05 // ACCESS
+        </a>
+      </nav>
+
+      <!-- Right Action & Status -->
+      <div class="flex items-center gap-4">
+        <!-- Live System Node Status -->
+        <div class="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded border border-white/08 bg-base-900/60 font-mono text-[11px] text-[#9A9EAA]">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#A3FF12] animate-pulse-dot"></span>
+          <span>CLUSTER: US-EAST [SYNC 99.98%]</span>
+        </div>
+
+        <a href="#deploy" class="btn-cyber inline-flex items-center gap-2.5 px-5 py-2.5 rounded bg-white text-base-950 font-mono text-xs font-bold tracking-wider hover:bg-[#35D6FF] transition-all glow-cyan-button">
+          <span>INITIALIZE</span>
+          <svg class="w-3.5 h-3.5 btn-arrow transition-transform" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8H13M13 8L8.5 3.5M13 8L8.5 12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+        <!-- Mobile Menu Trigger -->
+        <button id="mobile-toggle" aria-label="Toggle Navigation" class="md:hidden p-2 rounded border border-white/10 text-white hover:border-[#35D6FF]/50 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Dropdown Tray -->
+    <div id="mobile-menu" class="hidden md:hidden px-6 py-6 bg-base-950 border-subtle-b flex-col gap-4 font-mono text-xs">
+      <a href="#architecture" class="text-white/70 hover:text-[#35D6FF] transition-colors py-1">01 // INFRASTRUCTURE</a>
+      <a href="#services" class="text-white/70 hover:text-[#35D6FF] transition-colors py-1">02 // CREATOR SUITE</a>
+      <a href="#performance" class="text-white/70 hover:text-[#35D6FF] transition-colors py-1">03 // METRICS</a>
+      <a href="#ecosystem" class="text-white/70 hover:text-[#35D6FF] transition-colors py-1">04 // PROTOCOL</a>
+      <a href="#deploy" class="text-white/70 hover:text-[#35D6FF] transition-colors py-1">05 // ACCESS</a>
+    </div>
+  </header>
+
+  <main class="relative z-10">
+
+    <!-- HERO SECTION: Architectural, Immersive, Cybercore-Refined -->
+    <section class="relative pt-16 md:pt-28 pb-20 md:pb-36 border-subtle-b overflow-hidden">
+      <!-- Fine grid lines background anchor -->
+      <div class="max-w-[1400px] mx-auto px-6 lg:px-12 relative">
+
+        <!-- Eyebrow & Status Chip -->
+        <div class="flex flex-wrap items-center gap-3 mb-8">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-sm border border-[#35D6FF]/30 bg-[#35D6FF]/05 backdrop-blur-sm">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#35D6FF] animate-pulse"></span>
+            <span class="font-mono text-[11px] uppercase tracking-wider text-[#35D6FF] font-semibold">SYNTHESIS ENGINE V4.9 ONLINE</span>
+          </div>
+          <span class="font-mono text-xs text-[#565A66]">//</span>
+          <span class="font-mono text-xs uppercase tracking-widest text-[#9A9EAA]">ALGORITHMIC AMPLIFICATION FOR ELITE MEDIA CHANNELS</span>
+        </div>
+
+        <!-- Master Hero Headline: Syne Architectural Display -->
+        <div class="max-w-6xl mb-10">
+          <h1 class="font-display font-extrabold text-5xl sm:text-7xl lg:text-[96px] tracking-tightest leading-[0.92] text-white uppercase">
+            ENGINEERING <br class="hidden sm:inline" />
+            <span class="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-white via-[#EDEDED] to-[#9A9EAA]">
+              EXPONENTIAL
+            </span> <br />
+            <span class="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#35D6FF] via-[#4D7CFF] to-[#8B5CF6]">
+              CREATOR POWER.
+            </span>
+          </h1>
+        </div>
+
+        <!-- Two-Column Supporting Strategy / Metadata Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end pt-4 pb-12 border-subtle-b">
+          
+          <div class="lg:col-span-7">
+            <p class="text-lg md:text-xl text-[#9A9EAA] font-light leading-relaxed max-w-2xl">
+              Synthopsis is the hyper-bespoke digital operating apparatus built for the top 0.1% of YouTubers, visual storytellers, and streaming syndicates. We merge custom algorithmic asset pipelines, real-time telemetry, and avant-garde cinematic art direction.
+            </p>
+            
+            <!-- Technical specs badges -->
+            <div class="flex flex-wrap gap-4 mt-8 font-mono text-xs text-[#9A9EAA]">
+              <div class="flex items-center gap-2">
+                <span class="text-[#35D6FF]">►</span>
+                <span>ZERO RETENTION DECAY</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-[#A3FF12]">►</span>
+                <span>AUTONOMOUS THUMBNAIL VECTORING</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-[#FF3CAC]">►</span>
+                <span>NEURAL EDITING CO-PROCESSOR</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTAs & Fast Diagnostic Form -->
+          <div class="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-4">
+            <div class="flex items-center gap-4">
+              <a href="#deploy" class="btn-cyber flex-1 inline-flex items-center justify-between px-7 py-4 rounded bg-white text-base-950 font-mono text-xs font-bold tracking-wider hover:bg-[#35D6FF] transition-all glow-cyan-button">
+                <span>CONNECT CREATOR CHANNEL</span>
+                <span class="btn-arrow text-base">→</span>
+              </a>
+              <a href="#architecture" class="btn-cyber inline-flex items-center justify-center px-6 py-4 rounded border border-white/15 bg-base-900/60 font-mono text-xs tracking-wider text-white hover:border-[#35D6FF]/50 hover:bg-white/05 transition-all">
+                <span>VIEW PROTOCOL</span>
+              </a>
+            </div>
+            <div class="flex items-center justify-between px-4 py-2.5 rounded bg-base-900/80 border border-white/06 font-mono text-[11px] text-[#565A66]">
+              <span>SYSTEM LATENCY: &lt; 14MS</span>
+              <span class="text-[#35D6FF]">CREATOR ENCLAVE: INVITE-ONLY</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- HERO INTERFACE SHOWCASE: Cybernetic HUD Console Preview -->
+        <div class="mt-12 relative rounded-lg border border-white/12 bg-base-900/80 p-3 sm:p-5 backdrop-blur-2xl shadow-2xl corner-bracket">
+          
+          <!-- Top Window Chromes -->
+          <div class="flex items-center justify-between pb-4 mb-4 border-subtle-b font-mono text-xs text-[#9A9EAA]">
+            <div class="flex items-center gap-3">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
+              </div>
+              <span class="text-white/60">SESSION // ID: 8829-X-CREATOR-TELEMETRY</span>
+            </div>
+            <div class="hidden sm:flex items-center gap-6">
+              <span class="text-[#35D6FF]">STREAM: 4K60 HDR PRORES</span>
+              <span>RETENTION MULTIPLIER: <strong class="text-white font-bold">+248.4%</strong></span>
+              <span class="text-[#A3FF12]">STATUS: RUNNING</span>
+            </div>
+          </div>
+
+          <!-- Interior Dashboard Mockup with High Architectural Density -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+            
+            <!-- Left Panel: Live Timeline Sequencer -->
+            <div class="lg:col-span-8 bg-base-950/90 rounded border border-white/06 p-5">
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-2 font-mono text-xs text-white">
+                  <span class="text-[#35D6FF]">●</span>
+                  <span class="font-bold">DYNAMIC HOOK ARCHITECTURE</span>
+                  <span class="text-[#565A66]">| SEGMENT 00:00 - 00:45</span>
+                </div>
+                <div class="font-mono text-[10px] px-2 py-0.5 rounded bg-white/08 text-white/80">
+                  REAL-TIME CTR ENGINE
+                </div>
+              </div>
+
+              <!-- Graphic Waveform & Pacing Spectrogram (SVG) -->
+              <div class="h-36 w-full rounded bg-base-900/60 border border-white/05 relative overflow-hidden flex items-end px-3 pb-3 gap-1">
+                <!-- SVG synthetic sound/engagement wave -->
+                <svg class="absolute inset-0 w-full h-full opacity-60" preserveAspectRatio="none" viewBox="0 0 600 120">
+                  <defs>
+                    <linearGradient id="grad-wave" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#35D6FF" stop-opacity="0.5"/>
+                      <stop offset="100%" stop-color="#35D6FF" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M0,60 Q40,10 80,70 T160,30 T240,90 T320,20 T400,60 T480,10 T540,80 T600,40 L600,120 L0,120 Z" fill="url(#grad-wave)" />
+                  <path d="M0,60 Q40,10 80,70 T160,30 T240,90 T320,20 T400,60 T480,10 T540,80 T600,40" fill="none" stroke="#35D6FF" stroke-width="2" />
+                </svg>
+
+                <!-- Retention marker tags -->
+                <div class="absolute top-3 left-10 font-mono text-[10px] text-[#A3FF12] bg-base-950/80 px-2 py-0.5 rounded border border-[#A3FF12]/30 flex items-center gap-1">
+                  <span>▲</span> 94.2% RETENTION PEAK [MICRO-CUT]
+                </div>
+                <div class="absolute top-8 right-24 font-mono text-[10px] text-[#35D6FF] bg-base-950/80 px-2 py-0.5 rounded border border-[#35D6FF]/30 flex items-center gap-1">
+                  <span>■</span> B-ROLL PACING COHERENCE: 99.1%
+                </div>
+              </div>
+
+              <!-- Real-time metrics grid inside HUD -->
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4">
+                <div class="p-3 rounded bg-base-900/40 border border-white/05">
+                  <div class="font-mono text-[10px] text-[#9A9EAA] uppercase">Avg View Duration</div>
+                  <div class="text-xl font-display font-bold text-white mt-1">18:42 <span class="text-xs text-[#A3FF12] font-mono">+4.2m</span></div>
+                </div>
+                <div class="p-3 rounded bg-base-900/40 border border-white/05">
+                  <div class="font-mono text-[10px] text-[#9A9EAA] uppercase">Click-Through Rate</div>
+                  <div class="text-xl font-display font-bold text-[#35D6FF] mt-1">16.8% <span class="text-xs text-white/60 font-mono">v4.1</span></div>
+                </div>
+                <div class="p-3 rounded bg-base-900/40 border border-white/05">
+                  <div class="font-mono text-[10px] text-[#9A9EAA] uppercase">Impression Yield</div>
+                  <div class="text-xl font-display font-bold text-white mt-1">12.4M <span class="text-xs text-[#A3FF12] font-mono">+89%</span></div>
+                </div>
+                <div class="p-3 rounded bg-base-900/40 border border-white/05">
+                  <div class="font-mono text-[10px] text-[#9A9EAA] uppercase">Sub Conversion</div>
+                  <div class="text-xl font-display font-bold text-white mt-1">8.94% <span class="text-xs text-[#35D6FF] font-mono">Top 0.01%</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Panel: Algorithmic Calibration Stack -->
+            <div class="lg:col-span-4 bg-base-950/90 rounded border border-white/06 p-5 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <span class="font-mono text-xs font-bold text-white uppercase tracking-wider">CREATOR MATRIX</span>
+                  <span class="font-mono text-[10px] text-[#35D6FF]">ACTIVE PROFILE</span>
+                </div>
+                
+                <div class="space-y-3 font-mono text-xs">
+                  <div class="flex justify-between items-center p-2 rounded bg-base-900/60 border border-white/04">
+                    <span class="text-[#9A9EAA]">Thumbnail Neural Weight</span>
+                    <span class="text-[#A3FF12] font-bold">ALPHA-8 [HIGH CONTRAST]</span>
+                  </div>
+                  <div class="flex justify-between items-center p-2 rounded bg-base-900/60 border border-white/04">
+                    <span class="text-[#9A9EAA]">Sound Design Spatial</span>
+                    <span class="text-white">BINAURAL SUB-BASS</span>
+                  </div>
+                  <div class="flex justify-between items-center p-2 rounded bg-base-900/60 border border-white/04">
+                    <span class="text-[#9A9EAA]">Audience Affinity Sync</span>
+                    <span class="text-[#35D6FF]">99.4% GLOBAL MATCH</span>
+                  </div>
+                  <div class="flex justify-between items-center p-2 rounded bg-base-900/60 border border-white/04">
+                    <span class="text-[#9A9EAA]">Sponsor CPM Valuation</span>
+                    <span class="text-white font-bold">$68.50 USD</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-6 pt-4 border-subtle-t flex items-center justify-between font-mono text-[11px]">
+                <span class="text-[#565A66]">ALGO-PROTOCOL: YT-RECOMMENDER-STABLE</span>
+                <span class="text-[#35D6FF] font-semibold">SYNCHRONIZED</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CLIENT / ECOSYSTEM LOGO MARQUEE -->
+    <section class="py-8 bg-base-900/40 border-subtle-b overflow-hidden relative">
+      <div class="max-w-[1400px] mx-auto px-6 mb-4 flex items-center justify-between">
+        <span class="font-mono text-[11px] uppercase tracking-widest text-[#565A66]">TRUSTED BY SYNDICATED CHANNELS WITH 250M+ COMBINED AUDIENCE</span>
+        <span class="font-mono text-[11px] text-[#35D6FF] hidden sm:inline">[VERIFIED CREATOR NETWORK]</span>
+      </div>
+
+      <!-- Infinite Track -->
+      <div class="relative w-full overflow-hidden">
+        <div class="animate-marquee flex items-center gap-16 text-white/40 font-display font-bold text-xl tracking-wider uppercase">
+          <span class="hover:text-white transition-colors cursor-default">VERTEX ENTERTAINMENT // 18M SUBS</span>
+          <span class="text-[#35D6FF]/40">◆</span>
+          <span class="hover:text-white transition-colors cursor-default">KINETIC LABS // TECH & AI</span>
+          <span class="text-[#35D6FF]/40">◆</span>
+          <span class="hover:text-white transition-colors cursor-default">CHRONOS MEDIA // LONGFORM DOCS</span>
+          <span class="text-[#35D6FF]/40">◆</span>
+          <span class="hover:text-white transition-colors cursor-default">CYBERNAUT PODCAST NETWORK</span>
+          <span class="text-[#35D6FF]/40">◆</span>
+          <span class="hover:text-white transition-colors cursor-default">NEO-FINANCE INTELLIGENCE</span>
+          <span class="text-[#35D6FF]/40">◆</span>
+          <span class="hover:text-white transition-colors cursor-default">HYPERION GAMING SYNDICATE</span>
+          <span class="text-[#35D6FF]/40">◆</span>
+          
+          <!-- Duplicate for seamless loop -->
+          <span class="hover:text-white transition-colors cursor-default">VERTEX ENTERTAINMENT // 18M SUBS</span>
+          <span class="text-[#35D6FF]/40">◆</span>
+          <span class="hover:text-white transition-colors cursor-default">KINETIC LABS // TECH & AI</span>
+          <span class="text-[#35D6FF]/40">◆</span>
+          <span class="hover:text-white transition-colors cursor-default">CHRONOS MEDIA // LONGFORM DOCS</span>
+          <span class="text-[#35D6FF]/40">◆</span>
+          <span class="hover:text-white transition-colors cursor-default">CYBERNAUT PODCAST NETWORK</span>
+          <span class="text-[#35D6FF]/40">◆</span>
+          <span class="hover:text-white transition-colors cursor-default">NEO-FINANCE INTELLIGENCE</span>
+          <span class="text-[#35D6FF]/40">◆</span>
+          <span class="hover:text-white transition-colors cursor-default">HYPERION GAMING SYNDICATE</span>
+          <span class="text-[#35D6FF]/40">◆</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 01: ARCHITECTURAL VALUE PROPOSITION -->
+    <section id="architecture" class="py-24 md:py-36 border-subtle-b relative">
+      <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+        
+        <!-- Section Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div>
+            <div class="font-mono text-xs uppercase tracking-widest text-[#35D6FF] mb-3 flex items-center gap-2">
+              <span>// 01</span>
+              <span>THE ARCHITECTURE OF RETENTION</span>
+            </div>
+            <h2 class="font-display font-bold text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight">
+              BUILT FOR CHANNELS THAT <br />
+              REFUSE TO PLATEAU.
+            </h2>
+          </div>
+          <p class="max-w-md text-sm md:text-base text-[#9A9EAA] font-light leading-relaxed">
+            Most content agencies make videos. Synthopsis builds deterministic algorithmic infrastructure: turning channel views into compound cultural leverage and eight-figure revenue engines.
+          </p>
+        </div>
+
+        <!-- 3-Column Structured Modular Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Card 1 -->
+          <div class="group p-8 rounded bg-base-900/60 border border-white/08 hover:border-[#35D6FF]/40 transition-all duration-300 relative corner-bracket">
+            <div class="font-mono text-xs text-[#565A66] mb-8 flex justify-between">
+              <span>MODULE // 01</span>
+              <span class="text-[#35D6FF] group-hover:translate-x-1 transition-transform">↗</span>
+            </div>
+            <div class="w-12 h-12 rounded bg-base-800 border border-white/10 flex items-center justify-center text-[#35D6FF] mb-6">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="font-display font-bold text-2xl text-white mb-3">Hyper-Paced Narrative Architecture</h3>
+            <p class="text-sm text-[#9A9EAA] leading-relaxed mb-6 font-light">
+              We deconstruct your unedited footage through cognitive retention models, engineering micro-hooks every 18 seconds to nullify viewer drop-off.
+            </p>
+            <div class="pt-6 border-subtle-t font-mono text-[11px] text-[#565A66] flex justify-between">
+              <span>EFFICIENCY</span>
+              <span class="text-white">+312% COMPLETION RATE</span>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="group p-8 rounded bg-base-900/60 border border-white/08 hover:border-[#A3FF12]/40 transition-all duration-300 relative corner-bracket">
+            <div class="font-mono text-xs text-[#565A66] mb-8 flex justify-between">
+              <span>MODULE // 02</span>
+              <span class="text-[#A3FF12] group-hover:translate-x-1 transition-transform">↗</span>
+            </div>
+            <div class="w-12 h-12 rounded bg-base-800 border border-white/10 flex items-center justify-center text-[#A3FF12] mb-6">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
+            </div>
+            <h3 class="font-display font-bold text-2xl text-white mb-3">Visual Neuro-Packaging (CTR)</h3>
+            <p class="text-sm text-[#9A9EAA] leading-relaxed mb-6 font-light">
+              3D rendered lighting, custom typographic hierarchy, and multivariate title synthesis that dominate the recommendation feed on OLED and mobile devices.
+            </p>
+            <div class="pt-6 border-subtle-t font-mono text-[11px] text-[#565A66] flex justify-between">
+              <span>BENCHMARK</span>
+              <span class="text-white">14.8% CTR BASELINE</span>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="group p-8 rounded bg-base-900/60 border border-white/08 hover:border-[#8B5CF6]/40 transition-all duration-300 relative corner-bracket">
+            <div class="font-mono text-xs text-[#565A66] mb-8 flex justify-between">
+              <span>MODULE // 03</span>
+              <span class="text-[#8B5CF6] group-hover:translate-x-1 transition-transform">↗</span>
+            </div>
+            <div class="w-12 h-12 rounded bg-base-800 border border-white/10 flex items-center justify-center text-[#8B5CF6] mb-6">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+            </div>
+            <h3 class="font-display font-bold text-2xl text-white mb-3">Multi-Platform Monetization Grid</h3>
+            <p class="text-sm text-[#9A9EAA] leading-relaxed mb-6 font-light">
+              Autonomous translation of longform episodes into high-yield vertical formats, branded newsletters, and exclusive digital ecosystem assets.
+            </p>
+            <div class="pt-6 border-subtle-t font-mono text-[11px] text-[#565A66] flex justify-between">
+              <span>MONETIZATION</span>
+              <span class="text-white">4.8X REVENUE COMPOUND</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 02: THE CREATOR SERVICES SUITE (Detailed Bento Grid) -->
+    <section id="services" class="py-24 md:py-36 border-subtle-b relative bg-base-900/20">
+      <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+        
+        <!-- Header -->
+        <div class="max-w-3xl mb-16">
+          <div class="font-mono text-xs uppercase tracking-widest text-[#A3FF12] mb-3 flex items-center gap-2">
+            <span>// 02</span>
+            <span>END-TO-END EXECUTION CAPABILITIES</span>
+          </div>
+          <h2 class="font-display font-bold text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight">
+            EVERY ARTIFACT YOUR <br />
+            BRAND NEEDS TO TRANSCEND.
+          </h2>
+        </div>
+
+        <!-- Asymmetrical Bento Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          
+          <!-- Large Feature: Cinematic Video Editing & Sound Architecture -->
+          <div class="lg:col-span-8 rounded bg-base-950 border border-white/10 p-8 lg:p-12 relative overflow-hidden flex flex-col justify-between group">
+            <div class="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-[#35D6FF]/10 blur-3xl pointer-events-none group-hover:bg-[#35D6FF]/15 transition-all"></div>
+            
+            <div class="relative z-10 mb-10">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-white/05 font-mono text-[11px] text-[#35D6FF] mb-6">
+                FEATURED SERVICE // CINEMATIC POST-PRODUCTION
+              </div>
+              <h3 class="font-display font-extrabold text-3xl sm:text-4xl text-white mb-4">
+                HOLLYWOOD-GRADE MOTION DESIGN & PROCEDURAL SOUND DESIGN
+              </h3>
+              <p class="text-[#9A9EAA] max-w-xl text-base font-light leading-relaxed">
+                We assign a dedicated squadron of three senior editors, two 3D motion designers, and an acoustic engineer to your channel. Every frame is treated with custom color science, kinetic typography, and bespoke 3D UI overlays.
+              </p>
+            </div>
+
+            <!-- Mini technical preview widget -->
+            <div class="relative z-10 p-4 rounded bg-base-900/90 border border-white/06 font-mono text-xs grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div>
+                <span class="text-[#565A66] block text-[10px]">COLOR SCIENCE</span>
+                <span class="text-white font-medium">ACES 1.3 / ARRI LOG-C</span>
+              </div>
+              <div>
+                <span class="text-[#565A66] block text-[10px]">ACOUSTIC MASTERING</span>
+                <span class="text-[#35D6FF] font-medium">-14 LUFS BROADCAST</span>
+              </div>
+              <div>
+                <span class="text-[#565A66] block text-[10px]">AVERAGE TURNAROUND</span>
+                <span class="text-[#A3FF12] font-medium">48 HOURS / 4K MASTER</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature 2: Bespoke 3D Packaging -->
+          <div class="lg:col-span-4 rounded bg-base-950 border border-white/10 p-8 relative flex flex-col justify-between">
+            <div>
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-white/05 font-mono text-[11px] text-[#A3FF12] mb-6">
+                SERVICE // 02
+              </div>
+              <h3 class="font-display font-bold text-2xl text-white mb-3">
+                Algorithmic Thumbnail R&D Lab
+              </h3>
+              <p class="text-sm text-[#9A9EAA] font-light leading-relaxed mb-6">
+                We generate 8–12 photorealistic variants using custom 3D lighting rigs, psychological color mapping, and facial expression eye-tracking diagnostics.
+              </p>
+            </div>
+
+            <div class="p-4 rounded bg-base-900/80 border border-white/06 font-mono text-xs">
+              <div class="flex justify-between py-1 border-b border-white/05">
+                <span class="text-[#9A9EAA]">Split-testing Protocol</span>
+                <span class="text-[#A3FF12]">Automated</span>
+              </div>
+              <div class="flex justify-between py-1">
+                <span class="text-[#9A9EAA]">Click Delta</span>
+                <span class="text-white font-bold">+4.3% Avg</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature 3: Narrative Script Doctoring -->
+          <div class="lg:col-span-4 rounded bg-base-950 border border-white/10 p-8 relative flex flex-col justify-between">
+            <div>
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-white/05 font-mono text-[11px] text-[#8B5CF6] mb-6">
+                SERVICE // 03
+              </div>
+              <h3 class="font-display font-bold text-2xl text-white mb-3">
+                Algorithmic Script Architecture
+              </h3>
+              <p class="text-sm text-[#9A9EAA] font-light leading-relaxed mb-6">
+                We rewrite video hooks, structure thematic escalation arcs, and craft verbal pacing blueprints that guarantee maximum watch time before production starts.
+              </p>
+            </div>
+
+            <div class="p-4 rounded bg-base-900/80 border border-white/06 font-mono text-xs">
+              <span class="text-[#565A66] block text-[10px] mb-1">RETENTION SCORECARD</span>
+              <div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+                <div class="bg-[#8B5CF6] h-full w-[92%]"></div>
+              </div>
+              <div class="flex justify-between text-[10px] text-[#9A9EAA] mt-1.5">
+                <span>Hook Velocity: High</span>
+                <span class="text-white font-bold">92/100</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature 4: Omnichannel Syndication Engine -->
+          <div class="lg:col-span-8 rounded bg-base-950 border border-white/10 p-8 lg:p-12 relative overflow-hidden flex flex-col justify-between group">
+            <div class="relative z-10 mb-8">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-white/05 font-mono text-[11px] text-[#FF3CAC] mb-6">
+                SERVICE // 04: SCALE
+              </div>
+              <h3 class="font-display font-bold text-3xl text-white mb-4">
+                SHORTFORM SYNDICATION PIPELINE: TIKTOK, REELS & SHORTS
+              </h3>
+              <p class="text-[#9A9EAA] max-w-2xl text-base font-light leading-relaxed">
+                Never hire separate shortform editors again. Our pipeline dissects every primary episode into 5–8 high-impact vertical storylines, re-framed with 9:16 kinetic animations and captions that generate 50M+ monthly passive impressions.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono text-xs">
+              <div class="p-3 rounded bg-base-900 border border-white/05">
+                <div class="text-[#565A66] text-[10px]">AVG SHORT IMPRESSIONS</div>
+                <div class="text-white font-bold text-lg mt-0.5">8.4M / MO</div>
+              </div>
+              <div class="p-3 rounded bg-base-900 border border-white/05">
+                <div class="text-[#565A66] text-[10px]">VIRAL COEFFICIENT</div>
+                <div class="text-[#35D6FF] font-bold text-lg mt-0.5">2.84X</div>
+              </div>
+              <div class="p-3 rounded bg-base-900 border border-white/05">
+                <div class="text-[#565A66] text-[10px]">CROSS-PLATFORM SYNC</div>
+                <div class="text-[#A3FF12] font-bold text-lg mt-0.5">INSTANT</div>
+              </div>
+              <div class="p-3 rounded bg-base-900 border border-white/05">
+                <div class="text-[#565A66] text-[10px]">CREATOR TIME NEEDED</div>
+                <div class="text-white font-bold text-lg mt-0.5">0.0 HRS</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 03: TELEMETRY & PERFORMANCE METRICS -->
+    <section id="performance" class="py-24 md:py-36 border-subtle-b relative overflow-hidden">
+      <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-5">
+            <div class="font-mono text-xs uppercase tracking-widest text-[#35D6FF] mb-3 flex items-center gap-2">
+              <span>// 03</span>
+              <span>MEASURABLE IMPACT</span>
+            </div>
+            <h2 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-none mb-6">
+              THE HARD MATH OF CHANNEL DOMINANCE.
+            </h2>
+            <p class="text-[#9A9EAA] text-base font-light leading-relaxed mb-8">
+              We do not believe in subjective &ldquo;creative opinions.&rdquo; Every decision is governed by hard statistical telemetry and empirical retention benchmarks.
+            </p>
+
+            <div class="space-y-4 font-mono text-xs">
+              <div class="p-4 rounded bg-base-900/60 border border-white/06 flex items-center justify-between">
+                <span class="text-[#9A9EAA]">Average First-Month View Spike</span>
+                <span class="text-white font-bold text-sm">+184.2%</span>
+              </div>
+              <div class="p-4 rounded bg-base-900/60 border border-white/06 flex items-center justify-between">
+                <span class="text-[#9A9EAA]">Sponsor Rate Re-negotiation Delta</span>
+                <span class="text-[#A3FF12] font-bold text-sm">+250%</span>
+              </div>
+              <div class="p-4 rounded bg-base-900/60 border border-white/06 flex items-center justify-between">
+                <span class="text-[#9A9EAA]">Client Retention Rate Over 12 Mo.</span>
+                <span class="text-[#35D6FF] font-bold text-sm">98.6%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7">
+            <!-- Architectural Stats Block -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              
+              <div class="p-8 rounded bg-base-900/40 border border-white/08 relative corner-bracket">
+                <div class="font-mono text-[11px] text-[#565A66] mb-2">AGGREGATE CHANNEL REACH</div>
+                <div class="font-display font-extrabold text-5xl text-white mb-2">1.8B+</div>
+                <div class="text-xs text-[#9A9EAA] font-light">Organic impressions engineered across partner networks in 2024 alone.</div>
+              </div>
+
+              <div class="p-8 rounded bg-base-900/40 border border-white/08 relative corner-bracket">
+                <div class="font-mono text-[11px] text-[#565A66] mb-2">SPONSOR VALUE UNLOCKED</div>
+                <div class="font-display font-extrabold text-5xl text-[#35D6FF] mb-2">$42M+</div>
+                <div class="text-xs text-[#9A9EAA] font-light">Direct sponsorship integrations closed through higher retention telemetry.</div>
+              </div>
+
+              <div class="p-8 rounded bg-base-900/40 border border-white/08 relative corner-bracket">
+                <div class="font-mono text-[11px] text-[#565A66] mb-2">AVERAGE RETENTION AT 30S</div>
+                <div class="font-display font-extrabold text-5xl text-[#A3FF12] mb-2">87.4%</div>
+                <div class="text-xs text-[#9A9EAA] font-light">Industry average sits at 52%. Our videos retain almost the entire initial audience.</div>
+              </div>
+
+              <div class="p-8 rounded bg-base-900/40 border border-white/08 relative corner-bracket">
+                <div class="font-mono text-[11px] text-[#565A66] mb-2">PARTNER ROSTER LIMIT</div>
+                <div class="font-display font-extrabold text-5xl text-white mb-2">24 <span class="text-sm font-mono text-[#FF3CAC]">SLOTS</span></div>
+                <div class="text-xs text-[#9A9EAA] font-light">Strict capacity limit to preserve intense boutique execution quality.</div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 04: EDITORIAL MANIFESTO -->
+    <section class="py-28 md:py-40 border-subtle-b relative bg-base-950">
+      <div class="max-w-[1200px] mx-auto px-6 text-center">
+        
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-white/05 font-mono text-[11px] text-[#35D6FF] mb-8">
+          SYNTHOPSIS CREED // THE DEATH OF MEDIOCRITY
+        </div>
+
+        <blockquote class="font-display font-extrabold text-3xl sm:text-5xl lg:text-7xl text-white leading-tight tracking-tightest mb-10 uppercase">
+          &ldquo;THE ALGORITHM DOES NOT HATE YOU. <br />
+          IT SIMPLY REWARDS <span class="shimmer-text">UNCOMPROMISING PRECISION</span>.&rdquo;
+        </blockquote>
+
+        <p class="max-w-2xl mx-auto text-[#9A9EAA] text-base md:text-lg font-light leading-relaxed font-sans mb-10">
+          The creator economy has graduated from hobbyists in bedrooms to high-stakes cultural monopolies. If your production infrastructure looks like 2020, you are bleeding equity every single upload. We fix the machine.
+        </p>
+
+        <div class="font-mono text-xs text-[#565A66] uppercase tracking-ultra">
+          SYNTHOPSIS CREATIVE ENGINEERING LABS // TOKYO — NEW YORK — LONDON
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 05: THE 4-STEP ONBOARDING PROTOCOL -->
+    <section id="ecosystem" class="py-24 md:py-36 border-subtle-b relative bg-base-900/10">
+      <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6">
+          <div>
+            <div class="font-mono text-xs uppercase tracking-widest text-[#35D6FF] mb-3 flex items-center gap-2">
+              <span>// 04</span>
+              <span>THE PROTOCOL</span>
+            </div>
+            <h2 class="font-display font-bold text-3xl sm:text-5xl text-white tracking-tight">
+              FROM RAW LOG TO VIRAL ASCENSION.
+            </h2>
+          </div>
+          <span class="font-mono text-xs text-[#9A9EAA] max-w-xs">
+            A frictionless cloud ingest pipeline designed for high-output creators who film on their own schedule.
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+          
+          <!-- Step 1 -->
+          <div class="p-6 rounded bg-base-900/50 border border-white/06 relative flex flex-col justify-between h-72">
+            <div>
+              <span class="font-mono text-3xl font-bold text-white/20">01</span>
+              <h3 class="font-display font-bold text-lg text-white mt-4 mb-2">Cloud Footage Ingest</h3>
+              <p class="text-xs text-[#9A9EAA] font-light leading-relaxed">
+                Direct high-speed uplink from your camera cards to our private encrypted NVMe storage array.
+              </p>
+            </div>
+            <div class="font-mono text-[10px] text-[#35D6FF]">SPEED: 10GBPS DEDICATED</div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="p-6 rounded bg-base-900/50 border border-white/06 relative flex flex-col justify-between h-72">
+            <div>
+              <span class="font-mono text-3xl font-bold text-white/20">02</span>
+              <h3 class="font-display font-bold text-lg text-white mt-4 mb-2">Narrative Surgery</h3>
+              <p class="text-xs text-[#9A9EAA] font-light leading-relaxed">
+                Lead editors sculpt the A-roll for rhythm, discarding every second of unnecessary cognitive drag.
+              </p>
+            </div>
+            <div class="font-mono text-[10px] text-[#A3FF12]">TARGET: ZERO SLACK</div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="p-6 rounded bg-base-900/50 border border-white/06 relative flex flex-col justify-between h-72">
+            <div>
+              <span class="font-mono text-3xl font-bold text-white/20">03</span>
+              <h3 class="font-display font-bold text-lg text-white mt-4 mb-2">Visual & 3D Synthesis</h3>
+              <p class="text-xs text-[#9A9EAA] font-light leading-relaxed">
+                Custom sound scapes, kinetic graphics, 3D title cards, and Hollywood color grading applied.
+              </p>
+            </div>
+            <div class="font-mono text-[10px] text-[#8B5CF6]">STANDARDS: CINEMATIC 4K</div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="p-6 rounded bg-base-900/50 border border-white/06 relative flex flex-col justify-between h-72">
+            <div>
+              <span class="font-mono text-3xl font-bold text-white/20">04</span>
+              <h3 class="font-display font-bold text-lg text-white mt-4 mb-2">Multivariate Deployment</h3>
+              <p class="text-xs text-[#9A9EAA] font-light leading-relaxed">
+                Final master uploaded with 8 thumbnail options, tested in real-time, backed by syndication clips.
+              </p>
+            </div>
+            <div class="font-mono text-[10px] text-[#35D6FF]">STATUS: AUTONOMOUS LAUNCH</div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 06: MEMBERSHIP / PARTNERSHIP TIERS -->
+    <section class="py-24 md:py-36 border-subtle-b relative">
+      <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+        
+        <div class="max-w-2xl mx-auto text-center mb-20">
+          <div class="font-mono text-xs uppercase tracking-widest text-[#35D6FF] mb-3">
+            // ALLOCATION
+          </div>
+          <h2 class="font-display font-extrabold text-4xl sm:text-5xl text-white tracking-tight">
+            PARTNER ACCESS PLANS
+          </h2>
+          <p class="text-sm md:text-base text-[#9A9EAA] font-light mt-4">
+            We operate on a fixed retainer basis with zero hidden fees. Pure dedicated creative horsepower for serious channels.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          
+          <!-- Tier 1 -->
+          <div class="p-8 rounded bg-base-900/40 border border-white/08 relative flex flex-col justify-between">
+            <div>
+              <div class="font-mono text-xs text-[#9A9EAA] mb-4">TIER // 01</div>
+              <h3 class="font-display font-bold text-2xl text-white">ASCENSION</h3>
+              <p class="text-xs text-[#9A9EAA] mt-2 mb-6 font-light">For growing creators breaking through 500K - 1M subscribers.</p>
+              
+              <div class="font-display font-extrabold text-4xl text-white mb-6">
+                $5,800 <span class="font-mono text-xs font-normal text-[#565A66]">/ MONTH</span>
+              </div>
+
+              <ul class="space-y-3 font-mono text-xs text-white/80 mb-8 border-subtle-t pt-6">
+                <li class="flex items-center gap-2">
+                  <span class="text-[#35D6FF]">✓</span> 4 Longform 4K Episodes / Mo
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-[#35D6FF]">✓</span> 8 Custom 3D Thumbnails
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-[#35D6FF]">✓</span> 12 Shortform Edits (TikTok / Reels)
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-[#35D6FF]">✓</span> 48h Turnaround Window
+                </li>
+                <li class="flex items-center gap-2 text-[#565A66]">
+                  <span>✕</span> Dedicated Acoustic Engineer
+                </li>
+              </ul>
+            </div>
+
+            <a href="#deploy" class="btn-cyber block text-center py-3 rounded border border-white/15 bg-base-800 text-white font-mono text-xs hover:border-[#35D6FF]/50 hover:bg-white/05 transition-all">
+              APPLY FOR TIER 01
+            </a>
+          </div>
+
+          <!-- Tier 2 (PREMIUM HIGHLIGHT) -->
+          <div class="p-8 rounded bg-base-900/90 border border-[#35D6FF]/50 relative flex flex-col justify-between glow-cyan-soft corner-bracket">
+            <!-- Badge -->
+            <div class="absolute -top-3.5 right-6 px-3 py-1 rounded bg-[#35D6FF] text-base-950 font-mono text-[10px] font-bold tracking-wider uppercase">
+              RECOMMENDED // MOST POPULAR
+            </div>
+
+            <div>
+              <div class="font-mono text-xs text-[#35D6FF] mb-4">TIER // 02 [SYNDICATE]</div>
+              <h3 class="font-display font-bold text-2xl text-white">HYPERION CORE</h3>
+              <p class="text-xs text-[#9A9EAA] mt-2 mb-6 font-light">For flagship channels generating 5M+ monthly views.</p>
+              
+              <div class="font-display font-extrabold text-4xl text-white mb-6">
+                $11,500 <span class="font-mono text-xs font-normal text-[#565A66]">/ MONTH</span>
+              </div>
+
+              <ul class="space-y-3 font-mono text-xs text-white mb-8 border-subtle-t pt-6">
+                <li class="flex items-center gap-2">
+                  <span class="text-[#35D6FF]">✓</span> 8 Longform Master Episodes / Mo
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-[#35D6FF]">✓</span> 20 Multivariate 3D Thumbnails (A/B Test)
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-[#35D6FF]">✓</span> 30 Shortform Virals + Repurposing
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-[#35D6FF]">✓</span> Dedicated 3D Artist & Sound Designer
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-[#35D6FF]">✓</span> Algorithmic Retention Hook Consult
+                </li>
+              </ul>
+            </div>
+
+            <a href="#deploy" class="btn-cyber block text-center py-3.5 rounded bg-white text-base-950 font-mono text-xs font-bold hover:bg-[#35D6FF] transition-all glow-cyan-button">
+              SECURE SYNDICATE ALLOCATION
+            </a>
+          </div>
+
+          <!-- Tier 3 -->
+          <div class="p-8 rounded bg-base-900/40 border border-white/08 relative flex flex-col justify-between">
+            <div>
+              <div class="font-mono text-xs text-[#A3FF12] mb-4">TIER // 03</div>
+              <h3 class="font-display font-bold text-2xl text-white">NETWORK ENTERPRISE</h3>
+              <p class="text-xs text-[#9A9EAA] mt-2 mb-6 font-light">For multi-channel creator empires, podcasts, & studios.</p>
+              
+              <div class="font-display font-extrabold text-4xl text-white mb-6">
+                CUSTOM <span class="font-mono text-xs font-normal text-[#565A66]">/ BESPOKE</span>
+              </div>
+
+              <ul class="space-y-3 font-mono text-xs text-white/80 mb-8 border-subtle-t pt-6">
+                <li class="flex items-center gap-2">
+                  <span class="text-[#A3FF12]">✓</span> Unlimited Content Output
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-[#A3FF12]">✓</span> Dedicated On-Premises Squad (5+ Staff)
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-[#A3FF12]">✓</span> 24/7 Slack War Room & Immediate Turnaround
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-[#A3FF12]">✓</span> Full IP & Secondary Revenue Franchising
+                </li>
+              </ul>
+            </div>
+
+            <a href="#deploy" class="btn-cyber block text-center py-3 rounded border border-white/15 bg-base-800 text-white font-mono text-xs hover:border-[#A3FF12]/50 hover:bg-white/05 transition-all">
+              CONTACT EXECUTIVE DESK
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 07: FREQUENTLY ASKED PROTOCOLS (FAQ) -->
+    <section class="py-24 md:py-36 border-subtle-b relative bg-base-900/20">
+      <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          
+          <div class="lg:col-span-5">
+            <div class="font-mono text-xs uppercase tracking-widest text-[#35D6FF] mb-3">
+              // TRANSPARENCY
+            </div>
+            <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white tracking-tight mb-6">
+              FREQUENTLY QUERIED PROTOCOLS.
+            </h2>
+            <p class="text-[#9A9EAA] text-sm md:text-base font-light leading-relaxed mb-8">
+              Everything you need to know about our workflow, technical delivery standards, and confidential creator non-disclosure agreements.
+            </p>
+            <div class="p-5 rounded bg-base-950 border border-white/08 font-mono text-xs text-[#9A9EAA]">
+              <span class="text-white font-bold block mb-1">STILL HAVE QUESTIONS?</span>
+              Direct terminal access: <a href="mailto:ops@synthopsis.io" class="text-[#35D6FF] hover:underline">ops@synthopsis.io</a>
+            </div>
+          </div>
+
+          <!-- FAQ Accordions with clean pure JS interactivity -->
+          <div class="lg:col-span-7 space-y-4">
+            
+            <div class="faq-item rounded bg-base-950 border border-white/08 overflow-hidden transition-colors">
+              <button class="faq-btn w-full p-6 text-left flex items-center justify-between font-display font-bold text-lg text-white hover:text-[#35D6FF] transition-colors">
+                <span>How fast is the turnaround for an edited 4K video?</span>
+                <span class="faq-icon font-mono text-lg text-[#35D6FF] transition-transform duration-200">+</span>
+              </button>
+              <div class="faq-content hidden px-6 pb-6 text-sm text-[#9A9EAA] font-light leading-relaxed border-subtle-t pt-4">
+                Our standard turnaround for longform master cuts is 48 to 72 hours from the completion of your raw footage upload. Urgent editorial turnarounds (under 24 hours for timely trending topics) are available on our Syndicate and Enterprise tiers.
+              </div>
+            </div>
+
+            <div class="faq-item rounded bg-base-950 border border-white/08 overflow-hidden transition-colors">
+              <button class="faq-btn w-full p-6 text-left flex items-center justify-between font-display font-bold text-lg text-white hover:text-[#35D6FF] transition-colors">
+                <span>Do I lose creative control over my personal visual style?</span>
+                <span class="faq-icon font-mono text-lg text-[#35D6FF] transition-transform duration-200">+</span>
+              </button>
+              <div class="faq-content hidden px-6 pb-6 text-sm text-[#9A9EAA] font-light leading-relaxed border-subtle-t pt-4">
+                Never. We do not paste a generic template onto your videos. During onboarding, we reverse-engineer your brand DNA, favorite references, and pacing quirks into a dedicated 20-page style guide that our team adheres to strictly.
+              </div>
+            </div>
+
+            <div class="faq-item rounded bg-base-950 border border-white/08 overflow-hidden transition-colors">
+              <button class="faq-btn w-full p-6 text-left flex items-center justify-between font-display font-bold text-lg text-white hover:text-[#35D6FF] transition-colors">
+                <span>How do you handle confidential creator footage and NDAs?</span>
+                <span class="faq-icon font-mono text-lg text-[#35D6FF] transition-transform duration-200">+</span>
+              </button>
+              <div class="faq-content hidden px-6 pb-6 text-sm text-[#9A9EAA] font-light leading-relaxed border-subtle-t pt-4">
+                All client assets are stored on air-gapped, zero-knowledge encrypted cloud arrays. Every team member signs rigorous bilateral NDAs with substantial liquidated damages. We have operated for 4 years with zero asset leaks.
+              </div>
+            </div>
+
+            <div class="faq-item rounded bg-base-950 border border-white/08 overflow-hidden transition-colors">
+              <button class="faq-btn w-full p-6 text-left flex items-center justify-between font-display font-bold text-lg text-white hover:text-[#35D6FF] transition-colors">
+                <span>Can Synthopsis help renegotiate my brand sponsorships?</span>
+                <span class="faq-icon font-mono text-lg text-[#35D6FF] transition-transform duration-200">+</span>
+              </button>
+              <div class="faq-content hidden px-6 pb-6 text-sm text-[#9A9EAA] font-light leading-relaxed border-subtle-t pt-4">
+                Yes. Our retention reports provide audited telemetry that proves your audience watches 3x longer than competitor channels. Our clients use these media kits to command 40%–200% higher CPMs from Fortune 500 sponsors.
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 08: FINAL CONVERSION TERMINAL (CALL TO ACTION) -->
+    <section id="deploy" class="py-28 md:py-40 relative overflow-hidden bg-base-950">
+      
+      <!-- Ambient central glow -->
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#35D6FF]/10 blur-[160px] pointer-events-none"></div>
+
+      <div class="max-w-[1000px] mx-auto px-6 relative z-10 text-center">
+        
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#35D6FF]/10 border border-[#35D6FF]/30 font-mono text-[11px] text-[#35D6FF] mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#35D6FF] animate-pulse"></span>
+          <span>QUARTERLY CREATOR INTAKE: OPEN</span>
+        </div>
+
+        <h2 class="font-display font-extrabold text-4xl sm:text-6xl lg:text-7xl text-white tracking-tightest leading-tight uppercase mb-6">
+          UPGRADE YOUR CHANNEL TO <br />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#35D6FF] via-[#4D7CFF] to-[#A3FF12]">
+            MILITARY-GRADE PRODUCTION.
+          </span>
+        </h2>
+
+        <p class="max-w-xl mx-auto text-[#9A9EAA] text-base md:text-lg font-light leading-relaxed mb-10">
+          Book an algorithmic channel audit with our Creative Directors. We will analyze your last 10 uploads and demonstrate exactly where you are losing watch time.
+        </p>
+
+        <!-- High-polish Diagnostic Interactive Input Form -->
+        <div class="max-w-md mx-auto rounded-lg bg-base-900/90 border border-white/15 p-2 backdrop-blur-xl glow-cyan-soft mb-6">
+          <form id="audit-form" class="flex flex-col sm:flex-row gap-2">
+            <input 
+              type="text" 
+              id="channel-input"
+              placeholder="youtube.com/@yourchannel" 
+              required
+              class="flex-1 bg-transparent px-4 py-3 font-mono text-xs text-white placeholder-[#565A66] focus:outline-none focus:ring-1 focus:ring-[#35D6FF] rounded"
+            />
+            <button 
+              type="submit" 
+              class="btn-cyber px-6 py-3 rounded bg-white text-base-950 font-mono text-xs font-bold tracking-wider hover:bg-[#35D6FF] transition-all whitespace-nowrap glow-cyan-button">
+              REQUEST AUDIT →
+            </button>
+          </form>
+        </div>
+
+        <div id="form-feedback" class="hidden font-mono text-xs text-[#A3FF12] mb-6">
+          ✓ CHANNEL TELEMETRY QUERY SUBMITTED. OUR CHIEF RETENTION ARCHITECT WILL CONTACT YOU IN &lt; 2 HOURS.
+        </div>
+
+        <div class="flex items-center justify-center gap-6 font-mono text-[11px] text-[#565A66]">
+          <span>AVG RESPONSE: 27 MINS</span>
+          <span>•</span>
+          <span>STRICT NON-DISCLOSURE GUARANTEE</span>
+          <span>•</span>
+          <span>NO RETAINER LOCKED</span>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- LUXURY EDITORIAL FOOTER -->
+  <footer class="bg-base-950 border-subtle-t pt-16 pb-12 font-sans text-xs text-[#9A9EAA]">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-subtle-b">
+        
+        <!-- Left Col: Brand & Manifesto -->
+        <div class="md:col-span-4">
+          <a href="#" class="flex items-center gap-3 mb-4">
+            <div class="w-7 h-7 rounded bg-base-900 border border-white/20 flex items-center justify-center text-white">
+              <svg class="w-4 h-4 text-[#35D6FF]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                <polyline points="2 17 12 22 22 17" />
+                <polyline points="2 12 12 17 22 12" />
+              </svg>
+            </div>
+            <span class="font-display font-bold text-base tracking-wider text-white">SYNTHOPSIS</span>
+          </a>
+          <p class="text-xs text-[#9A9EAA] leading-relaxed max-w-sm mb-6 font-light">
+            Synthopsis is the world&apos;s premier cybernetic production enclave. We equip top-tier digital storytellers with algorithmic dominance, proprietary color pipelines, and high-retention editing.
+          </p>
+          <div class="font-mono text-[10px] text-[#565A66]">
+            SYSTEM CLUSTER // 40.7128° N, 74.0060° W // ALL SYSTEMS NORMAL
+          </div>
+        </div>
+
+        <!-- Links Col 1 -->
+        <div class="md:col-span-2">
+          <div class="font-mono text-[11px] uppercase tracking-wider text-white mb-4">SYSTEM</div>
+          <ul class="space-y-2.5 font-mono text-[11px]">
+            <li><a href="#architecture" class="hover:text-white transition-colors">Neural Timeline</a></li>
+            <li><a href="#services" class="hover:text-white transition-colors">CTR Thumbnails</a></li>
+            <li><a href="#services" class="hover:text-white transition-colors">Acoustic Lab</a></li>
+            <li><a href="#services" class="hover:text-white transition-colors">Syndication</a></li>
+            <li><a href="#performance" class="hover:text-white transition-colors">Live Benchmarks</a></li>
+          </ul>
+        </div>
+
+        <!-- Links Col 2 -->
+        <div class="md:col-span-2">
+          <div class="font-mono text-[11px] uppercase tracking-wider text-white mb-4">ENCLAVE</div>
+          <ul class="space-y-2.5 font-mono text-[11px]">
+            <li><a href="#deploy" class="hover:text-white transition-colors">Private Intake</a></li>
+            <li><a href="#deploy" class="hover:text-white transition-colors">Channel Audit</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Creator Roster</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Case Telemetry</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Sponsorship Desk</a></li>
+          </ul>
+        </div>
+
+        <!-- Links Col 3 -->
+        <div class="md:col-span-2">
+          <div class="font-mono text-[11px] uppercase tracking-wider text-white mb-4">NETWORK</div>
+          <ul class="space-y-2.5 font-mono text-[11px]">
+            <li><a href="#" class="hover:text-white transition-colors">YouTube Syndicate</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">X / Terminal</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Instagram Vault</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Discord Enclave</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Substack Dispatch</a></li>
+          </ul>
+        </div>
+
+        <!-- Links Col 4: Telemetry status -->
+        <div class="md:col-span-2">
+          <div class="font-mono text-[11px] uppercase tracking-wider text-white mb-4">SECURITY</div>
+          <ul class="space-y-2.5 font-mono text-[11px]">
+            <li><span class="text-[#A3FF12]">●</span> Air-gapped NVMe</li>
+            <li><span class="text-[#35D6FF]">●</span> Bilateral NDA</li>
+            <li><span class="text-white/60">●</span> ISO-27001 Certified</li>
+            <li><a href="#" class="hover:text-white transition-colors">Privacy Protocol</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Copyright row -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between font-mono text-[11px] text-[#565A66] gap-4">
+        <div>
+          © 2025 SYNTHOPSIS LABS INC. ALL INTELLECTUAL PROPERTY PROTECTED UNDER INTERNATIONAL PROTOCOL.
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="text-[#35D6FF]">TERMINAL: ACTIVE</span>
+          <span>LATENCY: 12MS</span>
+          <span>VERSION 4.9.2</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- SCRIPT: Lightweight native interaction listeners -->
+  <script>
+    // Mobile navigation toggle
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileToggle && mobileMenu) {
+      mobileToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        mobileMenu.classList.toggle('flex');
+      });
+    }
+
+    // FAQ Accordion interaction
+    document.querySelectorAll('.faq-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const content = item.querySelector('.faq-content');
+        const icon = btn.querySelector('.faq-icon');
+        const isHidden = content.classList.contains('hidden');
+
+        // Close other items
+        document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+        document.querySelectorAll('.faq-icon').forEach(i => {
+          i.textContent = '+';
+          i.classList.remove('rotate-45');
+        });
+
+        if (isHidden) {
+          content.classList.remove('hidden');
+          icon.textContent = '✕';
+          icon.classList.add('rotate-45');
+        }
+      });
+    });
+
+    // Form interactive submission simulation
+    const auditForm = document.getElementById('audit-form');
+    const feedback = document.getElementById('form-feedback');
+    if (auditForm && feedback) {
+      auditForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const input = document.getElementById('channel-input');
+        if (input && input.value.trim() !== '') {
+          feedback.classList.remove('hidden');
+          input.value = '';
+          setTimeout(() => {
+            feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }, 100);
+        }
+      });
+    }
+  </script>
+</body>
+</html>

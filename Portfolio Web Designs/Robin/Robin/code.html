@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ROBIN — Tactile Digital Architect &amp; Interaction Designer</title>
+<!-- Google Fonts: Syne & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Syne:wght@600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            syne: ['Syne', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            tactile: {
+              bg: '#eef2f7',
+              surface: '#f3f6fa',
+              light: '#ffffff',
+              shadow: '#c9d4e2',
+              darkShadow: '#b0bfd3',
+              coral: '#FF4D4D',
+              coralHover: '#EE3838',
+              coralGlow: 'rgba(255, 77, 77, 0.35)',
+              textMain: '#242D3D',
+              textMuted: '#68778D',
+              textSub: '#8D9CAE',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom Neumorphic Tactile Styles -->
+<style data-purpose="neumorphic-primitives">
+    :root {
+      --bg-tactile: #eef2f7;
+      --shadow-white: #ffffff;
+      --shadow-gray: #c5d2e2;
+      --shadow-dark: #b5c4d6;
+      --coral-accent: #FF4D4D;
+    }
+
+    body {
+      background-color: var(--bg-tactile);
+      color: #242D3D;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Soft Extruded Surface (Pillowed / Raised) */
+    .neu-raised {
+      background: linear-gradient(145deg, #f5f8fc, #ebf0f6);
+      box-shadow: 12px 12px 26px var(--shadow-gray), -12px -12px 26px var(--shadow-white);
+      transition: all 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .neu-raised-sm {
+      background: linear-gradient(145deg, #f7f9fd, #ebf0f6);
+      box-shadow: 6px 6px 14px var(--shadow-gray), -6px -6px 14px var(--shadow-white);
+      transition: all 0.18s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .neu-raised-xs {
+      background: #eef2f7;
+      box-shadow: 4px 4px 8px var(--shadow-gray), -4px -4px 8px var(--shadow-white);
+      transition: all 0.18s ease;
+    }
+
+    /* Deep Recessed / Inset / Sockets / Debossed Wells */
+    .neu-inset {
+      background: #e9edf3;
+      box-shadow: inset 6px 6px 12px var(--shadow-gray), inset -6px -6px 12px var(--shadow-white);
+    }
+
+    .neu-inset-sm {
+      background: #ebf0f6;
+      box-shadow: inset 3px 3px 7px var(--shadow-gray), inset -3px -3px 7px var(--shadow-white);
+    }
+
+    .neu-inset-deep {
+      background: #e4eaf2;
+      box-shadow: inset 8px 8px 16px var(--shadow-dark), inset -8px -8px 16px var(--shadow-white);
+    }
+
+    /* Tactile Pressable Push-Buttons */
+    .neu-button {
+      background: linear-gradient(145deg, #fcfdff, #e7edf5);
+      box-shadow: 7px 7px 15px var(--shadow-gray), -7px -7px 15px var(--shadow-white);
+      transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .neu-button:hover {
+      box-shadow: 9px 9px 18px var(--shadow-gray), -9px -9px 18px var(--shadow-white);
+      transform: translateY(-1px);
+    }
+
+    .neu-button:active,
+    .neu-button.active,
+    .neu-button.pressed {
+      box-shadow: inset 5px 5px 10px var(--shadow-gray), inset -5px -5px 10px var(--shadow-white) !important;
+      transform: translateY(1px) scale(0.985);
+    }
+
+    /* Vibrant Poppy Coral Accent Controls */
+    .neu-coral-btn {
+      background: linear-gradient(145deg, #ff5e5e, #ee3c3c);
+      box-shadow: 6px 6px 16px rgba(255, 77, 77, 0.38), -6px -6px 14px var(--shadow-white);
+      color: #ffffff;
+      transition: all 0.15s ease;
+    }
+
+    .neu-coral-btn:hover {
+      box-shadow: 8px 8px 20px rgba(255, 77, 77, 0.5), -7px -7px 16px var(--shadow-white);
+      transform: translateY(-1px);
+    }
+
+    .neu-coral-btn:active,
+    .neu-coral-btn.pressed {
+      background: linear-gradient(145deg, #dd3030, #ff4c4c);
+      box-shadow: inset 4px 4px 8px rgba(170, 20, 20, 0.45), inset -4px -4px 8px rgba(255, 120, 120, 0.4) !important;
+      transform: translateY(1px) scale(0.98);
+    }
+
+    /* Custom range slider thumb & track */
+    input[type=range].neu-slider-track {
+      -webkit-appearance: none;
+      background: transparent;
+      width: 100%;
+    }
+
+    input[type=range].neu-slider-track:focus {
+      outline: none;
+    }
+
+    input[type=range].neu-slider-track::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 12px;
+      cursor: pointer;
+      background: #e5ebf3;
+      border-radius: 999px;
+      box-shadow: inset 3px 3px 6px var(--shadow-gray), inset -3px -3px 6px var(--shadow-white);
+    }
+
+    input[type=range].neu-slider-track::-webkit-slider-thumb {
+      height: 28px;
+      width: 28px;
+      border-radius: 50%;
+      background: #FF4D4D;
+      cursor: pointer;
+      -webkit-appearance: none;
+      margin-top: -8px;
+      box-shadow: 3px 3px 8px rgba(255, 77, 77, 0.45), -2px -2px 6px #ffffff;
+      transition: transform 0.1s ease;
+    }
+
+    input[type=range].neu-slider-track::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+    }
+
+    /* Subtle pulse animation for status indicator */
+    @keyframes coralPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+    .pulse-coral {
+      animation: coralPulse 2.4s infinite ease-in-out;
+    }
+  </style>
+<!-- END: Custom Neumorphic Tactile Styles -->
+</head>
+<body class="min-h-screen text-tactile-textMain selection:bg-tactile-coral selection:text-white">
+<!-- BEGIN: Sticky Tactile Floating Dock -->
+<header class="fixed top-5 inset-x-0 z-50 flex justify-center px-4 sm:px-6">
+<nav class="neu-raised px-4 py-3 sm:px-6 sm:py-3.5 rounded-full flex items-center justify-between gap-4 sm:gap-8 max-w-5xl w-full border border-white/60" data-purpose="floating-navigation-bar">
+<!-- Logo Identity -->
+<a aria-label="Robin Portfolio Home" class="flex items-center gap-3 group focus:outline-none" href="#hero">
+<div class="w-10 h-10 rounded-full neu-inset flex items-center justify-center relative">
+<div class="w-3.5 h-3.5 rounded-full bg-tactile-coral shadow-sm shadow-tactile-coral/60 transition-transform group-hover:scale-125"></div>
+<span class="absolute w-2 h-2 rounded-full bg-white top-2.5 left-2.5 opacity-60"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-syne font-extrabold tracking-widest text-sm text-tactile-textMain uppercase">ROBIN</span>
+<span class="text-[10px] tracking-wider text-tactile-textMuted uppercase font-mono -mt-0.5">Tactile Studio</span>
+</div>
+</a>
+<!-- Center Segmented Switch Tabs -->
+<div class="hidden md:flex items-center p-1.5 rounded-full neu-inset gap-1 text-xs font-semibold tracking-wide" data-purpose="nav-tabs">
+<a class="px-4 py-2 rounded-full text-tactile-textMain transition-all neu-button hover:text-tactile-coral active" href="#overview">Overview</a>
+<a class="px-4 py-2 rounded-full text-tactile-textMuted hover:text-tactile-textMain transition-all hover:bg-white/40" href="#works">Works</a>
+<a class="px-4 py-2 rounded-full text-tactile-textMuted hover:text-tactile-textMain transition-all hover:bg-white/40" href="#tactile-lab">Tactile Lab</a>
+<a class="px-4 py-2 rounded-full text-tactile-textMuted hover:text-tactile-textMain transition-all hover:bg-white/40" href="#philosophy">Philosophy</a>
+<a class="px-4 py-2 rounded-full text-tactile-textMuted hover:text-tactile-textMain transition-all hover:bg-white/40" href="#contact">Connect</a>
+</div>
+<!-- Right Action & Availability Pill -->
+<div class="flex items-center gap-3">
+<div class="hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-full neu-inset text-xs font-mono text-tactile-textMuted">
+<span class="w-2 h-2 rounded-full bg-tactile-coral pulse-coral"></span>
+<span>AVAILABLE Q3/Q4</span>
+</div>
+<a class="neu-coral-btn px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide flex items-center gap-2 shadow-sm" href="#contact">
+<span>Let's Build</span>
+<span class="text-xs">→</span>
+</a>
+</div>
+</nav>
+</header>
+<!-- END: Sticky Tactile Floating Dock -->
+<!-- BEGIN: Hero Section -->
+<main class="pt-32 pb-20 sm:pt-40 sm:pb-28 px-4 sm:px-8 max-w-7xl mx-auto" id="overview">
+<section class="flex flex-col items-center text-center">
+<!-- Architectural Badge -->
+<div class="neu-inset px-4 py-1.5 rounded-full text-xs font-mono tracking-widest text-tactile-coral uppercase mb-8 flex items-center gap-2 border border-white/40">
+<span class="w-1.5 h-1.5 rounded-full bg-tactile-coral"></span>
+        DIGITAL MATERIALITY &amp; SENSORY INTERACTION
+      </div>
+<!-- Main Headline -->
+<h1 class="font-syne font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-tactile-textMain max-w-5xl leading-[1.08] mb-6">
+        Sculpting UI with <span class="text-tactile-coral">continuous light</span> and physical weight.
+      </h1>
+<!-- Subtitle -->
+<p class="text-base sm:text-lg md:text-xl text-tactile-textMuted max-w-2xl leading-relaxed mb-12">
+        I'm Robin — an interface architect blending physical audio hardware semantics, extruded ceramic forms, and fluid digital ergonomics.
+      </p>
+<!-- Action Pods -->
+<div class="flex flex-wrap justify-center items-center gap-4 sm:gap-6 mb-16">
+<a class="neu-coral-btn px-8 py-4 rounded-2xl font-syne font-bold text-sm tracking-wider uppercase flex items-center gap-3" href="#tactile-lab">
+<span>Touch Interactive Lab</span>
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+<a class="neu-button px-8 py-4 rounded-2xl font-syne font-bold text-sm tracking-wider uppercase text-tactile-textMain" href="#works">
+          View Systems
+        </a>
+</div>
+<!-- Telemetry Status Bar -->
+<div class="w-full max-w-3xl neu-inset rounded-2xl p-4 text-xs font-mono text-tactile-textMuted flex flex-wrap items-center justify-between gap-4 border border-white/50 mb-16">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tactile-coral"></span>
+<span>OPTICAL LUX: 135° NW SPECULAR</span>
+</div>
+<div class="hidden sm:block">IMPEDANCE: 0.28ms DEEP WELL</div>
+<div>TOLERANCE: ±0.024mm PHYSICAL FIDELITY</div>
+</div>
+<!-- BEGIN: Hero Interactive Console Centerpiece -->
+<div class="w-full max-w-5xl neu-raised rounded-[36px] p-6 sm:p-10 border border-white/80 relative overflow-hidden" data-purpose="hero-tactile-console">
+<!-- Top Console Panel Bar -->
+<div class="flex items-center justify-between border-b border-black/5 pb-6 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-3.5 h-3.5 rounded-full neu-inset"></div>
+<div class="w-3.5 h-3.5 rounded-full neu-inset"></div>
+<div class="w-3.5 h-3.5 rounded-full bg-tactile-coral"></div>
+<span class="text-xs font-mono tracking-widest text-tactile-textSub ml-2 uppercase">CONTROL SURFACE — MODEL R-24</span>
+</div>
+<div class="neu-inset px-3 py-1 rounded-full text-[11px] font-mono text-tactile-coral">
+            FEEDBACK: ONLINE
+          </div>
+</div>
+<!-- Grid of Tactile Elements (Replicating style in Reference Image) -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+<!-- Column 1: Transport Matrix Pad & Buttons -->
+<div class="md:col-span-4 flex flex-col gap-6">
+<span class="text-xs font-mono uppercase text-tactile-textSub tracking-wider text-left">Tactile Transport Keypad</span>
+<!-- 3x3 Tactile Pad -->
+<div class="neu-inset p-5 rounded-3xl grid grid-cols-3 gap-3 justify-items-center">
+<button aria-label="Rewind" class="neu-button w-12 h-12 rounded-2xl flex items-center justify-center text-tactile-textMuted hover:text-tactile-coral transition-all" data-sound="click">
+<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24"><path d="M11 19V5l-9 7 9 7zm1 0l9-7-9-7v14z"></path></svg>
+</button>
+<button aria-label="Stop" class="neu-button w-12 h-12 rounded-2xl flex items-center justify-center text-tactile-textMuted hover:text-tactile-coral transition-all" data-sound="click">
+<div class="w-3.5 h-3.5 rounded-sm bg-tactile-textMuted"></div>
+</button>
+<button aria-label="Fast Forward" class="neu-button w-12 h-12 rounded-2xl flex items-center justify-center text-tactile-textMuted hover:text-tactile-coral transition-all" data-sound="click">
+<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24"><path d="M4 19l9-7-9-7v14zm10 0l9-7-9-7v14z"></path></svg>
+</button>
+<button class="neu-button w-12 h-12 rounded-2xl flex items-center justify-center text-tactile-coral font-bold text-xs" data-sound="click">
+                ◄◄
+              </button>
+<button aria-label="Play" class="neu-coral-btn w-12 h-12 rounded-2xl flex items-center justify-center shadow-md active:scale-95" data-sound="click">
+<svg class="w-5 h-5 ml-0.5" fill="currentColor" viewbox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+</button>
+<button class="neu-button w-12 h-12 rounded-2xl flex items-center justify-center text-tactile-coral font-bold text-xs" data-sound="click">
+                ►►
+              </button>
+<button class="neu-button w-12 h-12 rounded-2xl flex items-center justify-center text-tactile-textMuted" data-sound="click">
+                ▲
+              </button>
+<button class="neu-button w-12 h-12 rounded-2xl flex items-center justify-center text-tactile-textMuted font-mono text-[11px]" data-sound="click">
+                ||
+              </button>
+<button class="neu-button w-12 h-12 rounded-2xl flex items-center justify-center text-tactile-textMuted" data-sound="click">
+                ▼
+              </button>
+</div>
+<!-- Inset Status Indicator Pods -->
+<div class="flex items-center justify-between gap-3">
+<div class="neu-inset w-1/2 py-2.5 px-3 rounded-2xl flex items-center justify-center gap-2">
+<div class="w-2 h-2 rounded-full bg-tactile-coral"></div>
+<span class="text-[11px] font-mono text-tactile-textMuted">SYNC OK</span>
+</div>
+<div class="neu-inset w-1/2 py-2.5 px-3 rounded-2xl flex items-center justify-center gap-2">
+<div class="w-2 h-2 rounded-full bg-gray-400"></div>
+<span class="text-[11px] font-mono text-tactile-textMuted">STABLE</span>
+</div>
+</div>
+</div>
+<!-- Column 2: Large Concentric Rotary Dial (Inspired directly by reference image center knob) -->
+<div class="md:col-span-4 flex flex-col items-center justify-center py-4">
+<span class="text-xs font-mono uppercase text-tactile-textSub tracking-wider mb-4">Tactile Master Encoder</span>
+<!-- Outer Concentric Bezel -->
+<div class="w-56 h-56 sm:w-64 sm:h-64 rounded-full neu-raised p-4 flex items-center justify-center relative cursor-grab active:cursor-grabbing select-none" id="rotary-encoder-hero">
+<!-- Calibrated Degree Ticks Ring -->
+<div class="absolute inset-2 rounded-full border border-dashed border-tactile-textSub/30 pointer-events-none"></div>
+<!-- Red Cardinal Orientation Pips -->
+<div class="absolute top-1.5 w-1.5 h-3 bg-tactile-coral rounded-full"></div>
+<div class="absolute bottom-1.5 w-1.5 h-3 bg-tactile-textSub/40 rounded-full"></div>
+<div class="absolute left-1.5 h-1.5 w-3 bg-tactile-textSub/40 rounded-full"></div>
+<div class="absolute right-1.5 h-1.5 w-3 bg-tactile-textSub/40 rounded-full"></div>
+<!-- Inner Stepped Recessed Ring -->
+<div class="w-44 h-44 sm:w-48 sm:h-48 rounded-full neu-inset p-3 flex items-center justify-center">
+<!-- Center Physical Knob That Rotates -->
+<div class="w-36 h-36 sm:w-40 sm:h-40 rounded-full neu-raised flex flex-col items-center justify-center relative transition-transform duration-75" id="hero-knob-core">
+<!-- Red Concentric Ring Line -->
+<div class="w-28 h-28 rounded-full border-2 border-tactile-coral/30 flex items-center justify-center relative">
+<!-- Red Indicator Pip -->
+<div class="absolute -top-1 w-3 h-3 rounded-full bg-tactile-coral shadow-sm shadow-tactile-coral"></div>
+<!-- Center Core Power Push-button -->
+<div class="w-14 h-14 rounded-full neu-button flex items-center justify-center text-tactile-coral shadow-inner">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-2 text-xs font-mono text-tactile-textMuted">
+<span>VALUE:</span>
+<span class="text-tactile-coral font-bold font-mono" id="hero-dial-value">148°</span>
+<span class="text-[10px] text-tactile-textSub">(DRAG OR CLICK)</span>
+</div>
+</div>
+<!-- Column 3: Tactile Vertical Sliders & Volume Pods -->
+<div class="md:col-span-4 flex flex-col gap-6">
+<span class="text-xs font-mono uppercase text-tactile-textSub tracking-wider text-left">Resonant Faders &amp; CH</span>
+<!-- Vertical Sliders Group (from Reference Image top-right) -->
+<div class="neu-raised p-5 rounded-3xl flex justify-around items-center h-48">
+<!-- Slider 1 -->
+<div class="flex flex-col items-center gap-2 h-full">
+<div class="h-32 w-8 rounded-full neu-inset flex items-end justify-center pb-2 relative cursor-pointer slider-well" data-fader="1">
+<!-- Vertical guideline -->
+<div class="w-0.5 h-24 bg-tactile-textSub/20 absolute top-4"></div>
+<!-- Coral Indicator Thumb -->
+<div class="fader-thumb w-5 h-5 rounded-full bg-tactile-coral shadow-md shadow-tactile-coral/40 relative z-10 -translate-y-12 transition-transform"></div>
+</div>
+<span class="text-[11px] font-mono text-tactile-coral">♫</span>
+</div>
+<!-- Slider 2 -->
+<div class="flex flex-col items-center gap-2 h-full">
+<div class="h-32 w-8 rounded-full neu-inset flex items-end justify-center pb-2 relative cursor-pointer slider-well" data-fader="2">
+<div class="w-0.5 h-24 bg-tactile-textSub/20 absolute top-4"></div>
+<div class="fader-thumb w-5 h-5 rounded-full bg-tactile-coral shadow-md shadow-tactile-coral/40 relative z-10 -translate-y-20 transition-transform"></div>
+</div>
+<span class="text-[11px] font-mono text-tactile-textMuted">◐</span>
+</div>
+<!-- Slider 3 -->
+<div class="flex flex-col items-center gap-2 h-full">
+<div class="h-32 w-8 rounded-full neu-inset flex items-end justify-center pb-2 relative cursor-pointer slider-well" data-fader="3">
+<div class="w-0.5 h-24 bg-tactile-textSub/20 absolute top-4"></div>
+<div class="fader-thumb w-5 h-5 rounded-full bg-tactile-coral shadow-md shadow-tactile-coral/40 relative z-10 -translate-y-6 transition-transform"></div>
+</div>
+<span class="text-[11px] font-mono text-tactile-coral">●</span>
+</div>
+</div>
+<!-- CH+ / CH- & VOL Pods (Direct reference from Image bottom) -->
+<div class="grid grid-cols-4 gap-2">
+<button class="neu-coral-btn h-12 rounded-xl text-xs font-mono font-bold flex items-center justify-center" data-sound="click">
+                CH+
+              </button>
+<button class="neu-coral-btn h-12 rounded-xl text-xs font-mono font-bold flex items-center justify-center" data-sound="click">
+                CH-
+              </button>
+<button class="neu-button h-12 rounded-xl text-xs font-mono font-bold text-tactile-textMuted flex items-center justify-center" data-sound="click">
+                VOL+
+              </button>
+<button class="neu-button h-12 rounded-xl text-xs font-mono font-bold text-tactile-textMuted flex items-center justify-center" data-sound="click">
+                VOL-
+              </button>
+</div>
+</div>
+</div>
+</div>
+<!-- END: Hero Interactive Console Centerpiece -->
+</section>
+</main>
+<!-- END: Hero Section -->
+<!-- BEGIN: Selected Works Showcase -->
+<section class="py-24 px-4 sm:px-8 max-w-7xl mx-auto border-t border-black/5" id="works">
+<div class="mb-16">
+<div class="flex items-center gap-2 text-xs font-mono uppercase text-tactile-coral tracking-widest mb-3">
+<span class="w-2 h-2 rounded-full bg-tactile-coral"></span>
+        FEATURED INTERFACE ARCHITECTURE
+      </div>
+<h2 class="font-syne font-extrabold text-3xl sm:text-5xl text-tactile-textMain tracking-tight">
+        Tangible systems sculpted for screen &amp; physical compute.
+      </h2>
+</div>
+<!-- 3 Heavy Neumorphic Project Cards -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Card 1: Kinetix Spatial Synth -->
+<article class="neu-raised rounded-[32px] p-8 flex flex-col justify-between border border-white/70 hover:translate-y-[-4px] transition-transform duration-300" data-purpose="project-card">
+<div>
+<!-- Visual Tactile Header Mockup -->
+<div class="neu-inset rounded-2xl p-6 mb-6 flex flex-col items-center justify-center relative overflow-hidden h-52">
+<!-- Sound Wave Oscilloscope Simulation -->
+<div class="w-full flex items-center justify-center gap-1.5 h-16">
+<span class="w-1.5 h-6 bg-tactile-textSub/30 rounded-full"></span>
+<span class="w-1.5 h-10 bg-tactile-textSub/40 rounded-full"></span>
+<span class="w-1.5 h-14 bg-tactile-coral rounded-full"></span>
+<span class="w-1.5 h-8 bg-tactile-textSub/40 rounded-full"></span>
+<span class="w-1.5 h-12 bg-tactile-coral rounded-full"></span>
+<span class="w-1.5 h-5 bg-tactile-textSub/30 rounded-full"></span>
+</div>
+<!-- Tactile Keys Row -->
+<div class="flex items-center gap-2 mt-4">
+<div class="neu-button px-3 py-1.5 rounded-lg text-[10px] font-mono text-tactile-coral font-bold">24-BIT</div>
+<div class="neu-button px-3 py-1.5 rounded-lg text-[10px] font-mono text-tactile-textMuted">SPATIAL</div>
+<div class="neu-button px-3 py-1.5 rounded-lg text-[10px] font-mono text-tactile-textMuted">OSC-1</div>
+</div>
+</div>
+<div class="flex items-center justify-between text-xs font-mono text-tactile-coral mb-2">
+<span>HARDWARE / SOUND UI</span>
+<span>2024</span>
+</div>
+<h3 class="font-syne font-bold text-2xl text-tactile-textMain mb-3">Kinetix Spatial Synth</h3>
+<p class="text-sm text-tactile-textMuted leading-relaxed mb-6">
+            A tactile spatial synthesizer interface translating multi-channel acoustics into direct physical gestures and debossed parametric triggers.
+          </p>
+</div>
+<div class="pt-6 border-t border-black/5 flex items-center justify-between">
+<div class="flex gap-2">
+<span class="neu-inset px-2.5 py-1 rounded-md text-[10px] font-mono text-tactile-textMuted">WebAudio</span>
+<span class="neu-inset px-2.5 py-1 rounded-md text-[10px] font-mono text-tactile-textMuted">Tactile DSL</span>
+</div>
+<button class="neu-coral-btn px-4 py-2 rounded-xl text-xs font-semibold tracking-wide flex items-center gap-1.5" data-sound="click">
+<span>Explore</span>
+<span>→</span>
+</button>
+</div>
+</article>
+<!-- Card 2: Ceramic OS Ambient Unibody -->
+<article class="neu-raised rounded-[32px] p-8 flex flex-col justify-between border border-white/70 hover:translate-y-[-4px] transition-transform duration-300" data-purpose="project-card">
+<div>
+<!-- Visual Tactile Header Mockup -->
+<div class="neu-inset rounded-2xl p-6 mb-6 flex flex-col items-center justify-center relative overflow-hidden h-52">
+<!-- Simulated Ceramic Unibody Device -->
+<div class="w-36 h-28 neu-raised rounded-2xl flex flex-col items-center justify-center p-3 relative">
+<div class="w-10 h-10 rounded-full neu-inset flex items-center justify-center mb-2">
+<div class="w-4 h-4 rounded-full bg-tactile-coral"></div>
+</div>
+<div class="w-16 h-1.5 rounded-full bg-tactile-textSub/30"></div>
+</div>
+<!-- Small Inset Badge -->
+<span class="mt-3 text-[10px] font-mono text-tactile-textSub uppercase tracking-wider">Zero-Seam Ceramic</span>
+</div>
+<div class="flex items-center justify-between text-xs font-mono text-tactile-coral mb-2">
+<span>OPERATING SYSTEM</span>
+<span>2024</span>
+</div>
+<h3 class="font-syne font-bold text-2xl text-tactile-textMain mb-3">Ceramic Ambient OS</h3>
+<p class="text-sm text-tactile-textMuted leading-relaxed mb-6">
+            A unibody operating system for domestic ambient devices where software components align perfectly to the molded matte casing shadows.
+          </p>
+</div>
+<div class="pt-6 border-t border-black/5 flex items-center justify-between">
+<div class="flex gap-2">
+<span class="neu-inset px-2.5 py-1 rounded-md text-[10px] font-mono text-tactile-textMuted">Design System</span>
+<span class="neu-inset px-2.5 py-1 rounded-md text-[10px] font-mono text-tactile-textMuted">C++ UI</span>
+</div>
+<button class="neu-coral-btn px-4 py-2 rounded-xl text-xs font-semibold tracking-wide flex items-center gap-1.5" data-sound="click">
+<span>Explore</span>
+<span>→</span>
+</button>
+</div>
+</article>
+<!-- Card 3: Aura Bio-Haptic Wearable -->
+<article class="neu-raised rounded-[32px] p-8 flex flex-col justify-between border border-white/70 hover:translate-y-[-4px] transition-transform duration-300" data-purpose="project-card">
+<div>
+<!-- Visual Tactile Header Mockup -->
+<div class="neu-inset rounded-2xl p-6 mb-6 flex flex-col items-center justify-center relative overflow-hidden h-52">
+<!-- Circular Gauge Pod (inspired by Image circle indicators) -->
+<div class="w-28 h-28 rounded-full neu-raised flex items-center justify-center relative">
+<div class="w-20 h-20 rounded-full neu-inset flex flex-col items-center justify-center">
+<span class="text-xs font-mono font-bold text-tactile-coral">98.4</span>
+<span class="text-[9px] font-mono text-tactile-textSub">BPM</span>
+</div>
+<!-- Orbit pip -->
+<div class="absolute top-2 right-2 w-3 h-3 rounded-full bg-tactile-coral pulse-coral"></div>
+</div>
+<span class="mt-3 text-[10px] font-mono text-tactile-textSub uppercase tracking-wider">Haptic Health Architecture</span>
+</div>
+<div class="flex items-center justify-between text-xs font-mono text-tactile-coral mb-2">
+<span>BIOMETRIC TELEMETRY</span>
+<span>2023</span>
+</div>
+<h3 class="font-syne font-bold text-2xl text-tactile-textMain mb-3">Aura Bio-Tracker</h3>
+<p class="text-sm text-tactile-textMuted leading-relaxed mb-6">
+            Translating microscopic heartbeat variability and sleep architecture into soft, reassuring physical dial resistances and micro-vibrations.
+          </p>
+</div>
+<div class="pt-6 border-t border-black/5 flex items-center justify-between">
+<div class="flex gap-2">
+<span class="neu-inset px-2.5 py-1 rounded-md text-[10px] font-mono text-tactile-textMuted">iOS Native</span>
+<span class="neu-inset px-2.5 py-1 rounded-md text-[10px] font-mono text-tactile-textMuted">Haptics</span>
+</div>
+<button class="neu-coral-btn px-4 py-2 rounded-xl text-xs font-semibold tracking-wide flex items-center gap-1.5" data-sound="click">
+<span>Explore</span>
+<span>→</span>
+</button>
+</div>
+</article>
+</div>
+</section>
+<!-- END: Selected Works Showcase -->
+<!-- BEGIN: Interactive Tactile Lab (Faithfully inspired by provided Reference Image components) -->
+<section class="py-24 px-4 sm:px-8 max-w-7xl mx-auto border-t border-black/5" id="tactile-lab">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full neu-inset text-xs font-mono text-tactile-coral uppercase tracking-widest mb-4">
+<span>●</span> DIRECT COMPONENT LABORATORY
+      </div>
+<h2 class="font-syne font-extrabold text-3xl sm:text-5xl text-tactile-textMain tracking-tight mb-4">
+        The Tactile Micro-Component Playground
+      </h2>
+<p class="text-tactile-textMuted text-base sm:text-lg">
+        Every element directly reproduces the dual-shadow extrusion physics, deep inset sockets, and poppy coral accents seen in the laboratory schematics.
+      </p>
+</div>
+<!-- Playground Container -->
+<div class="neu-raised rounded-[40px] p-6 sm:p-12 border border-white/80">
+<!-- Top Component Row (Image reference: Top left image frame and GPS button) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center mb-12 pb-12 border-b border-black/5">
+<!-- Component A: Inset Screen Frame with Poppy Coral Mountain Badge -->
+<div class="neu-inset rounded-[28px] p-6 flex flex-col items-center justify-center">
+<div class="w-full flex items-center justify-between text-xs font-mono text-tactile-textSub mb-4 px-2">
+<span>MOLDED FRAME</span>
+<button class="neu-button px-3 py-1 rounded-full text-[10px] font-mono active:scale-95">RESET</button>
+</div>
+<!-- Tactile Display Pod with Mountain Glyph -->
+<div class="w-48 h-32 rounded-2xl neu-raised flex flex-col items-center justify-center relative p-4">
+<div class="w-2.5 h-2.5 rounded-full bg-tactile-coral absolute top-3 left-4"></div>
+<!-- Mountain Graphic Outline (Reference Image) -->
+<svg class="w-20 h-14 text-tactile-coral" fill="currentColor" viewbox="0 0 100 60">
+<path d="M10 50 Q 25 15, 45 40 T 85 20 Q 95 35, 95 50 Z" opacity="0.85"></path>
+</svg>
+<div class="flex gap-1.5 mt-2">
+<span class="w-1.5 h-1.5 rounded-full bg-tactile-coral"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-tactile-textSub/40"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-tactile-textSub/40"></span>
+</div>
+</div>
+<span class="text-xs font-mono text-tactile-textMuted mt-4">RECESSED SCREEN SOCKET</span>
+</div>
+<!-- Component B: Circular Recessed GPS & Pin Pod (Reference Image Top-Center) -->
+<div class="flex flex-col items-center justify-center">
+<div class="w-36 h-36 rounded-full neu-inset flex items-center justify-center relative cursor-pointer group" data-purpose="gps-beacon" id="gps-tactile-socket">
+<!-- Extruded Center Circle -->
+<div class="w-24 h-24 rounded-full neu-raised flex flex-col items-center justify-center transition-transform group-hover:scale-95 group-active:scale-90">
+<!-- Coral Pin Icon -->
+<svg class="w-7 h-7 text-tactile-coral mb-1 group-hover:bounce" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path>
+</svg>
+<span class="text-[10px] font-mono tracking-widest font-bold text-tactile-textSub">GPS</span>
+</div>
+</div>
+<span class="text-xs font-mono text-tactile-textMuted mt-4">DEPRESSED GPS ANCHOR</span>
+</div>
+<!-- Component C: Tactile "BUY / ACTION" Pill Toggle (Reference Image Top-Right) -->
+<div class="neu-raised rounded-[28px] p-6 flex flex-col items-center justify-center">
+<div class="w-full flex items-center justify-between text-xs font-mono text-tactile-textSub mb-4 px-2">
+<span>ACTION LATCH</span>
+<span class="text-tactile-coral" id="latch-status">ENGAGED</span>
+</div>
+<div class="neu-inset p-2 rounded-full w-48 flex items-center justify-between cursor-pointer" id="tactile-latch-track">
+<span class="text-xs font-mono px-3 text-tactile-textSub">IMAGES</span>
+<button class="neu-coral-btn px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase transition-all shadow-md" id="latch-thumb">
+              BUY
+            </button>
+</div>
+<div class="flex gap-1.5 mt-5">
+<span class="w-1.5 h-1.5 rounded-full bg-tactile-coral"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-tactile-coral"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-tactile-coral"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-tactile-textSub/30"></span>
+</div>
+<span class="text-xs font-mono text-tactile-textMuted mt-3">TACTILE BISTABLE SWITCH</span>
+</div>
+</div>
+<!-- Bottom Component Row: Favorites, Lock, Cloud, Error, Channels (From Image) -->
+<div>
+<div class="text-xs font-mono uppercase text-tactile-textSub tracking-wider mb-6 text-center sm:text-left">
+          TACTILE CIRCULAR WELLS &amp; DEBOSSED KEY ARRAY
+        </div>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 items-center justify-items-center">
+<!-- Well 1: Favorites / Star -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-20 h-20 rounded-full neu-inset flex items-center justify-center cursor-pointer group" data-sound="click">
+<div class="w-14 h-14 rounded-full neu-raised flex flex-col items-center justify-center group-hover:scale-95 group-active:scale-90 transition-transform">
+<svg class="w-4 h-4 text-tactile-coral" fill="currentColor" viewbox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+<span class="text-[8px] font-mono text-tactile-textSub mt-0.5">FAV</span>
+</div>
+</div>
+<span class="text-[11px] font-mono text-tactile-textMuted">Star Pod</span>
+</div>
+<!-- Well 2: Lock Capsule -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-20 h-20 rounded-full neu-inset flex items-center justify-center cursor-pointer group" data-sound="click">
+<div class="w-14 h-14 rounded-full neu-raised flex flex-col items-center justify-center group-hover:scale-95 group-active:scale-90 transition-transform">
+<svg class="w-4 h-4 text-tactile-textMuted" fill="currentColor" viewbox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"></path></svg>
+<span class="text-[8px] font-mono text-tactile-textSub mt-0.5">LOCK</span>
+</div>
+</div>
+<span class="text-[11px] font-mono text-tactile-textMuted">Lock Capsule</span>
+</div>
+<!-- Well 3: Cloud Sync -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-20 h-20 rounded-full neu-inset flex items-center justify-center cursor-pointer group" data-sound="click">
+<div class="w-14 h-14 rounded-full neu-raised flex flex-col items-center justify-center group-hover:scale-95 group-active:scale-90 transition-transform">
+<svg class="w-4 h-4 text-tactile-coral" fill="currentColor" viewbox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"></path></svg>
+<span class="text-[8px] font-mono text-tactile-textSub mt-0.5">CLOUD</span>
+</div>
+</div>
+<span class="text-[11px] font-mono text-tactile-textMuted">Cloud Well</span>
+</div>
+<!-- Well 4: Error Trigger -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-20 h-20 rounded-full neu-inset flex items-center justify-center cursor-pointer group" data-sound="click">
+<div class="w-14 h-14 rounded-full neu-raised flex flex-col items-center justify-center group-hover:scale-95 group-active:scale-90 transition-transform">
+<span class="text-sm font-bold text-tactile-coral">✕</span>
+<span class="text-[8px] font-mono text-tactile-textSub mt-0.5">ERROR</span>
+</div>
+</div>
+<span class="text-[11px] font-mono text-tactile-textMuted">Cancel Ring</span>
+</div>
+<!-- Key 5: CH+ Poppy Red Square -->
+<div class="flex flex-col items-center gap-2">
+<button class="neu-coral-btn w-16 h-16 rounded-2xl flex flex-col items-center justify-center font-mono font-bold text-sm tracking-wider" data-sound="click">
+<span>CH+</span>
+<span class="text-[9px] opacity-75 font-normal">PUSH</span>
+</button>
+<span class="text-[11px] font-mono text-tactile-textMuted">Active CH</span>
+</div>
+<!-- Key 6: Vol White Inset Square -->
+<div class="flex flex-col items-center gap-2">
+<button class="neu-inset w-16 h-16 rounded-2xl flex flex-col items-center justify-center font-mono font-semibold text-tactile-coral text-sm tracking-wider hover:opacity-80 active:scale-95" data-sound="click">
+<span>VOL</span>
+<span class="text-[10px] text-tactile-textSub">+</span>
+</button>
+<span class="text-[11px] font-mono text-tactile-textMuted">Debossed Pad</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Interactive Tactile Lab -->
+<!-- BEGIN: Design Principles & Philosophy -->
+<section class="py-24 px-4 sm:px-8 max-w-7xl mx-auto border-t border-black/5" id="philosophy">
+<div class="mb-16">
+<div class="flex items-center gap-2 text-xs font-mono uppercase text-tactile-coral tracking-widest mb-3">
+<span class="w-2 h-2 rounded-full bg-tactile-coral"></span>
+        MANIFESTO
+      </div>
+<h2 class="font-syne font-extrabold text-3xl sm:text-5xl text-tactile-textMain tracking-tight max-w-3xl">
+        Three laws of digital materiality.
+      </h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Principle 1 -->
+<div class="neu-raised rounded-3xl p-8 border border-white/80 flex flex-col justify-between">
+<div>
+<div class="w-14 h-14 rounded-2xl neu-inset flex items-center justify-center text-tactile-coral font-syne font-extrabold text-xl mb-6">
+            01
+          </div>
+<h3 class="font-syne font-bold text-xl text-tactile-textMain mb-3">Molded Continuous Surface</h3>
+<p class="text-tactile-textMuted text-sm leading-relaxed mb-4">
+            Zero arbitrary black borders or disconnected cards. Every interface module is sculpted out of the same digital ceramic substrate using continuous curvature and unified light vectors.
+          </p>
+</div>
+<div class="neu-inset p-3 rounded-xl text-xs font-mono text-tactile-textSub">
+          TOLERANCE: G2 CONTINUOUS FILLET
+        </div>
+</div>
+<!-- Principle 2 -->
+<div class="neu-raised rounded-3xl p-8 border border-white/80 flex flex-col justify-between">
+<div>
+<div class="w-14 h-14 rounded-2xl neu-inset flex items-center justify-center text-tactile-coral font-syne font-extrabold text-xl mb-6">
+            02
+          </div>
+<h3 class="font-syne font-bold text-xl text-tactile-textMain mb-3">Dual-Phase Specular Light</h3>
+<p class="text-tactile-textMuted text-sm leading-relaxed mb-4">
+            Physical shadows are never pure black. We model 135° diffuse atmospheric illumination, pairing pure white specular rim glints with soft cool-slate diffused ambient occlusion.
+          </p>
+</div>
+<div class="neu-inset p-3 rounded-xl text-xs font-mono text-tactile-textSub">
+          LIGHT VECTOR: -12px/-12px #FFF • 12px/12px #C9D4E2
+        </div>
+</div>
+<!-- Principle 3 -->
+<div class="neu-raised rounded-3xl p-8 border border-white/80 flex flex-col justify-between">
+<div>
+<div class="w-14 h-14 rounded-2xl neu-inset flex items-center justify-center text-tactile-coral font-syne font-extrabold text-xl mb-6">
+            03
+          </div>
+<h3 class="font-syne font-bold text-xl text-tactile-textMain mb-3">Calibrated Sensory Friction</h3>
+<p class="text-tactile-textMuted text-sm leading-relaxed mb-4">
+            Digital software shouldn't feel like frictionless soap. We introduce intentional click resistance, debossed resting wells, and micro-haptic confirmation on every critical control.
+          </p>
+</div>
+<div class="neu-inset p-3 rounded-xl text-xs font-mono text-tactile-textSub">
+          RESISTANCE FACTOR: 0.74 N/M
+        </div>
+</div>
+</div>
+</section>
+<!-- END: Design Principles & Philosophy -->
+<!-- BEGIN: Contact & Project Commissioning -->
+<section class="py-24 px-4 sm:px-8 max-w-5xl mx-auto border-t border-black/5" id="contact">
+<div class="neu-raised rounded-[40px] p-8 sm:p-14 border border-white/80 relative">
+<div class="text-center max-w-2xl mx-auto mb-12">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full neu-inset text-xs font-mono text-tactile-coral uppercase tracking-widest mb-4">
+<span class="w-2 h-2 rounded-full bg-tactile-coral"></span> DIRECT CHANNEL
+        </div>
+<h2 class="font-syne font-extrabold text-3xl sm:text-4xl text-tactile-textMain tracking-tight mb-3">
+          Commission a Tactile System
+        </h2>
+<p class="text-tactile-textMuted text-sm sm:text-base">
+          Currently taking design system architecture and tactile product engineering for Q3/Q4 2024.
+        </p>
+</div>
+<!-- Tactile Form -->
+<form class="space-y-6" data-purpose="contact-form" onsubmit="event.preventDefault(); alert('Message dispatched to Robin. System response latency: 24h.');">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<!-- Name Input -->
+<div class="flex flex-col gap-2">
+<label class="text-xs font-mono uppercase text-tactile-textSub tracking-wider">Your Name / Organization</label>
+<input class="neu-inset rounded-2xl px-5 py-4 text-sm text-tactile-textMain border-0 focus:ring-2 focus:ring-tactile-coral/50 placeholder:text-tactile-textSub/50" placeholder="Dieter Rams or Studio..." required="" type="text"/>
+</div>
+<!-- Email Input -->
+<div class="flex flex-col gap-2">
+<label class="text-xs font-mono uppercase text-tactile-textSub tracking-wider">Direct Transmission Email</label>
+<input class="neu-inset rounded-2xl px-5 py-4 text-sm text-tactile-textMain border-0 focus:ring-2 focus:ring-tactile-coral/50 placeholder:text-tactile-textSub/50" placeholder="contact@studio.design" required="" type="email"/>
+</div>
+</div>
+<!-- Project Scale Selector Pills -->
+<div class="flex flex-col gap-2">
+<label class="text-xs font-mono uppercase text-tactile-textSub tracking-wider">Project Scope &amp; Materiality</label>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3" data-purpose="scope-selector">
+<button class="neu-button px-4 py-3 rounded-2xl text-xs font-mono font-semibold text-tactile-textMuted hover:text-tactile-coral active focus:ring-2 focus:ring-tactile-coral/50" type="button">Full Design System</button>
+<button class="neu-button px-4 py-3 rounded-2xl text-xs font-mono font-semibold text-tactile-textMuted hover:text-tactile-coral focus:ring-2 focus:ring-tactile-coral/50" type="button">Hardware &amp; Screen</button>
+<button class="neu-button px-4 py-3 rounded-2xl text-xs font-mono font-semibold text-tactile-textMuted hover:text-tactile-coral focus:ring-2 focus:ring-tactile-coral/50" type="button">Spatial Audio App</button>
+<button class="neu-button px-4 py-3 rounded-2xl text-xs font-mono font-semibold text-tactile-textMuted hover:text-tactile-coral focus:ring-2 focus:ring-tactile-coral/50" type="button">Tactile Audit</button>
+</div>
+</div>
+<!-- Message Input -->
+<div class="flex flex-col gap-2">
+<label class="text-xs font-mono uppercase text-tactile-textSub tracking-wider">System Specifications &amp; Timeline</label>
+<textarea class="neu-inset rounded-2xl px-5 py-4 text-sm text-tactile-textMain border-0 focus:ring-2 focus:ring-tactile-coral/50 placeholder:text-tactile-textSub/50" placeholder="Describe the physical &amp; digital requirements of the project..." rows="4"></textarea>
+</div>
+<!-- Submit Button -->
+<div class="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+<span class="text-xs font-mono text-tactile-textSub">ENCRYPTED TACTILE PIPELINE • 24H RESPONSE</span>
+<button class="neu-coral-btn w-full sm:w-auto px-10 py-4 rounded-2xl font-syne font-bold text-sm tracking-widest uppercase flex items-center justify-center gap-3" type="submit">
+<span>Transmit Inquiry</span>
+<span>→</span>
+</button>
+</div>
+</form>
+</div>
+</section>
+<!-- END: Contact & Project Commissioning -->
+<!-- BEGIN: Tactile Footer -->
+<footer class="pb-16 pt-8 px-4 sm:px-8 max-w-7xl mx-auto border-t border-black/5">
+<div class="flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+<!-- Identity & Copyright -->
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full neu-inset flex items-center justify-center">
+<div class="w-2.5 h-2.5 rounded-full bg-tactile-coral"></div>
+</div>
+<div>
+<span class="font-syne font-extrabold tracking-wider text-sm text-tactile-textMain uppercase">ROBIN</span>
+<p class="text-xs font-mono text-tactile-textSub">All surfaces extruded in ceramic code © 2024.</p>
+</div>
+</div>
+<!-- Tactile Social Links (Sculpted rounded squares) -->
+<div class="flex items-center gap-3" data-purpose="social-links">
+<a aria-label="X Profile" class="neu-button w-10 h-10 rounded-xl flex items-center justify-center text-tactile-textMuted hover:text-tactile-coral text-xs font-mono font-bold" href="#overview">
+          𝕏
+        </a>
+<a aria-label="GitHub Profile" class="neu-button w-10 h-10 rounded-xl flex items-center justify-center text-tactile-textMuted hover:text-tactile-coral text-xs font-mono font-bold" href="#overview">
+          GH
+        </a>
+<a aria-label="ReadCV Profile" class="neu-button w-10 h-10 rounded-xl flex items-center justify-center text-tactile-textMuted hover:text-tactile-coral text-xs font-mono font-bold" href="#overview">
+          CV
+        </a>
+<a aria-label="Figma Community" class="neu-button w-10 h-10 rounded-xl flex items-center justify-center text-tactile-textMuted hover:text-tactile-coral text-xs font-mono font-bold" href="#overview">
+          FG
+        </a>
+</div>
+<!-- Back to top trigger -->
+<a class="neu-inset px-4 py-2 rounded-full text-xs font-mono text-tactile-textMuted hover:text-tactile-coral transition-colors flex items-center gap-2" href="#overview">
+<span>TOP OF SURFACE</span>
+<span>↑</span>
+</a>
+</div>
+</footer>
+<!-- END: Tactile Footer -->
+<!-- BEGIN: Interactive Behavior Script -->
+<script data-purpose="interactive-tactile-controls">
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      // 1. Tactile Push-Button Click Feedback (Audio-visual simulation)
+      const pressableButtons = document.querySelectorAll('button, .neu-button, .neu-coral-btn');
+      
+      pressableButtons.forEach(btn => {
+        btn.addEventListener('mousedown', () => {
+          btn.classList.add('pressed');
+        });
+        
+        btn.addEventListener('mouseup', () => {
+          btn.classList.remove('pressed');
+        });
+
+        btn.addEventListener('mouseleave', () => {
+          btn.classList.remove('pressed');
+        });
+      });
+
+      // 2. Rotary Jog Dial Interactive Rotation
+      const dialContainer = document.getElementById('rotary-encoder-hero');
+      const dialKnob = document.getElementById('hero-knob-core');
+      const dialValueDisplay = document.getElementById('hero-dial-value');
+      let currentAngle = 148;
+      let isDragging = false;
+
+      if (dialContainer && dialKnob) {
+        dialKnob.style.transform = `rotate(${currentAngle}deg)`;
+
+        const updateDial = (clientX, clientY) => {
+          const rect = dialContainer.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
+          const deltaX = clientX - centerX;
+          const deltaY = clientY - centerY;
+          let deg = Math.atan2(deltaY, deltaX) * (180 / Math.PI) + 90;
+          if (deg < 0) deg += 360;
+          currentAngle = Math.round(deg);
+          dialKnob.style.transform = `rotate(${currentAngle}deg)`;
+          if (dialValueDisplay) {
+            dialValueDisplay.textContent = `${currentAngle}°`;
+          }
+        };
+
+        dialContainer.addEventListener('mousedown', (e) => {
+          isDragging = true;
+          updateDial(e.clientX, e.clientY);
+        });
+
+        window.addEventListener('mousemove', (e) => {
+          if (!isDragging) return;
+          updateDial(e.clientX, e.clientY);
+        });
+
+        window.addEventListener('mouseup', () => {
+          isDragging = false;
+        });
+
+        // Touch support
+        dialContainer.addEventListener('touchmove', (e) => {
+          if (e.touches.length > 0) {
+            updateDial(e.touches[0].clientX, e.touches[0].clientY);
+          }
+        }, { passive: true });
+      }
+
+      // 3. Vertical Slider Thumb Interaction
+      const sliderWells = document.querySelectorAll('.slider-well');
+      sliderWells.forEach(well => {
+        well.addEventListener('click', (e) => {
+          const rect = well.getBoundingClientRect();
+          const clickY = e.clientY - rect.top;
+          const height = rect.height;
+          // Clamp between 8px and height - 12px
+          const clampedY = Math.max(10, Math.min(height - 18, clickY));
+          const thumb = well.querySelector('.fader-thumb');
+          if (thumb) {
+            const translateY = -(height - clampedY);
+            thumb.style.transform = `translateY(${translateY}px)`;
+          }
+        });
+      });
+
+      // 4. Action Bistable Switch Toggle (BUY / IMAGES switch)
+      const latchTrack = document.getElementById('tactile-latch-track');
+      const latchThumb = document.getElementById('latch-thumb');
+      const latchStatus = document.getElementById('latch-status');
+      let latchState = true;
+
+      if (latchTrack && latchThumb) {
+        latchTrack.addEventListener('click', () => {
+          latchState = !latchState;
+          if (latchState) {
+            latchThumb.textContent = 'BUY';
+            latchThumb.classList.add('neu-coral-btn');
+            latchThumb.classList.remove('neu-button', 'text-tactile-textMuted');
+            if (latchStatus) latchStatus.textContent = 'ENGAGED';
+          } else {
+            latchThumb.textContent = 'IDLE';
+            latchThumb.classList.remove('neu-coral-btn');
+            latchThumb.classList.add('neu-button', 'text-tactile-textMuted');
+            if (latchStatus) latchStatus.textContent = 'STANDBY';
+          }
+        });
+      }
+
+      // 5. Segmented Nav Tabs State Toggling
+      const navTabs = document.querySelectorAll('[data-purpose="nav-tabs"] a');
+      navTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          navTabs.forEach(t => {
+            t.classList.remove('neu-button', 'text-tactile-textMain', 'active');
+            t.classList.add('text-tactile-textMuted');
+          });
+          tab.classList.add('neu-button', 'text-tactile-textMain', 'active');
+          tab.classList.remove('text-tactile-textMuted');
+        });
+      });
+
+      // 6. Project Scope Selector Pills in Contact Section
+      const scopeButtons = document.querySelectorAll('[data-purpose="scope-selector"] button');
+      scopeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          scopeButtons.forEach(b => {
+            b.classList.remove('neu-coral-btn', 'text-white');
+            b.classList.add('neu-button', 'text-tactile-textMuted');
+          });
+          btn.classList.add('neu-coral-btn', 'text-white');
+          btn.classList.remove('neu-button', 'text-tactile-textMuted');
+        });
+      });
+
+    });
+  </script>
+<!-- END: Interactive Behavior Script -->
+</body></html>

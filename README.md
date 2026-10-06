@@ -41,12 +41,14 @@ Every design folder contains:
 ## 📂 Sections
 
 ### 🎨 Portfolio
-- [Portfolio Design 1](Portfolio/Design1)
-- [Portfolio Design 2](Portfolio/Design2)
+- [Fury](<Portfolio Web Designs/Fury>)
+- [Robin](<Portfolio Web Designs/Robin>)
 
 ### 🛒 E‑commerce
-- [Ecommerce Design 1](Ecommerce/Design1)
-- [Ecommerce Design 2](Ecommerce/Design2)
+- [Verdant](<E-Commerce Web Designs/Verdant>)
+
+### 🧑‍💼 Business & Service
+- [Synthopsis](<Business & Service Web Designs/Synthopsis>)
 
 ### 🌐 All‑in‑One
 - [All-in-One Design 1](All-in-One/Design1)

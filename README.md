@@ -7,7 +7,7 @@
 
 ## `Welcome to UI/UX Designs` 🕊️
 
-👋 Hey there! This repo is the **personal collection of UI/UX frontend and landing page designs**. It showcases our journey of building **modern, aesthetic, and functional interfaces** that highlight creativity and clarity. Each project is carefully crafted with a focus on **clean visuals, stunning aesthetics, and smooth usability** ✨. From **portfolio layouts** to **e‑commerce experiences**, this repo is our growing playground of design ideas. Explore and enjoy the process of seeing designs come alive 💻🎨.
+👋 Hey there! This repo is the **personal collection of UI/UX frontend and landing page designs**. It showcases my journey of building **modern, aesthetic, and functional interfaces** that highlight creativity and clarity. Each project is carefully crafted with a focus on **clean visuals, stunning aesthetics, and smooth usability** ✨. From **portfolio layouts** to **e‑commerce experiences**, this repo is my growing playground of design ideas. Explore and enjoy the process of seeing designs come alive 💻🎨.
 
 ---
 ---

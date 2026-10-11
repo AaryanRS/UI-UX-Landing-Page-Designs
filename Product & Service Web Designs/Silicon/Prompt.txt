@@ -1,0 +1,73 @@
+# SILION — HUMAN-GRADE AI LANDING PAGE PROMPT SPECIFICATION
+
+## System & Creative Intent
+Create a premium, cinematic landing page for an enterprise AI infrastructure company called **Silion**.
+The objective is to establish an atmospheric, high-end, and mathematically rigorous visual presence that communicates human-grade causal reasoning, deterministic verification, and intelligence grounded in real-world telemetry — steering completely clear of generic SaaS gradients, playful illustrations, or standard chatbot tropes.
+
+---
+
+## 1. BRAND & IDENTITY SPECIFICATION
+- **Product Name:** Silion
+- **Positioning:** Human-Grade Reasoning / Sovereign Cognitive Infrastructure
+- **Wordmark Treatment:** Minimal, restrained geometric typography in Geist / Inter (`SILION // SYS.AI // V4.2`), accompanied by an ultra-thin technical badge or monospaced version string.
+- **Tone:** Scientific, expensive, mysterious, minimal, and computationally authoritative.
+
+---
+
+## 2. COLOR PALETTE & ATMOSPHERE
+- **Background Tones:**
+  - Base Deep Navy: `#03051A`
+  - Mid Surface: `#05082A`
+  - High Contrast Surface: `#070B35` / `#0C1031`
+- **Primary Accents & Lighting:**
+  - Quantum Indigo / Core Blue: `#536BFF`
+  - Electric Blue: `#7887FF`
+  - Synapse Violet: `#A78BFF`
+  - Cyan-White Neural Ignition: `#E0E7FF` / `#FFFFFF`
+- **Typography Colors:**
+  - Primary Headlines: `#F5F7FF`
+  - Secondary Copy: `#8991B5`
+  - Low-Contrast Telemetry / HUD: `#39416D` / `#4E588A`
+- **Atmospheric Layering:** Hairline coordinate grid overlays, subtle radial dark falloff vignetting, and zero garish gradient blobs.
+
+---
+
+## 3. HERO COMPOSITION & INTERACTIVE VISUALIZATION
+- **Volumetric Particle Human Mind (Three.js / WebGL):**
+  - Synthesize ~14,000 volumetric luminous points forming an anatomical human cranium, temple, cheekbone, eye socket, jaw, and neck profile that dissolves into atmospheric neural dust.
+  - **Dynamic Traveling Energy Pulse:** A localized luminescence wave that sweeps periodically down facial coordinates (temple → cheek → jaw), exciting particles from deep blue into electric violet and cyan-white.
+  - **Mouse Parallax & Inertia:** Subtle responsive tilt (3–8px) toward the user's cursor with micro-shimmer and organic drift.
+- **Hero Headline & Layout:**
+  - Left-aligned headline: `"Human-Grade Reasoning."` with negative letter tracking and tight line height.
+  - Sub-copy: *"Engineered for multi-step causal reasoning directed directly in enterprise telemetry, unstructured operational records, and sovereign real-time context."*
+  - Dual technical CTAs: Primary pill button `"Deploy Silion Engine ⚡"` and ghost border button `"Explore Architecture Audit →"`.
+- **Cyclic Message Transition (Lower Right):**
+  - Smooth cycling text transition (blur + fade ease) between core brand axioms:
+    1. *"Built Into Every Decision."*
+    2. *"Grounded In Your Own Data."*
+    3. *"Verifiable Multi-Step Chains."*
+    4. *"Zero Speculative Hallucination."*
+- **Technical HUD Telemetry:**
+  - Minimal monospace coordinate markers: `VECTOR_LAT: 47.6062° N`, `VECTOR_LNG: -122.3321° W`, `ENTROPY: 0.0028 ± 0.0001`, `CYCLE_TIME: 14.2ms`.
+
+---
+
+## 4. SECTION INFORMATION ARCHITECTURE
+1. **Scene 01 — Fixed Navigation:**
+   - Left: Refined Silion wordmark + version telemetry.
+   - Center: `Product`, `Intelligence`, `Platform`, `Research`, `Company`.
+   - Right: Minimal pill `Request Access →`.
+2. **Scene 02 — Architecture // Topological Reasoning:**
+   - Headline: *"Reasoning that understands the context."*
+   - Modular cards: Multi-Modal World Modeling, Deterministic Verification, Latent State Memory, Grounding Engine.
+3. **Scene 03 — Continuous Pipeline // Grounded In Your Own Data:**
+   - 5-stage sequential data transit pipeline: Ingestion → Parsing → Resolution → Core Engine → Action Dispatch.
+   - Proof metrics: `99.98% Verification Fidelity`, `0.00 Speculative Hallucination`, `<18ms Decision Dispatch`.
+4. **Scene 04 — Production Workloads // Built Into Every Decision:**
+   - Telemetry monitors: Algorithmic Capital Allocation & Risk Telemetry, High-Throughput Autonomous Supply Chains, Clinical Trial Synthesis & Molecular Validation.
+5. **Scene 05 — Rigorous Benchmarks // Silion vs. Probabilistic LLMs:**
+   - Multi-metric comparative specification table alongside a live terminal window displaying a continuous SAT-solver mathematical constraint trace.
+6. **Scene 06 — Access Gateway & Terminal Footer:**
+   - Headline: *"Experience Human-Grade Intelligence."*
+   - Enterprise email dispatch form with instant validation.
+   - Compliance proofs: SOC 2 Type II, ISO/IEC 27001, HIPAA & FedRAMP Ready, Air-Gap Deployable.

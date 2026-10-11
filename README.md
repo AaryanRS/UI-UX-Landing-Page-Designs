@@ -50,6 +50,7 @@ Every design folder contains:
 ### 🧑‍💼 Product & Service
 - [Synthopsis](<Product & Service Web Designs/Synthopsis>)
 - [Kronos 01](<Product & Service Web Designs/Kronos 01>)
+- [Silicon](<Product & Service Web Designs/Silicon>)
 
 ### 🌐 All‑in‑One
 - [All-in-One Design 1](All-in-One/Design1)

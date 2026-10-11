@@ -47,8 +47,9 @@ Every design folder contains:
 ### 🛒 E‑commerce
 - [Verdant](<E-Commerce Web Designs/Verdant>)
 
-### 🧑‍💼 Business & Service
-- [Synthopsis](<Business & Service Web Designs/Synthopsis>)
+### 🧑‍💼 Product & Service
+- [Synthopsis](<Product & Service Web Designs/Synthopsis>)
+- [Kronos 01](<Product & Service Web Designs/Kronos 01>)
 
 ### 🌐 All‑in‑One
 - [All-in-One Design 1](All-in-One/Design1)

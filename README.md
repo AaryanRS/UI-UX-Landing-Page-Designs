@@ -49,6 +49,7 @@ Every design folder contains:
 - [Verdant](<E-Commerce Web Designs/Verdant>)
 
 ### 🧑‍💼 Product & Service
+- [Archetype](<Product & Service Web Designs/Archetype>)
 - [Synthopsis](<Product & Service Web Designs/Synthopsis>)
 - [Kronos 01](<Product & Service Web Designs/Kronos 01>)
 - [Silicon](<Product & Service Web Designs/Silicon>)

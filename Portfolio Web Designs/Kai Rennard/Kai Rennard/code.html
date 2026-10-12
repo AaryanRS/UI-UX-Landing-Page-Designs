@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-[#04090c] text-white selection:bg-[#19E5D0] selection:text-black" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KAI RENNARD — Formula Racing Portfolio</title>
+<!-- Google Fonts: Syne, Space Grotesk & Playfair Display for Haute-Horlogerie/Motorsport Editorial Vibe -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&amp;family=Playfair+Display:ital,wght@0,600;0,800;1,400;1,600&amp;family=Space+Grotesk:wght@300;400;500;700&amp;family=Syne:wght@700;800&amp;family=Caveat:wght@600&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Custom Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              cream: '#F1EFE9',
+              dark: '#071116',
+              deep: '#04090C',
+              teal: '#19E5D0',
+              tealDark: '#0ca898',
+              muted: '#858585',
+              border: 'rgba(255, 255, 255, 0.08)'
+            }
+          },
+          fontFamily: {
+            sans: ['Space Grotesk', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+            display: ['Syne', 'sans-serif'],
+            signature: ['Caveat', 'cursive'],
+            italiana: ['Italiana', 'serif'],
+          },
+          letterSpacing: {
+            widest: '0.35em',
+            super: '0.5em'
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Styles for Typography, Animations & Track Aesthetics -->
+<style data-purpose="custom-scroll-and-effects">
+    /* Custom refined scrollbar */
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 5px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #04090C;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #19E5D0;
+      border-radius: 9999px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #0ca898;
+    }
+
+    /* SVG Signature Drawing Animation */
+    .signature-path {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: signReveal 3.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes signReveal {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    /* Ambient Speed Glow */
+    .ambient-glow {
+      background: radial-gradient(circle at 50% 30%, rgba(25, 229, 208, 0.18) 0%, rgba(4, 9, 12, 0) 70%);
+    }
+
+    .light-grain {
+      background-image: radial-gradient(#19E5D0 0.75px, transparent 0.75px);
+      background-size: 24px 24px;
+      opacity: 0.08;
+    }
+
+    /* Smooth perspective transforms */
+    .perspective-container {
+      perspective: 1200px;
+    }
+
+    /* Topographic contour line aesthetic */
+    .contour-lines {
+      background-image: repeating-radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0.035) 0, rgba(0,0,0,0.035) 2px, transparent 3px, transparent 32px);
+    }
+
+    .contour-lines-dark {
+      background-image: repeating-radial-gradient(ellipse at 50% 50%, rgba(25, 229, 208, 0.04) 0, rgba(25, 229, 208, 0.04) 1px, transparent 2px, transparent 36px);
+    }
+  </style>
+</head>
+<body class="h-screen w-screen overflow-hidden p-2 sm:p-4 lg:p-6 bg-[#04090c] font-sans antialiased text-white selection:bg-[#19E5D0] selection:text-black">
+<!-- BEGIN: OuterAtmosphere -->
+<!-- Atmospheric backdrop representing high speed night circuits & light trails -->
+<div class="fixed inset-0 pointer-events-none z-0">
+<div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[#19E5D0]/10 rounded-full blur-[140px]"></div>
+<div class="absolute bottom-10 right-10 w-[500px] h-[500px] bg-[#0c4a45]/20 rounded-full blur-[120px]"></div>
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,rgba(4,9,12,0.95)_100%)]"></div>
+<!-- Diagonal speed streak subtle overlays -->
+<div class="absolute -inset-full opacity-10 bg-[linear-gradient(45deg,transparent_46%,#19E5D0_48%,transparent_52%)] bg-[length:120px_120px]"></div>
+</div>
+<!-- END: OuterAtmosphere -->
+<!-- BEGIN: FloatingSurfaceWrapper -->
+<!-- The central floating window housing the entire website with tailored border, radius and inner scrolling -->
+<main class="relative z-10 w-full h-full max-w-[1720px] mx-auto rounded-[24px] sm:rounded-[32px] overflow-hidden border border-white/10 shadow-[0_25px_80px_rgba(0,0,0,0.95)] flex flex-col bg-brand-deep" id="app-window">
+<!-- BEGIN: FloatingHeader -->
+<!-- Fixed sleek racing header positioned right atop the inner scrolling body -->
+<header class="absolute top-0 left-0 right-0 z-40 px-6 sm:px-10 py-5 flex items-center justify-between backdrop-blur-md bg-[#04090c]/40 border-b border-white/5 transition-all duration-300">
+<!-- Driver Wordmark (Left) -->
+<a aria-label="Kai Rennard Home" class="flex flex-col tracking-widest uppercase group cursor-pointer" href="#hero">
+<span class="text-[11px] font-bold tracking-[0.3em] text-white group-hover:text-brand-teal transition-colors">KAI</span>
+<span class="text-[11px] font-medium tracking-[0.3em] text-white/70 group-hover:text-white transition-colors">RENNARD</span>
+</a>
+<!-- Center Monogram Mark -->
+<div class="flex items-center gap-2">
+<div class="h-[1px] w-6 bg-white/20 hidden md:block"></div>
+<a class="text-sm font-black tracking-widest px-3 py-1 border border-white/20 rounded font-display text-brand-teal hover:border-brand-teal transition-all" href="#hero">
+          KR <span class="text-[9px] font-mono text-white/50 tracking-normal ml-0.5">#77</span>
+</a>
+<div class="h-[1px] w-6 bg-white/20 hidden md:block"></div>
+</div>
+<!-- Right Actions: Store Pill & Toggle Menu -->
+<div class="flex items-center gap-3 sm:gap-4">
+<!-- Store CTA Button -->
+<a class="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-brand-teal text-[#04090c] font-bold text-xs uppercase tracking-widest rounded-full hover:bg-white hover:shadow-[0_0_20px_rgba(25,229,208,0.4)] transition-all transform active:scale-95" href="#store">
+<svg aria-hidden="true" class="w-3.5 h-3.5 fill-current" viewbox="0 0 24 24">
+<path d="M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3zm7 17H5V8h14v12z"></path>
+</svg>
+<span>Store</span>
+</a>
+<!-- Hamburger / Close Modal Button -->
+<button aria-label="Toggle Navigation Menu" class="w-10 h-10 rounded-xl bg-white text-black flex flex-col items-center justify-center gap-1.5 focus:outline-none hover:bg-brand-teal transition-all shadow-md group" id="menu-toggle-btn">
+<span class="w-5 h-[2px] bg-black transition-transform duration-300" id="burger-bar-1"></span>
+<span class="w-5 h-[2px] bg-black transition-transform duration-300" id="burger-bar-2"></span>
+</button>
+</div>
+</header>
+<!-- END: FloatingHeader -->
+<!-- BEGIN: ScrollableContent -->
+<div class="w-full h-full overflow-y-auto overflow-x-hidden custom-scrollbar relative z-10 scroll-smooth" id="scroll-container">
+<!-- BEGIN: HeroSection -->
+<!-- Warm off-white #F1EFE9 luxury motorsport hero spread with interactive gliding helmet layer -->
+<section class="relative min-h-[105vh] bg-brand-cream text-[#0c1216] pt-28 sm:pt-32 pb-20 px-6 sm:px-12 flex flex-col justify-between overflow-hidden contour-lines" id="hero">
+<!-- Top Status Ticker & Meta Strip -->
+<div class="w-full flex flex-wrap justify-between items-start gap-4 border-b border-black/10 pb-5 z-20 font-mono text-[11px] tracking-wider uppercase text-black/70">
+<div>
+<span class="inline-block w-2 h-2 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>
+<span>STATUS: ACTIVE P1 CONTENDER</span>
+</div>
+<div class="hidden md:flex gap-8">
+<span>NEXT GP: <strong class="text-black font-bold">LISBOA INT’L CIRCUIT</strong></span>
+<span>TEAM: <strong class="text-black font-bold">HALDEN MOTORSPORT</strong></span>
+<span>GRID: <strong class="text-black font-bold">#77</strong></span>
+</div>
+<div>
+<span>SEASON 2025 // VOL. 04</span>
+</div>
+</div>
+<!-- Grand Background Driver Typographic Watermark -->
+<div class="absolute inset-x-0 top-1/4 flex justify-center items-center pointer-events-none select-none overflow-hidden opacity-5 z-0">
+<span class="text-[23vw] font-black uppercase font-display leading-none tracking-tighter text-black">
+            RENNARD
+          </span>
+</div>
+<!-- Main Hero Composition: Portrait + Floating Gliding Helmet -->
+<div class="relative w-full max-w-6xl mx-auto my-auto py-10 flex flex-col items-center justify-center z-10">
+<!-- Editorial Floating Helmet + Driver Portrait Dual-Layer Stage -->
+<div class="relative w-full max-w-[440px] sm:max-w-[480px] aspect-[4/5] rounded-[24px] overflow-visible shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] perspective-container group cursor-grab" id="helmet-stage">
+<!-- Base Driver Portrait Layer -->
+<div class="w-full h-full rounded-[24px] overflow-hidden border border-black/10 bg-[#e4e0d7] relative shadow-inner">
+<img alt="Editorial fashion portrait of young European Formula racing driver Kai Rennard, intense determined gaze" class="w-full h-full object-cover object-center filter grayscale contrast-[1.05] brightness-95 transform group-hover:scale-105 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6-Tmg8OiIfYIHbZ1WEs_wxnKg8J36RLoBS0n2lqOpWJ_OMXLac0GW5mn-H2riDXlOZPWa4464xbPL0oo46yJNpvZSoiftggC3Bm9sDAKE6XCL-jIj1-br2nuMyCsHP9Rd-AE7bywGpl9ur5nxKDePAIBHUIpZO4jle_4nN49mQOn5W20AqwD1_ALwzLBegUmMyKT2S5n-ZoPv4GwjQEbKS9PDaoarcGwd6kprRhHnjtxEjEh57sGq"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+<!-- Subtle badge on portrait -->
+<div class="absolute bottom-4 left-4 z-10 font-mono text-[10px] text-white/90 tracking-widest uppercase bg-black/60 px-3 py-1 rounded backdrop-blur-sm">
+                PORTRAIT 01 // KAI RENNARD
+              </div>
+</div>
+<!-- FOREGROUND CRITICAL INTERACTIVE HELMET MOTION LAYER -->
+<!-- Positioned independently, shifts smoothly across the face with mouse & gyro movement -->
+<div class="absolute -top-12 -right-10 sm:-right-16 w-[280px] sm:w-[340px] aspect-square pointer-events-none drop-shadow-[0_35px_35px_rgba(0,0,0,0.5)] transition-transform duration-100 ease-out z-30 transform hover:scale-105" id="interactive-helmet">
+<img alt="High-tech modern Formula 1 racing helmet isolated on pure black background, vivid turquoise and cyan accents" class="w-full h-full object-contain filter drop-shadow-[0_20px_25px_rgba(25,229,208,0.25)] select-none pointer-events-none" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCycxidfcwqxoGUNo-Y_6PNEig5IRxbld_979o0ZXAKw6Hs6NytaKqVZXkBOv6AGIBQnPo_7PW0J0fPdZ5zZrmR01uUy1tTBYvX65qWycxXkpfz9o_T86JpL9EPbh8_vq28rD_k-fTahXbv1lt1qH33uD-2n52DA6DKq5PgbyRyDnqy_GLb2gneKv_5HNxv9y5p4nzu1TxljYdSaEVehAR-m1dnpfTraKSgrg_iqb7xuBOqcxTLDmMf"/>
+<div class="absolute -bottom-2 right-4 bg-[#04090c] text-brand-teal text-[9px] font-mono px-2.5 py-1 rounded-full border border-brand-teal/30 tracking-widest uppercase">
+                AERO-SPEC // 2025
+              </div>
+</div>
+<!-- Corner Accent Graphic Elements -->
+<div class="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-brand-teal z-20"></div>
+<div class="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-[#04090c] z-20"></div>
+</div>
+<!-- Editorial Driver Typography Callouts -->
+<div class="mt-8 text-center max-w-xl z-20">
+<span class="text-xs uppercase tracking-[0.4em] font-bold text-[#6a6c6a] block mb-2 font-mono">Formula Grand Prix Driver</span>
+<h1 class="text-4xl sm:text-6xl font-display font-extrabold tracking-tight uppercase text-[#071116] leading-none">
+              KAI RENNARD
+            </h1>
+<p class="mt-3 text-sm sm:text-base font-serif italic text-black/75 max-w-md mx-auto">
+              “Speed is not about raw adrenaline; it is precision stripped of hesitation.”
+            </p>
+</div>
+</div>
+<!-- Bottom Hero Editorial Footer Details -->
+<div class="w-full flex flex-col sm:flex-row justify-between items-center border-t border-black/10 pt-5 text-xs text-black/70 gap-4 z-20 font-mono">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-brand-teal"></span>
+<span>HALDEN MOTORSPORT ACADEMY SINCE 2020</span>
+</div>
+<div class="text-center">
+<span class="text-black/50 text-[10px] tracking-super">SCROLL TO APEX</span>
+<div class="w-4 h-6 border border-black/30 rounded-full mx-auto mt-1 flex justify-center">
+<div class="w-1 h-2 bg-brand-teal rounded-full mt-1 animate-bounce"></div>
+</div>
+</div>
+<div class="text-right">
+<span>CAREER PODIUMS: 14 • POLE POSITIONS: 09</span>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: SignatureEditorialTransition -->
+<!-- Transition into deep near-black (#071116) with bright turquoise handwritten signature reveal -->
+<section class="relative bg-gradient-to-b from-brand-cream via-brand-dark to-brand-deep text-white px-6 sm:px-12 py-24 sm:py-32 overflow-hidden border-t border-black/5">
+<!-- Sliding Turquoise Accent Bar Framing -->
+<div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-brand-teal to-transparent"></div>
+<div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
+<div class="w-full md:w-1/2 space-y-6">
+<div class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.25em] text-brand-teal">
+<span class="w-8 h-[1px] bg-brand-teal"></span>
+<span>A NOTE FROM THE COCKPIT</span>
+</div>
+<h2 class="text-3xl sm:text-5xl font-display font-extrabold leading-tight tracking-tight uppercase">
+              BORN IN THE RAIN, <br/>
+<span class="text-brand-teal underline decoration-white/20 underline-offset-8">FORGED BY APEXES.</span>
+</h2>
+<p class="text-white/70 font-light leading-relaxed text-sm sm:text-base">
+              Growing up at kart tracks in pouring Scandinavian sleet taught me that balance isn’t something you discover in safe conditions. When the visor clicks shut at 320 km/h, nothing exists except the rhythm between breath and downshift.
+            </p>
+<!-- Signature Drawing Showcase with SVG Path -->
+<div class="pt-4 border-t border-white/10 flex flex-col items-start" data-purpose="driver-signature-box">
+<span class="text-[10px] font-mono tracking-widest uppercase text-brand-muted mb-2">PERSONAL SEAL • 2025</span>
+<!-- SVG Handwritten Signature -->
+<svg aria-label="Kai Rennard handwritten signature" class="w-64 h-24 text-brand-teal overflow-visible" fill="none" viewbox="0 0 350 120" xmlns="http://www.w3.org/2000/svg">
+<!-- Smooth artistic script signature curve -->
+<path class="signature-path" d="M25,85 C45,20 60,10 75,70 C85,110 95,30 115,65 C125,85 145,55 160,75 C180,100 190,40 220,50 C250,60 270,75 310,40 M60,45 L130,42 M160,50 L200,95 M225,40 C270,15 320,80 340,65" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5"></path>
+</svg>
+<span class="font-signature text-2xl text-white/50 -mt-2">Kai Rennard #77</span>
+</div>
+</div>
+<!-- Secondary Editorial Portrait Frame with Vignette -->
+<div class="w-full md:w-5/12">
+<div class="relative rounded-2xl overflow-hidden border border-white/15 bg-brand-dark p-2 shadow-2xl">
+<div class="relative rounded-xl overflow-hidden aspect-[3/4]">
+<img alt="Kai Rennard in high fashion motorsport turtleneck" class="w-full h-full object-cover filter contrast-125" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6-Tmg8OiIfYIHbZ1WEs_wxnKg8J36RLoBS0n2lqOpWJ_OMXLac0GW5mn-H2riDXlOZPWa4464xbPL0oo46yJNpvZSoiftggC3Bm9sDAKE6XCL-jIj1-br2nuMyCsHP9Rd-AE7bywGpl9ur5nxKDePAIBHUIpZO4jle_4nN49mQOn5W20AqwD1_ALwzLBegUmMyKT2S5n-ZoPv4GwjQEbKS9PDaoarcGwd6kprRhHnjtxEjEh57sGq"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#04090c] via-transparent to-black/30"></div>
+<div class="absolute bottom-5 left-5 right-5 text-left">
+<span class="text-brand-teal font-mono text-[10px] uppercase tracking-widest">OFFICIAL PROFILE</span>
+<h3 class="text-xl font-bold uppercase tracking-tight">KAI RENNARD</h3>
+<p class="text-xs text-white/60">Formula Drivers Championship Candidate • FIA Super License</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: SignatureEditorialTransition -->
+<!-- BEGIN: OversizedRacingTypography -->
+<!-- Dominant view statement combining condensed sans-serif and italic editorial serif with vivid teal accents -->
+<section class="relative bg-brand-deep px-6 sm:px-12 py-20 sm:py-28 border-y border-white/5 overflow-hidden">
+<div class="absolute inset-0 light-grain pointer-events-none"></div>
+<div class="max-w-6xl mx-auto relative z-10 text-center md:text-left">
+<p class="font-mono text-xs text-brand-teal uppercase tracking-[0.3em] mb-4">
+            [ PHILOSOPHY / APEX MANIFESTO ]
+          </p>
+<blockquote class="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold uppercase tracking-tight leading-[1.1] text-white">
+<span class="text-brand-teal italic font-serif">CHASING</span> THE APEX, 
+            RACING FOR <span class="text-brand-teal">RESPECT</span>, 
+            GIVING EVERYTHING IN EVERY LAP. 
+            BUILDING A <span class="italic font-serif text-brand-teal">STORY</span> WORTH TELLING IN MOTORSPORT, 
+            ON AND OFF THE TRACK.
+          </blockquote>
+<div class="mt-8 flex flex-wrap items-center gap-6 font-mono text-xs text-brand-muted">
+<span class="text-white font-bold tracking-widest">TELEMETRY STAT:</span>
+<span>MAX G-FORCE: 5.6G</span>
+<span class="hidden sm:inline">•</span>
+<span>TOP SPEED: 351.4 KM/H</span>
+<span class="hidden sm:inline">•</span>
+<span>AVG REACTION TIME: 0.18S</span>
+</div>
+</div>
+</section>
+<!-- END: OversizedRacingTypography -->
+<!-- BEGIN: AsymmetricCollage -->
+<!-- High fashion magazine spread collage with intentional whitespace, cars and garage scenes -->
+<section class="bg-brand-dark px-6 sm:px-12 py-24 sm:py-32 relative overflow-hidden" id="gallery">
+<div class="max-w-6xl mx-auto">
+<!-- Section Tag -->
+<div class="flex justify-between items-end mb-12 border-b border-white/10 pb-4">
+<div>
+<span class="text-xs font-mono uppercase tracking-[0.3em] text-brand-teal">ARCHIVE 2024-2025</span>
+<h2 class="text-3xl sm:text-5xl font-display font-bold uppercase tracking-tight mt-1">THE SPREAD</h2>
+</div>
+<div class="font-mono text-xs text-white/50 text-right hidden sm:block">
+              CURATED FRAMES // VOL. 07
+            </div>
+</div>
+<!-- Magazine Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 items-start">
+<!-- Large Focus Track Car Image (Dominant) -->
+<div class="md:col-span-8 group relative rounded-2xl overflow-hidden border border-white/10 bg-black/60 shadow-xl">
+<div class="aspect-[16/10] overflow-hidden">
+<img alt="Cinematic motorsport racing car speeding on track at Suzuka with motion blur, dramatic dusk atmosphere" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1f-bXiAroHp4xcqedSa6b0UIPj17GRP6TGqAF_Ebgw8CkILy6O5beK52v2qq__bQ5cQ0Q3zb-1m0MzoqV0uGXScAK_f4y5bXyUDHqpXHcuhdywZn0KBAddIsbG8B9_QlHb3Ha5MfWEUHG38tbopw2Zyr_v-andYy_h48Ypc5zzeE3paVvgnQjqJ9W7gQBOOgFcatXE7DCz8vXjsqEUc-7DOHy7fo9HHgvSvdlpwO8wwh1vGwIlZcu"/>
+</div>
+<div class="p-5 flex justify-between items-center bg-[#071116] border-t border-white/5 font-mono text-xs">
+<div>
+<span class="text-brand-teal font-bold uppercase">SUZUKA CIRCUIT • DUSK APEX ATTACK</span>
+<p class="text-white/60 text-[11px] mt-0.5">S-Curves Sector 1 • 2025 Winter Test</p>
+</div>
+<span class="text-white/40 tracking-widest text-[10px]">LAP TIME: 1:28.411</span>
+</div>
+</div>
+<!-- Side Portrait Card (Asymmetric) -->
+<div class="md:col-span-4 flex flex-col gap-6">
+<div class="group relative rounded-2xl overflow-hidden border border-white/10 bg-black/60 shadow-xl">
+<div class="aspect-[4/5] overflow-hidden">
+<img alt="Kai Rennard editorial fashion portrait" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6-Tmg8OiIfYIHbZ1WEs_wxnKg8J36RLoBS0n2lqOpWJ_OMXLac0GW5mn-H2riDXlOZPWa4464xbPL0oo46yJNpvZSoiftggC3Bm9sDAKE6XCL-jIj1-br2nuMyCsHP9Rd-AE7bywGpl9ur5nxKDePAIBHUIpZO4jle_4nN49mQOn5W20AqwD1_ALwzLBegUmMyKT2S5n-ZoPv4GwjQEbKS9PDaoarcGwd6kprRhHnjtxEjEh57sGq"/>
+</div>
+<div class="p-4 bg-[#071116] border-t border-white/5 font-mono text-xs">
+<span class="text-brand-teal font-bold uppercase">GALA NIGHT • MONTE CARLO</span>
+<p class="text-white/50 text-[10px] mt-0.5">FIA Annual Awards • Off-track appearance</p>
+</div>
+</div>
+<!-- Editorial Quote Callout Box -->
+<div class="p-6 rounded-2xl bg-brand-deep border border-brand-teal/20 relative">
+<div class="text-3xl text-brand-teal font-serif">“</div>
+<p class="font-serif italic text-base text-white/90 leading-relaxed -mt-4">
+                  It is not about where the grid puts you. It is about what you do after the lights go out.
+                </p>
+<div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between font-mono text-[10px] text-white/50">
+<span>KAI RENNARD</span>
+<span class="text-brand-teal">INTERVIEW // MONZA</span>
+</div>
+</div>
+</div>
+<!-- Full Width Garage Pit Atmosphere Feature -->
+<div class="md:col-span-12 mt-4 group relative rounded-2xl overflow-hidden border border-white/10 bg-black/60 shadow-xl">
+<div class="aspect-[21/9] min-h-[300px] overflow-hidden">
+<img alt="Young racing driver Kai Rennard sitting pensively in a dimly lit team garage pit lane with turquoise telemetry monitors" class="w-full h-full object-cover object-center group-hover:scale-102 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9qyUQj1qmNVT96uvdVNqy09o9PmdQWdnB2BMm4ORLDz2pWhTlp0euvWumRwvNkj8pTGKJzTnCwH7qy2rqhNrTi1hFRdmIE5EM5NZSe08KVxASGMN6Q90rV6n4EWmI0luepsvl7Nj4dJuEL57J7Rdpd1U0psNCfCGDizfSxFzgz-rpzIU1OgIRCvKVHa4wI3IpdZ7GBUrYmTWwuuuNQ_4DMiQdDRclhhz4jcJvY8BnXPnR4W-1j26W"/>
+</div>
+<div class="p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center bg-[#071116] border-t border-white/5 font-mono text-xs gap-3">
+<div>
+<span class="text-brand-teal font-bold uppercase">PIT LANE CONCENTRATION • GARAGE 07</span>
+<p class="text-white/60 text-[11px] mt-0.5">Telemetry sync and live tire temperature analysis before qualifying</p>
+</div>
+<div class="flex gap-4 text-white/60 text-[11px]">
+<span>QUALIFYING: P2</span>
+<span>GAP TO POLE: +0.038s</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: AsymmetricCollage -->
+<!-- BEGIN: InteractiveTrackTabs -->
+<!-- Distinct editorial switcher for ON TRACK vs OFF TRACK -->
+<section class="bg-brand-deep px-6 sm:px-12 py-24 border-t border-white/5 contour-lines-dark" id="worlds">
+<div class="max-w-6xl mx-auto">
+<!-- Editorial Destination Switchers -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-6 mb-12">
+<div>
+<span class="text-xs font-mono uppercase tracking-[0.3em] text-brand-teal">DUAL PERSPECTIVE</span>
+<h2 class="text-3xl sm:text-5xl font-display font-extrabold uppercase tracking-tight">TWO WORLDS</h2>
+</div>
+<!-- Custom Interactive Toggle Pills -->
+<div class="flex items-center gap-3 bg-white/5 p-1.5 rounded-full border border-white/10">
+<button aria-pressed="true" class="px-6 py-2.5 rounded-full font-display uppercase text-xs tracking-widest font-bold bg-brand-teal text-[#04090c] shadow-lg transition-all" id="tab-on-track">
+                ON TRACK
+              </button>
+<button aria-pressed="false" class="px-6 py-2.5 rounded-full font-display uppercase text-xs tracking-widest font-bold text-white/70 hover:text-white transition-all" id="tab-off-track">
+                OFF TRACK
+              </button>
+</div>
+</div>
+<!-- Tab Content 1: ON TRACK (Default) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 transition-opacity duration-300" id="content-on-track">
+<!-- Card 1 -->
+<div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-brand-teal/50 transition-all flex flex-col justify-between h-[360px] group">
+<div>
+<span class="text-[10px] font-mono text-brand-teal tracking-widest uppercase">DISCIPLINE 01</span>
+<h3 class="text-xl font-bold uppercase mt-2 group-hover:text-brand-teal transition-colors">AERODYNAMIC TELEMETRY</h3>
+<p class="text-xs text-white/70 mt-3 leading-relaxed">
+                  Deep telemetry iteration alongside Halden engineers. Decoding yaw angles, lateral tire scrub, and front-wing downforce configurations.
+                </p>
+</div>
+<div class="pt-4 border-t border-white/10 font-mono text-[11px] text-white/50 flex justify-between">
+<span>SIM TIME</span>
+<span class="text-brand-teal font-bold">140+ HRS / MO</span>
+</div>
+</div>
+<!-- Card 2 with Track Image -->
+<div class="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-brand-teal/50 transition-all flex flex-col justify-between h-[360px] group relative">
+<img alt="Formula car racing at dusk" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 group-hover:opacity-50 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1f-bXiAroHp4xcqedSa6b0UIPj17GRP6TGqAF_Ebgw8CkILy6O5beK52v2qq__bQ5cQ0Q3zb-1m0MzoqV0uGXScAK_f4y5bXyUDHqpXHcuhdywZn0KBAddIsbG8B9_QlHb3Ha5MfWEUHG38tbopw2Zyr_v-andYy_h48Ypc5zzeE3paVvgnQjqJ9W7gQBOOgFcatXE7DCz8vXjsqEUc-7DOHy7fo9HHgvSvdlpwO8wwh1vGwIlZcu"/>
+<div class="relative z-10 p-6">
+<span class="text-[10px] font-mono text-brand-teal tracking-widest uppercase">DISCIPLINE 02</span>
+<h3 class="text-xl font-bold uppercase mt-2">SUZUKA APEX RACECRAFT</h3>
+</div>
+<div class="relative z-10 p-6 pt-4 border-t border-white/10 font-mono text-[11px] text-white/80 bg-gradient-to-t from-black via-black/80 to-transparent">
+<span>SECTOR 1 PRECISION // 130R ATTACK</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-brand-teal/50 transition-all flex flex-col justify-between h-[360px] group">
+<div>
+<span class="text-[10px] font-mono text-brand-teal tracking-widest uppercase">DISCIPLINE 03</span>
+<h3 class="text-xl font-bold uppercase mt-2 group-hover:text-brand-teal transition-colors">TIRE DEGRADATION MASTERY</h3>
+<p class="text-xs text-white/70 mt-3 leading-relaxed">
+                  Managing thermal degradation on soft Pirelli compounds while executing aggressive overtakes inside braking zones.
+                </p>
+</div>
+<div class="pt-4 border-t border-white/10 font-mono text-[11px] text-white/50 flex justify-between">
+<span>OVERTAKES 2024</span>
+<span class="text-brand-teal font-bold">48 SUCCESSFUL</span>
+</div>
+</div>
+</div>
+<!-- Tab Content 2: OFF TRACK (Hidden by default) -->
+<div class="hidden grid grid-cols-1 md:grid-cols-3 gap-6 transition-opacity duration-300" id="content-off-track">
+<!-- Card 1 -->
+<div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-brand-teal/50 transition-all flex flex-col justify-between h-[360px] group">
+<div>
+<span class="text-[10px] font-mono text-brand-teal tracking-widest uppercase">FASHION &amp; EDITORIAL</span>
+<h3 class="text-xl font-bold uppercase mt-2 group-hover:text-brand-teal transition-colors">HAUTE COUTURE CAMPAIGNS</h3>
+<p class="text-xs text-white/70 mt-3 leading-relaxed">
+                  Collaborating with avant-garde European fashion houses blending technical motorsport nylon with tailored silhouettes.
+                </p>
+</div>
+<div class="pt-4 border-t border-white/10 font-mono text-[11px] text-white/50 flex justify-between">
+<span>EDITORIALS</span>
+<span class="text-brand-teal font-bold">VOGUE HOMMES • GQ</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-brand-teal/50 transition-all flex flex-col justify-between h-[360px] group relative">
+<img alt="Kai Rennard modeling shot" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 group-hover:opacity-50 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6-Tmg8OiIfYIHbZ1WEs_wxnKg8J36RLoBS0n2lqOpWJ_OMXLac0GW5mn-H2riDXlOZPWa4464xbPL0oo46yJNpvZSoiftggC3Bm9sDAKE6XCL-jIj1-br2nuMyCsHP9Rd-AE7bywGpl9ur5nxKDePAIBHUIpZO4jle_4nN49mQOn5W20AqwD1_ALwzLBegUmMyKT2S5n-ZoPv4GwjQEbKS9PDaoarcGwd6kprRhHnjtxEjEh57sGq"/>
+<div class="relative z-10 p-6">
+<span class="text-[10px] font-mono text-brand-teal tracking-widest uppercase">CAMPAIGN 02</span>
+<h3 class="text-xl font-bold uppercase mt-2">MINIMALIST APPAREL</h3>
+</div>
+<div class="relative z-10 p-6 pt-4 border-t border-white/10 font-mono text-[11px] text-white/80 bg-gradient-to-t from-black via-black/80 to-transparent">
+<span>MILAN FASHION WEEK 2025</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-brand-teal/50 transition-all flex flex-col justify-between h-[360px] group">
+<div>
+<span class="text-[10px] font-mono text-brand-teal tracking-widest uppercase">NEURO-TRAINING</span>
+<h3 class="text-xl font-bold uppercase mt-2 group-hover:text-brand-teal transition-colors">COGNITIVE STAMINA</h3>
+<p class="text-xs text-white/70 mt-3 leading-relaxed">
+                  High-altitude hypoxia conditioning, cold water therapy, and strobe-light peripheral reaction training in Austria.
+                </p>
+</div>
+<div class="pt-4 border-t border-white/10 font-mono text-[11px] text-white/50 flex justify-between">
+<span>RESTING HR</span>
+<span class="text-brand-teal font-bold">38 BPM</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: InteractiveTrackTabs -->
+<!-- BEGIN: GarageShowcase -->
+<!-- Featuring Kai in garage pit lane with quote and technical specs -->
+<section class="bg-brand-dark px-6 sm:px-12 py-24 relative overflow-hidden border-t border-white/5">
+<div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+<div class="w-full lg:w-7/12 rounded-2xl overflow-hidden border border-white/10 relative group shadow-2xl">
+<img alt="Kai Rennard sitting in garage pit lane with telemetry monitors" class="w-full h-auto object-cover group-hover:scale-102 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9qyUQj1qmNVT96uvdVNqy09o9PmdQWdnB2BMm4ORLDz2pWhTlp0euvWumRwvNkj8pTGKJzTnCwH7qy2rqhNrTi1hFRdmIE5EM5NZSe08KVxASGMN6Q90rV6n4EWmI0luepsvl7Nj4dJuEL57J7Rdpd1U0psNCfCGDizfSxFzgz-rpzIU1OgIRCvKVHa4wI3IpdZ7GBUrYmTWwuuuNQ_4DMiQdDRclhhz4jcJvY8BnXPnR4W-1j26W"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-6 left-6 right-6 font-mono text-xs flex justify-between text-white/80">
+<span class="text-brand-teal font-bold">PADDOCK PIT-BOX 03</span>
+<span>LISBOA PRE-RACE BRIEFING</span>
+</div>
+</div>
+<div class="w-full lg:w-5/12 space-y-6">
+<span class="text-xs font-mono uppercase tracking-[0.3em] text-brand-teal block">CHRONICLES • ORIGINS</span>
+<h2 class="text-3xl sm:text-4xl font-display font-extrabold uppercase tracking-tight">
+              THE QUIET BEFORE THE ROAR
+            </h2>
+<blockquote class="text-lg font-serif italic text-white/90 border-l-2 border-brand-teal pl-4 my-4 leading-relaxed">
+              “I was eight when I first sat in a borrowed kart. I have been chasing that same feeling every single day since.”
+            </blockquote>
+<p class="text-sm text-white/60 leading-relaxed font-light">
+              Between the practice session and qualifying lies thirty minutes of pure stillness. In the telemetry room, heartbeat drops. The data is locked. You step into the carbon monocoque with only muscle memory.
+            </p>
+<div class="pt-4 flex items-center gap-6 font-mono text-xs text-brand-teal">
+<div>
+<span class="text-2xl font-bold font-display text-white block">1,020</span>
+<span>BHP HYBRID POWER</span>
+</div>
+<div class="h-8 w-[1px] bg-white/10"></div>
+<div>
+<span class="text-2xl font-bold font-display text-white block">798</span>
+<span>KG MINIMUM WEIGHT</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: GarageShowcase -->
+<!-- BEGIN: HelmetsHallOfFame -->
+<!-- Deep dark archival helmet hall of fame showcase -->
+<section class="bg-brand-deep px-6 sm:px-12 py-24 sm:py-32 relative overflow-hidden border-t border-white/10" id="helmets">
+<!-- Background decorative ambient telemetry circle -->
+<div class="absolute -right-20 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-brand-teal/10 pointer-events-none"></div>
+<div class="absolute -right-20 top-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full border border-brand-teal/5 pointer-events-none"></div>
+<div class="max-w-6xl mx-auto relative z-10">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<span class="text-xs font-mono uppercase tracking-[0.3em] text-brand-teal">ARCHIVAL EQUIPMENT</span>
+<h2 class="text-4xl sm:text-6xl font-display font-black uppercase tracking-tight mt-2">
+              HELMETS <br/>
+<span class="text-white/40">HALL OF FAME</span>
+</h2>
+<p class="text-sm text-white/70 mt-3 font-serif italic">
+              Custom livery aerodynamics engineered with carbon-weave shells and bespoke iridescent cyan tinting.
+            </p>
+</div>
+<!-- Asymmetric Helmets Showcase -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Helmet Item 01: Suzuka Special (Main Featured Helmet) -->
+<div class="bg-white/5 border border-white/15 rounded-3xl p-6 group hover:border-brand-teal transition-all duration-500 flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-4 right-4 bg-brand-teal/20 text-brand-teal text-[9px] font-mono px-3 py-1 rounded-full uppercase tracking-widest font-bold">
+                FLAGSHIP 2025
+              </div>
+<div class="w-full aspect-square flex items-center justify-center my-4 relative">
+<img alt="High-tech modern Formula 1 racing helmet Suzuka Edition" class="w-full h-full object-contain filter drop-shadow-[0_15px_25px_rgba(25,229,208,0.2)] group-hover:scale-108 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCycxidfcwqxoGUNo-Y_6PNEig5IRxbld_979o0ZXAKw6Hs6NytaKqVZXkBOv6AGIBQnPo_7PW0J0fPdZ5zZrmR01uUy1tTBYvX65qWycxXkpfz9o_T86JpL9EPbh8_vq28rD_k-fTahXbv1lt1qH33uD-2n52DA6DKq5PgbyRyDnqy_GLb2gneKv_5HNxv9y5p4nzu1TxljYdSaEVehAR-m1dnpfTraKSgrg_iqb7xuBOqcxTLDmMf"/>
+</div>
+<div>
+<span class="text-[10px] font-mono text-brand-teal uppercase tracking-widest block">EDITION 01 // CIRCUIT DE SUZUKA</span>
+<h3 class="text-xl font-bold uppercase tracking-tight mt-1">TURQUOISE APEX CARBON</h3>
+<p class="text-xs text-white/60 mt-2 leading-relaxed">
+                  Matte carbon weave paired with high-voltage neon teal aero fins and polarized anti-fog iridescent visor.
+                </p>
+<div class="mt-4 pt-3 border-t border-white/10 flex justify-between font-mono text-[10px] text-white/40">
+<span>WEIGHT: 1,240g</span>
+<span>FIA 8860-2018 ABP</span>
+</div>
+</div>
+</div>
+<!-- Helmet Item 02: Lisboa Tribute -->
+<div class="bg-white/5 border border-white/15 rounded-3xl p-6 group hover:border-brand-teal transition-all duration-500 flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-4 right-4 bg-white/10 text-white/80 text-[9px] font-mono px-3 py-1 rounded-full uppercase tracking-widest font-bold">
+                TRIBUTE
+              </div>
+<div class="w-full aspect-square flex items-center justify-center my-4 relative">
+<!-- Rotated/Scaled for variation -->
+<img alt="High-tech racing helmet Lisboa GP edition" class="w-full h-full object-contain filter brightness-90 hue-rotate-15 drop-shadow-[0_15px_25px_rgba(0,0,0,0.4)] group-hover:scale-108 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCycxidfcwqxoGUNo-Y_6PNEig5IRxbld_979o0ZXAKw6Hs6NytaKqVZXkBOv6AGIBQnPo_7PW0J0fPdZ5zZrmR01uUy1tTBYvX65qWycxXkpfz9o_T86JpL9EPbh8_vq28rD_k-fTahXbv1lt1qH33uD-2n52DA6DKq5PgbyRyDnqy_GLb2gneKv_5HNxv9y5p4nzu1TxljYdSaEVehAR-m1dnpfTraKSgrg_iqb7xuBOqcxTLDmMf"/>
+</div>
+<div>
+<span class="text-[10px] font-mono text-brand-teal uppercase tracking-widest block">EDITION 02 // LISBOA GP SPECIAL</span>
+<h3 class="text-xl font-bold uppercase tracking-tight mt-1">ATLANTIC BLUE MONOCOQUE</h3>
+<p class="text-xs text-white/60 mt-2 leading-relaxed">
+                  Homage to coastal tarmac, featuring micro-ceramic heat dissipation paint and reinforced HANS tether mounts.
+                </p>
+<div class="mt-4 pt-3 border-t border-white/10 flex justify-between font-mono text-[10px] text-white/40">
+<span>WEIGHT: 1,220g</span>
+<span>HOMOLOGATED</span>
+</div>
+</div>
+</div>
+<!-- Helmet Item 03: Season Launch Edition -->
+<div class="bg-white/5 border border-white/15 rounded-3xl p-6 group hover:border-brand-teal transition-all duration-500 flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-4 right-4 bg-white/10 text-white/80 text-[9px] font-mono px-3 py-1 rounded-full uppercase tracking-widest font-bold">
+                LIMITED 1/1
+              </div>
+<div class="w-full aspect-square flex items-center justify-center my-4 relative">
+<img alt="High-tech modern Formula 1 racing helmet Season launch version" class="w-full h-full object-contain filter contrast-125 drop-shadow-[0_15px_25px_rgba(25,229,208,0.25)] group-hover:scale-108 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCycxidfcwqxoGUNo-Y_6PNEig5IRxbld_979o0ZXAKw6Hs6NytaKqVZXkBOv6AGIBQnPo_7PW0J0fPdZ5zZrmR01uUy1tTBYvX65qWycxXkpfz9o_T86JpL9EPbh8_vq28rD_k-fTahXbv1lt1qH33uD-2n52DA6DKq5PgbyRyDnqy_GLb2gneKv_5HNxv9y5p4nzu1TxljYdSaEVehAR-m1dnpfTraKSgrg_iqb7xuBOqcxTLDmMf"/>
+</div>
+<div>
+<span class="text-[10px] font-mono text-brand-teal uppercase tracking-widest block">EDITION 03 // SEASON LAUNCH SPEC</span>
+<h3 class="text-xl font-bold uppercase tracking-tight mt-1">DARK STEALTH METEORITE</h3>
+<p class="text-xs text-white/60 mt-2 leading-relaxed">
+                  Zero-reflection carbon matte tailored specifically for night races under Bahrain and Singapore floodlights.
+                </p>
+<div class="mt-4 pt-3 border-t border-white/10 flex justify-between font-mono text-[10px] text-white/40">
+<span>WEIGHT: 1,195g</span>
+<span>NIGHT RACE SPEC</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: HelmetsHallOfFame -->
+<!-- BEGIN: StoreBannerAndFooter -->
+<!-- Store promo teaser and editorial closing footer -->
+<section class="bg-gradient-to-b from-brand-deep to-[#020507] px-6 sm:px-12 pt-20 pb-16 border-t border-white/10" id="store">
+<div class="max-w-6xl mx-auto">
+<!-- Merchandise Banner -->
+<div class="rounded-3xl bg-gradient-to-r from-brand-teal/20 via-brand-teal/5 to-transparent border border-brand-teal/30 p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-8 mb-20">
+<div>
+<span class="text-xs font-mono uppercase tracking-[0.3em] text-brand-teal font-bold block mb-2">OFFICIAL CAPSULE DROP</span>
+<h3 class="text-2xl sm:text-4xl font-display font-extrabold uppercase">FIRST PODIUM COLLECTION</h3>
+<p class="text-white/70 text-sm mt-2 max-w-md">
+                Heavyweight organic cotton racing tees, technical driver jackets, and authenticated 1:2 scale replica helmets.
+              </p>
+</div>
+<button class="px-8 py-4 bg-brand-teal text-[#04090c] font-display font-bold uppercase text-xs tracking-super rounded-full hover:bg-white hover:shadow-[0_0_25px_rgba(25,229,208,0.6)] transition-all whitespace-nowrap active:scale-95">
+              EXPLORE COLLECTION
+            </button>
+</div>
+<!-- Giant Closing Statement -->
+<div class="text-center py-10 border-b border-white/10">
+<h2 class="text-3xl sm:text-6xl lg:text-7xl font-display font-black uppercase tracking-tight text-white/90">
+              NEVER LIFTING <br/>
+<span class="text-brand-teal font-serif italic font-normal">OFF THE THROTTLE.</span>
+</h2>
+</div>
+<!-- Editorial Footer Navigation & Socials -->
+<footer class="pt-12 flex flex-col sm:flex-row items-center justify-between gap-8 font-mono text-xs text-white/60">
+<div class="flex flex-col items-center sm:items-start gap-1">
+<span class="text-white font-bold tracking-widest uppercase">KAI RENNARD MOTORSPORT MANAGEMENT</span>
+<span class="text-[10px]">ALL RIGHTS RESERVED © 2025 // FIA SUPER LICENSE NO. KR-77-09</span>
+</div>
+<!-- Social Links in high-fashion micro uppercase -->
+<div class="flex items-center gap-6 tracking-widest text-[11px]">
+<a class="hover:text-brand-teal transition-colors" href="#hero">INSTAGRAM</a>
+<a class="hover:text-brand-teal transition-colors" href="#hero">TIKTOK</a>
+<a class="hover:text-brand-teal transition-colors" href="#hero">YOUTUBE</a>
+<a class="hover:text-brand-teal transition-colors" href="#hero">TWITCH</a>
+</div>
+<div class="text-right text-[10px]">
+<span class="text-brand-teal uppercase font-bold">PORTFOLIO EDITION: 4.0.2</span>
+</div>
+</footer>
+</div>
+</section>
+<!-- END: StoreBannerAndFooter -->
+</div>
+<!-- END: ScrollableContent -->
+<!-- BEGIN: FullscreenEditorialNavigationModal -->
+<!-- Full-screen editorial menu overlay with giant navigation typography and stats -->
+<div aria-hidden="true" class="fixed inset-0 z-50 bg-[#04090c]/98 backdrop-blur-2xl flex flex-col justify-between p-8 sm:p-16 opacity-0 pointer-events-none transition-all duration-500 ease-in-out" id="menu-modal">
+<!-- Top Bar inside Modal -->
+<div class="flex justify-between items-center border-b border-white/10 pb-6">
+<span class="font-mono text-xs uppercase tracking-widest text-brand-teal">INDEX NAVIGATION // KAI RENNARD</span>
+<button aria-label="Close Navigation" class="w-10 h-10 rounded-xl bg-brand-teal text-[#04090c] flex items-center justify-center font-bold hover:bg-white transition-all" id="modal-close-btn">
+          ×
+        </button>
+</div>
+<!-- Giant Menu Links -->
+<nav class="my-auto py-10 flex flex-col space-y-4 sm:space-y-6">
+<a class="menu-link text-4xl sm:text-7xl font-display font-extrabold uppercase hover:text-brand-teal hover:translate-x-4 transition-all inline-block" href="#hero">
+<span class="text-xs font-mono text-brand-teal mr-4 align-middle">01</span>HOME / APEX
+        </a>
+<a class="menu-link text-4xl sm:text-7xl font-display font-extrabold uppercase hover:text-brand-teal hover:translate-x-4 transition-all inline-block" href="#gallery">
+<span class="text-xs font-mono text-brand-teal mr-4 align-middle">02</span>GALLERY SPREAD
+        </a>
+<a class="menu-link text-4xl sm:text-7xl font-display font-extrabold uppercase hover:text-brand-teal hover:translate-x-4 transition-all inline-block" href="#worlds">
+<span class="text-xs font-mono text-brand-teal mr-4 align-middle">03</span>ON • OFF TRACK
+        </a>
+<a class="menu-link text-4xl sm:text-7xl font-display font-extrabold uppercase hover:text-brand-teal hover:translate-x-4 transition-all inline-block" href="#helmets">
+<span class="text-xs font-mono text-brand-teal mr-4 align-middle">04</span>HELMETS ARCHIVE
+        </a>
+<a class="menu-link text-4xl sm:text-7xl font-display font-extrabold uppercase hover:text-brand-teal hover:translate-x-4 transition-all inline-block" href="#store">
+<span class="text-xs font-mono text-brand-teal mr-4 align-middle">05</span>STORE CAPSULE
+        </a>
+</nav>
+<!-- Bottom Quick Stats -->
+<div class="border-t border-white/10 pt-6 flex flex-wrap justify-between items-center text-xs font-mono text-white/50 gap-4">
+<div>CHAMPIONSHIP STANDINGS: <span class="text-brand-teal font-bold">2ND PLACE (184 PTS)</span></div>
+<div>NEXT RACE: <span class="text-white font-bold">LISBOA GP • SUNDAY 14:00 CET</span></div>
+<div class="text-brand-teal">HALDEN MOTORSPORT OFFICIAL DRIVER</div>
+</div>
+</div>
+<!-- END: FullscreenEditorialNavigationModal -->
+</main>
+<!-- END: FloatingSurfaceWrapper -->
+<!-- BEGIN: InteractiveScripts -->
+<!-- Vanilla JS handles: Helmet floating physics, Fullscreen Menu, Tab toggles, and Cursor parallax -->
+<script data-purpose="helmet-interaction-and-menu">
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      // 1. Fullscreen Menu Toggle Mechanics
+      const menuBtn = document.getElementById('menu-toggle-btn');
+      const closeBtn = document.getElementById('modal-close-btn');
+      const menuModal = document.getElementById('menu-modal');
+      const menuLinks = document.querySelectorAll('.menu-link');
+      const bar1 = document.getElementById('burger-bar-1');
+      const bar2 = document.getElementById('burger-bar-2');
+
+      let isMenuOpen = false;
+
+      function toggleMenu() {
+        isMenuOpen = !isMenuOpen;
+        if (isMenuOpen) {
+          menuModal.classList.remove('opacity-0', 'pointer-events-none');
+          menuModal.classList.add('opacity-100', 'pointer-events-auto');
+          bar1.classList.add('rotate-45', 'translate-y-[4px]');
+          bar2.classList.add('-rotate-45', '-translate-y-[4px]');
+          menuModal.setAttribute('aria-hidden', 'false');
+        } else {
+          menuModal.classList.add('opacity-0', 'pointer-events-none');
+          menuModal.classList.remove('opacity-100', 'pointer-events-auto');
+          bar1.classList.remove('rotate-45', 'translate-y-[4px]');
+          bar2.classList.remove('-rotate-45', '-translate-y-[4px]');
+          menuModal.setAttribute('aria-hidden', 'true');
+        }
+      }
+
+      menuBtn.addEventListener('click', toggleMenu);
+      closeBtn.addEventListener('click', toggleMenu);
+
+      menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (isMenuOpen) toggleMenu();
+        });
+      });
+
+      // 2. Interactive Critical Helmet Motion Layer (Scroll + Mouse Glide Physics)
+      const helmet = document.getElementById('interactive-helmet');
+      const heroStage = document.getElementById('helmet-stage');
+      const scrollBox = document.getElementById('scroll-container');
+
+      let targetX = 0;
+      let targetY = 0;
+      let currentX = 0;
+      let currentY = 0;
+      let targetRotate = 0;
+      let currentRotate = 0;
+
+      // Mouse Parallax Glide across Kai's Face
+      window.addEventListener('mousemove', (e) => {
+        const { innerWidth, innerHeight } = window;
+        // Normalize mouse coordinates from -1 to 1
+        const normX = (e.clientX / innerWidth - 0.5) * 2;
+        const normY = (e.clientY / innerHeight - 0.5) * 2;
+
+        targetX = normX * 42; // Up to 42px horizontal glide
+        targetY = normY * 30; // Up to 30px vertical glide
+        targetRotate = normX * 6; // Subtle realistic tilt
+      });
+
+      // Scroll response: Helmet floats slightly forward and rotates upon scrolling
+      scrollBox.addEventListener('scroll', () => {
+        const scrolled = scrollBox.scrollTop;
+        if (scrolled < 800) {
+          const scrollFactor = scrolled * 0.08;
+          targetY = (targetY || 0) + scrollFactor;
+        }
+      });
+
+      // Smooth Animation Loop via requestAnimationFrame
+      function animateHelmet() {
+        currentX += (targetX - currentX) * 0.08;
+        currentY += (targetY - currentY) * 0.08;
+        currentRotate += (targetRotate - currentRotate) * 0.08;
+
+        if (helmet) {
+          helmet.style.transform = `translate3d(${currentX}px, ${currentY}px, 0px) rotate(${currentRotate}deg)`;
+        }
+        requestAnimationFrame(animateHelmet);
+      }
+      animateHelmet();
+
+      // 3. On Track / Off Track Editorial Tab Switcher
+      const tabOnTrack = document.getElementById('tab-on-track');
+      const tabOffTrack = document.getElementById('tab-off-track');
+      const contentOnTrack = document.getElementById('content-on-track');
+      const contentOffTrack = document.getElementById('content-off-track');
+
+      function setWorld(world) {
+        if (world === 'on-track') {
+          tabOnTrack.classList.remove('text-white/70');
+          tabOnTrack.classList.add('bg-brand-teal', 'text-[#04090c]', 'shadow-lg');
+          tabOnTrack.setAttribute('aria-pressed', 'true');
+
+          tabOffTrack.classList.remove('bg-brand-teal', 'text-[#04090c]', 'shadow-lg');
+          tabOffTrack.classList.add('text-white/70');
+          tabOffTrack.setAttribute('aria-pressed', 'false');
+
+          contentOnTrack.classList.remove('hidden');
+          contentOffTrack.classList.add('hidden');
+        } else {
+          tabOffTrack.classList.remove('text-white/70');
+          tabOffTrack.classList.add('bg-brand-teal', 'text-[#04090c]', 'shadow-lg');
+          tabOffTrack.setAttribute('aria-pressed', 'true');
+
+          tabOnTrack.classList.remove('bg-brand-teal', 'text-[#04090c]', 'shadow-lg');
+          tabOnTrack.classList.add('text-white/70');
+          tabOnTrack.setAttribute('aria-pressed', 'false');
+
+          contentOffTrack.classList.remove('hidden');
+          contentOnTrack.classList.add('hidden');
+        }
+      }
+
+      tabOnTrack.addEventListener('click', () => setWorld('on-track'));
+      tabOffTrack.addEventListener('click', () => setWorld('off-track'));
+
+    });
+  </script>
+<!-- END: InteractiveScripts -->
+</body></html>

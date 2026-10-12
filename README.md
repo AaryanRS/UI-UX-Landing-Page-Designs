@@ -43,6 +43,7 @@ Every design folder contains:
 ### 🎨 Portfolio
 - [Fury](<Portfolio Web Designs/Fury>)
 - [Robin](<Portfolio Web Designs/Robin>)
+- [Kai Rennard](<Portfolio Web Designs/Kai Rennard>)
 
 ### 🛒 E‑commerce
 - [Verdant](<E-Commerce Web Designs/Verdant>)

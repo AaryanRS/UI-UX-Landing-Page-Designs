@@ -1,0 +1,1360 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>ARCHETYPE · Studio for Structural Form</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style>
+    :root {
+      --ground: #E7E3DA;
+      --ground-secondary: #DCD7CB;
+      --ink: #1A1917;
+      --ink-secondary: #4A4741;
+      --muted: #6E6A61;
+      --pigment: #9B3418;
+      --hairline: rgba(26, 25, 23, 0.16);
+      --hairline-heavy: rgba(26, 25, 23, 0.35);
+    }
+
+    * {
+      border-radius: 0 !important;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--ground);
+      color: var(--ink);
+      font-family: 'Azeret Mono', monospace;
+      font-size: 12.5px;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-serif-display {
+      font-family: 'Instrument Serif', Georgia, serif;
+      letter-spacing: -0.015em;
+    }
+
+    .font-mono-data {
+      font-family: 'Azeret Mono', monospace;
+    }
+
+    .pigment-text {
+      color: var(--pigment);
+    }
+
+    .pigment-border {
+      border-color: var(--pigment);
+    }
+
+    .border-hairline {
+      border-color: var(--hairline);
+    }
+
+    .border-b-hairline {
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .border-t-hairline {
+      border-top: 1px solid var(--hairline);
+    }
+
+    .border-r-hairline {
+      border-right: 1px solid var(--hairline);
+    }
+
+    .border-l-hairline {
+      border-left: 1px solid var(--hairline);
+    }
+
+    /* Ambient Levitating Float */
+    @keyframes gentleFloat {
+      0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-9px) rotate(0.35deg);
+      }
+    }
+
+    .animate-float-subject {
+      animation: gentleFloat 7s ease-in-out infinite;
+      will-change: transform;
+    }
+
+    /* Micro-pulse for callout markers */
+    @keyframes pulseRing {
+      0% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.6); opacity: 0.2; }
+      100% { transform: scale(1); opacity: 0.9; }
+    }
+    .callout-pulse {
+      animation: pulseRing 3.2s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+    }
+
+    /* Strict no-fill on buttons with magnetic feel */
+    .btn-square {
+      background: transparent;
+      border: 1px solid var(--ink);
+      color: var(--ink);
+      font-family: 'Azeret Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      gap: 6px;
+    }
+
+    .btn-square .btn-arrow {
+      transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      display: inline-block;
+    }
+
+    .btn-square:hover {
+      background-color: var(--ink);
+      color: var(--ground);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(26, 25, 23, 0.12);
+    }
+
+    .btn-square:hover .btn-arrow {
+      transform: translateX(3px);
+    }
+
+    .btn-square-pigment {
+      background: transparent;
+      border: 1px solid var(--pigment);
+      color: var(--pigment);
+      font-family: 'Azeret Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      gap: 6px;
+    }
+
+    .btn-square-pigment .btn-arrow {
+      transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      display: inline-block;
+    }
+
+    .btn-square-pigment:hover {
+      background-color: var(--pigment);
+      color: #FFFFFF;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(155, 52, 24, 0.24);
+    }
+
+    .btn-square-pigment:hover .btn-arrow {
+      transform: translateX(3px);
+    }
+
+    /* Nav links with kinetic hover shift & dot reveal */
+    .nav-link {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+      color: var(--ink-secondary);
+      position: relative;
+      text-decoration: none;
+      padding-bottom: 5px;
+      padding-left: 2px;
+      transition: color 0.2s ease, transform 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .nav-link .nav-dot {
+      width: 4px;
+      height: 4px;
+      background-color: var(--pigment);
+      margin-right: 6px;
+      opacity: 0;
+      transform: scale(0);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 1px;
+      background-color: var(--pigment);
+      transition: width 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-link:hover {
+      color: var(--ink);
+      transform: translateX(2px);
+    }
+
+    .nav-link:hover .nav-dot {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Drop shadow permitted ONLY on cutout subject */
+    .subject-drop-shadow {
+      filter: drop-shadow(0 28px 45px rgba(26, 25, 23, 0.22)) drop-shadow(0 10px 18px rgba(26, 25, 23, 0.12));
+      mix-blend-mode: multiply;
+    }
+
+    /* Split Wordmark Bracketing stack */
+    .wordmark-upper {
+      z-index: 25;
+      pointer-events: none;
+      user-select: none;
+      will-change: transform;
+      transition: transform 0.1s linear;
+    }
+
+    .hero-subject-container {
+      z-index: 15;
+      will-change: transform;
+      transition: transform 0.1s linear;
+    }
+
+    .wordmark-lower {
+      z-index: 10;
+      pointer-events: none;
+      user-select: none;
+      will-change: transform;
+      transition: transform 0.1s linear;
+    }
+
+    /* Monospace headers & trackers */
+    .mono-label {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+    }
+
+    .mono-body {
+      font-family: 'Azeret Mono', monospace;
+      font-size: 12.5px;
+      line-height: 1.65;
+    }
+
+    /* Table row hover interactions */
+    .table-row-item {
+      transition: background-color 0.22s ease, transform 0.22s ease;
+      cursor: pointer;
+    }
+
+    .table-row-item:hover {
+      background-color: rgba(222, 217, 204, 0.65);
+    }
+
+    .table-row-item .specimen-title {
+      transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), color 0.24s ease;
+    }
+
+    .table-row-item:hover .specimen-title {
+      transform: translateX(8px);
+      color: var(--pigment);
+    }
+
+    .table-row-item .status-indicator {
+      transition: transform 0.2s ease;
+    }
+
+    .table-row-item:hover .status-indicator {
+      transform: scale(1.1);
+    }
+
+    /* Material Matrix Row Hover */
+    .material-row-item {
+      transition: background-color 0.24s cubic-bezier(0.16, 1, 0.3, 1), padding 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+
+    .material-row-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 1px;
+      width: 0%;
+      background-color: var(--pigment);
+      transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .material-row-item:hover::before {
+      width: 100%;
+    }
+
+    .material-row-item:hover {
+      background-color: rgba(220, 215, 203, 0.45);
+      padding-left: 8px;
+    }
+
+    .material-tag {
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .material-row-item:hover .material-tag {
+      transform: translateX(4px);
+    }
+
+    /* Drawing scale grid background */
+    .blueprint-grid {
+      background-image: 
+        linear-gradient(to right, rgba(26,25,23,0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(26,25,23,0.05) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    /* IntersectionObserver Reveal Styles */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal-on-scroll.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Interactive diagram hotspots */
+    .diagram-hotspot {
+      cursor: crosshair;
+      transition: stroke 0.2s, stroke-width 0.2s, fill 0.2s;
+    }
+
+    .diagram-hotspot:hover {
+      stroke: var(--pigment) !important;
+      stroke-width: 2.2px !important;
+    }
+
+    .hotspot-node {
+      cursor: pointer;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hotspot-node:hover {
+      transform: scale(1.6);
+    }
+
+    /* Drift Crosshairs */
+    .registration-crosshair {
+      position: absolute;
+      pointer-events: none;
+      user-select: none;
+      color: rgba(26, 25, 23, 0.22);
+      font-size: 13px;
+      line-height: 1;
+      font-family: 'Azeret Mono', monospace;
+      will-change: transform;
+    }
+
+    /* Respect prefers-reduced-motion */
+    @media (prefers-reduced-motion: reduce) {
+      .animate-float-subject,
+      .callout-pulse,
+      .reveal-on-scroll {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+      }
+    }
+  </style>
+</head>
+<body class="selection:bg-[#9B3418] selection:text-white">
+<!-- Interactive Coordinate Tracker & Crosshair overlay -->
+<div class="fixed bottom-4 right-6 z-50 pointer-events-none hidden md:flex items-center gap-2 bg-[#E7E3DA]/80 backdrop-blur-md px-3 py-1.5 border border-hairline mono-label text-[9.5px] text-[#4A4741] select-none transition-opacity duration-300" id="cursorCoordHUD">
+<span class="text-[#9B3418] font-bold">+</span>
+<span class="">POS:</span>
+<span class="text-[#1A1917] font-medium" id="coordX">0323</span>
+<span class="text-[#6E6A61]">/</span>
+<span class="text-[#1A1917] font-medium" id="coordY">0061</span>
+<span class="border-l border-hairline pl-2 ml-1 text-[#6E6A61]">TECTONIC CALIBRATION</span>
+</div>
+<!-- 1. NAVIGATION -->
+<header class="fixed top-0 left-0 right-0 h-[60px] z-50 px-6 md:px-12 flex items-center justify-between border-b-hairline backdrop-blur-[14px]" style="background-color: rgba(231, 227, 218, 0.88);">
+<div class="flex items-center gap-2">
+<a class="font-serif-display text-[20px] tracking-[-0.015em] text-[#1A1917] flex items-baseline group" href="#hero">
+        ARCHETYPE<span class="text-[#9B3418] font-bold text-[22px] ml-[1px] transition-transform duration-200 group-hover:scale-125">.</span>
+</a>
+<span class="hidden md:inline-block ml-4 pl-4 border-l border-hairline mono-label text-[#6E6A61] text-[10px]">
+        STUDIO For Purity<br></span>
+</div>
+<nav class="hidden md:flex items-center gap-7">
+<a class="nav-link" href="#drawing"><span class="nav-dot"></span>SPECIFICATION</a>
+<a class="nav-link" href="#study"><span class="nav-dot"></span>PINNED STUDY</a>
+<a class="nav-link" href="#practice"><span class="nav-dot"></span>MATERIAL MATRIX</a>
+<a class="nav-link" href="#work"><span class="nav-dot"></span>CATALOGUE OF WORKS</a>
+</nav>
+<div class="flex items-center gap-4">
+<span class="hidden lg:inline-block mono-label text-[#9B3418] text-[10.5px]">FOLIO 04.24</span>
+<a class="btn-square text-[10.5px] py-[7px] px-[14px]" href="#work">
+<span class="">INQUIRE</span>
+<span class="btn-arrow text-[10px]">→</span>
+</a>
+</div>
+</header>
+<!-- 2. HERO SECTION -->
+<section class="relative min-h-[calc(100vh-60px)] mt-[60px] pt-12 md:pt-16 pb-16 px-6 md:px-12 flex flex-col justify-between overflow-hidden isolate" id="hero" style="background-color: var(--ground-secondary);">
+<!-- Floating registration crosshairs for architectural drafting feel -->
+<span class="registration-crosshair left-10 top-24" data-parallax="0.12" style="transform: translate3d(-1.30763px, -2.59261px, 0px);">+</span>
+<span class="registration-crosshair left-[46vw] top-1/3" data-parallax="0.25" style="transform: translate3d(-2.72422px, -5.40127px, 0px);">+</span>
+<span class="registration-crosshair right-16 top-1/4" data-parallax="0.18" style="transform: translate3d(-1.96144px, -3.88891px, 0px);">+</span>
+<span class="registration-crosshair right-1/3 bottom-24" data-parallax="0.15" style="transform: translate3d(-1.63453px, -3.24076px, 0px);">+</span>
+<!-- Hero Copy Stack (Left-aligned, max 44vw) -->
+<div class="relative z-30 max-w-full md:max-w-[44vw] flex flex-col justify-between h-full pt-4 md:pt-8 pointer-events-auto">
+<div class="space-y-6">
+<div class="flex items-center gap-3 reveal-on-scroll is-revealed">
+<span class="inline-block w-[6px] h-[6px] bg-[#9B3418]"></span>
+<p class="mono-label text-[#9B3418] font-medium tracking-[0.17em]">
+            SERIES 07 · MONOLITHIC MASSING
+          </p>
+</div>
+<h1 class="font-serif-display text-[#1A1917] leading-[0.98] text-[clamp(32px,4vw,56px)] reveal-on-scroll is-revealed" style="transition-delay: 100ms;">
+          Architectural stoneware cast through <span class="italic text-[#9B3418]">subtractive tectonic</span> calibration.
+        </h1>
+<p class="mono-body text-[#4A4741] text-[12.5px] max-w-[38ch] reveal-on-scroll is-revealed" style="transition-delay: 200ms;">
+          The wordmark fractures along the axis of gravity. Heavy burnt terracotta forms anchor against split limestone blocks, balanced to fractions of a millimetre without chemical mortars.
+        </p>
+<div class="pt-2 flex flex-wrap items-center gap-4 reveal-on-scroll is-revealed" style="transition-delay: 300ms;">
+<a class="btn-square-pigment" href="#drawing">
+<span class="">EXPLORE SPECIMEN 07</span>
+<span class="btn-arrow text-[10px]">↓</span>
+</a>
+<a class="btn-square" href="#study">
+<span class="">COMPUTED BALANCE STUDY</span>
+<span class="btn-arrow text-[10px]">↘</span>
+</a>
+</div>
+</div>
+<!-- Corner-pinned monospaced caption with floating badge hover -->
+<div class="pt-16 md:pt-24 flex flex-col gap-1 border-t-hairline max-w-[320px] reveal-on-scroll is-revealed" style="transition-delay: 350ms;">
+<div class="flex justify-between items-center text-[10.5px] mono-label text-[#6E6A61] group hover:text-[#1A1917] transition-colors py-0.5">
+<span class="">INDEX NO.</span>
+<span class="text-[#1A1917] font-semibold flex items-center gap-1.5">
+<span class="inline-block w-1.5 h-1.5 bg-[#9B3418] group-hover:scale-125 transition-transform"></span>
+            ARC-24/TT-09
+          </span>
+</div>
+<div class="flex justify-between items-center text-[10.5px] mono-label text-[#6E6A61] group hover:text-[#1A1917] transition-colors py-0.5">
+<span class="">NET MASS</span>
+<span class="text-[#1A1917]">48.24 KG DRY</span>
+</div>
+<div class="flex justify-between items-center text-[10.5px] mono-label text-[#6E6A61] group hover:text-[#1A1917] transition-colors py-0.5">
+<span class="">CALIBRATION</span>
+<span class="text-[#9B3418]">STATIC EQUILIBRIUM</span>
+</div>
+</div>
+</div>
+<!-- THE SPLIT-WORDMARK BRACKET SYSTEM -->
+<!-- Line 1: Upper Wordmark (Z-index 25, above subject) -->
+<div class="wordmark-upper absolute right-6 md:right-12 top-[12%] text-right font-serif-display text-[clamp(74px,17.5vw,258px)] leading-[0.82] text-[#1A1917] tracking-[-0.025em] select-none" id="wordmarkUpper" style="transform: translate3d(0px, 0px, 0px);">
+      ARCHE
+    </div>
+<!-- Center Cut-out Subject (Z-index 15, stands in the gap) with gentle ambient levitation -->
+<div class="hero-subject-container absolute right-[5%] md:right-[14%] top-[14%] md:top-[12%] h-[68vh] md:h-[78vh] flex items-center justify-center pointer-events-none" id="heroSubjectContainer" style="transform: translate3d(0px, 0px, 0px) scale(1);">
+<div class="animate-float-subject h-full flex items-center justify-center">
+<img alt="Studio sculpture terracotta and limestone architectural artifact" class="h-full w-auto max-w-[85vw] md:max-w-[42vw] object-contain subject-drop-shadow transition-transform duration-300" height="1200" id="heroCutoutImg" src="https://lh3.googleusercontent.com/aida/AEtjO1UIm194PFJKhpXrXYIAtgGK80YK_q21tWhsx0yjnrRU2JDP4WTCDXiRZAghwWuqNNVLSRpfvS6qoA_yZEYN3orFo8hTW35HTARUb1p8RmjLxHm6rYdTFEsbhIt4z1Ini2YpxVRcLFC1x7XAPgjiOeADenLjWNtKe7T2ZrH8MSdeTr0YIUJhsIcXsxA8qqLd4dbJz0tdpPvdGXfmA9D500y13pTa_rpzEeiVO09gfnGMARBAhXS0fiPxHQ" width="896">
+</div>
+</div>
+<!-- Line 2: Lower Wordmark (Z-index 10, beneath subject) -->
+<div class="wordmark-lower absolute right-6 md:right-12 bottom-[10%] text-right font-serif-display text-[clamp(74px,17.5vw,258px)] leading-[0.82] text-[#1A1917] tracking-[-0.025em] select-none" id="wordmarkLower" style="transform: translate3d(0px, 0px, 0px);">
+      TYPE<span class="text-[#9B3418]">.</span>
+</div>
+<!-- Bottom hero hairline edge marker -->
+<div class="absolute bottom-0 left-0 right-0 border-b-hairline flex justify-between px-6 md:px-12 py-2 mono-label text-[10px] text-[#6E6A61] bg-[rgba(220,215,203,0.5)]">
+<span class="">LAT 45.4642° N · LON 9.1900° E</span>
+<span class="text-[#9B3418] flex items-center gap-1">
+        SCROLL REVEALS TECTONIC SEPARATION
+        <span class="inline-block animate-bounce">↓</span>
+</span>
+<span class="">TOLERANCE ±0.05 MM</span>
+</div>
+</section>
+<!-- 3. SECTION DRAWING: TO SCALE IN REAL UNITS -->
+<section class="py-24 px-6 md:px-12 border-b-hairline bg-[#E7E3DA] relative" id="drawing">
+<span class="registration-crosshair left-12 top-8" data-parallax="0.1" style="transform: translate3d(-1.08969px, -2.16051px, 0px);">+</span>
+<span class="registration-crosshair right-12 bottom-8" data-parallax="0.1" style="transform: translate3d(-1.08969px, -2.16051px, 0px);">+</span>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+<!-- Left Column: Headline, Monospaced Lede & Hairline Definition List -->
+<div class="lg:col-span-5 space-y-8">
+<div class="reveal-on-scroll is-revealed">
+<span class="mono-label text-[#9B3418] font-medium tracking-[0.17em]">SECTION 02 · ORTHOGRAPHIC DRAWING</span>
+<h2 class="font-serif-display text-[#1A1917] text-[clamp(30px,3.2vw,46px)] leading-[1.05] mt-3">
+            Constructed elevation <span class="italic text-[#9B3418]">to scale</span> in physical millimeters.
+          </h2>
+<p class="mono-body text-[#4A4741] mt-4">
+            A precise architectural survey of specimen ARC-24/TT-09. All cylindrical members are high-fire oxide terracotta sleeves sleeved over raw Travertine Romano pillars. No hidden armature.
+          </p>
+</div>
+<!-- Definition List with hairline rules & right-aligned values -->
+<dl class="border-t-hairline divide-y divide-[rgba(26,25,23,0.16)] reveal-on-scroll is-revealed" style="transition-delay: 150ms;">
+<div class="py-3.5 flex justify-between items-baseline gap-4 group hover:bg-[#DCD7CB]/40 px-2 transition-colors cursor-default" data-hotspot="datum">
+<dt class="mono-label text-[#9B3418] w-[35%] flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 bg-transparent border border-[#9B3418] group-hover:bg-[#9B3418] transition-colors"></span>
+              BASE FOOTPRINT
+            </dt>
+<dd class="text-[#4A4741] text-[12px] w-[45%]">Hand-dressed Travertine plinth</dd>
+<dd class="mono-label text-[#1A1917] text-right w-[20%] font-medium group-hover:text-[#9B3418] transition-colors">320 × 210 MM</dd>
+</div>
+<div class="py-3.5 flex justify-between items-baseline gap-4 group hover:bg-[#DCD7CB]/40 px-2 transition-colors cursor-default" data-hotspot="lip">
+<dt class="mono-label text-[#9B3418] w-[35%] flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 bg-transparent border border-[#9B3418] group-hover:bg-[#9B3418] transition-colors"></span>
+              VERTICAL ELEVATION
+            </dt>
+<dd class="text-[#4A4741] text-[12px] w-[45%]">Total stacked height to lip</dd>
+<dd class="mono-label text-[#1A1917] text-right w-[20%] font-medium group-hover:text-[#9B3418] transition-colors">780.00 MM</dd>
+</div>
+<div class="py-3.5 flex justify-between items-baseline gap-4 group hover:bg-[#DCD7CB]/40 px-2 transition-colors cursor-default" data-hotspot="lip">
+<dt class="mono-label text-[#9B3418] w-[35%] flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 bg-transparent border border-[#9B3418] group-hover:bg-[#9B3418] transition-colors"></span>
+              CYLINDER BORE
+            </dt>
+<dd class="text-[#4A4741] text-[12px] w-[45%]">Inner reservoir diameter</dd>
+<dd class="mono-label text-[#1A1917] text-right w-[20%] font-medium group-hover:text-[#9B3418] transition-colors">Ø 142.50 MM</dd>
+</div>
+<div class="py-3.5 flex justify-between items-baseline gap-4 group hover:bg-[#DCD7CB]/40 px-2 transition-colors cursor-default" data-hotspot="lap">
+<dt class="mono-label text-[#9B3418] w-[35%] flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 bg-transparent border border-[#9B3418] group-hover:bg-[#9B3418] transition-colors"></span>
+              BLOCK INTERLOCK
+            </dt>
+<dd class="text-[#4A4741] text-[12px] w-[45%]">Dry-joint mortise contact</dd>
+<dd class="mono-label text-[#1A1917] text-right w-[20%] font-medium group-hover:text-[#9B3418] transition-colors">9 POINT LAP</dd>
+</div>
+<div class="py-3.5 flex justify-between items-baseline gap-4 group hover:bg-[#DCD7CB]/40 px-2 transition-colors cursor-default">
+<dt class="mono-label text-[#9B3418] w-[35%] flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 bg-transparent border border-[#9B3418] group-hover:bg-[#9B3418] transition-colors"></span>
+              FIRING CYCLE
+            </dt>
+<dd class="text-[#4A4741] text-[12px] w-[45%]">Reduction cone 10 atmosphere</dd>
+<dd class="mono-label text-[#1A1917] text-right w-[20%] font-medium group-hover:text-[#9B3418] transition-colors">1,280 °C</dd>
+</div>
+</dl>
+<div class="pt-2 reveal-on-scroll is-revealed" style="transition-delay: 250ms;">
+<div class="p-4 border border-hairline bg-[#DCD7CB]/40 space-y-1 hover:border-[#9B3418]/60 transition-colors">
+<span class="mono-label text-[#1A1917] text-[10px] block font-semibold flex items-center gap-2">
+<span class="w-2 h-2 bg-[#9B3418]"></span>
+              TOLERANCE PROTOCOL
+            </span>
+<p class="mono-label text-[#6E6A61] text-[10px] leading-relaxed">
+              Every contact interface has been honed dry with silicon carbide stone to verify load transfer along principal compressive axes.
+            </p>
+</div>
+</div>
+</div>
+<!-- Right Column: Scale SVG Architectural Drawing with Leaders, Interactive Inspection & Markers -->
+<div class="lg:col-span-7 bg-[#E7E3DA] border border-hairline blueprint-grid p-6 md:p-8 relative reveal-on-scroll is-revealed" style="transition-delay: 200ms;">
+<div class="flex justify-between items-center border-b-hairline pb-3 mb-6">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 border border-[#9B3418] bg-[#9B3418]/20 animate-pulse"></span>
+<span class="mono-label text-[10.5px] text-[#1A1917] font-semibold">ELEVATION SURVEY 1:5 TRUE SCALE</span>
+</div>
+<span class="mono-label text-[10.5px] text-[#9B3418] flex items-center gap-1">
+<span class="inline-block w-1.5 h-1.5 bg-[#9B3418] rounded-full callout-pulse"></span>
+            INTERACTIVE INSPECTION
+          </span>
+</div>
+<!-- The Strict Scaled SVG Drawing -->
+<div class="relative w-full aspect-[4/3] flex items-center justify-center">
+<svg class="w-full h-full overflow-visible select-none" id="elevationSvg" viewBox="0 0 700 520" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="6" id="hatch" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse" width="6">
+<line stroke="#1A1917" stroke-opacity="0.25" stroke-width="0.5" x1="0" x2="0" y1="0" y2="6"></line>
+</pattern>
+</defs>
+<!-- Ground Plinth datum -->
+<line stroke="#1A1917" stroke-width="1.2" x1="60" x2="640" y1="460" y2="460"></line>
+<line stroke="#1A1917" stroke-dasharray="2 4" stroke-opacity="0.4" stroke-width="0.5" x1="60" x2="640" y1="464" y2="464"></line>
+<text class="mono-label" fill="#6E6A61" font-size="9" x="70" y="480">DATUM LEVEL 0.00 MM</text>
+<!-- Construction Geometry (Hairline 0.5px) -->
+<line id="centerAxisLine" stroke="#9B3418" stroke-dasharray="4 4" stroke-opacity="0.7" stroke-width="0.75" x1="350" x2="350" y1="30" y2="470"></line>
+<text class="mono-label" fill="#9B3418" font-size="8.5" x="355" y="45">CENTER AXIS OF GRAVITY (COG)</text>
+<!-- Primary Totem Base (Travertine plinth 320x70 mm) -->
+<rect class="diagram-hotspot" fill="none" height="60" id="svgBasePlinth" stroke="#1A1917" stroke-width="1.8" width="240" x="230" y="400"></rect>
+<line stroke="#1A1917" stroke-opacity="0.2" stroke-width="0.4" x1="230" x2="470" y1="400" y2="460"></line>
+<line stroke="#1A1917" stroke-opacity="0.2" stroke-width="0.4" x1="230" x2="470" y1="460" y2="400"></line>
+<!-- Terracotta Cylinder Lower (Ø 120x110 mm) -->
+<rect class="diagram-hotspot" fill="none" height="110" stroke="#1A1917" stroke-width="2.2" width="120" x="290" y="290"></rect>
+<!-- Fluting / radial line representation -->
+<line stroke="#1A1917" stroke-opacity="0.3" stroke-width="0.5" x1="310" x2="310" y1="290" y2="400"></line>
+<line stroke="#1A1917" stroke-opacity="0.3" stroke-width="0.5" x1="330" x2="330" y1="290" y2="400"></line>
+<line stroke="#1A1917" stroke-opacity="0.3" stroke-width="0.5" x1="370" x2="370" y1="290" y2="400"></line>
+<line stroke="#1A1917" stroke-opacity="0.3" stroke-width="0.5" x1="390" x2="390" y1="290" y2="400"></line>
+<!-- Cantilevered Stone Block Left -->
+<rect class="diagram-hotspot" fill="none" height="75" stroke="#1A1917" stroke-width="1.8" width="80" x="210" y="250"></rect>
+<!-- Terracotta Interlocking Cube Center (110x110 mm) -->
+<rect class="diagram-hotspot" fill="none" height="110" id="svgCenterLap" stroke="#1A1917" stroke-width="2.4" width="125" x="265" y="180"></rect>
+<!-- Inner terracotta core indicator -->
+<circle cx="327.5" cy="235" fill="#9B3418" r="3"></circle>
+<!-- Upper Travertine Right Block (Travertine 80x120 mm) -->
+<rect class="diagram-hotspot" fill="none" height="140" stroke="#1A1917" stroke-width="1.8" width="90" x="390" y="130"></rect>
+<!-- Terracotta Top Reservoir Vessel (160x100 mm) -->
+<rect class="diagram-hotspot" fill="none" height="100" stroke="#1A1917" stroke-width="2.2" width="120" x="270" y="80"></rect>
+<ellipse cx="330" cy="80" fill="none" id="svgLipRim" rx="60" ry="14" stroke="#1A1917" stroke-width="1.6"></ellipse>
+<ellipse cx="330" cy="80" fill="none" rx="46" ry="10" stroke="#9B3418" stroke-dasharray="2 2" stroke-width="0.8"></ellipse>
+<!-- Top Flange Travertine left brace -->
+<rect class="diagram-hotspot" fill="none" height="90" stroke="#1A1917" stroke-width="1.8" width="40" x="230" y="90"></rect>
+<!-- DIMENSION LINES & LEADERS (Hairline with pigment arrowheads / ticks) -->
+<!-- Height dimension leader right -->
+<line stroke="#1A1917" stroke-width="0.6" x1="520" x2="520" y1="80" y2="460"></line>
+<line stroke="#1A1917" stroke-width="0.6" x1="510" x2="530" y1="80" y2="80"></line>
+<line stroke="#1A1917" stroke-width="0.6" x1="510" x2="530" y1="460" y2="460"></line>
+<!-- Marker ticks -->
+<circle class="hotspot-node" cx="520" cy="80" fill="#9B3418" r="2.5"></circle>
+<circle class="hotspot-node" cx="520" cy="460" fill="#9B3418" r="2.5"></circle>
+<!-- Label right -->
+<text class="mono-label" fill="#1A1917" font-size="10" font-weight="600" x="536" y="275">780.00 MM</text>
+<text class="mono-label" fill="#6E6A61" font-size="8.5" x="536" y="290">NET ELEVATION</text>
+<!-- Leader to Vessel Lip [A] -->
+<g class="cursor-pointer" id="leaderGroupA">
+<line class="transition-all" stroke="#9B3418" stroke-width="0.75" x1="330" x2="160" y1="80" y2="50"></line>
+<circle class="hotspot-node" cx="330" cy="80" fill="#9B3418" r="3"></circle>
+<text class="mono-label transition-colors" fill="#9B3418" font-size="9" font-weight="600" x="60" y="48">[A] LIP RIM Ø 142.5 MM</text>
+<text class="mono-label" fill="#6E6A61" font-size="8" x="60" y="60">HIGH-OXIDE REDUCTION</text>
+</g>
+<!-- Leader to Center Interlock [B] -->
+<g class="cursor-pointer" id="leaderGroupB">
+<line class="transition-all" stroke="#9B3418" stroke-width="0.75" x1="265" x2="140" y1="235" y2="235"></line>
+<circle class="hotspot-node" cx="265" cy="235" fill="#9B3418" r="3"></circle>
+<text class="mono-label transition-colors" fill="#9B3418" font-size="9" font-weight="600" x="40" y="233">[B] COMPRESSION LAP</text>
+<text class="mono-label" fill="#6E6A61" font-size="8" x="40" y="245">SHEAR MOMENT = 0.00 KN·M</text>
+</g>
+<!-- Leader to Travertine Plinth [C] -->
+<g class="cursor-pointer" id="leaderGroupC">
+<line class="transition-all" stroke="#9B3418" stroke-width="0.75" x1="230" x2="120" y1="430" y2="430"></line>
+<circle class="hotspot-node" cx="230" cy="430" fill="#9B3418" r="3"></circle>
+<text class="mono-label transition-colors" fill="#9B3418" font-size="9" font-weight="600" x="25" y="428">[C] GROUND PLINTH</text>
+<text class="mono-label" fill="#6E6A61" font-size="8" x="25" y="440">ROMANO HONED BED</text>
+</g>
+<!-- Width dimension bottom -->
+<line stroke="#1A1917" stroke-width="0.6" x1="230" x2="470" y1="500" y2="500"></line>
+<line stroke="#1A1917" stroke-width="0.6" x1="230" x2="230" y1="492" y2="508"></line>
+<line stroke="#1A1917" stroke-width="0.6" x1="470" x2="470" y1="492" y2="508"></line>
+<circle class="hotspot-node" cx="230" cy="500" fill="#9B3418" r="2.5"></circle>
+<circle class="hotspot-node" cx="470" cy="500" fill="#9B3418" r="2.5"></circle>
+<text class="mono-label" fill="#1A1917" font-size="9.5" font-weight="600" x="320" y="515">320.00 MM BASE</text>
+</svg>
+</div>
+<!-- Scale Foot Bar -->
+<div class="mt-6 pt-4 border-t-hairline flex flex-wrap justify-between items-center gap-2 mono-label text-[10px] text-[#6E6A61]">
+<div class="flex items-center gap-4">
+<span class="">GRAPHIC SCALE:</span>
+<div class="flex h-[6px] border border-[#1A1917]">
+<div class="w-8 bg-[#1A1917]"></div>
+<div class="w-8 bg-transparent border-r border-[#1A1917]"></div>
+<div class="w-8 bg-[#1A1917]"></div>
+<div class="w-8 bg-transparent"></div>
+</div>
+<span class="text-[#1A1917]">0 — 200 MM</span>
+</div>
+<span class="text-[#9B3418] flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 bg-[#9B3418]"></span>
+            VERIFIED BY DIGITAL PHOTOGRAMMETRY
+          </span>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. PINNED STUDY: MATHEMATICALLY COMPUTED FROM STATED PHYSICS MODEL -->
+<section class="relative bg-[#DCD7CB] border-b-hairline min-h-[220vh]" id="study">
+<!-- The Sticky Stage -->
+<div class="sticky top-[60px] h-[calc(100vh-60px)] w-full flex flex-col justify-between p-6 md:p-12 overflow-hidden">
+<!-- Stage Header & Physics Stated Model -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 border-b-hairline pb-4 z-20 bg-[#DCD7CB]/80 backdrop-blur-sm">
+<div>
+<span class="mono-label text-[#9B3418] font-medium tracking-[0.17em]">SECTION 03 · PINNED STUDY</span>
+<h2 class="font-serif-display text-[#1A1917] text-[clamp(28px,2.8vw,42px)] leading-[1.05] mt-1">
+            Dynamic cantilever &amp; <span class="italic text-[#9B3418]">arc of equilibrium</span>.
+          </h2>
+<p class="mono-label text-[#6E6A61] text-[10.5px] mt-1">
+            PHYSICAL MODEL: θ(s) = θ_max · sin(π · progress) · cos(0.5π · progress) | LOAD W = 48.24 KG
+          </p>
+</div>
+<div class="flex items-center gap-6 mono-label text-[10.5px]">
+<div>
+<span class="text-[#6E6A61] block">SECTION PROGRESS</span>
+<span class="text-[#1A1917] font-semibold text-[13px]" id="studyScrollPercent">0.0%</span>
+</div>
+<div class="border-l border-hairline pl-4">
+<span class="text-[#9B3418] block">SYSTEM STATE</span>
+<span class="text-[#1A1917] font-semibold text-[13px]" id="studySystemState">RESTING DATUM</span>
+</div>
+</div>
+</div>
+<!-- Stage Center Area: The Subject + Real Computed Arc & Indicator with Interactive Cursor tracking -->
+<div class="relative flex-1 w-full flex items-center justify-center my-4 overflow-hidden cursor-ew-resize group" id="interactiveStageArea">
+<!-- Pinned Study SVG Layer for the Computed Arc (Percentage coordinate bounded) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none z-10" id="stageSvg" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1000 600">
+<!-- Datum Crosshair grid -->
+<line stroke="#1A1917" stroke-dasharray="4 6" stroke-opacity="0.3" stroke-width="0.5" x1="500" x2="500" y1="50" y2="550"></line>
+<line stroke="#1A1917" stroke-dasharray="4 6" stroke-opacity="0.3" stroke-width="0.5" x1="100" x2="900" y1="300" y2="300"></line>
+<!-- Theoretical Equilibrium Arc Path (Computed Elliptical arc) -->
+<path d="M 280 430 Q 500 120 720 430" fill="none" id="theoreticalArc" stroke="#1A1917" stroke-dasharray="3 3" stroke-opacity="0.4" stroke-width="0.8"></path>
+<!-- Traveled Vector Arc (Pigment stroke) -->
+<path d="M 280 430 Q 280.0 430.0 280.0 430.0" fill="none" id="traveledArc" stroke="#9B3418" stroke-width="1.8"></path>
+<!-- Dynamic Tangent Vector Leader at current coordinate -->
+<line id="tangentLeader" stroke="#9B3418" stroke-width="1.5" x1="280.0" x2="280.0" y1="430.0" y2="365.0"></line>
+<circle cx="280.0" cy="365.0" fill="#9B3418" id="tangentTip" r="3"></circle>
+<!-- Moving Marker: Bound to mathematical model -->
+<g id="travelingMarker" transform="translate(280.00, 430.00)">
+<circle cx="0" cy="0" fill="transparent" r="7" stroke="#9B3418" stroke-width="2"></circle>
+<circle cx="0" cy="0" fill="#9B3418" r="2.5"></circle>
+<line stroke="#9B3418" stroke-width="0.75" x1="-14" x2="14" y1="0" y2="0"></line>
+<line stroke="#9B3418" stroke-width="0.75" x1="0" x2="0" y1="-14" y2="14"></line>
+<text class="mono-label" fill="#9B3418" font-size="9.5" font-weight="600" id="markerCoordText" x="16" y="-10">R: [280, 430] θ:0.0°</text>
+</g>
+<text class="mono-label" fill="#6E6A61" font-size="8.5" x="290" y="445">START [θ: -14.2°]</text>
+<text class="mono-label" fill="#6E6A61" font-size="8.5" x="660" y="445">LIMIT [θ: +14.2°]</text>
+<text class="mono-label" fill="#9B3418" font-size="8.5" x="440" y="140">PEAK DEFLECTION VERTEX</text>
+</svg>
+<!-- The Sculptural Subject Inside Stage -->
+<div class="relative z-15 flex items-center justify-center h-[52vh] max-h-[460px] pointer-events-none transition-transform duration-100 ease-out" id="studySubjectWrapper" style="transform: rotate(0deg);">
+<img alt="Sculpture under kinetic stress calibration" class="h-full w-auto max-w-[80vw] object-contain subject-drop-shadow" height="1200" src="https://lh3.googleusercontent.com/aida/AEtjO1UIm194PFJKhpXrXYIAtgGK80YK_q21tWhsx0yjnrRU2JDP4WTCDXiRZAghwWuqNNVLSRpfvS6qoA_yZEYN3orFo8hTW35HTARUb1p8RmjLxHm6rYdTFEsbhIt4z1Ini2YpxVRcLFC1x7XAPgjiOeADenLjWNtKe7T2ZrH8MSdeTr0YIUJhsIcXsxA8qqLd4dbJz0tdpPvdGXfmA9D500y13pTa_rpzEeiVO09gfnGMARBAhXS0fiPxHQ" width="896">
+</div>
+<!-- Interactive hint badge -->
+<div class="absolute bottom-2 left-6 z-20 mono-label text-[9.5px] text-[#6E6A61] pointer-events-none flex items-center gap-2 bg-[#DCD7CB]/80 px-2.5 py-1 border border-hairline">
+<span class="w-1.5 h-1.5 bg-[#9B3418]"></span>
+<span class="">HOVER / MOVE HORIZONTALLY ACROSS STAGE TO INDUCE STRESS MOMENT</span>
+</div>
+</div>
+<!-- Real-Time Computed Readouts (Derived strictly from stated formula) -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 border-t-hairline z-20 bg-[#DCD7CB]/80 backdrop-blur-sm">
+<div class="border-r-hairline pr-3">
+<span class="mono-label text-[#6E6A61] text-[10px] block">ANGULAR DEFLECTION (θ)</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="mono-label text-[#1A1917] text-[16px] md:text-[18px] font-semibold" id="readoutAngle">+0.00°</span>
+<span class="mono-label text-[#9B3418] text-[10px]">RAD</span>
+</div>
+<span class="mono-label text-[#6E6A61] text-[9.5px] block mt-0.5">LIMIT: ±14.20°</span>
+</div>
+<div class="border-r-hairline pr-3">
+<span class="mono-label text-[#6E6A61] text-[10px] block">RESTORE MOMENT (M_R)</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="mono-label text-[#1A1917] text-[16px] md:text-[18px] font-semibold" id="readoutMoment">0.00</span>
+<span class="mono-label text-[#9B3418] text-[10px]">N·M</span>
+</div>
+<span class="mono-label text-[#6E6A61] text-[9.5px] block mt-0.5">W · h · sin(θ)</span>
+</div>
+<div class="border-r-hairline pr-3">
+<span class="mono-label text-[#6E6A61] text-[10px] block">ECCENTRICITY (e_x)</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="mono-label text-[#1A1917] text-[16px] md:text-[18px] font-semibold" id="readoutEccentricity">0.00</span>
+<span class="mono-label text-[#9B3418] text-[10px]">MM</span>
+</div>
+<span class="mono-label text-[#6E6A61] text-[9.5px] block mt-0.5">KERNEL BOUND: 35.5 MM</span>
+</div>
+<div>
+<span class="mono-label text-[#6E6A61] text-[10px] block">FACTOR OF SAFETY (FoS)</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="mono-label text-[#1A1917] text-[16px] md:text-[18px] font-semibold" id="readoutSafety">STATIC</span>
+<span class="mono-label text-[#9B3418] text-[10px]">COEF</span>
+</div>
+<span class="mono-label text-[#9B3418] text-[9.5px] block mt-0.5" id="readoutStatusText">COMPRESSIVE ONLY</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. MATERIAL AND PRACTICE: HAIRLINE ROWS & TWO-COLUMN PAIRING -->
+<section class="py-24 px-6 md:px-12 border-b-hairline bg-[#E7E3DA]" id="practice">
+<div class="max-w-[1360px] mx-auto space-y-16">
+<!-- Section Intro Header -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 border-b-hairline pb-8 reveal-on-scroll is-revealed">
+<div>
+<span class="mono-label text-[#9B3418] font-medium tracking-[0.17em]">SECTION 04 · MATERIAL MATRIX</span>
+<h2 class="font-serif-display text-[#1A1917] text-[clamp(32px,3.5vw,52px)] leading-[1.02] mt-2">
+            Stoneware earth pigments &amp; <span class="italic text-[#9B3418]">geological stone</span>.
+          </h2>
+</div>
+<p class="mono-body text-[#4A4741] max-w-[42ch]">
+          Materials are classified strictly by origin, compressive yield and kiln behaviour. We accept no synthetic resins, cementitious binders or superficial sealants.
+        </p>
+</div>
+<!-- Hairline-ruled Material Rows with Kinetic Shift and Hover underline -->
+<div class="border-t-hairline divide-y divide-[rgba(26,25,23,0.16)] reveal-on-scroll is-revealed" style="transition-delay: 150ms;">
+<div class="py-6 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline material-row-item">
+<div class="md:col-span-3">
+<span class="mono-label text-[#9B3418] font-medium material-tag flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 bg-[#9B3418]"></span>
+              MAT-01 · TERRACOTTA ARGILLA
+            </span>
+</div>
+<div class="md:col-span-6 text-[#1A1917] text-[13px]">
+            High-iron alluvial clay gathered from riverbed floodplains in Impruneta. Coarse grog added at 28% by dry weight to prevent shrinkage distortion across high-fire reduction cycles.
+          </div>
+<div class="md:col-span-3 text-left md:text-right mono-label text-[#4A4741]">
+<span class="text-[#1A1917] font-semibold block">FE₂O₃ &gt; 8.4%</span>
+<span class="text-[10px] text-[#6E6A61]">FIRE CONE 9 / 1,260°C</span>
+</div>
+</div>
+<div class="py-6 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline material-row-item">
+<div class="md:col-span-3">
+<span class="mono-label text-[#9B3418] font-medium material-tag flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 bg-[#9B3418]"></span>
+              MAT-02 · TRAVERTINO ROMANO
+            </span>
+</div>
+<div class="md:col-span-6 text-[#1A1917] text-[13px]">
+            Sedimentary calcium carbonate extracted from quarry beds in Tivoli. Visible geothermal vacuole channels are left un-grouted, establishing friction interlock between dry-stacked layers.
+          </div>
+<div class="md:col-span-3 text-left md:text-right mono-label text-[#4A4741]">
+<span class="text-[#1A1917] font-semibold block">CACO₃ 98.2%</span>
+<span class="text-[10px] text-[#6E6A61]">DENSITY 2.45 G/CM³</span>
+</div>
+</div>
+<div class="py-6 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline material-row-item">
+<div class="md:col-span-3">
+<span class="mono-label text-[#9B3418] font-medium material-tag flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 bg-[#9B3418]"></span>
+              MAT-03 · BASALT DENSE ROCK
+            </span>
+</div>
+<div class="md:col-span-6 text-[#1A1917] text-[13px]">
+            Extrusive volcanic stone selected for anchoring plinths where maximum shear resistance is necessary. Honed with water-fed diamond pads to a 200-grit matte tooth.
+          </div>
+<div class="md:col-span-3 text-left md:text-right mono-label text-[#4A4741]">
+<span class="text-[#1A1917] font-semibold block">SIO₂ 49.6%</span>
+<span class="text-[10px] text-[#6E6A61]">STRENGTH 185 MPA</span>
+</div>
+</div>
+<div class="py-6 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline material-row-item">
+<div class="md:col-span-3">
+<span class="mono-label text-[#9B3418] font-medium material-tag flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 bg-[#9B3418]"></span>
+              MAT-04 · OXIDE PIGMENT #9B3418
+            </span>
+</div>
+<div class="md:col-span-6 text-[#1A1917] text-[13px]">
+            Calcined red iron oxide earth powder suspended in pure spring water. Brushed strictly along edges and witness marks to signify load-bearing contact interfaces and shear moments.
+          </div>
+<div class="md:col-span-3 text-left md:text-right mono-label text-[#4A4741]">
+<span class="text-[#1A1917] font-semibold block">PURE MINERAL</span>
+<span class="text-[10px] text-[#6E6A61]">UNGLAZED WITNESS MARK</span>
+</div>
+</div>
+</div>
+<!-- Two-Column Prose and Data Pairing -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 pt-8 border-t-hairline">
+<div class="lg:col-span-7 space-y-5 reveal-on-scroll is-revealed">
+<span class="mono-label text-[#9B3418]">STUDIO PHILOSOPHY</span>
+<h3 class="font-serif-display text-[#1A1917] text-[28px] leading-[1.15]">
+            Form exists as the equilibrium between <span class="italic text-[#9B3418]">compressive dead weight</span> and planetary pull.
+          </h3>
+<p class="mono-body text-[#4A4741]">
+            Every sculpture generated in our workshop operates as an independent dry-stack puzzle. We reject bolts, concealed rebar, epoxies and modern elastomer adhesives. If a work cannot stand purely through its mass distribution and the friction of its milled stone beds, the geometry is discarded and returned to clay slip.
+          </p>
+</div>
+<div class="lg:col-span-5 bg-[#DCD7CB]/50 p-6 border border-hairline space-y-4 hover:border-[#1A1917] transition-colors reveal-on-scroll is-revealed" style="transition-delay: 200ms;">
+<span class="mono-label text-[#1A1917] font-semibold block border-b-hairline pb-2 flex items-center justify-between">
+<span class="">MEASURED STUDIO ACCREDITATION</span>
+<span class="w-1.5 h-1.5 bg-[#9B3418]"></span>
+</span>
+<div class="space-y-3 mono-label text-[11px]">
+<div class="flex justify-between hover:text-[#9B3418] transition-colors">
+<span class="text-[#6E6A61]">ANNUAL CLAY FIRED:</span>
+<span class="text-[#1A1917] font-medium">3,450 KG</span>
+</div>
+<div class="flex justify-between hover:text-[#9B3418] transition-colors">
+<span class="text-[#6E6A61]">KILN ENERGY SOURCE:</span>
+<span class="text-[#1A1917] font-medium">BIO-RENEWABLE WOOD GAS</span>
+</div>
+<div class="flex justify-between hover:text-[#9B3418] transition-colors">
+<span class="text-[#6E6A61]">SURFACE SEALANT:</span>
+<span class="text-[#9B3418] font-medium">0.00% (RAW BISQUE)</span>
+</div>
+<div class="flex justify-between hover:text-[#9B3418] transition-colors">
+<span class="text-[#6E6A61]">LOCATION:</span>
+<span class="text-[#1A1917] font-medium">MILAN STUDIO 4</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. WORK TABLE: PROJECT CATALOGUE -->
+<section class="py-24 px-6 md:px-12 border-b-hairline bg-[#E7E3DA]" id="work">
+<div class="max-w-[1360px] mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-8 reveal-on-scroll is-revealed">
+<div>
+<span class="mono-label text-[#9B3418] font-medium tracking-[0.17em]">SECTION 05 · CATALOGUE OF WORKS</span>
+<h2 class="font-serif-display text-[#1A1917] text-[clamp(32px,3.5vw,50px)] leading-[1.05] mt-1">
+            Registered specimens &amp; <span class="italic text-[#9B3418]">editions</span>.
+          </h2>
+</div>
+<span class="mono-label text-[#6E6A61] text-[11px] flex items-center gap-2">
+<span class="w-1.5 h-1.5 bg-[#9B3418]"></span>
+          ALL COMMISSIONS ARE ONE-OF-ONE OR SMALL EDITIONS OF THREE
+        </span>
+</div>
+<!-- Full-Width Responsive Table with Smooth Kinetic Rows -->
+<div class="w-full border-t border-b border-hairline overflow-x-auto reveal-on-scroll is-revealed" style="transition-delay: 150ms;">
+<table class="w-full text-left border-collapse min-w-[760px]">
+<thead>
+<tr class="border-b-hairline mono-label text-[10.5px] text-[#6E6A61] bg-[#DCD7CB]/30">
+<th class="py-4 px-4 font-normal">SPECIMEN / ID</th>
+<th class="py-4 px-4 font-normal">PROJECT NAME</th>
+<th class="py-4 px-4 font-normal">MATERIALS</th>
+<th class="py-4 px-4 font-normal">DIMENSIONS (H×W×D)</th>
+<th class="py-4 px-4 font-normal">MASS</th>
+<th class="py-4 px-4 font-normal text-right">STATUS</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[rgba(26,25,23,0.16)] text-[12px]">
+<tr class="table-row-item">
+<td class="py-5 px-4 mono-label text-[#9B3418] font-medium">ARC-24/09</td>
+<td class="py-5 px-4">
+<span class="specimen-title font-serif-display text-[clamp(17px,1.5vw,22px)] text-[#1A1917] block leading-tight">
+                  Tectonic Totem VII
+                </span>
+<span class="mono-label text-[9.5px] text-[#6E6A61]">PRIMARY HERO SPECIMEN</span>
+</td>
+<td class="py-5 px-4 mono-label text-[#4A4741]">Impruneta Clay / Travertino Romano</td>
+<td class="py-5 px-4 mono-label text-[#4A4741]">780 × 320 × 210 MM</td>
+<td class="py-5 px-4 mono-label text-[#4A4741]">48.24 KG</td>
+<td class="py-5 px-4 mono-label text-right">
+<span class="status-indicator inline-flex items-center gap-1.5 text-[#9B3418]">
+<span class="w-1.5 h-1.5 bg-[#9B3418]"></span>
+                  STUDIO ARCHIVE
+                </span>
+</td>
+</tr>
+<tr class="table-row-item">
+<td class="py-5 px-4 mono-label text-[#9B3418] font-medium">ARC-24/06</td>
+<td class="py-5 px-4">
+<span class="specimen-title font-serif-display text-[clamp(17px,1.5vw,22px)] text-[#1A1917] block leading-tight">
+                  Cantilever Column III
+                </span>
+<span class="mono-label text-[9.5px] text-[#6E6A61]">ECCENTRIC BALANCED BEAM</span>
+</td>
+<td class="py-5 px-4 mono-label text-[#4A4741]">Terracotta / Flamed Basalt</td>
+<td class="py-5 px-4 mono-label text-[#4A4741]">620 × 440 × 180 MM</td>
+<td class="py-5 px-4 mono-label text-[#4A4741]">56.10 KG</td>
+<td class="py-5 px-4 mono-label text-right text-[#1A1917]">
+<span class="status-indicator inline-flex items-center gap-1.5">
+                  PRIVATE COLLECTION
+                </span>
+</td>
+</tr>
+<tr class="table-row-item">
+<td class="py-5 px-4 mono-label text-[#9B3418] font-medium">ARC-23/18</td>
+<td class="py-5 px-4">
+<span class="specimen-title font-serif-display text-[clamp(17px,1.5vw,22px)] text-[#1A1917] block leading-tight">
+                  Stepped Arch Vessel
+                </span>
+<span class="mono-label text-[9.5px] text-[#6E6A61]">FIVE-BLOCK DRY CORBEL</span>
+</td>
+<td class="py-5 px-4 mono-label text-[#4A4741]">Reduction Stoneware / Tuff</td>
+<td class="py-5 px-4 mono-label text-[#4A4741]">510 × 360 × 260 MM</td>
+<td class="py-5 px-4 mono-label text-[#4A4741]">39.40 KG</td>
+<td class="py-5 px-4 mono-label text-right">
+<span class="status-indicator inline-flex items-center gap-1.5 text-[#1A1917]">
+<span class="w-1.5 h-1.5 bg-[#9B3418]"></span>
+                  AVAILABLE (1/3)
+                </span>
+</td>
+</tr>
+<tr class="table-row-item">
+<td class="py-5 px-4 mono-label text-[#9B3418] font-medium">ARC-23/12</td>
+<td class="py-5 px-4">
+<span class="specimen-title font-serif-display text-[clamp(17px,1.5vw,22px)] text-[#1A1917] block leading-tight">
+                  Twin Cylinder Monolith
+                </span>
+<span class="mono-label text-[9.5px] text-[#6E6A61]">PARALLEL AXIAL SLEEVES</span>
+</td>
+<td class="py-5 px-4 mono-label text-[#4A4741]">High-Iron Terra / Carrara Bed</td>
+<td class="py-5 px-4 mono-label text-[#4A4741]">890 × 280 × 280 MM</td>
+<td class="py-5 px-4 mono-label text-[#4A4741]">64.80 KG</td>
+<td class="py-5 px-4 mono-label text-right text-[#1A1917]">
+<span class="status-indicator inline-flex items-center gap-1.5">
+                  FONDAZIONE MILANO
+                </span>
+</td>
+</tr>
+<tr class="table-row-item">
+<td class="py-5 px-4 mono-label text-[#9B3418] font-medium">ARC-22/04</td>
+<td class="py-5 px-4">
+<span class="specimen-title font-serif-display text-[clamp(17px,1.5vw,22px)] text-[#1A1917] block leading-tight">
+                  Horizontal Plinth Bench
+                </span>
+<span class="mono-label text-[9.5px] text-[#6E6A61]">ARCHITECTURAL SCALE WORK</span>
+</td>
+<td class="py-5 px-4 mono-label text-[#4A4741]">Terracotta Tile / Pietra Serena</td>
+<td class="py-5 px-4 mono-label text-[#4A4741]">420 × 1800 × 450 MM</td>
+<td class="py-5 px-4 mono-label text-[#4A4741]">210.00 KG</td>
+<td class="py-5 px-4 mono-label text-right text-[#1A1917]">
+<span class="status-indicator inline-flex items-center gap-1.5">
+                  COMMISSIONED
+                </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="mt-4 flex flex-col md:flex-row justify-between items-center text-[10.5px] mono-label text-[#6E6A61]">
+<span class="">TOTAL SHIPPED MASS SINCE 2021: 14.8 TONNES</span>
+<span class="">ALL ACQUISITIONS INCLUDE ARCHIVAL SPECIFICATION CERTIFICATE</span>
+</div>
+</div>
+</section>
+<!-- 7. CLOSE SECTION: WITH FULL-WIDTH BOOKENDING WORDMARK CROPPED BY PAGE EDGE -->
+<footer class="relative pt-24 pb-0 bg-[#DCD7CB] overflow-hidden isolate" id="close">
+<div class="px-6 md:px-12 max-w-[1360px] mx-auto">
+<!-- Top Closing Row -->
+<div class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-10 border-b-hairline pb-16 reveal-on-scroll is-revealed">
+<div class="max-w-[48ch] space-y-4">
+<span class="mono-label text-[#9B3418] font-medium tracking-[0.17em]">EPILOGUE · ACQUISITION &amp; COLLABORATION</span>
+<h2 class="font-serif-display text-[#1A1917] text-[clamp(34px,4vw,62px)] leading-[1.02]">
+            Commissioning works for <span class="italic text-[#9B3418]">spaces of permanence</span>.
+          </h2>
+<p class="mono-body text-[#4A4741]">
+            We partner with architects, private curators and institutional foundations on site-specific monolithic installations.
+          </p>
+</div>
+<!-- Buttons pushed to opposite edge -->
+<div class="flex flex-wrap items-center gap-4">
+<a class="btn-square-pigment" href="mailto:studio@archetype-form.com">
+<span class="">INITIATE STUDIO COMMISSION</span>
+<span class="btn-arrow text-[10px]">→</span>
+</a>
+<a class="btn-square" href="#drawing">
+<span class="">DOWNLOAD CATALOGUE (PDF)</span>
+<span class="btn-arrow text-[10px]">↓</span>
+</a>
+</div>
+</div>
+<!-- Monospaced Fine Print Line & Hairline footer strip -->
+<div class="py-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-[11px] mono-label text-[#6E6A61]">
+<div>
+<span class="">ARCHETYPE STUDIO SRL · VIA PRIVATA OROBIA 11, MILANO</span>
+</div>
+<div class="flex gap-6">
+<span class="">VAT IT 09482100962</span>
+<span class="">REPRINTING PROHIBITED</span>
+<span class="text-[#9B3418]">EST. 2021</span>
+</div>
+</div>
+</div>
+<!-- The Full-Width Wordmark Bookending the Hero: Cropped by bottom edge -->
+<div class="w-full overflow-hidden text-center select-none pointer-events-none mt-4">
+<div class="font-serif-display text-[clamp(80px,20vw,300px)] leading-[0.72] text-[#1A1917] tracking-[-0.03em] translate-y-[0.17em] whitespace-nowrap transition-transform duration-200" id="footerWordmark" style="transform: translateY(calc(0.17em - 5.85438px));">
+        ARCHETYPE<span class="text-[#9B3418]">.</span>
+</div>
+</div>
+</footer>
+<!-- SCRIPT FOR KINETIC PARALLAX, INTERSECTION OBSERVER REVEALS & INTERACTIVE PINNED STUDY -->
+<script>
+    (function() {
+      // 1. Elements Cache
+      const heroSec = document.getElementById('hero');
+      const wordmarkUpper = document.getElementById('wordmarkUpper');
+      const wordmarkLower = document.getElementById('wordmarkLower');
+      const heroSubject = document.getElementById('heroSubjectContainer');
+      const footerWordmark = document.getElementById('footerWordmark');
+
+      const studySec = document.getElementById('study');
+      const studyScrollPercent = document.getElementById('studyScrollPercent');
+      const studySystemState = document.getElementById('studySystemState');
+      const traveledArc = document.getElementById('traveledArc');
+      const travelingMarker = document.getElementById('travelingMarker');
+      const markerCoordText = document.getElementById('markerCoordText');
+      const tangentLeader = document.getElementById('tangentLeader');
+      const tangentTip = document.getElementById('tangentTip');
+      const studySubjectWrapper = document.getElementById('studySubjectWrapper');
+      const interactiveStageArea = document.getElementById('interactiveStageArea');
+
+      const readoutAngle = document.getElementById('readoutAngle');
+      const readoutMoment = document.getElementById('readoutMoment');
+      const readoutEccentricity = document.getElementById('readoutEccentricity');
+      const readoutSafety = document.getElementById('readoutSafety');
+      const readoutStatusText = document.getElementById('readoutStatusText');
+
+      // Coordinate HUD Elements
+      const coordHUD = document.getElementById('cursorCoordHUD');
+      const coordX = document.getElementById('coordX');
+      const coordY = document.getElementById('coordY');
+      const parallaxCrosshairs = document.querySelectorAll('.registration-crosshair');
+
+      // Physics model constants for ARC-24/TT-09
+      const MASS = 48.24; // kg
+      const GRAVITY = 9.80665; // m/s^2
+      const HEIGHT_CG = 0.42; // meters to center of gravity
+      const BASE_WIDTH = 0.32; // meters base footprint
+      const MAX_THETA_DEG = 14.20; // Maximum allowed deflection before tipping (degrees)
+      const MAX_THETA_RAD = (MAX_THETA_DEG * Math.PI) / 180;
+
+      // Arc coordinates in SVG viewBox (1000 x 600)
+      const X_START = 280;
+      const X_END = 720;
+      const Y_BASE = 430;
+      const Y_PEAK = 120;
+
+      // Mouse interactive tilt state over study section
+      let isStageHovered = false;
+      let stageHoverProgress = 0.5;
+      let scrollBasedProgress = 0;
+      let targetProgress = 0;
+      let currentProgress = 0;
+
+      // 2. STAGGERED REVEAL OBSERVER
+      const revealElements = document.querySelectorAll('.reveal-on-scroll');
+      if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-revealed');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+      } else {
+        revealElements.forEach(el => el.classList.add('is-revealed'));
+      }
+
+      // 3. CURSOR COORDINATE TRACKER & AMBIENT PARALLAX
+      let mouseX = 0, mouseY = 0;
+      window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+
+        if (coordHUD) {
+          coordX.textContent = mouseX.toString().padStart(4, '0');
+          coordY.textContent = mouseY.toString().padStart(4, '0');
+        }
+
+        // Parallax drift on floating registration crosses
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
+        const deltaX = (mouseX - centerX) / centerX;
+        const deltaY = (mouseY - centerY) / centerY;
+
+        parallaxCrosshairs.forEach(cross => {
+          const depth = parseFloat(cross.getAttribute('data-parallax') || '0.1');
+          cross.style.transform = `translate3d(${deltaX * depth * 22}px, ${deltaY * depth * 22}px, 0)`;
+        });
+      }, { passive: true });
+
+      // 4. INTERACTIVE STAGE TRACKING: MOUSE OVER THE EQUILIBRIUM STAGE
+      if (interactiveStageArea) {
+        interactiveStageArea.addEventListener('mouseenter', () => {
+          isStageHovered = true;
+        });
+        interactiveStageArea.addEventListener('mouseleave', () => {
+          isStageHovered = false;
+        });
+        interactiveStageArea.addEventListener('mousemove', (e) => {
+          const rect = interactiveStageArea.getBoundingClientRect();
+          const relativeX = (e.clientX - rect.left) / rect.width;
+          stageHoverProgress = Math.max(0, Math.min(1, relativeX));
+        });
+      }
+
+      // 5. DIAGRAM INSPECTION INTERACTIVITY
+      const leaderA = document.getElementById('leaderGroupA');
+      const leaderB = document.getElementById('leaderGroupB');
+      const leaderC = document.getElementById('leaderGroupC');
+      const svgLipRim = document.getElementById('svgLipRim');
+      const svgCenterLap = document.getElementById('svgCenterLap');
+      const svgBasePlinth = document.getElementById('svgBasePlinth');
+
+      function bindHover(trigger, targets) {
+        if (!trigger) return;
+        trigger.addEventListener('mouseenter', () => {
+          targets.forEach(t => {
+            if (t) {
+              t.style.stroke = '#9B3418';
+              t.style.strokeWidth = '2.5px';
+            }
+          });
+        });
+        trigger.addEventListener('mouseleave', () => {
+          targets.forEach(t => {
+            if (t) {
+              t.style.stroke = '';
+              t.style.strokeWidth = '';
+            }
+          });
+        });
+      }
+
+      bindHover(leaderA, [svgLipRim]);
+      bindHover(leaderB, [svgCenterLap]);
+      bindHover(leaderC, [svgBasePlinth]);
+
+      // Connect table rows with data-hotspot
+      document.querySelectorAll('[data-hotspot]').forEach(item => {
+        const spot = item.getAttribute('data-hotspot');
+        if (spot === 'lip') bindHover(item, [svgLipRim, leaderA ? leaderA.querySelector('line') : null]);
+        if (spot === 'lap') bindHover(item, [svgCenterLap, leaderB ? leaderB.querySelector('line') : null]);
+        if (spot === 'datum') bindHover(item, [svgBasePlinth, leaderC ? leaderC.querySelector('line') : null]);
+      });
+
+      // 6. MAIN KINETIC RENDER LOOP (requestAnimationFrame)
+      function updateKineticMotion() {
+        const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+        const vh = window.innerHeight;
+
+        // A. HERO BRACKET KINETIC TRANSFORMATION
+        if (heroSec) {
+          const heroRect = heroSec.getBoundingClientRect();
+          if (heroRect.bottom > 0) {
+            const heroProgress = Math.min(Math.max(-heroRect.top / (heroRect.height || vh), 0), 1.5);
+            
+            // Smooth separation of upper and lower wordmark
+            const upperY = -heroProgress * (vh * 0.24);
+            const upperX = heroProgress * 48;
+            const lowerY = heroProgress * (vh * 0.22);
+            const lowerX = heroProgress * 36;
+            
+            const subjectY = -heroProgress * (vh * 0.26);
+            const subjectScale = 1 + heroProgress * 0.09;
+
+            wordmarkUpper.style.transform = `translate3d(${upperX}px, ${upperY}px, 0)`;
+            wordmarkLower.style.transform = `translate3d(${lowerX}px, ${lowerY}px, 0)`;
+            heroSubject.style.transform = `translate3d(0, ${subjectY}px, 0) scale(${subjectScale})`;
+          }
+        }
+
+        // B. PINNED STUDY PROGRESS & INTERACTION BLEND
+        if (studySec) {
+          const studyRect = studySec.getBoundingClientRect();
+          const totalScrollable = studySec.offsetHeight - vh;
+          
+          if (totalScrollable > 0) {
+            const rawProgress = (-studyRect.top) / totalScrollable;
+            scrollBasedProgress = Math.min(Math.max(rawProgress, 0), 1);
+          }
+
+          // Blend mouse horizontal influence smoothly when cursor is actively inside study
+          if (isStageHovered) {
+            targetProgress = stageHoverProgress;
+          } else {
+            targetProgress = scrollBasedProgress;
+          }
+
+          // Spring dampening / Lerp
+          currentProgress += (targetProgress - currentProgress) * 0.12;
+
+          // Render Physics calculations
+          studyScrollPercent.textContent = (currentProgress * 100).toFixed(1) + '%';
+
+          // Continuous physical model formula:
+          // θ = MAX_THETA * sin(progress * π) * cos(progress * 0.5 * π)
+          const angleRad = MAX_THETA_RAD * Math.sin(currentProgress * Math.PI) * Math.cos(currentProgress * 0.5 * Math.PI);
+          const angleDeg = (angleRad * 180) / Math.PI;
+
+          // Restoring moment: M_R = W * g * h_cg * sin(θ)
+          const momentNM = MASS * GRAVITY * HEIGHT_CG * Math.sin(angleRad);
+
+          // Eccentricity: e_x = h_cg * tan(θ)
+          const eccMM = (HEIGHT_CG * Math.tan(angleRad)) * 1000;
+
+          // Factor of safety against overturning: FoS = (Base / 2) / |e_x|
+          const halfBaseMM = (BASE_WIDTH / 2) * 1000;
+          const absEcc = Math.abs(eccMM);
+          let fos = 99.9;
+          if (absEcc > 0.05) {
+            fos = halfBaseMM / absEcc;
+          }
+
+          // Update UI readouts
+          readoutAngle.textContent = (angleDeg >= 0 ? '+' : '') + angleDeg.toFixed(2) + '°';
+          readoutMoment.textContent = Math.abs(momentNM).toFixed(2);
+          readoutEccentricity.textContent = Math.abs(eccMM).toFixed(2);
+          readoutSafety.textContent = fos > 40 ? 'STATIC' : fos.toFixed(2);
+
+          if (currentProgress < 0.05) {
+            studySystemState.textContent = 'RESTING DATUM';
+            readoutStatusText.textContent = 'COMPRESSIVE ONLY';
+          } else if (currentProgress > 0.92) {
+            studySystemState.textContent = 'RETURN CYLINDER';
+            readoutStatusText.textContent = 'RESTABILIZING';
+          } else if (Math.abs(angleDeg) > 7.5) {
+            studySystemState.textContent = 'MOMENT STRESS';
+            readoutStatusText.textContent = 'SHEAR VERIFIED';
+          } else {
+            studySystemState.textContent = 'TEST IN PROGRESS';
+            readoutStatusText.textContent = 'IN EQUILIBRIUM';
+          }
+
+          // Compute SVG Marker along Real Quad Bezier Curve
+          const t = currentProgress;
+          const oneMinusT = 1 - t;
+          const currentX = (oneMinusT * oneMinusT * X_START) + (2 * oneMinusT * t * 500) + (t * t * X_END);
+          const currentY = (oneMinusT * oneMinusT * Y_BASE) + (2 * oneMinusT * t * Y_PEAK) + (t * t * Y_BASE);
+
+          // Update Traveling marker
+          travelingMarker.setAttribute('transform', `translate(${currentX.toFixed(2)}, ${currentY.toFixed(2)})`);
+          markerCoordText.textContent = `R: [${currentX.toFixed(0)}, ${currentY.toFixed(0)}] θ:${angleDeg.toFixed(1)}°`;
+
+          // Update Traveled Arc path up to current point
+          const ctrlX = X_START + (500 - X_START) * t;
+          const ctrlY = Y_BASE + (Y_PEAK - Y_BASE) * t;
+          traveledArc.setAttribute('d', `M ${X_START} ${Y_BASE} Q ${ctrlX.toFixed(1)} ${ctrlY.toFixed(1)} ${currentX.toFixed(1)} ${currentY.toFixed(1)}`);
+
+          // Tangent leader vector
+          const tipX = currentX - Math.sin(angleRad) * 65;
+          const tipY = currentY - Math.cos(angleRad) * 65;
+          tangentLeader.setAttribute('x1', currentX.toFixed(1));
+          tangentLeader.setAttribute('y1', currentY.toFixed(1));
+          tangentLeader.setAttribute('x2', tipX.toFixed(1));
+          tangentLeader.setAttribute('y2', tipY.toFixed(1));
+          if (tangentTip) {
+            tangentTip.setAttribute('cx', tipX.toFixed(1));
+            tangentTip.setAttribute('cy', tipY.toFixed(1));
+          }
+
+          // Lean the sculpture in the study physically to match calculated deflection
+          studySubjectWrapper.style.transform = `rotate(${angleDeg.toFixed(2)}deg)`;
+        }
+
+        // Footer subtle parallax drift
+        if (footerWordmark) {
+          const footerRect = footerWordmark.getBoundingClientRect();
+          if (footerRect.top < vh) {
+            const footerOffset = (vh - footerRect.top) * 0.04;
+            footerWordmark.style.transform = `translateY(calc(0.17em - ${footerOffset}px))`;
+          }
+        }
+
+        requestAnimationFrame(updateKineticMotion);
+      }
+
+      // Kick off continuous render loop
+      requestAnimationFrame(updateKineticMotion);
+
+    })();
+  </script>
+
+
+</body></html>

@@ -46,10 +46,10 @@ Every design folder contains:
 - [Kai Rennard](<Portfolio Web Designs/Kai Rennard>)
 
 ### 🧑‍💼 Service Page Designs
-- [Archetype](<Product & Service Web Designs/Archetype>)
-- [Synthopsis](<Product & Service Web Designs/Synthopsis>)
-- [Kronos 01](<Product & Service Web Designs/Kronos 01>)
-- [Silicon](<Product & Service Web Designs/Silicon>)
+- [Archetype](<Service Web Designs/Archetype>)
+- [Synthopsis](<Service Web Designs/Synthopsis>)
+- [Kronos 01](<Service Web Designs/Kronos 01>)
+- [Silicon](<Service Web Designs/Silicon>)
 
 ### Product Page Designs
 - [Verdant](<Product Web Designs/Verdant>)

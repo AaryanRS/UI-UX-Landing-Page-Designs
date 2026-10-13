@@ -53,6 +53,7 @@ Every design folder contains:
 - [Synthopsis](<Product & Service Web Designs/Synthopsis>)
 - [Kronos 01](<Product & Service Web Designs/Kronos 01>)
 - [Silicon](<Product & Service Web Designs/Silicon>)
+- [Parker](<Product & Service Web Designs/Parker>)
 
 ### 🌐 All‑in‑One
 - [All-in-One Design 1](All-in-One/Design1)

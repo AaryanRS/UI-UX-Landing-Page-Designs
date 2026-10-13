@@ -40,27 +40,21 @@ Every design folder contains:
 
 ## 📂 Sections
 
-### 🎨 Portfolio
+### 🎨 Portfolio Page Designs
 - [Fury](<Portfolio Web Designs/Fury>)
 - [Robin](<Portfolio Web Designs/Robin>)
 - [Kai Rennard](<Portfolio Web Designs/Kai Rennard>)
 
-### 🛒 E‑commerce
-- [Verdant](<E-Commerce Web Designs/Verdant>)
-
-### 🧑‍💼 Product & Service
+### 🧑‍💼 Service Page Designs
 - [Archetype](<Product & Service Web Designs/Archetype>)
 - [Synthopsis](<Product & Service Web Designs/Synthopsis>)
 - [Kronos 01](<Product & Service Web Designs/Kronos 01>)
 - [Silicon](<Product & Service Web Designs/Silicon>)
-- [Parker](<Product & Service Web Designs/Parker>)
 
-### 🌐 All‑in‑One
-- [All-in-One Design 1](All-in-One/Design1)
-
-### 🧩 More (Experimental / Fun)
-- [Fun Design 1](More/Design1)
-- [Fun Design 2](More/Design2)
+### Product Page Designs
+- [Verdant](<Product Web Designs/Verdant>)
+- [Parker](<Product Web Designs/Parker>)
+- [Flora](<Product Web Designs/Flora>)
 
 ---
 ---

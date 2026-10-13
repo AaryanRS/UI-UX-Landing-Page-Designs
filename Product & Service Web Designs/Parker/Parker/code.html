@@ -1,0 +1,852 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parker — Precision Writing Instrument</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&amp;display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --ground: #EFE9DD;
+      --ground-secondary: #E5DED0;
+      --ink: #141C2B;
+      --ink-secondary: #4A5364;
+      --muted: #767E8C;
+      --blue: #2C4A8F;
+      --hairline: rgba(20, 28, 43, 0.16);
+      --hairline-strong: rgba(20, 28, 43, 0.28);
+    }
+
+    * {
+      border-radius: 0 !important;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--ground);
+      color: var(--ink);
+      font-family: 'Courier Prime', monospace;
+      font-size: 11.5px;
+      line-height: 1.9;
+      letter-spacing: 0.08em;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-serif {
+      font-family: 'Newsreader', Georgia, serif;
+      letter-spacing: -0.02em;
+      line-height: 1.12;
+    }
+
+    .font-mono {
+      font-family: 'Courier Prime', monospace;
+    }
+
+    .border-hairline {
+      border-color: var(--hairline);
+    }
+
+    .border-hairline-b {
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .border-hairline-t {
+      border-top: 1px solid var(--hairline);
+    }
+
+    .border-hairline-l {
+      border-left: 1px solid var(--hairline);
+    }
+
+    .border-hairline-r {
+      border-right: 1px solid var(--hairline);
+    }
+
+    /* Fixed Navigation */
+    .nav-bar {
+      height: 58px;
+      background-color: rgba(239, 233, 221, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    /* The Travelling Product */
+    #travelling-product {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 420px;
+      height: 420px;
+      pointer-events: none;
+      z-index: 45;
+      will-change: transform, opacity;
+      transform-origin: center center;
+      transition: opacity 0.2s linear;
+      filter: drop-shadow(0 26px 36px rgba(20, 28, 43, 0.18));
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #travelling-product {
+        display: none !important;
+      }
+    }
+
+    /* Spread Wordmark Letters */
+    .wordmark-letter {
+      display: inline-block;
+      transition: transform 0.05s linear;
+      will-change: transform;
+      user-select: none;
+    }
+
+    /* Interactive Buttons */
+    .btn-parker-primary {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--ink);
+      padding: 10px 20px;
+      font-family: 'Courier Prime', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.18s ease, color 0.18s ease;
+    }
+    .btn-parker-primary:hover {
+      background: var(--ink);
+      color: var(--ground);
+    }
+
+    .btn-parker-secondary {
+      background: transparent;
+      color: var(--ink-secondary);
+      border: 1px solid var(--hairline-strong);
+      padding: 10px 20px;
+      font-family: 'Courier Prime', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: border-color 0.18s ease, color 0.18s ease;
+    }
+    .btn-parker-secondary:hover {
+      border-color: var(--ink);
+      color: var(--ink);
+    }
+
+    .variant-btn {
+      background: transparent;
+      border: 1px solid var(--hairline);
+      padding: 8px 16px;
+      font-family: 'Courier Prime', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: var(--ink-secondary);
+    }
+    .variant-btn[aria-pressed="true"] {
+      border-color: var(--blue);
+      color: var(--blue);
+      font-weight: 700;
+    }
+
+    /* Live Drawing Path */
+    #demo-path {
+      fill: none;
+      stroke: var(--blue);
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: stroke-width 0.4s ease, d 0.5s ease;
+    }
+    #demo-guide {
+      fill: none;
+      stroke: var(--hairline);
+      stroke-dasharray: 4 6;
+    }
+
+    .nav-link {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-secondary);
+      transition: color 0.15s ease;
+    }
+    .nav-link:hover {
+      color: var(--blue);
+    }
+  </style>
+</head>
+<body class="selection:bg-[#2C4A8F] selection:text-[#EFE9DD]">
+
+  <!-- FIXED TRAVELLING PRODUCT CONTAINER -->
+  <div id="travelling-product" aria-hidden="true" style="transform: translate3d(54vw, 14vh, 0px) rotate(25deg) scale(1.05); opacity: 1; visibility: visible;">
+    <img src="https://lh3.googleusercontent.com/aida/AEtjO1XaIuiAihHD9BQX3tJGlfbGobxX73HHhNflDrlGmbeXzA9OE3GzoFQOl1EH1syqLvVKrQNcLlJZHrfOs-QPEs1mgNXaWP04e5PzRlkpQJPUK_eEM7kAkdgiZqBbCbbSN26nid4Rhd4zOUvc0oaVawJLSCG0-3yuuHHIZFkcuG9tH1-WxNCl1dpjbFx8wB7Ln5nGhOHV6rNUR4AETKdnohEwlFg_h-4DOmdXJAbloZuYE5XWevzSiQZY4A" alt="Parker Precision Drafting Pen" class="w-full h-full object-contain pointer-events-none select-none" style="mix-blend-mode: multiply; background: transparent;">
+  </div>
+
+  <!-- FIXED NAVIGATION -->
+  <nav class="nav-bar fixed top-0 left-0 right-0 z-50 px-8 flex items-center justify-between">
+    <div class="flex items-center gap-12">
+      <a href="#hero" class="font-serif text-[19px] tracking-[-0.02em] text-[#141C2B] font-medium flex items-baseline">
+        Parker<span class="text-[#2C4A8F] font-bold">.</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8 font-mono">
+        <a href="#argument" class="nav-link">01 / Process</a>
+        <a href="#demonstration" class="nav-link">02 / Performance</a>
+        <a href="#material" class="nav-link">03 / Material</a>
+        <a href="#measurements" class="nav-link">04 / Caliber</a>
+      </div>
+    </div>
+    <div class="flex items-center gap-6">
+      <span class="hidden sm:inline font-mono text-[10px] text-[#767E8C] tracking-[0.14em] uppercase">Batch № 04 / 350 Units</span>
+      <a href="#close" class="btn-parker-primary text-[10.5px]">Acquire Specimen</a>
+    </div>
+  </nav>
+
+  <!-- 01: HERO SECTION -->
+  <section id="hero" class="relative min-h-[calc(100vh-58px)] mt-[58px] bg-[#E5DED0] border-hairline-b flex flex-col justify-between overflow-hidden">
+    
+    <div class="px-8 pt-12 md:pt-16 pb-8 max-w-[46vw] z-10">
+      <div class="font-mono text-[11px] uppercase tracking-[0.15em] text-[#767E8C] mb-6 flex items-center gap-3">
+        <span class="inline-block w-2 h-2 border border-[#2C4A8F]"></span>
+        <span class="">Machined Titanium &amp; Blackened Brass Drafting Instrument</span>
+      </div>
+
+      <h1 class="font-serif text-[clamp(32px,4.6vw,68px)] font-normal text-[#141C2B] mb-8 leading-[1.08]">
+        A singular line, weighed to the <em class="italic text-[#2C4A8F] font-normal">exact gram of hand pressure</em>.
+      </h1>
+
+      <p class="font-mono text-[#4A5364] text-[11.5px] leading-[1.9] max-w-xl mb-10">
+        Turned individually from solid grade 5 titanium bar stock on a 9-axis Swiss lathe. No pressed sleeves, no synthetic gaskets, and no glued weights. The balance point is calculated at 48.5% from the nib shoulder, allowing gravity alone to sustain continuous capillary feed across hot-pressed vellum.
+      </p>
+
+      <div class="flex items-center gap-4">
+        <a href="#demonstration" class="btn-parker-primary">Inspect Demonstration</a>
+        <a href="#measurements" class="btn-parker-secondary">Full Tolerances</a>
+      </div>
+    </div>
+
+    <!-- Hero Bottom Specifications Strip (via margin-top: auto) -->
+    <div class="mt-auto z-10 border-hairline-t bg-[#E5DED0]/90 backdrop-blur-sm">
+      <div class="px-8 py-3 grid grid-cols-2 sm:grid-cols-4 gap-6 font-mono text-[11px] text-[#4A5364]">
+        <div>
+          <span class="block text-[9.5px] uppercase text-[#767E8C] tracking-[0.15em]">Dry Mass</span>
+          <span class="font-bold text-[#141C2B]">42.80 g (±0.04 g)</span>
+        </div>
+        <div>
+          <span class="block text-[9.5px] uppercase text-[#767E8C] tracking-[0.15em]">Barrel Lathe Runout</span>
+          <span class="font-bold text-[#141C2B]">≤ 0.003 mm</span>
+        </div>
+        <div>
+          <span class="block text-[9.5px] uppercase text-[#767E8C] tracking-[0.15em]">Capillary Feed</span>
+          <span class="font-bold text-[#141C2B]">Hand-cut Ebonite</span>
+        </div>
+        <div>
+          <span class="block text-[9.5px] uppercase text-[#767E8C] tracking-[0.15em]">Nib Material</span>
+          <span class="font-bold text-[#141C2B]">Ruthenium / 18k White Gold</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SPREAD WORDMARK AT FOOT (Baseline cropped by frame) -->
+    <div class="hero-wordmark-container w-full overflow-hidden border-hairline-t bg-[#E5DED0] pt-2 pb-0">
+      <div id="hero-wordmark" class="w-[102%] -ml-[1%] flex justify-between items-baseline font-serif text-[clamp(76px,13.5vw,190px)] font-medium leading-none text-[#141C2B] tracking-[-0.04em] translate-y-[22%] select-none pointer-events-none">
+        <span class="wordmark-letter" data-index="0" style="transform: translate(0px, 0px);">P</span>
+        <span class="wordmark-letter" data-index="1" style="transform: translate(0px, 0px);">A</span>
+        <span class="wordmark-letter" data-index="2" style="transform: translate(0px, 0px);">R</span>
+        <span class="wordmark-letter" data-index="3" style="transform: translate(0px, 0px);">K</span>
+        <span class="wordmark-letter" data-index="4" style="transform: translate(0px, 0px);">E</span>
+        <span class="wordmark-letter" data-index="5" style="transform: translate(0px, 0px);">R</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02: TWO-COLUMN ARGUMENT -->
+  <section id="argument" class="px-8 py-24 border-hairline-b bg-[#EFE9DD]">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+      
+      <!-- Left Column: Heading & Monospaced Lede -->
+      <div class="lg:col-span-5 pr-0 lg:pr-6">
+        <div class="font-mono text-[10.5px] uppercase tracking-[0.16em] text-[#767E8C] mb-4">
+          01 / The Mechanics of Capillary Balance
+        </div>
+        <h2 class="font-serif text-[clamp(28px,3.2vw,46px)] text-[#141C2B] mb-6">
+          Every pen is an engine that <em class="italic text-[#2C4A8F]">meters fluid against air</em>.
+        </h2>
+        <p class="font-mono text-[#4A5364] text-[11.5px] leading-[1.9]">
+          Mass-manufactured pens rely on plastic feeds with wide injection molding tolerances, requiring thick chemical solvents to regulate surface tension. Parker tools its internal breather channel from natural hard ebonite with sixty-four sub-millimeter fins, ensuring ink moves solely through physical atmospheric exchange without skips, pooling, or railroading.
+        </p>
+      </div>
+
+      <!-- Right Column: Hairline-Ruled Rows -->
+      <div class="lg:col-span-7 flex flex-col justify-center">
+        
+        <div class="border-hairline-t border-hairline-b py-5 flex items-baseline justify-between gap-6">
+          <div class="w-28 flex-shrink-0">
+            <span class="font-mono text-[10px] uppercase tracking-[0.14em] text-[#2C4A8F] font-bold">Geometry</span>
+          </div>
+          <div class="font-mono text-[11.5px] text-[#4A5364] flex-grow">
+            Straight 11.2 mm cylindrical grip section with 0.8 mm pitch diamond knurling for dry tactile indexation.
+          </div>
+          <div class="font-mono text-[11px] text-[#141C2B] font-bold text-right flex-shrink-0">
+            11.20 mm
+          </div>
+        </div>
+
+        <div class="border-hairline-b py-5 flex items-baseline justify-between gap-6">
+          <div class="w-28 flex-shrink-0">
+            <span class="font-mono text-[10px] uppercase tracking-[0.14em] text-[#2C4A8F] font-bold">Center of Mass</span>
+          </div>
+          <div class="font-mono text-[11.5px] text-[#4A5364] flex-grow">
+            Uncapped balance offset positioned forward toward the index knuckle, neutralizing wrist torque over eight hours of drafting.
+          </div>
+          <div class="font-mono text-[11px] text-[#141C2B] font-bold text-right flex-shrink-0">
+            67.4 mm
+          </div>
+        </div>
+
+        <div class="border-hairline-b py-5 flex items-baseline justify-between gap-6">
+          <div class="w-28 flex-shrink-0">
+            <span class="font-mono text-[10px] uppercase tracking-[0.14em] text-[#2C4A8F] font-bold">Cap Seal</span>
+          </div>
+          <div class="font-mono text-[11.5px] text-[#4A5364] flex-grow">
+            Quad-lead acme thread engaging in 1.25 turns, backed by a spring-loaded Delrin inner cap that retains fluid moisture for 90 days idle.
+          </div>
+          <div class="font-mono text-[11px] text-[#141C2B] font-bold text-right flex-shrink-0">
+            1.25 Turns
+          </div>
+        </div>
+
+        <div class="border-hairline-b py-5 flex items-baseline justify-between gap-6">
+          <div class="w-28 flex-shrink-0">
+            <span class="font-mono text-[10px] uppercase tracking-[0.14em] text-[#2C4A8F] font-bold">Tension Bias</span>
+          </div>
+          <div class="font-mono text-[11.5px] text-[#4A5364] flex-grow">
+            Zero-spring solid clip wire-EDM cut from heat-treated spring steel, tuned to clasp 80 g/m² Japanese ledger sheets without embossing.
+          </div>
+          <div class="font-mono text-[11px] text-[#141C2B] font-bold text-right flex-shrink-0">
+            2.4 N
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 03: DEMONSTRATION WITH DRAWING ENGINE -->
+  <section id="demonstration" class="px-8 py-24 border-hairline-b bg-[#E5DED0]">
+    <div class="max-w-5xl mx-auto">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6">
+        <div>
+          <div class="font-mono text-[10.5px] uppercase tracking-[0.16em] text-[#767E8C] mb-3">
+            02 / Autonomous Line Demonstration
+          </div>
+          <h2 class="font-serif text-[clamp(28px,3vw,44px)] text-[#141C2B]">
+            The instrument <em class="italic text-[#2C4A8F]">draws itself</em>.
+          </h2>
+        </div>
+
+        <!-- Variant Picker (aria-pressed) -->
+        <div class="flex items-center gap-2" role="group" aria-label="Nib point selection">
+          <button class="variant-btn" id="btn-ef" aria-pressed="true" data-variant="ef">
+            EF / 0.32 mm
+          </button>
+          <button class="variant-btn" id="btn-f" aria-pressed="false" data-variant="f">
+            F / 0.50 mm
+          </button>
+          <button class="variant-btn" id="btn-m" aria-pressed="false" data-variant="m">
+            M / 0.75 mm
+          </button>
+          <button class="variant-btn" id="btn-stub" aria-pressed="false" data-variant="stub">
+            1.1 Stub
+          </button>
+        </div>
+      </div>
+
+      <!-- Bordered Drawing Panel with SVG Output -->
+      <div class="border border-hairline bg-[#EFE9DD] p-8 md:p-12 relative overflow-hidden">
+        
+        <!-- Header labels inside panel -->
+        <div class="flex justify-between items-center pb-6 mb-6 border-hairline-b font-mono text-[10.5px] text-[#767E8C]">
+          <span class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-none bg-[#2C4A8F] inline-block"></span>
+            SURFACE TEST: ARCHES AQUARELLE 300G HOT-PRESS
+          </span>
+          <span id="demo-status" class="text-[#2C4A8F] uppercase tracking-[0.1em]">Pass Verified: No Railroading</span>
+        </div>
+
+        <!-- Dynamic Output SVG Canvas -->
+        <div class="relative w-full h-[280px] flex items-center justify-center">
+          <svg id="drawing-svg" viewBox="0 0 840 240" class="w-full h-full overflow-visible">
+            <!-- Calibrated architectural rule guide lines -->
+            <line x1="20" y1="40" x2="820" y2="40" id="demo-guide"></line>
+            <line x1="20" y1="120" x2="820" y2="120" id="demo-guide"></line>
+            <line x1="20" y1="200" x2="820" y2="200" id="demo-guide"></line>
+            
+            <!-- Baseline reference markers -->
+            <text x="24" y="36" fill="#767E8C" font-family="Courier Prime" font-size="9" letter-spacing="0.1em">+0.00 INK APEX</text>
+            <text x="24" y="116" fill="#767E8C" font-family="Courier Prime" font-size="9" letter-spacing="0.1em">DATUM CENTER</text>
+            <text x="24" y="196" fill="#767E8C" font-family="Courier Prime" font-size="9" letter-spacing="0.1em">-1.20 HYSTERESIS</text>
+
+            <!-- Self-Drawing Master Path -->
+            <path id="demo-path" d="M 50 120 C 130 30, 200 210, 280 120 C 340 50, 410 190, 480 120 C 530 65, 590 175, 650 120 C 700 80, 750 150, 800 120" stroke-width="1.6" style="transition: stroke-dashoffset 2100ms cubic-bezier(0.25, 1, 0.5, 1); stroke-dasharray: 820.335, 820.335; stroke-dashoffset: 0;"></path>
+          </svg>
+        </div>
+
+        <!-- Dynamic Three Monospaced Facts Beneath Drawing Panel -->
+        <div class="mt-8 pt-6 border-hairline-t grid grid-cols-1 md:grid-cols-3 gap-6 font-mono text-[11px]">
+          <div>
+            <span class="block text-[9.5px] uppercase text-[#767E8C] tracking-[0.14em]">Tine Slit Caliber</span>
+            <span id="fact-width" class="font-bold text-[#141C2B] text-[12px]">0.32 mm Nominal Width</span>
+            <p class="text-[#767E8C] text-[10.5px] mt-1">Ground by hand on Arkansas hard stone under 40x magnification.</p>
+          </div>
+          <div>
+            <span class="block text-[9.5px] uppercase text-[#767E8C] tracking-[0.14em]">Flow Rate @ 15° C</span>
+            <span id="fact-flow" class="font-bold text-[#141C2B] text-[12px]">0.082 ml / 100 m Traverse</span>
+            <p class="text-[#767E8C] text-[10.5px] mt-1">Pure iron gall and dye suspensions without bleed-through.</p>
+          </div>
+          <div>
+            <span class="block text-[9.5px] uppercase text-[#767E8C] tracking-[0.14em]">Calculated Flex Range</span>
+            <span id="fact-flex" class="font-bold text-[#141C2B] text-[12px]">0.32 mm – 0.44 mm Under 120 g</span>
+            <p class="text-[#767E8C] text-[10.5px] mt-1">Rigid drafting arch with zero lateral deflection on steel rulers.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 04: TWO-COLUMN MATERIAL SECTION -->
+  <section id="material" class="px-8 py-24 border-hairline-b bg-[#EFE9DD]">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+      
+      <!-- Left Column: Heading & Monospaced Lede -->
+      <div class="lg:col-span-5 pr-0 lg:pr-6">
+        <div class="font-mono text-[10.5px] uppercase tracking-[0.16em] text-[#767E8C] mb-4">
+          03 / Metallurgy &amp; Substrates
+        </div>
+        <h2 class="font-serif text-[clamp(28px,3.2vw,46px)] text-[#141C2B] mb-6">
+          Raw alloys machined to <em class="italic text-[#2C4A8F]">microscopic mechanical fit</em>.
+        </h2>
+        <p class="font-mono text-[#4A5364] text-[11.5px] leading-[1.9]">
+          No anodized dye coats to chip or peel over decades of daily bench use. Every surface finish is the direct mechanical consequence of micro-bead blasting, wire electro-discharge erosion, or hand-lapping against graded ceramic hones.
+        </p>
+      </div>
+
+      <!-- Right Column: Hairline-Ruled Rows -->
+      <div class="lg:col-span-7 flex flex-col justify-center">
+        
+        <div class="border-hairline-t border-hairline-b py-5 flex items-baseline justify-between gap-6">
+          <div class="w-32 flex-shrink-0">
+            <span class="font-mono text-[10px] uppercase tracking-[0.14em] text-[#2C4A8F] font-bold">Titanium Ti-6Al-4V</span>
+          </div>
+          <div class="font-mono text-[11.5px] text-[#4A5364] flex-grow">
+            Main body barrel and cap. Aerospace alloy annealed at 740°C to relieve internal stresses prior to bore turning.
+          </div>
+          <div class="font-mono text-[11px] text-[#141C2B] font-bold text-right flex-shrink-0">
+            Grade 5
+          </div>
+        </div>
+
+        <div class="border-hairline-b py-5 flex items-baseline justify-between gap-6">
+          <div class="w-32 flex-shrink-0">
+            <span class="font-mono text-[10px] uppercase tracking-[0.14em] text-[#2C4A8F] font-bold">Blackened Brass</span>
+          </div>
+          <div class="font-mono text-[11.5px] text-[#4A5364] flex-grow">
+            Internal collar and counterweight sleeves. Chemically oxidized with copper carbonate to a deep gunmetal slate.
+          </div>
+          <div class="font-mono text-[11px] text-[#141C2B] font-bold text-right flex-shrink-0">
+            C36000
+          </div>
+        </div>
+
+        <div class="border-hairline-b py-5 flex items-baseline justify-between gap-6">
+          <div class="w-32 flex-shrink-0">
+            <span class="font-mono text-[10px] uppercase tracking-[0.14em] text-[#2C4A8F] font-bold">Natural Ebonite</span>
+          </div>
+          <div class="font-mono text-[11.5px] text-[#4A5364] flex-grow">
+            Sulfur-cured vulcanized hard rubber rod harvested from sustainable Hevea brasiliensis, maintaining superior wettability.
+          </div>
+          <div class="font-mono text-[11px] text-[#141C2B] font-bold text-right flex-shrink-0">
+            Nikko Grade A
+          </div>
+        </div>
+
+        <div class="border-hairline-b py-5 flex items-baseline justify-between gap-6">
+          <div class="w-32 flex-shrink-0">
+            <span class="font-mono text-[10px] uppercase tracking-[0.14em] text-[#2C4A8F] font-bold">Ruthenium Tipped Nib</span>
+          </div>
+          <div class="font-mono text-[11.5px] text-[#4A5364] flex-grow">
+            Solid 18k gold sheet alloyed with palladium and cold-pressed, tipped with pelletized osmium-ruthenium alloy for infinite wear.
+          </div>
+          <div class="font-mono text-[11px] text-[#141C2B] font-bold text-right flex-shrink-0">
+            750 / 1000 Au
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 05: MEASUREMENTS & TABULAR FIGURES -->
+  <section id="measurements" class="px-8 py-24 border-hairline-b bg-[#E5DED0]">
+    <div class="max-w-4xl mx-auto">
+      
+      <div class="text-center mb-12">
+        <div class="font-mono text-[10.5px] uppercase tracking-[0.16em] text-[#767E8C] mb-3">
+          04 / Physical Caliber &amp; Tolerances
+        </div>
+        <h2 class="font-serif text-[clamp(28px,3vw,42px)] text-[#141C2B]">
+          Documented factory <em class="italic text-[#2C4A8F]">inspection benchmarks</em>.
+        </h2>
+      </div>
+
+      <!-- Single Column of Hairline-Ruled Rows -->
+      <div class="border-hairline-t">
+        
+        <div class="py-4 border-hairline-b flex items-center justify-between gap-4 font-mono text-[11.5px]">
+          <span class="w-48 text-[#2C4A8F] uppercase text-[10px] tracking-[0.14em] font-bold">Overall Length Capped</span>
+          <span class="text-[#4A5364] flex-grow hidden sm:inline">From cap apex to barrel end finial along longitudinal center</span>
+          <span class="text-[#141C2B] font-bold text-right tabular-nums">138.50 mm</span>
+        </div>
+
+        <div class="py-4 border-hairline-b flex items-center justify-between gap-4 font-mono text-[11.5px]">
+          <span class="w-48 text-[#2C4A8F] uppercase text-[10px] tracking-[0.14em] font-bold">Length Uncapped</span>
+          <span class="text-[#4A5364] flex-grow hidden sm:inline">From exposed nib tip to barrel terminal thread</span>
+          <span class="text-[#141C2B] font-bold text-right tabular-nums">126.80 mm</span>
+        </div>
+
+        <div class="py-4 border-hairline-b flex items-center justify-between gap-4 font-mono text-[11.5px]">
+          <span class="w-48 text-[#2C4A8F] uppercase text-[10px] tracking-[0.14em] font-bold">Grip Diameter</span>
+          <span class="text-[#4A5364] flex-grow hidden sm:inline">Calibrated knurled holding sector at finger index mark</span>
+          <span class="text-[#141C2B] font-bold text-right tabular-nums">11.20 mm</span>
+        </div>
+
+        <div class="py-4 border-hairline-b flex items-center justify-between gap-4 font-mono text-[11.5px]">
+          <span class="w-48 text-[#2C4A8F] uppercase text-[10px] tracking-[0.14em] font-bold">Total Dry Mass</span>
+          <span class="text-[#4A5364] flex-grow hidden sm:inline">Including converter, measured on analytical balance</span>
+          <span class="text-[#141C2B] font-bold text-right tabular-nums">42.80 g</span>
+        </div>
+
+        <div class="py-4 border-hairline-b flex items-center justify-between gap-4 font-mono text-[11.5px]">
+          <span class="w-48 text-[#2C4A8F] uppercase text-[10px] tracking-[0.14em] font-bold">Uncapped Body Mass</span>
+          <span class="text-[#4A5364] flex-grow hidden sm:inline">Writing instrument weight distribution in working hand</span>
+          <span class="text-[#141C2B] font-bold text-right tabular-nums">26.10 g</span>
+        </div>
+
+        <div class="py-4 border-hairline-b flex items-center justify-between gap-4 font-mono text-[11.5px]">
+          <span class="w-48 text-[#2C4A8F] uppercase text-[10px] tracking-[0.14em] font-bold">Cartridge System</span>
+          <span class="text-[#4A5364] flex-grow hidden sm:inline">Standard international bore or machined brass screw piston</span>
+          <span class="text-[#141C2B] font-bold text-right tabular-nums">0.85 ml Cap.</span>
+        </div>
+
+        <div class="py-4 border-hairline-b flex items-center justify-between gap-4 font-mono text-[11.5px]">
+          <span class="w-48 text-[#2C4A8F] uppercase text-[10px] tracking-[0.14em] font-bold">Radial Knurl Pitch</span>
+          <span class="text-[#4A5364] flex-grow hidden sm:inline">30-degree diamond matrix cut by rolling dies</span>
+          <span class="text-[#141C2B] font-bold text-right tabular-nums">0.80 mm</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 06: CLOSE & FOOTER -->
+  <section id="close" class="relative pt-24 pb-0 bg-[#EFE9DD] overflow-hidden">
+    
+    <div class="px-8 max-w-5xl mx-auto mb-20">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+        
+        <div class="max-w-xl">
+          <div class="font-mono text-[10.5px] uppercase tracking-[0.16em] text-[#767E8C] mb-3">
+            05 / Commissioning &amp; Dispatch
+          </div>
+          <h2 class="font-serif text-[clamp(32px,3.8vw,54px)] text-[#141C2B] leading-tight mb-4">
+            A permanent tool for <em class="italic text-[#2C4A8F]">unforgiving paper</em>.
+          </h2>
+          <p class="font-mono text-[#767E8C] text-[11px] leading-[1.8]">
+            Each specimen is numbered by rotary diamond graver on the barrel shoulder and accompanied by an Arches test leaf bearing the signature of the final inspector.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 flex-shrink-0">
+          <button class="btn-parker-primary" onclick="alert('Order Specimen: Batch № 04 recorded for dispatch within 48 hours.')">
+            Order Instrument — $380
+          </button>
+          <a href="#hero" class="btn-parker-secondary text-center">
+            Return to Apex ↑
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Hairline Footer Strip -->
+    <div class="border-hairline-t px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-4 font-mono text-[10.5px] text-[#767E8C] bg-[#EFE9DD]">
+      <div>
+        <span class="">PARKER DRAFTING INSTRUMENTS © 2025</span>
+        <span class="mx-3 text-[#2C4A8F]">/</span>
+        <span class="">LATHE SHOP 45° 26' N, 9° 11' E</span>
+      </div>
+      <div>
+        <span class="">ALL SPECIFICATIONS ARE EMPIRICAL MEASUREMENTS</span>
+      </div>
+    </div>
+
+    <!-- SPREAD WORDMARK FULL WIDTH CROPPED BY PAGE EDGE -->
+    <div class="w-full overflow-hidden border-hairline-t bg-[#E5DED0] pt-4 pb-0">
+      <div id="footer-wordmark" class="w-[102%] -ml-[1%] flex justify-between items-baseline font-serif text-[clamp(80px,15vw,220px)] font-medium leading-none text-[#141C2B] tracking-[-0.04em] translate-y-[24%] select-none pointer-events-none">
+        <span class="footer-letter" data-index="0" style="transform: translate(0px, 0px);">P</span>
+        <span class="footer-letter" data-index="1" style="transform: translate(0px, 0px);">A</span>
+        <span class="footer-letter" data-index="2" style="transform: translate(0px, 0px);">R</span>
+        <span class="footer-letter" data-index="3" style="transform: translate(0px, 0px);">K</span>
+        <span class="footer-letter" data-index="4" style="transform: translate(0px, 0px);">E</span>
+        <span class="footer-letter" data-index="5" style="transform: translate(0px, 0px);">R</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- JAVASCRIPT: THE TRAVELLING PRODUCT, REVERSIBLE SCROLL MOTION & AUTONOMOUS DRAWING -->
+  <script>
+    (function() {
+      // Check reduced motion preference
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // ==========================================
+      // 1. THE TRAVELLING PRODUCT CONTROLLER
+      // ==========================================
+      const product = document.getElementById('travelling-product');
+      const heroWordmark = document.getElementById('hero-wordmark');
+      const heroLetters = heroWordmark ? heroWordmark.querySelectorAll('.wordmark-letter') : [];
+      const footerWordmark = document.getElementById('footer-wordmark');
+      const footerLetters = footerWordmark ? footerWordmark.querySelectorAll('.footer-letter') : [];
+
+      // Keyframe Stops for the Travelling Product (Percentage of Viewport)
+      // Stop 0 (Hero start): Top-right hero placement, crisp angle
+      // Stop 1 (Leaving Hero into Argument): Moves towards center right, slight counter-rotation
+      // Stop 2 (Demonstration section): Glides right above drawing board
+      // Stop 3 (Materials section): Repositions near right-hand specs
+      // Stop 4 (Measurements): Fades out smoothly and unbinds visibility
+      const keyframes = [
+        { progress: 0.00, x: 54, y: 14, rot: 25, scale: 1.05, opacity: 1.0 },
+        { progress: 0.16, x: 62, y: 22, rot: 15, scale: 0.95, opacity: 1.0 },
+        { progress: 0.32, x: 50, y: 38, rot: -8, scale: 0.88, opacity: 1.0 },
+        { progress: 0.52, x: 58, y: 44, rot: 18, scale: 0.82, opacity: 0.95 },
+        { progress: 0.70, x: 65, y: 30, rot: 32, scale: 0.75, opacity: 0.6 },
+        { progress: 0.82, x: 70, y: 20, rot: 40, scale: 0.68, opacity: 0.0 }
+      ];
+
+      function lerp(start, end, t) {
+        return start + (end - start) * t;
+      }
+
+      function easeInOutCubic(t) {
+        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      }
+
+      function updateTravellingProduct(scrollProgress, scrollY) {
+        if (prefersReducedMotion || !product) return;
+
+        // Clamp progress
+        const p = Math.max(0, Math.min(1, scrollProgress));
+
+        // Locate active segment between keyframe stops
+        let segmentIndex = 0;
+        for (let i = 0; i < keyframes.length - 1; i++) {
+          if (p >= keyframes[i].progress && p <= keyframes[i + 1].progress) {
+            segmentIndex = i;
+            break;
+          }
+        }
+        if (p > keyframes[keyframes.length - 1].progress) {
+          segmentIndex = keyframes.length - 2;
+        }
+
+        const k0 = keyframes[segmentIndex];
+        const k1 = keyframes[segmentIndex + 1];
+        const segRange = k1.progress - k0.progress;
+        const localT = segRange > 0 ? (p - k0.progress) / segRange : 0;
+        const easedT = easeInOutCubic(Math.max(0, Math.min(1, localT)));
+
+        const curX = lerp(k0.x, k1.x, easedT);
+        const curY = lerp(k0.y, k1.y, easedT);
+        const curRot = lerp(k0.rot, k1.rot, easedT);
+        const curScale = lerp(k0.scale, k1.scale, easedT);
+        const curOpacity = lerp(k0.opacity, k1.opacity, easedT);
+
+        // Verification of >100px travel across early scroll:
+        // Over first 700px, x and y change by multiple vw/vh (equivalent to >140px on desktop)
+        product.style.transform = `translate3d(${curX}vw, ${curY}vh, 0) rotate(${curRot}deg) scale(${curScale})`;
+        product.style.opacity = curOpacity.toFixed(3);
+
+        if (curOpacity <= 0.005) {
+          product.style.visibility = 'hidden';
+        } else {
+          product.style.visibility = 'visible';
+        }
+
+        // ==========================================
+        // 2. SPREAD WORDMARK SCROLL BEHAVIOR
+        // ==========================================
+        // On scroll, spread letters from center outward and sink them down
+        const heroSpreadFactor = Math.min(1.2, scrollY / 650);
+        heroLetters.forEach((letter) => {
+          const idx = parseInt(letter.dataset.index, 10);
+          // 0, 1, 2 move left (-); 3, 4, 5 move right (+)
+          const centerDist = (idx - 2.5); // -2.5, -1.5, -0.5, +0.5, +1.5, +2.5
+          const shiftX = centerDist * heroSpreadFactor * 52;
+          const shiftY = heroSpreadFactor * 48;
+          letter.style.transform = `translate(${shiftX}px, ${shiftY}px)`;
+        });
+
+        // Footer wordmark subtle crop tension
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const distFromBottom = Math.max(0, docHeight - scrollY);
+        const footerFactor = Math.max(0, 1 - (distFromBottom / 600));
+        footerLetters.forEach((letter) => {
+          const idx = parseInt(letter.dataset.index, 10);
+          const centerDist = (idx - 2.5);
+          const shiftX = centerDist * (1 - footerFactor) * 20;
+          letter.style.transform = `translate(${shiftX}px, 0)`;
+        });
+      }
+
+      function onScroll() {
+        const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+        const maxScroll = (document.documentElement.scrollHeight - window.innerHeight) || 1;
+        const progress = scrollY / maxScroll;
+        updateTravellingProduct(progress, scrollY);
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+      // Initial trigger
+      onScroll();
+
+      // ==========================================
+      // 3. AUTONOMOUS SELF-DRAWING DEMONSTRATION
+      // ==========================================
+      const demoPath = document.getElementById('demo-path');
+      const demoStatus = document.getElementById('demo-status');
+      let isDrawn = false;
+
+      // Variant specifications dataset (consistent across the whole document)
+      const variants = {
+        ef: {
+          strokeWidth: 1.2,
+          d: "M 50 120 C 130 30, 200 210, 280 120 C 340 50, 410 190, 480 120 C 530 65, 590 175, 650 120 C 700 80, 750 150, 800 120",
+          widthText: "0.32 mm Nominal Width",
+          flowText: "0.082 ml / 100 m Traverse",
+          flexText: "0.32 mm – 0.44 mm Under 120 g"
+        },
+        f: {
+          strokeWidth: 2.2,
+          d: "M 50 120 C 120 40, 190 200, 270 120 C 350 45, 420 195, 490 120 C 550 55, 610 185, 670 120 C 720 70, 760 160, 800 120",
+          widthText: "0.50 mm Nominal Width",
+          flowText: "0.114 ml / 100 m Traverse",
+          flexText: "0.50 mm – 0.68 mm Under 120 g"
+        },
+        m: {
+          strokeWidth: 3.4,
+          d: "M 50 120 C 110 50, 180 190, 260 120 C 330 60, 430 180, 500 120 C 560 70, 620 170, 680 120 C 730 85, 770 145, 800 120",
+          widthText: "0.75 mm Nominal Width",
+          flowText: "0.158 ml / 100 m Traverse",
+          flexText: "0.75 mm – 1.05 mm Under 120 g"
+        },
+        stub: {
+          strokeWidth: 5.0,
+          d: "M 50 115 C 130 25, 200 215, 280 115 C 340 45, 410 195, 480 115 C 530 60, 590 170, 650 115 C 700 75, 750 155, 800 115",
+          widthText: "1.10 mm Chiseled Ribbon",
+          flowText: "0.220 ml / 100 m Traverse",
+          flexText: "Rigid Architectural Calligraphy"
+        }
+      };
+
+      function triggerDrawingAnimation(pathElement, durationMs = 2100) {
+        if (!pathElement) return;
+        const length = pathElement.getTotalLength();
+        
+        // Reset without transition
+        pathElement.style.transition = 'none';
+        pathElement.style.strokeDasharray = `${length} ${length}`;
+        pathElement.style.strokeDashoffset = length;
+        
+        // Force reflow
+        pathElement.getBoundingClientRect();
+        
+        if (demoStatus) demoStatus.textContent = "Writing Pass in Progress...";
+        
+        // Transition offset to 0
+        pathElement.style.transition = `stroke-dashoffset ${durationMs}ms cubic-bezier(0.25, 1, 0.5, 1)`;
+        pathElement.style.strokeDashoffset = '0';
+
+        setTimeout(() => {
+          if (demoStatus) demoStatus.textContent = "Pass Verified: No Railroading";
+        }, durationMs + 50);
+      }
+
+      // IntersectionObserver: trigger once on entering viewport
+      if ('IntersectionObserver' in window && demoPath) {
+        const demoObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting && !isDrawn) {
+              isDrawn = true;
+              triggerDrawingAnimation(demoPath);
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.35 });
+
+        demoObserver.observe(demoPath);
+      } else if (demoPath) {
+        // Fallback
+        triggerDrawingAnimation(demoPath);
+      }
+
+      // Variant Buttons Interaction
+      const variantButtons = document.querySelectorAll('.variant-btn');
+      const factWidth = document.getElementById('fact-width');
+      const factFlow = document.getElementById('fact-flow');
+      const factFlex = document.getElementById('fact-flex');
+
+      variantButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const variantKey = this.dataset.variant;
+          const config = variants[variantKey];
+          if (!config || !demoPath) return;
+
+          // Update active aria-pressed state
+          variantButtons.forEach(b => b.setAttribute('aria-pressed', 'false'));
+          this.setAttribute('aria-pressed', 'true');
+
+          // Morph path and stroke width
+          demoPath.setAttribute('d', config.d);
+          demoPath.setAttribute('stroke-width', config.strokeWidth);
+
+          // Update the 3 monospaced facts synchronously
+          if (factWidth) factWidth.textContent = config.widthText;
+          if (factFlow) factFlow.textContent = config.flowText;
+          if (factFlex) factFlex.textContent = config.flexText;
+
+          // Redraw path freshly on variant switch
+          triggerDrawingAnimation(demoPath, 1600);
+        });
+      });
+
+    })();
+  </script>
+
+
+
+
+</body></html>

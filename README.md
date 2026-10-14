@@ -51,10 +51,33 @@ Every design folder contains:
 - [Kronos 01](<Service Web Designs/Kronos 01>)
 - [Silicon](<Service Web Designs/Silicon>)
 
-### Product Page Designs
+### 😶‍🌫️ Product Page Designs
 - [Verdant](<Product Web Designs/Verdant>)
 - [Parker](<Product Web Designs/Parker>)
 - [Flora](<Product Web Designs/Flora>)
+
+### 🏬 E-Commerce Page Designs
+- [Zenos](<E-Commerce Web Designs/Zenos>)
+
+---
+---
+
+## `Example Designs`
+
+
+| Robin | Fury |
+|-------|------|
+| <img src="https://github.com/user-attachments/assets/19ccb321-81d7-46dd-938c-f2e670b0ee18" width="100%" height="70%"> | <img src="https://github.com/user-attachments/assets/1eb5561c-d0ca-4634-8d3a-cec89acc48da" width="100%" height="70%"> |
+
+| Verdant | Flora |
+|---------|-------|
+| <img src="https://github.com/user-attachments/assets/648356d0-3544-4057-b2af-a11fffb0596b" width="100%" height="70%"> | <img src="https://github.com/user-attachments/assets/ee6fd524-2b96-4ba8-a3bf-10abe214155e" width="100%" height="70%"> |
+
+| Parker | Kronos |
+|-------|--------|
+| <img src="https://github.com/user-attachments/assets/1d46dd58-fdbf-4f27-bb0e-383112db6a0d" width="100%" height="90%"> | <img src="https://github.com/user-attachments/assets/391f01aa-e9b5-4c99-be7c-5cf553aa2b8a" width="100%" height="90%"> |
+
+
 
 ---
 ---

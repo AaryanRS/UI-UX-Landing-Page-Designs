@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800;900&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}.hairline-border{border-color:rgba(255,255,255,0.15);border-width:0.5px;}.hairline-b{border-bottom:0.5px solid rgba(255,255,255,0.15);}.hairline-t{border-top:0.5px solid rgba(255,255,255,0.15);}.hairline-r{border-right:0.5px solid rgba(255,255,255,0.15);}.hairline-l{border-left:0.5px solid rgba(255,255,255,0.15);}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "primary-fixed": "#e2e2e2",
+          "outline-variant": "#444748",
+          "tertiary-container": "#e2e2e2",
+          "tertiary": "#ffffff",
+          "on-tertiary-fixed-variant": "#454747",
+          "surface-container-high": "#2a2a2a",
+          "on-secondary-fixed": "#07006c",
+          "on-surface-variant": "#c4c7c8",
+          "tertiary-fixed-dim": "#c6c6c7",
+          "error-container": "#93000a",
+          "on-primary": "#2f3131",
+          "tertiary-fixed": "#e2e2e2",
+          "on-primary-container": "#636565",
+          "on-tertiary-container": "#636565",
+          "surface": "#131313",
+          "on-tertiary-fixed": "#1a1c1c",
+          "surface-dim": "#131313",
+          "on-secondary-container": "#b0b2ff",
+          "outline": "#8e9192",
+          "on-tertiary": "#2f3131",
+          "secondary-fixed": "#e1e0ff",
+          "on-primary-fixed": "#1a1c1c",
+          "primary-container": "#e2e2e2",
+          "background": "#131313",
+          "inverse-on-surface": "#303030",
+          "error": "#ffb4ab",
+          "on-secondary-fixed-variant": "#2f2ebe",
+          "surface-variant": "#353535",
+          "secondary-fixed-dim": "#c0c1ff",
+          "on-error-container": "#ffdad6",
+          "inverse-primary": "#5d5f5f",
+          "on-error": "#690005",
+          "inverse-surface": "#e2e2e2",
+          "surface-container-lowest": "#0e0e0e",
+          "surface-tint": "#c6c6c7",
+          "surface-container": "#1f1f1f",
+          "on-primary-fixed-variant": "#454747",
+          "on-secondary": "#1000a9",
+          "surface-container-highest": "#353535",
+          "primary": "#ffffff",
+          "secondary-container": "#3131c0",
+          "on-surface": "#e2e2e2",
+          "primary-fixed-dim": "#c6c6c7",
+          "surface-container-low": "#1b1b1b",
+          "on-background": "#e2e2e2",
+          "surface-bright": "#393939",
+          "secondary": "#c0c1ff"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "space-xl": "3rem",
+          "margin-md": "2rem",
+          "margin-lg": "3rem",
+          "gutter-md": "1rem",
+          "space-lg": "1.5rem",
+          "space-xs": "0.25rem",
+          "gutter": "0px",
+          "space-md": "1rem",
+          "margin": "1rem",
+          "space-sm": "0.5rem",
+          "gutter-lg": "1.5rem"
+        },
+        "fontFamily": {
+          "headline-lg": ["Inter"],
+          "label-mono-lg": ["JetBrains Mono"],
+          "label-mono-sm": ["JetBrains Mono"],
+          "body-lg": ["Inter"],
+          "display-xl": ["Inter"],
+          "headline-md": ["Inter"],
+          "body-md": ["Inter"],
+          "headline-lg-mobile": ["Inter"],
+          "headline-sm": ["Inter"],
+          "display-xl-mobile": ["Inter"],
+          "body-sm": ["Inter"]
+        },
+        "fontSize": {
+          "headline-lg": ["3rem", {"lineHeight": "1.0", "letterSpacing": "-0.06em", "fontWeight": "900"}],
+          "label-mono-lg": ["0.875rem", {"lineHeight": "1.2", "letterSpacing": "0.2em", "fontWeight": "500"}],
+          "label-mono-sm": ["0.6875rem", {"lineHeight": "1.2", "letterSpacing": "0.35em", "fontWeight": "500"}],
+          "body-lg": ["1.125rem", {"lineHeight": "1.6", "letterSpacing": "-0.01em", "fontWeight": "300"}],
+          "display-xl": ["5rem", {"lineHeight": "0.95", "letterSpacing": "-0.06em", "fontWeight": "900"}],
+          "headline-md": ["1.75rem", {"lineHeight": "1.15", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+          "body-md": ["0.9375rem", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+          "headline-lg-mobile": ["2rem", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "900"}],
+          "headline-sm": ["1.25rem", {"lineHeight": "1.25", "letterSpacing": "-0.03em", "fontWeight": "700"}],
+          "display-xl-mobile": ["2.75rem", {"lineHeight": "1.0", "letterSpacing": "-0.05em", "fontWeight": "900"}],
+          "body-sm": ["0.8125rem", {"lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400"}]
+        }
+      }
+    }
+  }</script></head><body class="bg-[#000000] text-on-surface antialiased relative min-h-screen selection:bg-primary selection:text-surface"><div class="pointer-events-none fixed inset-0 z-50 opacity-[0.05] mix-blend-screen" style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E&quot;);"></div><header class="fixed top-0 left-0 right-0 w-full z-40 bg-[#000000]/80 backdrop-blur-md hairline-b"><div class="h-[72px] w-full px-space-md lg:px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-headline-sm uppercase text-primary tracking-tighter">ARCHITECTURAL</span><div class="w-1.5 h-1.5 rounded-full bg-primary mx-space-xs"></div><span class="font-label-mono-sm text-label-mono-sm text-on-surface-variant uppercase px-space-xs py-0.5 border hairline-border rounded-none">BETA_V.01</span></div><nav class="hidden xl:flex items-center gap-space-lg" data-active-classes="text-primary border-b border-primary"><a aria-current="page" class="font-label-mono-sm uppercase transition-colors py-1 text-primary border-b border-primary" data-path="overview" href="#">OVERVIEW</a><a class="font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant hover:text-primary transition-colors py-1" data-path="specimen-grid" href="#">SPECIMEN</a><a class="font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant hover:text-primary transition-colors py-1" data-path="geometry-metrics" href="#">METRICS</a><a class="font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant hover:text-primary transition-colors py-1" data-path="documentation" href="#">DOCS</a></nav><div class="flex items-center gap-space-sm"><div class="hidden sm:flex items-center gap-space-xs"><a class="w-10 h-10 rounded-full border hairline-border flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-all" href="https://x.com" rel="noreferrer" target="_blank"><span class="material-symbols-outlined text-[18px]">terminal</span></a><a class="w-10 h-10 rounded-full border hairline-border flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-all" href="https://github.com" rel="noreferrer" target="_blank"><span class="material-symbols-outlined text-[18px]">code</span></a><a class="w-10 h-10 rounded-full border hairline-border flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-all" href="https://discord.com" rel="noreferrer" target="_blank"><span class="material-symbols-outlined text-[18px]">forum</span></a></div><a class="h-9 px-4 rounded-full border hairline-border bg-transparent text-primary hover:bg-primary hover:text-[#000000] transition-colors flex items-center justify-center font-label-mono-sm text-[10px] font-bold uppercase tracking-widest" data-path="access" href="#">GET ACCESS</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-[72px] bg-[#000000] min-h-[calc(100vh-72px)]"><div class="flex flex-col w-full text-primary selection:bg-primary selection:text-background font-body-md overflow-x-hidden">
+<!-- ========================================== -->
+<!-- 01. HERO QUADRANT SECTION: 2x2 ARCHITECTURAL MATRIX -->
+<!-- ========================================== -->
+<section class="w-full relative hairline-b">
+<div class="grid grid-cols-1 md:grid-cols-2 w-full">
+<!-- Quadrant 01: SU -->
+<div class="relative min-h-[42vw] md:min-h-[38vw] flex flex-col justify-between p-space-md lg:p-space-lg hairline-b md:hairline-b-0 md:hairline-r overflow-hidden group hover:bg-surface-container-low transition-colors duration-300">
+<!-- Technical Telemetry Header -->
+<div class="flex items-center justify-between w-full z-10">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 bg-[#6366f1] inline-block"></span>
+<span class="font-label-mono-sm text-[10px] tracking-[0.35em] text-on-surface-variant uppercase">_SEC.01 // [01/04] // LAT_52.5200°_N</span>
+</div>
+<span class="font-label-mono-sm text-[9px] tracking-[0.4em] text-outline uppercase hidden sm:inline-block">QUAD_TOP_LEFT</span>
+</div>
+<!-- Geometric Blueprint Matrix Decorator -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-20 group-hover:opacity-40 transition-opacity duration-500">
+<svg class="w-48 h-48" fill="none" stroke="currentColor" viewbox="0 0 200 200">
+<circle cx="100" cy="100" r="80" stroke-dasharray="2 4" stroke-width="0.5"></circle>
+<line stroke-width="0.5" x1="20" x2="180" y1="100" y2="100"></line>
+<line stroke-width="0.5" x1="100" x2="100" y1="20" y2="180"></line>
+<rect height="60" stroke-width="0.5" width="60" x="70" y="70"></rect>
+</svg>
+</div>
+<!-- Colossal Typographic Fragment -->
+<div class="w-full flex items-baseline justify-between mt-auto pt-8 z-10 pointer-events-none select-none">
+<span class="font-display-xl font-black text-[clamp(6rem,19vw,22vw)] leading-[0.82] tracking-[-0.07em] uppercase text-primary transform translate-y-2 md:translate-y-4">
+            SU
+          </span>
+<span class="font-label-mono-sm text-[9px] tracking-[0.4em] text-on-surface-variant pb-2 pr-2 hidden xl:inline-block">AXIS_X_ALIGN</span>
+</div>
+</div>
+<!-- Quadrant 02: PER -->
+<div class="relative min-h-[42vw] md:min-h-[38vw] flex flex-col justify-between p-space-md lg:p-space-lg hairline-b overflow-hidden group hover:bg-surface-container-low transition-colors duration-300">
+<!-- Technical Telemetry Header -->
+<div class="flex items-center justify-between w-full z-10">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 bg-outline-variant inline-block group-hover:bg-[#6366f1] transition-colors duration-300"></span>
+<span class="font-label-mono-sm text-[10px] tracking-[0.35em] text-on-surface-variant uppercase">_SEC.02 // [02/04] // GRID_AXIS_01</span>
+</div>
+<span class="font-label-mono-sm text-[9px] tracking-[0.4em] text-outline uppercase hidden sm:inline-block">FREQ_580THZ</span>
+</div>
+<!-- Geometric Blueprint Matrix Decorator -->
+<div class="absolute top-1/2 right-12 -translate-y-1/2 pointer-events-none opacity-20 group-hover:opacity-40 transition-opacity duration-500">
+<svg class="w-40 h-40" fill="none" stroke="currentColor" viewbox="0 0 160 160">
+<line stroke-width="0.5" x1="0" x2="160" y1="0" y2="160"></line>
+<line stroke-width="0.5" x1="0" x2="160" y1="160" y2="0"></line>
+<circle cx="80" cy="80" r="40" stroke-width="0.5"></circle>
+<circle cx="80" cy="80" fill="currentColor" r="2"></circle>
+</svg>
+</div>
+<!-- Colossal Typographic Fragment -->
+<div class="w-full flex items-baseline justify-between mt-auto pt-8 z-10 pointer-events-none select-none">
+<span class="font-display-xl font-black text-[clamp(6rem,19vw,22vw)] leading-[0.82] tracking-[-0.07em] uppercase text-primary transform translate-y-2 md:translate-y-4">
+            PER
+          </span>
+<span class="font-label-mono-sm text-[9px] tracking-[0.4em] text-on-surface-variant pb-2 pr-2 hidden xl:inline-block">KERN_COMPACT</span>
+</div>
+</div>
+<!-- Quadrant 03: DE -->
+<div class="relative min-h-[42vw] md:min-h-[38vw] flex flex-col justify-between p-space-md lg:p-space-lg hairline-b md:hairline-b-0 md:hairline-r overflow-hidden group hover:bg-surface-container-low transition-colors duration-300">
+<!-- Technical Telemetry Header -->
+<div class="flex items-center justify-between w-full z-10">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 bg-outline-variant inline-block group-hover:bg-[#6366f1] transition-colors duration-300"></span>
+<span class="font-label-mono-sm text-[10px] tracking-[0.35em] text-on-surface-variant uppercase">_SEC.03 // [03/04] // KERNING_TIGHT</span>
+</div>
+<span class="font-label-mono-sm text-[9px] tracking-[0.4em] text-outline uppercase hidden sm:inline-block">METRIC_PICA_09</span>
+</div>
+<!-- Blueprint Crosshairs -->
+<div class="absolute bottom-16 right-16 pointer-events-none opacity-20 group-hover:opacity-40 transition-opacity duration-500">
+<div class="w-24 h-24 hairline-border relative flex items-center justify-center">
+<div class="w-full h-[0.5px] bg-white/20"></div>
+<div class="h-full w-[0.5px] bg-white/20 absolute"></div>
+</div>
+</div>
+<!-- Colossal Typographic Fragment -->
+<div class="w-full flex items-baseline justify-between mt-auto pt-8 z-10 pointer-events-none select-none">
+<span class="font-display-xl font-black text-[clamp(6rem,19vw,22vw)] leading-[0.82] tracking-[-0.07em] uppercase text-primary transform translate-y-2 md:translate-y-4">
+            DE
+          </span>
+<span class="font-label-mono-sm text-[9px] tracking-[0.4em] text-on-surface-variant pb-2 pr-2 hidden xl:inline-block">MONO_STRICT</span>
+</div>
+</div>
+<!-- Quadrant 04: SIGN -->
+<div class="relative min-h-[42vw] md:min-h-[38vw] flex flex-col justify-between p-space-md lg:p-space-lg overflow-hidden group hover:bg-surface-container-low transition-colors duration-300">
+<!-- Technical Telemetry Header -->
+<div class="flex items-center justify-between w-full z-10">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 bg-[#6366f1] inline-block animate-pulse"></span>
+<span class="font-label-mono-sm text-[10px] tracking-[0.35em] text-on-surface-variant uppercase">_SEC.04 // [04/04] // TYPE_SYSTEM_BRUTAL</span>
+</div>
+<span class="font-label-mono-sm text-[9px] tracking-[0.4em] text-[#6366f1] uppercase hidden sm:inline-block">_ONLINE_READY_</span>
+</div>
+<!-- Blueprint Radar Scanline -->
+<div class="absolute top-12 left-16 pointer-events-none opacity-20 group-hover:opacity-40 transition-opacity duration-500">
+<svg class="w-32 h-32" fill="none" stroke="currentColor" viewbox="0 0 100 100">
+<rect height="80" stroke-width="0.5" width="80" x="10" y="10"></rect>
+<circle cx="50" cy="50" r="30" stroke-width="0.5"></circle>
+<path d="M50 10 L50 90 M10 50 L90 50" stroke-width="0.5"></path>
+</svg>
+</div>
+<!-- Colossal Typographic Fragment -->
+<div class="w-full flex items-baseline justify-between mt-auto pt-8 z-10 pointer-events-none select-none">
+<span class="font-display-xl font-black text-[clamp(6rem,19vw,22vw)] leading-[0.82] tracking-[-0.07em] uppercase text-primary transform translate-y-2 md:translate-y-4">
+            SIGN
+          </span>
+<span class="font-label-mono-sm text-[9px] tracking-[0.4em] text-on-surface-variant pb-2 pr-2 hidden xl:inline-block">SUB_PIXEL_PRECISION</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 02. COMMAND BAR: 4-COLUMN HORIZONTAL STRIP -->
+<!-- ========================================== -->
+<section class="w-full hairline-b bg-background z-20">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full">
+<!-- Strip Col 1: Input Field -->
+<div class="hairline-b sm:hairline-b-0 sm:hairline-r flex flex-col justify-center px-space-md lg:px-space-lg py-5 bg-background">
+<label class="font-label-mono-sm text-[9px] tracking-[0.35em] text-outline uppercase mb-1" for="work-email">
+          _SYS_INPUT // ACCESS_TOKEN
+        </label>
+<div class="flex items-center gap-2">
+<span class="font-label-mono-sm text-[#6366f1] text-[12px] font-bold">&gt;</span>
+<input class="w-full bg-transparent border-0 outline-none p-0 m-0 font-label-mono-lg text-[13px] text-primary placeholder:text-outline-variant tracking-[0.15em] focus:ring-0 rounded-none uppercase" id="work-email" placeholder="ENTER_WORK_EMAIL..." type="email"/>
+</div>
+</div>
+<!-- Strip Col 2: High Contrast Join Button -->
+<div class="hairline-b sm:hairline-b-0 lg:hairline-r flex items-stretch">
+<button class="w-full min-h-[72px] bg-primary text-surface font-headline-md font-black text-[15px] tracking-[0.3em] uppercase flex items-center justify-center gap-3 transition-colors duration-300 hover:bg-[#6366f1] hover:text-primary rounded-none cursor-pointer group" id="btn-join" type="button">
+<span>JOIN_SYSTEM</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+<!-- Strip Col 3: Real-Time Tabular Countdown -->
+<div class="hairline-b sm:hairline-b-0 sm:hairline-r flex flex-col justify-center px-space-md lg:px-space-lg py-5 bg-background">
+<span class="font-label-mono-sm text-[9px] tracking-[0.35em] text-outline uppercase mb-1">
+          _LAUNCH_SEQUENCE_T-MINUS
+        </span>
+<div class="flex items-baseline font-label-mono-lg text-[22px] font-bold tracking-[0.2em] tabular-nums text-primary">
+<span id="timer-hours">14</span>
+<span class="text-white/20 mx-1">:</span>
+<span id="timer-minutes">08</span>
+<span class="text-white/20 mx-1">:</span>
+<span class="text-[#6366f1]" id="timer-seconds">39</span>
+<span class="font-label-mono-sm text-[9px] text-outline ml-2">UTC</span>
+</div>
+</div>
+<!-- Strip Col 4: Metadata Tags -->
+<div class="flex flex-col justify-center px-space-md lg:px-space-lg py-5 bg-background gap-1">
+<div class="flex items-center gap-2">
+<span class="w-1 h-1 bg-[#6366f1]"></span>
+<span class="font-label-mono-sm text-[9px] tracking-[0.35em] text-on-surface uppercase">_FREE_ACCESS_PASS_</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-1 h-1 bg-outline-variant"></span>
+<span class="font-label-mono-sm text-[9px] tracking-[0.35em] text-on-surface-variant uppercase">_NO_CREDIT_CARD_REQ_</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-1 h-1 bg-outline"></span>
+<span class="font-label-mono-sm text-[9px] tracking-[0.35em] text-on-surface-variant uppercase">_DEPLOY_IMMEDIATE_V1_</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 03. SYSTEM OVERVIEW BREAKOUT STRIP -->
+<!-- ========================================== -->
+<section class="w-full hairline-b bg-surface-container-lowest">
+<div class="grid grid-cols-1 lg:grid-cols-12 w-full">
+<div class="lg:col-span-4 p-space-md lg:p-space-lg hairline-b lg:hairline-b-0 lg:hairline-r flex flex-col justify-between">
+<span class="font-label-mono-sm text-label-mono-sm text-outline uppercase tracking-[0.35em]">
+          _CORE_SPECIFICATION // MATRIX_V01
+        </span>
+<div class="py-6">
+<h2 class="font-headline-md text-headline-md uppercase text-primary tracking-[-0.04em] leading-[1.05]">
+            ENGINEERED GEOMETRY FOR DIGITAL TECTONICS.
+          </h2>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-label-mono-sm text-[10px] text-[#6366f1] tracking-widest uppercase">[_STABLE_RELEASE_]</span>
+<span class="font-label-mono-sm text-[10px] text-outline tracking-widest uppercase">KERNING: HARD_LOCKED</span>
+</div>
+</div>
+<div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3">
+<div class="p-space-md lg:p-space-lg hairline-b sm:hairline-b-0 sm:hairline-r flex flex-col justify-between">
+<span class="font-label-mono-sm text-[9px] text-outline uppercase tracking-[0.35em]">_METRIC_01</span>
+<div class="py-6">
+<span class="font-display-xl-mobile text-display-xl-mobile font-black text-primary leading-none tracking-tighter">0.5<span class="text-sm font-normal text-outline">px</span></span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">
+              Optical keylines calculated directly off physical device pixel sub-grids.
+            </p>
+</div>
+<span class="font-label-mono-sm text-[8px] text-outline-variant uppercase">RENDER: VECTOR_STRICT</span>
+</div>
+<div class="p-space-md lg:p-space-lg hairline-b sm:hairline-b-0 sm:hairline-r flex flex-col justify-between">
+<span class="font-label-mono-sm text-[9px] text-outline uppercase tracking-[0.35em]">_METRIC_02</span>
+<div class="py-6">
+<span class="font-display-xl-mobile text-display-xl-mobile font-black text-primary leading-none tracking-tighter">1,200<span class="text-sm font-normal text-outline">+</span></span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">
+              Custom glyph combinations, structural ligatures, and architectural icons.
+            </p>
+</div>
+<span class="font-label-mono-sm text-[8px] text-outline-variant uppercase">SET: FULL_UNICODE_EXT</span>
+</div>
+<div class="p-space-md lg:p-space-lg flex flex-col justify-between">
+<span class="font-label-mono-sm text-[9px] text-outline uppercase tracking-[0.35em]">_METRIC_03</span>
+<div class="py-6">
+<span class="font-display-xl-mobile text-display-xl-mobile font-black text-[#6366f1] leading-none tracking-tighter">0.0<span class="text-sm font-normal text-outline">ms</span></span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2">
+              Zero layout shifts. Pure monospace metrics for extreme algorithmic precision.
+            </p>
+</div>
+<span class="font-label-mono-sm text-[8px] text-outline-variant uppercase">LATENCY: ZERO_DRIFT</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 04. BENTO FEATURE GRID: 3-COLUMN EQUAL-HEIGHT MATRIX -->
+<!-- ========================================== -->
+<section class="w-full hairline-b bg-background">
+<!-- Matrix Section Label -->
+<div class="w-full px-space-md lg:px-space-lg py-3 hairline-b flex items-center justify-between bg-surface-container-lowest">
+<div class="flex items-center gap-2">
+<span class="font-label-mono-sm text-[10px] tracking-[0.35em] text-primary uppercase">_BENTO_MATRIX // SYSTEM_ARCHITECTURE</span>
+</div>
+<span class="font-label-mono-sm text-[9px] tracking-[0.35em] text-outline uppercase">3_NODES_ACTIVE</span>
+</div>
+<!-- 3-Column Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 w-full">
+<!-- Card 1: Vector Topology -->
+<div class="group relative h-[420px] p-space-md lg:p-space-lg hairline-b lg:hairline-b-0 lg:hairline-r flex flex-col justify-between overflow-hidden transition-colors duration-300 hover:bg-white/[0.03]">
+<!-- Top Tech Index -->
+<div class="flex items-center justify-between w-full">
+<span class="font-label-mono-sm text-[10px] tracking-[0.3em] text-outline group-hover:text-primary transition-colors uppercase">
+            _SYS_01 // VECTOR_TOPOLOGY
+          </span>
+<span class="material-symbols-outlined text-[16px] text-outline group-hover:text-[#6366f1] transition-colors">grid_goldenratio</span>
+</div>
+<!-- Center Interactive Geometric Element: Rotating 100px Square -->
+<div class="w-full flex items-center justify-center relative py-6">
+<div class="relative w-36 h-36 flex items-center justify-center">
+<!-- Background Static Concentric Guidelines -->
+<div class="absolute inset-0 hairline-border border-dashed opacity-25"></div>
+<div class="absolute inset-4 hairline-border opacity-20"></div>
+<!-- The 100px square rotated 45deg transitioning to 90deg on parent hover -->
+<div class="w-[100px] h-[100px] hairline-border rotate-45 transition-transform duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:rotate-90 flex items-center justify-center bg-surface-container-lowest/60">
+<div class="w-2 h-2 bg-[#6366f1]"></div>
+<div class="absolute -top-1 -left-1 font-label-mono-sm text-[8px] text-outline opacity-0 group-hover:opacity-100 transition-opacity">90°</div>
+</div>
+</div>
+</div>
+<!-- Bottom Content -->
+<div class="w-full">
+<h3 class="font-headline-md text-[24px] uppercase tracking-[-0.04em] text-primary font-black leading-tight mb-2">
+            MONOLITHIC MATRIX
+          </h3>
+<p class="font-body-md text-[14px] text-white/40 leading-relaxed font-normal">
+            Rigid mathematical spatial coordinates engineered for extreme screen density.
+          </p>
+</div>
+</div>
+<!-- Card 2: Glyph Engine -->
+<div class="group relative h-[420px] p-space-md lg:p-space-lg hairline-b lg:hairline-b-0 lg:hairline-r flex flex-col justify-between overflow-hidden transition-colors duration-300 hover:bg-white/[0.03]">
+<!-- Top Tech Index -->
+<div class="flex items-center justify-between w-full">
+<span class="font-label-mono-sm text-[10px] tracking-[0.3em] text-outline group-hover:text-primary transition-colors uppercase">
+            _SYS_02 // GLYPH_ENGINE
+          </span>
+<span class="material-symbols-outlined text-[16px] text-outline group-hover:text-[#6366f1] transition-colors">straighten</span>
+</div>
+<!-- Center Interactive Geometric Element: Wireframe Crosshair & Glyph -->
+<div class="w-full flex items-center justify-center relative py-6">
+<div class="relative w-40 h-40 flex items-center justify-center">
+<!-- Wireframe Coordinate Lines -->
+<div class="absolute inset-x-0 h-[0.5px] bg-white/20"></div>
+<div class="absolute inset-y-0 w-[0.5px] bg-white/20"></div>
+<!-- Geometric Crosshairs with Opacity Interaction -->
+<svg class="w-28 h-28 text-primary opacity-20 group-hover:opacity-100 transition-opacity duration-300" fill="none" stroke="currentColor" viewbox="0 0 100 100">
+<circle cx="50" cy="50" r="44" stroke-width="0.5"></circle>
+<path d="M50 10 L50 30 M50 70 L50 90 M10 50 L30 50 M70 50 L90 50" stroke-width="0.5"></path>
+<!-- Central Architectural Letterform 'A' -->
+<path d="M50 26 L68 74 H32 Z" stroke-linejoin="miter" stroke-width="1"></path>
+<line stroke-width="1" x1="38" x2="62" y1="58" y2="58"></line>
+</svg>
+<span class="absolute bottom-1 right-2 font-label-mono-sm text-[8px] text-[#6366f1] opacity-0 group-hover:opacity-100 transition-opacity tracking-widest">SUB_PX:0.5</span>
+</div>
+</div>
+<!-- Bottom Content -->
+<div class="w-full">
+<h3 class="font-headline-md text-[24px] uppercase tracking-[-0.04em] text-primary font-black leading-tight mb-2">
+            SUB-PIXEL HAIRLINE
+          </h3>
+<p class="font-body-md text-[14px] text-white/40 leading-relaxed font-normal">
+            0.5px structural boundaries ensuring pristine optical hierarchy without heavy visual clutter.
+          </p>
+</div>
+</div>
+<!-- Card 3: Kinetic Dispatch -->
+<div class="group relative h-[420px] p-space-md lg:p-space-lg flex flex-col justify-between overflow-hidden transition-colors duration-300 hover:bg-white/[0.03]">
+<!-- Top Tech Index -->
+<div class="flex items-center justify-between w-full">
+<span class="font-label-mono-sm text-[10px] tracking-[0.3em] text-outline group-hover:text-primary transition-colors uppercase">
+            _SYS_03 // KINETIC_DISPATCH
+          </span>
+<span class="material-symbols-outlined text-[16px] text-outline group-hover:text-[#6366f1] transition-colors">radar</span>
+</div>
+<!-- Center Interactive Geometric Element: Concentric Radar Lines -->
+<div class="w-full flex items-center justify-center relative py-6">
+<div class="relative w-40 h-40 flex items-center justify-center">
+<svg class="w-36 h-36 text-primary opacity-20 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" fill="none" stroke="currentColor" viewbox="0 0 120 120">
+<circle cx="60" cy="60" r="16" stroke-width="0.5"></circle>
+<circle cx="60" cy="60" r="32" stroke-dasharray="2 3" stroke-width="0.5"></circle>
+<circle cx="60" cy="60" r="48" stroke-width="0.5"></circle>
+<circle cx="60" cy="60" r="58" stroke-dasharray="6 6" stroke-width="0.5"></circle>
+<line class="opacity-50" stroke-width="0.5" x1="60" x2="60" y1="2" y2="118"></line>
+<line class="opacity-50" stroke-width="0.5" x1="2" x2="118" y1="60" y2="60"></line>
+<circle class="group-hover:animate-ping" cx="60" cy="60" fill="#6366f1" r="3"></circle>
+</svg>
+<span class="absolute top-1 left-2 font-label-mono-sm text-[8px] text-[#6366f1] opacity-0 group-hover:opacity-100 transition-opacity tracking-widest">PULSE_LOCK</span>
+</div>
+</div>
+<!-- Bottom Content -->
+<div class="w-full">
+<h3 class="font-headline-md text-[24px] uppercase tracking-[-0.04em] text-primary font-black leading-tight mb-2">
+            IDE PRECISION
+          </h3>
+<p class="font-body-md text-[14px] text-white/40 leading-relaxed font-normal">
+            Technical metadata, strict mono tags, and raw editorial power unified in dark space.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 05. TECHNICAL SPECIMEN & METRIC INSPECTION -->
+<!-- ========================================== -->
+<section class="w-full hairline-b bg-surface-container-lowest">
+<div class="grid grid-cols-1 xl:grid-cols-12 w-full">
+<!-- Visual Typographic Specimen Scale (Left 7 Cols) -->
+<div class="xl:col-span-7 p-space-md lg:p-space-lg hairline-b xl:hairline-b-0 xl:hairline-r flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-4 hairline-b mb-6">
+<span class="font-label-mono-sm text-label-mono-sm text-outline uppercase tracking-[0.35em]">
+              _TYPE_SPECIMEN // SCALE_INSPECTOR
+            </span>
+<span class="font-label-mono-sm text-[10px] text-on-surface uppercase tracking-widest bg-surface-container px-2 py-0.5">
+              RATIO_1.250_MAJOR_THIRD
+            </span>
+</div>
+<!-- Type Ramp Demonstrator -->
+<div class="space-y-6">
+<div class="hairline-b pb-4 group">
+<div class="flex justify-between items-center text-outline font-label-mono-sm text-[9px] mb-1">
+<span>96PX // DISPLAY_XL</span>
+<span class="text-[#6366f1]">WEIGHT_900</span>
+</div>
+<div class="font-display-xl-mobile md:font-display-xl uppercase font-black tracking-[-0.06em] leading-none text-primary group-hover:text-secondary-fixed transition-colors">
+                ARCHITECT
+              </div>
+</div>
+<div class="hairline-b pb-4 group">
+<div class="flex justify-between items-center text-outline font-label-mono-sm text-[9px] mb-1">
+<span>48PX // HEADLINE_LG</span>
+<span>WEIGHT_900</span>
+</div>
+<div class="font-headline-lg-mobile md:font-headline-lg uppercase font-black tracking-[-0.05em] leading-none text-primary group-hover:text-secondary-fixed transition-colors">
+                SPATIAL MONOLITH
+              </div>
+</div>
+<div class="hairline-b pb-4 group">
+<div class="flex justify-between items-center text-outline font-label-mono-sm text-[9px] mb-1">
+<span>28PX // HEADLINE_MD</span>
+<span>WEIGHT_800</span>
+</div>
+<div class="font-headline-md uppercase font-extrabold tracking-[-0.04em] leading-tight text-primary">
+                ENGINEERED RESTRAINTS &amp; RIGID MATRICES
+              </div>
+</div>
+<div class="pt-2">
+<div class="flex justify-between items-center text-outline font-label-mono-sm text-[9px] mb-1">
+<span>14PX // MONO_REGULAR</span>
+<span class="text-outline">JETBRAINS_MONO</span>
+</div>
+<p class="font-label-mono-lg text-[13px] tracking-[0.1em] text-on-surface-variant leading-relaxed">
+                0123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZ [!@#$%^&amp;*()_+] {STRUCTURAL_RIGOR: TRUE}
+              </p>
+</div>
+</div>
+</div>
+<div class="pt-8 flex items-center justify-between text-outline font-label-mono-sm text-[10px]">
+<span>RASTERIZER: SUB_PIXEL_OPTIMIZED</span>
+<span class="text-primary font-bold">OPENTYPE_FEATURES: [ZERO, SS01, SS02]</span>
+</div>
+</div>
+<!-- Blueprint Visualizer & Interactive Terminal (Right 5 Cols) -->
+<div class="xl:col-span-5 flex flex-col justify-between">
+<!-- Live Terminal Inspector Header -->
+<div class="p-space-md lg:p-space-lg hairline-b bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-none bg-primary"></span>
+<span class="font-label-mono-sm text-label-mono-sm text-primary uppercase tracking-[0.3em]">_TERMINAL_CONFIG</span>
+</div>
+<span class="font-label-mono-sm text-[9px] text-[#6366f1] tracking-widest uppercase">_STREAM_ACTIVE_</span>
+</div>
+<!-- Interactive Terminal Body -->
+<div class="p-space-md lg:p-space-lg flex-1 bg-background flex flex-col justify-between">
+<div class="space-y-3 font-label-mono-sm text-[11px] tracking-[0.15em] leading-relaxed text-on-surface-variant">
+<div class="text-outline">&gt; INIT_TYPE_MODULE --target=universal_display</div>
+<div>[OK] BOUNDARIES SET: 0.5PX HAIRLINE MATRIX</div>
+<div>[OK] CONTRAST CHECK: 21:1 MONOCHROME PURITY</div>
+<div>[OK] ACCENT FREQUENCY: #6366F1 LOCKED AT 5% BUDGET</div>
+<div>[OK] TECTONIC ROTATION ENGINE INITIALIZED (45° -&gt; 90°)</div>
+<div class="text-[#6366f1]">&gt; SYSTEM READY FOR DISPATCH. RUNNING BENCHMARK...</div>
+<div class="p-3 bg-surface-container-lowest hairline-border font-label-mono-sm text-[10px] text-primary">
+              $ curl -sL https://system.architectural.io/v1/install | bash
+            </div>
+</div>
+<!-- Bottom Action within Terminal Module -->
+<div class="pt-6">
+<a class="w-full py-3 px-4 bg-transparent hairline-border text-primary hover:bg-primary hover:text-surface transition-all duration-300 font-label-mono-sm text-[11px] font-bold tracking-[0.3em] uppercase flex items-center justify-center gap-2 group" href="#">
+<span>[_EXPORT_SPECIFICATION_MANIFEST_]</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">terminal</span>
+</a>
+</div>
+</div>
+<!-- Terminal Status Bar -->
+<div class="px-space-md lg:px-space-lg py-3 hairline-t bg-surface-container-low flex items-center justify-between">
+<span class="font-label-mono-sm text-[9px] text-outline uppercase tracking-widest">MEM: 14.2MB</span>
+<span class="font-label-mono-sm text-[9px] text-outline uppercase tracking-widest">LATENCY: 0.8MS</span>
+<span class="font-label-mono-sm text-[9px] text-[#6366f1] uppercase tracking-widest">STATUS: NOMINAL</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 06. ARCHITECTURAL MANIFESTO BOTTOM CALLOUT -->
+<!-- ========================================== -->
+<section class="w-full hairline-b bg-background">
+<div class="grid grid-cols-1 md:grid-cols-3 w-full">
+<div class="p-space-md lg:p-space-lg hairline-b md:hairline-b-0 md:hairline-r flex flex-col justify-between">
+<span class="font-label-mono-sm text-[10px] tracking-[0.35em] text-outline uppercase">
+          RULE_01 // ZERO_ORNAMENTATION
+        </span>
+<div class="py-8">
+<span class="font-headline-md text-headline-md uppercase text-primary tracking-tight font-black block mb-3">
+            STRIP ALL SCENERY.
+          </span>
+<p class="font-body-md text-body-md text-on-surface-variant font-light leading-relaxed">
+            All soft blurs, artificial drop shadows, and ornamental gradients are eliminated in pursuit of optical honesty and structural clarity.
+          </p>
+</div>
+<span class="font-label-mono-sm text-[9px] text-outline-variant uppercase">_PRIMITIVE_LEVEL: LEVEL_00</span>
+</div>
+<div class="p-space-md lg:p-space-lg hairline-b md:hairline-b-0 md:hairline-r flex flex-col justify-between">
+<span class="font-label-mono-sm text-[10px] tracking-[0.35em] text-outline uppercase">
+          RULE_02 // MATHEMATICAL_ALIGN
+        </span>
+<div class="py-8">
+<span class="font-headline-md text-headline-md uppercase text-primary tracking-tight font-black block mb-3">
+            0.5PX GRID LOCK.
+          </span>
+<p class="font-body-md text-body-md text-on-surface-variant font-light leading-relaxed">
+            Content containers share boundaries rather than floating on arbitrary space. The matrix governs every spatial relationship.
+          </p>
+</div>
+<span class="font-label-mono-sm text-[9px] text-outline-variant uppercase">_TOLERANCE: SUB_PIXEL</span>
+</div>
+<div class="p-space-md lg:p-space-lg flex flex-col justify-between">
+<span class="font-label-mono-sm text-[10px] tracking-[0.35em] text-[#6366f1] uppercase">
+          RULE_03 // HIGH_CONTRAST
+        </span>
+<div class="py-8">
+<span class="font-headline-md text-headline-md uppercase text-primary tracking-tight font-black block mb-3">
+            BINARY CHROMATICS.
+          </span>
+<p class="font-body-md text-body-md text-on-surface-variant font-light leading-relaxed">
+            A pure black field (#000000) punctured by stark white glyphs (#FFFFFF) with deliberate ultraviolet triggers (#6366F1).
+          </p>
+</div>
+<span class="font-label-mono-sm text-[9px] text-[#6366f1] uppercase">_CHROMATIC_RATIO: 21:1</span>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 07. GLOBAL FINAL CTA BANNER -->
+<!-- ========================================== -->
+<section class="w-full bg-surface-container-lowest p-space-md lg:p-space-lg relative overflow-hidden">
+<div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-lg w-full">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="w-2 h-2 bg-[#6366f1]"></span>
+<span class="font-label-mono-sm text-[10px] tracking-[0.4em] text-on-surface-variant uppercase">_EXECUTION_CALLOUT // V.01_BETA</span>
+</div>
+<h3 class="font-headline-md text-headline-md lg:text-[2.5rem] uppercase font-black text-primary tracking-[-0.05em] leading-none">
+          CLAIM ACCESS TO THE ARCHITECTURAL MATRIX.
+        </h3>
+</div>
+<div class="flex items-center gap-space-sm w-full lg:w-auto">
+<a class="w-full lg:w-auto px-8 h-12 bg-primary text-surface hover:bg-[#6366f1] hover:text-primary transition-colors duration-300 font-label-mono-lg text-[12px] font-bold tracking-[0.3em] uppercase flex items-center justify-center gap-2 rounded-none" href="#">
+<span>INITIALIZE_NOW</span>
+<span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+</a>
+</div>
+</div>
+</section>
+</div>
+<!-- Client-side Interactive Behavior for Countdown & Micro-Interactions -->
+<script>
+  (function initMatrixCountdown() {
+    let hours = 14;
+    let minutes = 8;
+    let seconds = 39;
+
+    const elH = document.getElementById('timer-hours');
+    const elM = document.getElementById('timer-minutes');
+    const elS = document.getElementById('timer-seconds');
+
+    if (!elH || !elM || !elS) return;
+
+    setInterval(() => {
+      seconds--;
+      if (seconds < 0) {
+        seconds = 59;
+        minutes--;
+        if (minutes < 0) {
+          minutes = 59;
+          hours--;
+          if (hours < 0) {
+            hours = 24;
+          }
+        }
+      }
+
+      elH.textContent = String(hours).padStart(2, '0');
+      elM.textContent = String(minutes).padStart(2, '0');
+      elS.textContent = String(seconds).padStart(2, '0');
+    }, 1000);
+
+    // Input join micro-feedback
+    const joinBtn = document.getElementById('btn-join');
+    const emailInput = document.getElementById('work-email');
+
+    if (joinBtn && emailInput) {
+      joinBtn.addEventListener('click', () => {
+        const val = emailInput.value.trim();
+        if (!val || !val.includes('@')) {
+          emailInput.focus();
+          emailInput.placeholder = 'VALID_EMAIL_REQUIRED...';
+          return;
+        }
+        joinBtn.innerHTML = '<span>_TOKEN_GRANTED_</span><span class="material-symbols-outlined text-[18px]">check</span>';
+        joinBtn.classList.remove('bg-primary', 'text-surface');
+        joinBtn.classList.add('bg-[#6366f1]', 'text-white');
+        emailInput.value = '';
+        emailInput.placeholder = 'ACCESS_LOGGED_CHECK_INBOX';
+      });
+    }
+  })();
+</script></main><footer class="w-full bg-[#000000] hairline-t py-space-lg"><div class="w-full px-space-md lg:px-space-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md"><div class="flex items-center gap-space-md flex-wrap"><span class="font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant">LOC: 47.3769° N, 8.5417° E</span><span class="font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant">SYS_TIME: 12:00:00 UTC</span><span class="font-label-mono-sm text-label-mono-sm uppercase text-primary">MATRIX: RUNNING</span></div><div class="font-label-mono-sm text-label-mono-sm uppercase text-on-surface-variant tracking-wider">© 2025 ARCHITECTURAL TYPE SYSTEM. ALL RIGHTS RESERVED.</div></div></footer></body></html>

@@ -49,6 +49,7 @@ Every design folder contains:
 - [Archetype](<Service Web Designs/Archetype>)
 - [Synthopsis](<Service Web Designs/Synthopsis>)
 - [Kronos 01](<Service Web Designs/Kronos 01>)
+- [Architectural](<Service Web Designs/Architectural>)
 - [Silicon](<Service Web Designs/Silicon>)
 
 ### 😶‍🌫️ Product Page Designs

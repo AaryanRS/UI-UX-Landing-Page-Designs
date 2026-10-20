@@ -43,6 +43,8 @@ Every design folder contains:
 ### 🎨 Portfolio Page Designs
 - [Fury](<Portfolio Web Designs/Fury>)
 - [Robin](<Portfolio Web Designs/Robin>)
+- [Jerry](<Portfolio Web Designs/Jerry>)
+- [Kaien Studio](<Portfolio Web Designs/Kaien Studio>)
 - [Kai Rennard](<Portfolio Web Designs/Kai Rennard>)
 
 ### 🧑‍💼 Service Page Designs

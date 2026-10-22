@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASTRA — Kinetic Brutalist Service Studio</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    /* Kinetic Brutalism Base Rules */
+    :root {
+      --color-brand-orange: #FF4D00;
+      --color-solid-black: #000000;
+      --color-pure-white: #FFFFFF;
+    }
+
+    ::selection {
+      background: #000000 !important;
+      color: #FF4D00 !important;
+    }
+
+    body {
+      background-color: #FF4D00;
+      color: #000000;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    .font-display {
+      font-family: 'Archivo Black', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: -0.04em;
+      line-height: 0.88;
+    }
+
+    .font-mono-tech {
+      font-family: 'Space Mono', monospace;
+      letter-spacing: -0.02em;
+    }
+
+    /* Infinite Marquee Animation */
+    @keyframes marquee-left {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @keyframes marquee-right {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0%); }
+    }
+
+    .animate-marquee-left {
+      display: flex;
+      width: 200%;
+      animation: marquee-left 20s linear infinite;
+    }
+
+    .animate-marquee-right {
+      display: flex;
+      width: 200%;
+      animation: marquee-right 22s linear infinite;
+    }
+
+    .animate-marquee-left:hover,
+    .animate-marquee-right:hover {
+      animation-play-state: paused;
+    }
+
+    /* Infinite Rotate Animation (12s linear) */
+    @keyframes spin-12s {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .animate-spin-slow {
+      animation: spin-12s 12s linear infinite;
+      transform-origin: center center;
+    }
+
+    /* Service card hover effects */
+    .service-row {
+      transition: background-color 0.2s ease;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .service-row:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+    .service-row:hover .service-title {
+      transform: translateX(16px);
+      color: #FF4D00;
+    }
+    .service-row:hover .service-arrow {
+      opacity: 1;
+      transform: rotate(45deg);
+    }
+
+    /* Floating pill link transition */
+    .nav-pill-link {
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-pill-link:hover {
+      background-color: #FFFFFF;
+      color: #000000;
+    }
+
+    /* Brutalist interactive button scale */
+    .btn-brutalist-cta {
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
+    }
+    .btn-brutalist-cta:hover {
+      transform: scale(1.1);
+      background-color: #000000;
+      color: #FFFFFF;
+    }
+  </style>
+</head>
+<body class="selection:bg-black selection:text-[#FF4D00] antialiased">
+
+  <!-- ========================================== -->
+  <!-- FLOATING NAVIGATION BAR                   -->
+  <!-- ========================================== -->
+  <header class="fixed top-0 left-0 w-full z-50 px-6 py-5 pointer-events-none">
+    <div class="max-w-7xl mx-auto flex items-center justify-between pointer-events-auto">
+      
+      <!-- Brand Logo Left -->
+      <a href="#hero" class="group flex items-center gap-2 bg-black px-4 py-2 border-2 border-black hover:border-black transition-all">
+        <div class="w-3 h-3 bg-[#FF4D00] group-hover:scale-125 transition-transform"></div>
+        <span class="font-display text-white text-xl tracking-tight">ASTRA</span>
+        <span class="font-mono-tech text-[10px] text-[#FF4D00] font-bold">[SYS_2025]</span>
+      </a>
+
+      <!-- Center Floating Pill Container -->
+      <nav class="bg-[#000000] border-2 border-black rounded-full px-3 py-1.5 shadow-2xl flex items-center gap-1">
+        <a href="#services" class="nav-pill-link font-mono-tech text-[12px] uppercase text-white font-bold px-4 py-1.5 rounded-full">Services</a>
+        <a href="#manifesto" class="nav-pill-link font-mono-tech text-[12px] uppercase text-white font-bold px-4 py-1.5 rounded-full">Protocols</a>
+        <a href="#about" class="nav-pill-link font-mono-tech text-[12px] uppercase text-white font-bold px-4 py-1.5 rounded-full">Telemetry</a>
+        <a href="#contact" class="nav-pill-link font-mono-tech text-[12px] uppercase text-[#FF4D00] hover:text-black font-bold px-4 py-1.5 rounded-full">Contact</a>
+      </nav>
+
+      <!-- Social & Status Icons Right -->
+      <div class="flex items-center gap-2 bg-black px-4 py-2 border-2 border-black text-white font-mono-tech text-[12px]">
+        <div class="w-2 h-2 rounded-full bg-emerald-500 animate-ping mr-1"></div>
+        <span class="text-[11px] font-bold text-white mr-3 hidden sm:inline">ONLINE // 99.98%</span>
+        <a href="https://twitter.com" target="_blank" rel="noreferrer" class="hover:text-[#FF4D00] transition-colors p-1" title="X / Twitter">
+          <i data-lucide="twitter" class="w-4 h-4"></i>
+        </a>
+        <a href="https://github.com" target="_blank" rel="noreferrer" class="hover:text-[#FF4D00] transition-colors p-1" title="GitHub">
+          <i data-lucide="github" class="w-4 h-4"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noreferrer" class="hover:text-[#FF4D00] transition-colors p-1" title="Instagram">
+          <i data-lucide="instagram" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- TYPOGRAPHIC HERO SECTION (Full Viewport)   -->
+  <!-- ========================================== -->
+  <section id="hero" class="relative min-h-screen bg-[#FF4D00] flex flex-col justify-between pt-24 pb-0 overflow-hidden border-b-[2px] border-black">
+    
+    <!-- Top System Specs Bar -->
+    <div class="px-6 md:px-12 pt-6 flex justify-between items-center font-mono-tech text-xs uppercase font-bold tracking-wider text-black">
+      <div class="flex items-center gap-3">
+        <span class="bg-black text-[#FF4D00] px-2 py-0.5">DEV_STAGE 04</span>
+        <span class="hidden md:inline">SYSTEM ARCHITECTURE // KINETIC VECTOR</span>
+      </div>
+      <div class="text-right">
+        <span>EST. 2025 // PROTOCOL NO. 884-X</span>
+      </div>
+    </div>
+
+    <!-- Centered Giant Headline (16vw Archivo Black) -->
+    <div class="w-full text-center px-4 my-auto select-none py-10">
+      <h1 class="font-display text-[15.5vw] md:text-[16vw] leading-[0.82] text-black tracking-[-0.04em] transform hover:scale-[1.01] transition-transform duration-300">
+        ASTRA
+      </h1>
+      <p class="font-mono-tech text-black text-sm md:text-base uppercase tracking-tight mt-4 font-bold max-w-2xl mx-auto">
+        KINETIC BRUTALIST DIGITAL SERVICE INFRASTRUCTURE &bull; HIGH-VELOCITY PRODUCTION
+      </p>
+    </div>
+
+    <!-- Hero Metadata Row & 2px Black Border Divider -->
+    <div class="w-full border-t-[2px] border-black bg-[#FF4D00]">
+      <div class="max-w-7xl mx-auto px-6 md:px-12 py-8 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+        
+        <!-- Left: Based in... -->
+        <div class="font-mono-tech text-left space-y-1">
+          <span class="text-xs uppercase font-bold text-black/60 block">// NODE LOCATION</span>
+          <p class="text-lg md:text-xl font-bold uppercase text-black leading-tight">
+            BASED IN BERLIN &amp; TOKYO<br>
+            <span class="text-xs text-black/80 font-normal">OPERATING GLOBALLY 24/7/365</span>
+          </p>
+          <div class="text-xs font-mono-tech text-black/70 pt-1">
+            52.5200° N, 13.4050° E &bull; UTC+1
+          </div>
+        </div>
+
+        <!-- Center: Rotating Scroll Indicator Component -->
+        <div class="flex justify-center items-center">
+          <div class="relative w-36 h-36 flex items-center justify-center group cursor-pointer" onclick="document.getElementById('marquee-section').scrollIntoView({behavior: 'smooth'})">
+            <!-- Rotating SVG with textPath -->
+            <svg class="w-36 h-36 animate-spin-slow" viewBox="0 0 144 144">
+              <defs>
+                <path id="textCircle" d="M 72, 72 m -54, 0 a 54,54 0 1,1 108,0 a 54,54 0 1,1 -108,0" fill="none" />
+              </defs>
+              <text class="font-mono-tech font-bold uppercase fill-black" style="font-size: 9px; letter-spacing: 0.18em;">
+                <textPath href="#textCircle" startOffset="0%">
+                  SCROLL DOWN • SCROLL DOWN • SCROLL DOWN • SCROLL DOWN •
+                </textPath>
+              </text>
+            </svg>
+            <!-- Center Static Lucide Arrow Down -->
+            <div class="absolute inset-0 m-auto w-10 h-10 rounded-full bg-black flex items-center justify-center text-[#FF4D00] group-hover:scale-110 transition-transform">
+              <i data-lucide="arrow-down" class="w-5 h-5 stroke-[2.5]"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Multi-line Title & Role -->
+        <div class="font-mono-tech text-left md:text-right space-y-1">
+          <span class="text-xs uppercase font-bold text-black/60 block">// DISCIPLINE</span>
+          <p class="text-base md:text-lg font-bold uppercase text-black leading-snug">
+            NEXT-GEN WEB ARCHITECTURE<br>
+            HIGH-PRESSURE INTERACTION<br>
+            FULL-CYCLE CODE DEPLOYMENT
+          </p>
+          <div class="text-xs font-mono-tech text-black/70 pt-1">
+            STATUS: ACCEPTING CLIENT CONTRACTS [Q2-Q4]
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- SKEWED MARQUEE SECTION (-2deg Skew)        -->
+  <!-- ========================================== -->
+  <section id="marquee-section" class="relative bg-black py-12 md:py-16 overflow-hidden border-y-[2px] border-black my-8 -rotate-1 md:-rotate-2 scale-105 z-20 shadow-2xl">
+    
+    <!-- Row 1: Orange Text (#FF4D00) in Archivo Black, 10vw size, marquee left -->
+    <div class="overflow-hidden whitespace-nowrap mb-2">
+      <div class="animate-marquee-left">
+        <span class="font-display text-[#FF4D00] text-[9vw] md:text-[10vw] pr-8 leading-none select-none tracking-tight">
+          URGENCY • TECHNICAL SOPHISTICATION • KINETIC BRUTALISM • HIGH CONTRAST • ZERO NOISE •
+        </span>
+        <span class="font-display text-[#FF4D00] text-[9vw] md:text-[10vw] pr-8 leading-none select-none tracking-tight">
+          URGENCY • TECHNICAL SOPHISTICATION • KINETIC BRUTALISM • HIGH CONTRAST • ZERO NOISE •
+        </span>
+      </div>
+    </div>
+
+    <!-- Row 2: White Text with 80% opacity, scrolling reverse (marquee right) -->
+    <div class="overflow-hidden whitespace-nowrap">
+      <div class="animate-marquee-right">
+        <span class="font-display text-white/80 text-[8vw] md:text-[9vw] pr-8 leading-none select-none tracking-tight">
+          FULL-STACK ARCHITECTURE &bull; PERFORMANCE AUDITING &bull; WEBGL INTERFACES &bull; HARDWARE SYNC &bull;
+        </span>
+        <span class="font-display text-white/80 text-[8vw] md:text-[9vw] pr-8 leading-none select-none tracking-tight">
+          FULL-STACK ARCHITECTURE &bull; PERFORMANCE AUDITING &bull; WEBGL INTERFACES &bull; HARDWARE SYNC &bull;
+        </span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ========================================== -->
+  <!-- VERTICAL SERVICE LIST SECTION (Dark Theme) -->
+  <!-- ========================================== -->
+  <section id="services" class="relative bg-[#000000] text-[#FFFFFF] py-24 px-6 md:px-12 border-b-[2px] border-black">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b-2 border-white/20">
+        <div>
+          <span class="font-mono-tech text-xs uppercase font-bold text-[#FF4D00] tracking-widest block mb-2">// CAPABILITIES INDEX</span>
+          <h2 class="font-display text-5xl md:text-7xl text-white">CORE PROTOCOLS</h2>
+        </div>
+        <p class="font-mono-tech text-xs md:text-sm text-white/60 max-w-md mt-4 md:mt-0">
+          WE ENGINEER SHARP, ULTRA-FAST DIGITAL ARTIFACTS WITHOUT GIMMICKS OR SOFT GRADIENTS. STRICT GEOMETRY ONLY.
+        </p>
+      </div>
+
+      <!-- Service Items (Brutalist Service Cards) -->
+      <div class="divide-y divide-white/20">
+
+        <!-- Item 01 -->
+        <div class="service-row group py-10 md:py-14 px-4 md:px-8 flex flex-col md:flex-row md:items-center justify-between cursor-pointer transition-all duration-300">
+          <div class="flex items-start md:items-center gap-6 md:gap-12 flex-1">
+            <!-- Leading Index (Orange, Mono) -->
+            <span class="font-mono-tech text-2xl md:text-3xl font-bold text-[#FF4D00] tracking-tight">01/</span>
+            <!-- Title + Tags -->
+            <div>
+              <h3 class="service-title font-display text-4xl md:text-[6.5vw] text-white leading-none tracking-tight transition-transform duration-300">
+                SYSTEM ARCHITECTURE
+              </h3>
+              <div class="flex flex-wrap gap-2 mt-4">
+                <span class="font-mono-tech text-[11px] uppercase bg-white/10 text-white px-3 py-1 rounded-full border border-white/20">Distributed Clouds</span>
+                <span class="font-mono-tech text-[11px] uppercase bg-white/10 text-white px-3 py-1 rounded-full border border-white/20">Kubernetes</span>
+                <span class="font-mono-tech text-[11px] uppercase bg-[#FF4D00]/20 text-[#FF4D00] px-3 py-1 rounded-full border border-[#FF4D00]/40">Sub-10ms Latency</span>
+              </div>
+            </div>
+          </div>
+          <!-- Arrow Icon (Reveals on hover, rotates 45deg) -->
+          <div class="service-arrow opacity-0 group-hover:opacity-100 transition-all duration-300 transform -rotate-0 text-[#FF4D00] mt-6 md:mt-0 flex justify-end">
+            <div class="w-16 h-16 rounded-full border-2 border-[#FF4D00] flex items-center justify-center">
+              <i data-lucide="arrow-up-right" class="w-8 h-8 stroke-[3]"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 02 -->
+        <div class="service-row group py-10 md:py-14 px-4 md:px-8 flex flex-col md:flex-row md:items-center justify-between cursor-pointer transition-all duration-300">
+          <div class="flex items-start md:items-center gap-6 md:gap-12 flex-1">
+            <span class="font-mono-tech text-2xl md:text-3xl font-bold text-[#FF4D00] tracking-tight">02/</span>
+            <div>
+              <h3 class="service-title font-display text-4xl md:text-[6.5vw] text-white leading-none tracking-tight transition-transform duration-300">
+                BRUTALIST WEB INTERFACES
+              </h3>
+              <div class="flex flex-wrap gap-2 mt-4">
+                <span class="font-mono-tech text-[11px] uppercase bg-white/10 text-white px-3 py-1 rounded-full border border-white/20">Kinetic Typography</span>
+                <span class="font-mono-tech text-[11px] uppercase bg-white/10 text-white px-3 py-1 rounded-full border border-white/20">WebGL Shaders</span>
+                <span class="font-mono-tech text-[11px] uppercase bg-[#FF4D00]/20 text-[#FF4D00] px-3 py-1 rounded-full border border-[#FF4D00]/40">Zero-Layout Shift</span>
+              </div>
+            </div>
+          </div>
+          <div class="service-arrow opacity-0 group-hover:opacity-100 transition-all duration-300 transform -rotate-0 text-[#FF4D00] mt-6 md:mt-0 flex justify-end">
+            <div class="w-16 h-16 rounded-full border-2 border-[#FF4D00] flex items-center justify-center">
+              <i data-lucide="arrow-up-right" class="w-8 h-8 stroke-[3]"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 03 -->
+        <div class="service-row group py-10 md:py-14 px-4 md:px-8 flex flex-col md:flex-row md:items-center justify-between cursor-pointer transition-all duration-300">
+          <div class="flex items-start md:items-center gap-6 md:gap-12 flex-1">
+            <span class="font-mono-tech text-2xl md:text-3xl font-bold text-[#FF4D00] tracking-tight">03/</span>
+            <div>
+              <h3 class="service-title font-display text-4xl md:text-[6.5vw] text-white leading-none tracking-tight transition-transform duration-300">
+                DATA ENGINEERING &amp; APIS
+              </h3>
+              <div class="flex flex-wrap gap-2 mt-4">
+                <span class="font-mono-tech text-[11px] uppercase bg-white/10 text-white px-3 py-1 rounded-full border border-white/20">GraphQL Engine</span>
+                <span class="font-mono-tech text-[11px] uppercase bg-white/10 text-white px-3 py-1 rounded-full border border-white/20">Event Streaming</span>
+                <span class="font-mono-tech text-[11px] uppercase bg-[#FF4D00]/20 text-[#FF4D00] px-3 py-1 rounded-full border border-[#FF4D00]/40">PostgreSQL Tuning</span>
+              </div>
+            </div>
+          </div>
+          <div class="service-arrow opacity-0 group-hover:opacity-100 transition-all duration-300 transform -rotate-0 text-[#FF4D00] mt-6 md:mt-0 flex justify-end">
+            <div class="w-16 h-16 rounded-full border-2 border-[#FF4D00] flex items-center justify-center">
+              <i data-lucide="arrow-up-right" class="w-8 h-8 stroke-[3]"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 04 -->
+        <div class="service-row group py-10 md:py-14 px-4 md:px-8 flex flex-col md:flex-row md:items-center justify-between cursor-pointer transition-all duration-300">
+          <div class="flex items-start md:items-center gap-6 md:gap-12 flex-1">
+            <span class="font-mono-tech text-2xl md:text-3xl font-bold text-[#FF4D00] tracking-tight">04/</span>
+            <div>
+              <h3 class="service-title font-display text-4xl md:text-[6.5vw] text-white leading-none tracking-tight transition-transform duration-300">
+                SECURITY INFRASTRUCTURE
+              </h3>
+              <div class="flex flex-wrap gap-2 mt-4">
+                <span class="font-mono-tech text-[11px] uppercase bg-white/10 text-white px-3 py-1 rounded-full border border-white/20">Zero-Trust Auth</span>
+                <span class="font-mono-tech text-[11px] uppercase bg-white/10 text-white px-3 py-1 rounded-full border border-white/20">Penetration Stress</span>
+                <span class="font-mono-tech text-[11px] uppercase bg-[#FF4D00]/20 text-[#FF4D00] px-3 py-1 rounded-full border border-[#FF4D00]/40">SOC2 Type II Ready</span>
+              </div>
+            </div>
+          </div>
+          <div class="service-arrow opacity-0 group-hover:opacity-100 transition-all duration-300 transform -rotate-0 text-[#FF4D00] mt-6 md:mt-0 flex justify-end">
+            <div class="w-16 h-16 rounded-full border-2 border-[#FF4D00] flex items-center justify-center">
+              <i data-lucide="arrow-up-right" class="w-8 h-8 stroke-[3]"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Technical Telemetry Matrix -->
+      <div id="manifesto" class="mt-20 pt-12 border-t-2 border-white/20 grid grid-cols-2 md:grid-cols-4 gap-6 font-mono-tech">
+        <div class="border-l-2 border-[#FF4D00] pl-4">
+          <div class="text-xs uppercase text-white/50">SPEED SCORE</div>
+          <div class="text-3xl font-bold text-white mt-1">100/100</div>
+          <div class="text-[10px] text-[#FF4D00] mt-1 font-bold">LIGHTHOUSE AUDIT</div>
+        </div>
+        <div class="border-l-2 border-[#FF4D00] pl-4">
+          <div class="text-xs uppercase text-white/50">BUILD CYCLE</div>
+          <div class="text-3xl font-bold text-white mt-1">&lt; 14 DAYS</div>
+          <div class="text-[10px] text-[#FF4D00] mt-1 font-bold">SPRINT DEPLOYMENT</div>
+        </div>
+        <div class="border-l-2 border-[#FF4D00] pl-4">
+          <div class="text-xs uppercase text-white/50">UPTIME SLA</div>
+          <div class="text-3xl font-bold text-white mt-1">99.99%</div>
+          <div class="text-[10px] text-[#FF4D00] mt-1 font-bold">HARDWARE RESILIENCE</div>
+        </div>
+        <div class="border-l-2 border-[#FF4D00] pl-4">
+          <div class="text-xs uppercase text-white/50">ENERGY USAGE</div>
+          <div class="text-3xl font-bold text-white mt-1">-68% CO₂</div>
+          <div class="text-[10px] text-[#FF4D00] mt-1 font-bold">OPTIMIZED RUNTIME</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- GIANT CALL TO ACTION SECTION               -->
+  <!-- ========================================== -->
+  <section id="contact" class="relative bg-[#FF4D00] py-28 md:py-36 px-6 md:px-12 text-center overflow-hidden border-b-[2px] border-black">
+    
+    <!-- Decorative Corner Stamps -->
+    <div class="absolute top-6 left-6 font-mono-tech text-xs uppercase font-bold text-black border border-black px-2 py-1">
+      ACTIVATE // SPRINT_REQ
+    </div>
+    <div class="absolute top-6 right-6 font-mono-tech text-xs uppercase font-bold text-black border border-black px-2 py-1">
+      STATUS // IMMEDIATE DISPATCH
+    </div>
+
+    <div class="max-w-6xl mx-auto flex flex-col items-center">
+      <span class="font-mono-tech text-xs md:text-sm uppercase tracking-widest font-bold text-black bg-white px-3 py-1 mb-8 border-2 border-black">
+        /// INITIATE CONTACT PROTOCOL
+      </span>
+      
+      <!-- Giant 14vw Headline -->
+      <h2 class="font-display text-[13vw] md:text-[14vw] leading-[0.85] text-black tracking-[-0.04em] mb-12 select-none">
+        LET’S BUILD
+      </h2>
+
+      <!-- Large Rounded-Full Brutalist Button -->
+      <a href="mailto:ops@astra-systems.io" class="btn-brutalist-cta inline-flex items-center gap-4 bg-black text-white font-mono-tech text-base md:text-xl font-bold uppercase px-12 md:px-16 py-6 md:py-8 rounded-full border-2 border-black cursor-pointer shadow-2xl">
+        <span>INITIALIZE WORKFLOW</span>
+        <i data-lucide="arrow-right" class="w-6 h-6 stroke-[3] text-[#FF4D00]"></i>
+      </a>
+
+      <!-- Secondary Availability Notice -->
+      <p class="font-mono-tech text-black text-xs md:text-sm font-bold uppercase mt-8 tracking-tight">
+        DIRECT TRANSMISSION &bull; TELEGRAM: @ASTRA_OPS &bull; ENCRYPTED PGP AVAILABLE
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- FOOTER SECTION                             -->
+  <!-- ========================================== -->
+  <footer class="bg-[#FF4D00] text-black font-mono-tech text-xs py-8 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 border-t-[2px] border-black pt-6">
+      
+      <!-- Left: Copyright Info -->
+      <div class="flex items-center gap-3">
+        <div class="w-2.5 h-2.5 bg-black"></div>
+        <span class="font-bold tracking-tight">
+          &copy; 2025 ASTRA KINETIC STUDIO. ALL RIGHTS RESERVED.
+        </span>
+      </div>
+
+      <!-- Center: Technical Signature -->
+      <div class="text-black/80 font-bold uppercase text-[11px] text-center">
+        NO PASTELS • NO SOFT SHADOWS • ARCHIVO + SPACE MONO
+      </div>
+
+      <!-- Right: Horizontal Social Links -->
+      <div class="flex items-center gap-6 font-bold uppercase text-[12px]">
+        <a href="https://twitter.com" target="_blank" rel="noreferrer" class="hover:underline hover:text-white transition-colors">Twitter (X)</a>
+        <a href="https://github.com" target="_blank" rel="noreferrer" class="hover:underline hover:text-white transition-colors">GitHub</a>
+        <a href="https://linkedin.com" target="_blank" rel="noreferrer" class="hover:underline hover:text-white transition-colors">LinkedIn</a>
+        <a href="https://telegram.org" target="_blank" rel="noreferrer" class="hover:underline hover:text-white transition-colors">Telegram</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Initialize Lucide Icons -->
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

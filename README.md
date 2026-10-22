@@ -53,6 +53,7 @@ Every design folder contains:
 - [Kronos 01](<Service Web Designs/Kronos 01>)
 - [Architectural](<Service Web Designs/Architectural>)
 - [Silicon](<Service Web Designs/Silicon>)
+- [Astra](<Service Web Designs/Astra>)
 
 ### 😶‍🌫️ Product Page Designs
 - [Verdant](<Product Web Designs/Verdant>)

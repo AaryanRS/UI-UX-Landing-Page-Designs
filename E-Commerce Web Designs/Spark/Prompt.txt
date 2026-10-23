@@ -1,0 +1,161 @@
+{
+  "project": "SPARK⚡ Store",
+  "version": "1.1.0",
+  "archetype": "Neo-Brutalist Multi-Product E-Commerce with High-Voltage Utility Accents",
+  "target_device": "DESKTOP",
+  "brand": {
+    "name": "SPARK⚡",
+    "badge_style": "background: #171e19; color: #ffe17c; border: 2px solid #000000; box-shadow: 2px 2px 0px #000000; font-family: 'Cabinet Grotesk', sans-serif; font-weight: 800; letter-spacing: -0.05em;",
+    "tagline": "Defiantly functional industrial hardware and high-voltage kinetic design. Heavy gauge materials, zero compromise.",
+    "copyright": "© 2025 SPARK CORP. ALL SPECIFICATIONS RESERVED."
+  },
+  "design_system": {
+    "palette": {
+      "primary_yellow": "#ffe17c",
+      "primary_dark": "#171e19",
+      "accent_sage": "#b7c6c2",
+      "ui_white": "#ffffff",
+      "black": "#000000",
+      "rating_accent": "#ffbc2e"
+    },
+    "typography": {
+      "headings": {
+        "family": "Cabinet Grotesk, sans-serif",
+        "weights": [700, 800],
+        "signature_motif": "-webkit-text-stroke: 2px #000000; color: transparent;"
+      },
+      "body": {
+        "family": "Satoshi, sans-serif",
+        "weights": [500, 600]
+      },
+      "accents": {
+        "family": "Space Grotesk, monospace",
+        "format": "[ BRACKETED_METADATA ]"
+      }
+    },
+    "borders": {
+      "universal": "2px solid #000000",
+      "radii": {
+        "buttons": "0px to 4px",
+        "cards": "0px to 6px",
+        "containers": "0px to 8px"
+      }
+    },
+    "shadows": {
+      "blur_radius": "0px",
+      "standard": "4px 4px 0px 0px #000000",
+      "elevated": "8px 8px 0px 0px #000000",
+      "hero_focal": "12px 12px 0px 0px #000000"
+    },
+    "negative_constraints": [
+      "NO gradients",
+      "NO blurred or diffuse shadows",
+      "NO glassmorphism / opacity backdrops",
+      "NO thin 1px borders"
+    ],
+    "interaction_physics": {
+      "button_press": {
+        "default": "transform: translate(0, 0); box-shadow: 4px 4px 0px #000000;",
+        "hover": "transform: translate(2px, 2px); box-shadow: 2px 2px 0px #000000;",
+        "active": "transform: translate(4px, 4px); box-shadow: 0px 0px 0px #000000;",
+        "easing": "cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+        "duration": "150ms"
+      }
+    }
+  },
+  "sections": [
+    {
+      "id": "navigation",
+      "height": "80px",
+      "background": "#ffe17c",
+      "border_bottom": "2px solid #000000",
+      "elements": [
+        "Logo Badge: SPARK⚡ (Charcoal pill, yellow glyphs, 2px shadow)",
+        "Nav: SHOP, COLLECTIONS, NEW, BESTSELLERS, ABOUT",
+        "Actions: Search, Wishlist (0), Cart (3)"
+      ]
+    },
+    {
+      "id": "hero_stage",
+      "background": "#ffe17c",
+      "pattern": "32px radial black dot matrix (10% opacity)",
+      "status_badge": "[ PROTOCOL: HIGH-VOLTAGE SPARK ⚡ // LIVE ]",
+      "headline": "GOOD PRODUCTS. LOUDER DESIGN.",
+      "tactical_tag": "⚡ HIGH-VOLTAGE UTILITY",
+      "composition": "4-item asymmetric product arrangement with overlapping frames, tactile price tags, and serialized specs"
+    },
+    {
+      "id": "marquee_ticker",
+      "background": "#171e19",
+      "content": "SPARK⚡ ARTIFACTS • CURATED BRANDS • HIGH-VOLTAGE UTILITY • FEATURED MAKERS • DESIGN EDITIONS • LIMITED RUNS",
+      "styling": "Cabinet Grotesk, #b7c6c2 at 70% opacity, continuous linear translation"
+    },
+    {
+      "id": "category_explorer",
+      "type": "bento_grid",
+      "categories": ["Tech & Controls", "Monolith Objects", "Habitat & Light", "Tactile EDC", "Workshop Textiles & Armor"]
+    },
+    {
+      "id": "featured_hardware",
+      "layout": "asymmetric_grid",
+      "product_count": 6,
+      "card_spec": "2px solid #000000, 4px 4px 0 #000 shadow, tactile Quick Add button"
+    },
+    {
+      "id": "campaign_drop",
+      "background": "#171e19",
+      "headline": "THE DROP YOU DIDN'T KNOW YOU NEEDED.",
+      "focal_element": "The Drafting Monolith, $340, breakout geometric frame"
+    },
+    {
+      "id": "active_registry_catalog",
+      "layout": "5x2 product matrix",
+      "filters": ["ALL", "NEW", "POPULAR", "SALE"],
+      "sorting": "SORT: FEATURED HIGHEST"
+    },
+    {
+      "id": "best_seller_leaderboard",
+      "layout": "4-column tiered leaderboard",
+      "dominant_item": {
+        "rank": "01",
+        "name": "Tactile Cherry Switch Totem",
+        "background": "#ffe17c",
+        "badge": "BEST SELLER #01"
+      }
+    },
+    {
+      "id": "brand_manifesto",
+      "background": "#ffffff",
+      "headline": "DESIGNED FOR PEOPLE WHO NOTICE DETAILS.",
+      "visual": "Industrial Berlin workshop lathe photography"
+    },
+    {
+      "id": "shop_by_archetype",
+      "cards": [
+        {"title": "THE MINIMALIST", "color": "#ffffff"},
+        {"title": "THE COLLECTOR", "color": "#ffe17c"},
+        {"title": "THE EVERYDAY ICON", "color": "#171e19"}
+      ]
+    },
+    {
+      "id": "field_evaluations",
+      "background": "#b7c6c2",
+      "cards_count": 3,
+      "rating_color": "#ffbc2e"
+    },
+    {
+      "id": "dispatch_terminal",
+      "background": "#ffe17c",
+      "headline": "YOUR NEXT FAVORITE THING.",
+      "cta": "AUTHORIZE"
+    },
+    {
+      "id": "footer",
+      "background": "#171e19",
+      "brand": "SPARK⚡",
+      "columns": 4,
+      "social_hover": "background: #ffe17c, color: #000000",
+      "copyright": "© 2025 SPARK CORP. ALL SPECIFICATIONS RESERVED."
+    }
+  ]
+}

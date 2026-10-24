@@ -1,0 +1,779 @@
+<!DOCTYPE html><html class="dark" lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&amp;family=Geist:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-container-highest":"#353534","inverse-primary":"#006970","tertiary-fixed":"#6bff83","secondary-fixed":"#efdbff","tertiary-fixed-dim":"#00e55b","on-tertiary-fixed-variant":"#00531b","primary-fixed-dim":"#00dbe9","on-secondary-fixed-variant":"#6700b5","tertiary":"#dbffd7","inverse-on-surface":"#313030","on-tertiary-fixed":"#002107","error-container":"#93000a","surface-tint":"#00dbe9","outline-variant":"#3b494b","surface-container-low":"#1c1b1b","primary-container":"#00f0ff","on-error":"#690005","on-surface-variant":"#b9cacb","on-error-container":"#ffdad6","outline":"#849495","on-secondary":"#480081","primary-fixed":"#7df4ff","on-secondary-fixed":"#2c0051","on-tertiary-container":"#006e27","surface-variant":"#353534","on-primary-container":"#006970","surface-dim":"#131313","tertiary-container":"#00fa64","surface":"#131313","on-tertiary":"#003911","on-primary-fixed-variant":"#004f54","on-primary-fixed":"#002022","secondary-fixed-dim":"#dcb8ff","surface-container-high":"#2a2a2a","on-surface":"#e5e2e1","error":"#ffb4ab","on-primary":"#00363a","surface-container-lowest":"#0e0e0e","surface-container":"#201f1f","surface-bright":"#3a3939","inverse-surface":"#e5e2e1","on-background":"#e5e2e1","primary":"#dbfcff","background":"#131313","secondary-container":"#7701d0","on-secondary-container":"#dcb7ff","secondary":"#dcb8ff"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"gutter-mobile":"1rem","space-sm":"0.5rem","space-lg":"1.5rem","space-xs":"0.25rem","gutter":"1.5rem","margin-mobile":"1.25rem","space-xl":"2.5rem","space-md":"1rem","margin":"3rem"},fontFamily:{"headline-lg":["Barlow Condensed"],"display-xl-mobile":["Barlow Condensed"],"body-md":["Geist"],"display-xl":["Barlow Condensed"],"body-sm":["Geist"],"label-xs":["JetBrains Mono"],"label-sm":["JetBrains Mono"],"body-lg":["Geist"],"headline-lg-mobile":["Barlow Condensed"],"headline-sm":["Barlow Condensed"],"headline-md":["Barlow Condensed"],"label-md":["JetBrains Mono"]},fontSize:{"headline-lg":["40px",{"lineHeight":"44px","letterSpacing":"0.06em","fontWeight":"700"}],"display-xl-mobile":["44px",{"lineHeight":"48px","letterSpacing":"0.06em","fontWeight":"800"}],"body-md":["14px",{"lineHeight":"22px","letterSpacing":"0em","fontWeight":"400"}],"display-xl":["72px",{"lineHeight":"76px","letterSpacing":"0.08em","fontWeight":"800"}],"body-sm":["12px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"400"}],"label-xs":["9px",{"lineHeight":"12px","letterSpacing":"0.14em","fontWeight":"400"}],"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.12em","fontWeight":"500"}],"body-lg":["16px",{"lineHeight":"26px","letterSpacing":"-0.01em","fontWeight":"400"}],"headline-lg-mobile":["30px",{"lineHeight":"34px","letterSpacing":"0.05em","fontWeight":"700"}],"headline-sm":["22px",{"lineHeight":"26px","letterSpacing":"0.04em","fontWeight":"600"}],"headline-md":["28px",{"lineHeight":"32px","letterSpacing":"0.05em","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.1em","fontWeight":"500"}]}}}};</script></head><body class="bg-surface text-on-surface font-body-md text-body-md min-h-screen selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/80 backdrop-blur-md"><div class="h-16 w-full px-gutter-mobile lg:px-margin flex items-center justify-between border-b border-outline-variant/30"><div class="flex items-center gap-space-sm"><a class="flex items-baseline gap-2 group" data-path="overview" href="#"><span class="font-display-xl text-headline-sm font-bold tracking-wider text-primary uppercase">CROM</span><span class="font-label-xs text-label-xs text-outline tracking-widest uppercase">LABS</span></a></div><nav class="hidden lg:flex items-center gap-8" data-active-classes="text-primary-container font-label-sm"><a aria-current="page" class="font-label-xs text-label-xs tracking-widest uppercase text-primary-container font-bold transition-colors" data-path="overview" href="#">OVERVIEW</a><a class="font-label-xs text-label-xs tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors" data-path="specifications" href="#scene-specs">SPECIFICATIONS</a><a class="font-label-xs text-label-xs tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors" data-path="archive" href="#scene-details">ARCHIVE</a><a class="font-label-xs text-label-xs tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors" data-path="lab" href="#scene-technology">LAB</a><a class="font-label-xs text-label-xs tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors" data-path="system" href="#scene-collections">SYSTEM</a></nav><div class="flex items-center gap-space-sm"><a class="px-4 py-2 border border-outline-variant/60 hover:border-primary-container bg-surface-container-low text-primary font-label-xs text-label-xs tracking-widest uppercase transition-colors hover:text-on-primary-container hover:bg-primary-container" href="#scene-specs"><span class="">ORDER // A-01</span></a></div></div></header><main class="w-full pt-16 bg-surface relative min-h-screen"><div class="flex flex-col w-full text-on-surface bg-surface-container-lowest selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden relative">
+<!-- INLINE GSAP + SCROLLTRIGGER -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<!-- AMBIENT CAD BLUEPRINT OVERLAY -->
+<div class="pointer-events-none fixed inset-0 z-10 opacity-30 mix-blend-screen" style="background-image: 
+         linear-gradient(to right, rgba(0, 240, 255, 0.08) 1px, transparent 1px),
+         linear-gradient(to bottom, rgba(0, 240, 255, 0.08) 1px, transparent 1px),
+         linear-gradient(to right, rgba(0, 240, 255, 0.02) 1px, transparent 1px),
+         linear-gradient(to bottom, rgba(0, 240, 255, 0.02) 1px, transparent 1px);
+         background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;">
+</div>
+<!-- FLOATING PERSISTENT TELEMETRY HUD TOP/SIDES -->
+<aside class="fixed top-20 right-6 z-30 hidden xl:flex flex-col items-end gap-1 font-label-xs text-label-xs text-outline pointer-events-none">
+<div class="flex items-center gap-2 px-2 py-1 bg-surface-container-low/90 backdrop-blur-md">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-ping"></span>
+<span class="text-primary font-bold">CAD_CORE // REV 4.88</span>
+</div>
+<span class="text-on-surface-variant font-label-xs">VECTORS: ACTIVE [35.6762° N / 139.6503° E]</span>
+<span class="text-outline-variant font-label-xs">PRESSURE: 1013.25 HPA // REL HUM 12%</span>
+</aside>
+<!-- ========================================================================= -->
+<!-- SCENE 01: HERO // PROJECT A-01 ASTRALIS -->
+<!-- ========================================================================= -->
+<section class="relative w-full min-h-[100vh] flex flex-col justify-between px-margin-mobile lg:px-margin pt-8 pb-12 overflow-hidden" id="scene-hero">
+<!-- Atmospheric vector glow -->
+<div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-secondary-container/20 rounded-full blur-[140px] pointer-events-none"></div>
+<div class="absolute bottom-10 right-10 w-[450px] h-[450px] bg-primary-container/10 rounded-full blur-[120px] pointer-events-none"></div>
+<!-- Top Telemetry Strip -->
+<div class="relative z-20 flex flex-wrap items-center justify-between gap-4 font-label-xs text-label-xs text-outline">
+<div class="flex items-center gap-3">
+<span class="text-primary-container font-bold tracking-widest">[SYS_SPEC // 01]</span>
+<span class="text-outline-variant">•</span>
+<span class="text-on-surface-variant">ATMOSPHERIC ARMOR PROTOCOL</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="px-2 py-0.5 bg-surface-container-high text-primary-fixed font-bold tracking-widest">EDITION 01/150</span>
+<span class="text-on-surface-variant hidden sm:inline">SERIAL [AST-0994-VX]</span>
+</div>
+</div>
+<!-- Main Hero Matrix Content -->
+<div class="relative z-20 my-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-8">
+<!-- Left Column: Mega Title & Micro Specs -->
+<div class="lg:col-span-5 flex flex-col justify-center">
+<div class="flex items-center gap-2 mb-2 font-label-xs text-label-xs text-tertiary-fixed-dim"><span class="w-2 h-0.5 bg-tertiary-fixed-dim"></span><span class="">CROM RESEARCH LAB // EXPERIMENTAL PROCUREMENT</span></div>
+<h1 class="font-display-xl text-display-xl text-primary tracking-tight uppercase leading-none drop-shadow-[0_0_35px_rgba(0,240,255,0.3)]">CROM</h1>
+<div class="font-headline-lg text-headline-lg text-on-surface tracking-wider uppercase -mt-1 mb-4 flex items-center gap-3"><span class="">PROJECT // A-01</span><span class="text-primary-container text-body-sm px-2 py-0.5 bg-surface-container font-label-xs">ALPHA PROTOTYPE</span></div>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg mb-8 leading-relaxed">
+          Ultra-ergonomic adaptive techwear exoskeleton synthesized for extreme thermal volatility. Engineered with a proprietary reactive graphene lattice and zero-permeability aerogel matrix.
+        </p>
+<!-- Technical Telemetry Chips Grid -->
+<div class="grid grid-cols-2 gap-3 max-w-md mb-8">
+<div class="p-3 bg-surface-container-low flex flex-col justify-between">
+<span class="font-label-xs text-label-xs text-outline tracking-wider">AEROGEL MEMBRANE</span>
+<span class="font-headline-sm text-headline-sm text-primary tracking-normal mt-1">28,000 MM</span>
+<span class="font-label-xs text-label-xs text-tertiary-fixed-dim">HYDROPHOBIC 3L</span>
+</div>
+<div class="p-3 bg-surface-container-low flex flex-col justify-between">
+<span class="font-label-xs text-label-xs text-outline tracking-wider">THERMAL OPERATING</span>
+<span class="font-headline-sm text-headline-sm text-secondary tracking-normal mt-1">-40°C / +85°C</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">DYNAMIC GRADIENT</span>
+</div>
+</div>
+<!-- Call to actions -->
+<div class="flex flex-wrap items-center gap-4">
+<a class="relative group inline-flex items-center gap-3 bg-primary-container text-on-primary-container px-6 py-3 font-label-sm text-label-sm font-bold tracking-widest uppercase transition-all duration-300 shadow-[0_0_20px_rgba(0,240,255,0.35)] hover:shadow-[0_0_35px_rgba(0,240,255,0.6)] hover:bg-primary" href="#scene-specs">
+<span class="">[01 // ACQUIRE ALLOCATION]</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+<a class="inline-flex items-center gap-2 bg-surface-container-high px-5 py-3 font-label-sm text-label-sm text-on-surface tracking-wider hover:text-primary transition-colors" href="#scene-technology">
+<span class="material-symbols-outlined text-[16px] text-primary-container">science</span>
+<span class="">DEEP TECH MATRIX</span>
+</a>
+</div>
+</div>
+<!-- Right Column: Interactive Hero Centerpiece -->
+<div class="lg:col-span-7 relative flex items-center justify-center min-h-[500px]">
+<!-- Interactive CAD Circles & Coordinates -->
+<div class="absolute w-[440px] h-[440px] sm:w-[560px] sm:h-[560px] rounded-full border border-dashed border-primary-container/20 animate-[spin_60s_linear_infinite] pointer-events-none"></div>
+<div class="absolute w-[320px] h-[320px] sm:w-[420px] sm:h-[420px] rounded-full border border-primary-container/10 pointer-events-none"></div>
+<!-- Reticle Crosshairs at Cardinal points -->
+<div class="absolute top-4 left-1/2 -translate-x-1/2 font-label-xs text-label-xs text-primary-container/60 tracking-widest">+ CALIB. AXIS 00° N +</div>
+<div class="absolute bottom-4 left-1/2 -translate-x-1/2 font-label-xs text-label-xs text-primary-container/60 tracking-widest">+ REAR ESCAPEMENT +</div>
+<!-- Jacket Hero Stage Container -->
+<div class="relative z-10 w-full max-w-[540px] aspect-square flex items-center justify-center p-4" id="hero-jacket-wrapper">
+<img alt="CROM Cybernetic Jacket Obsidian Core" class="hero-jacket-img w-full h-full object-contain filter drop-shadow-[0_20px_50px_rgba(0,240,255,0.25)] transition-transform duration-700 ease-out select-none pointer-events-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAr3mPjH4KHdVxnMz0TGVqrVS19dyKhIzGrL3G_oUv5hOCqHg2zrbMadnVW5T1lKJDr3KB76j4wXptlGq8Bv8Pu_UwhWwta7P--Z9IrBuEaO0CPLwbnipi-l3d-yOjB681i1XUfYKIwHIFkzrOowKv7bhL3UtxI5tpISe20a2JB2P9twC9sTfdM5Opmi7a8KvpgdtXdczazkQ-QWCBy9FIruIZbo1XzDZRNcH7kO3F7Ar39Y8uu-9hV" style="translate: none; rotate: none; scale: none; transform: translate3d(0px, -6.3021px, 0px);">
+<!-- Callout 1: Collar / Hydrophobic -->
+<div class="absolute top-[22%] -left-4 sm:left-4 z-20 flex items-center gap-2 bg-surface-container-lowest/90 px-3 py-1.5 backdrop-blur-md shadow-lg pointer-events-auto group">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-primary font-bold">REACTIVE GRAPHENE COLLAR</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">THERMO-CONDUCTIVE 840W/MK</span>
+</div>
+</div>
+<!-- Callout 2: Chest Quick Release -->
+<div class="absolute top-[48%] -right-2 sm:right-6 z-20 flex items-center gap-2 bg-surface-container-lowest/90 px-3 py-1.5 backdrop-blur-md shadow-lg pointer-events-auto group">
+<div class="flex flex-col text-right">
+<span class="font-label-xs text-label-xs text-secondary font-bold">MAGNETIC MAG-LATCH [V4]</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">FIDLOCK TITANIUM ALLOY</span>
+</div>
+<span class="w-2 h-2 rounded-full bg-secondary-fixed animate-ping"></span>
+</div>
+<!-- Callout 3: Ergonomic Sleeve -->
+<div class="absolute bottom-[20%] left-6 z-20 flex items-center gap-2 bg-surface-container-lowest/90 px-3 py-1.5 backdrop-blur-md shadow-lg pointer-events-auto group">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-tertiary font-bold">ARTICULATED KINETIC CUFF</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">CARBON FIBER 3K WEAVE</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Telemetry & Scanline Indicator -->
+<div class="relative z-20 flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 text-on-surface-variant">
+<div class="flex items-center gap-6 font-label-xs text-label-xs">
+<span class="text-primary-container tracking-widest">[SCROLL TO COMMENCE CALIBRATION]</span>
+<span class="hidden md:inline text-outline-variant">///</span>
+<span class="hidden md:inline text-on-surface-variant font-label-xs">CAD RETICLE ACTIVE: 1:1 SCALE RATIO</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-label-xs text-label-xs tracking-widest text-outline">ROTATION DEGREES: <span id="telemetry-angle" class="">000°</span></span>
+<div class="w-24 h-1 bg-surface-container-highest overflow-hidden relative">
+<div class="w-8 h-full bg-primary-container absolute left-0 top-0" id="telemetry-scan-bar" style="translate: none; rotate: none; scale: none; transform: translate3d(60.6303px, 0px, 0px);"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SCENE 02: DETAILS MATTER // CINEMATIC ZOOM & HOTSPOTS -->
+<!-- ========================================================================= -->
+<section class="relative w-full py-28 px-margin-mobile lg:px-margin bg-surface-container-lowest overflow-hidden" id="scene-details">
+<!-- Background Architectural Typographic Backdrop -->
+<div class="absolute top-1/2 left-0 -translate-y-1/2 pointer-events-none select-none opacity-5 w-full flex flex-col leading-none">
+<span class="font-display-xl text-[18vw] font-black tracking-tighter text-outline">DETAILS</span>
+<span class="font-display-xl text-[18vw] font-black tracking-tighter text-outline text-right">MATTER.</span>
+</div>
+<div class="relative z-20 max-w-7xl mx-auto flex flex-col gap-16">
+<!-- Section Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6">
+<div>
+<span class="font-label-xs text-label-xs text-primary-container tracking-widest block mb-2">[02 // DECONSTRUCTION PROTOCOL]</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface uppercase tracking-tight">
+            MICRON-CALIBRATED <span class="text-primary">ANATOMY</span>
+</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+          Zero tolerance for compromised materials. Every seam, gasket, and clasp is calibrated under vacuum chamber stress parameters.
+        </p>
+</div>
+<!-- Main Visual Grid: Split Zoom Display & Tactical Specs Panel -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+<!-- Left: Focused Macro Visual with Reticle Overlay -->
+<div class="lg:col-span-7 relative group bg-surface-container-low p-2">
+<!-- CAD frame corner marks -->
+<div class="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-primary-container z-20"></div>
+<div class="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-primary-container z-20"></div>
+<div class="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-primary-container z-20"></div>
+<div class="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-primary-container z-20"></div>
+<div class="relative w-full aspect-square sm:aspect-[4/3] bg-surface-container overflow-hidden flex items-center justify-center">
+<img alt="Aethel Astralis Macro Inspection" class="w-full h-full object-cover scale-125 transition-transform duration-700 ease-out group-hover:scale-135" id="detail-focus-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAr3mPjH4KHdVxnMz0TGVqrVS19dyKhIzGrL3G_oUv5hOCqHg2zrbMadnVW5T1lKJDr3KB76j4wXptlGq8Bv8Pu_UwhWwta7P--Z9IrBuEaO0CPLwbnipi-l3d-yOjB681i1XUfYKIwHIFkzrOowKv7bhL3UtxI5tpISe20a2JB2P9twC9sTfdM5Opmi7a8KvpgdtXdczazkQ-QWCBy9FIruIZbo1XzDZRNcH7kO3F7Ar39Y8uu-9hV" style="translate: none; rotate: none; scale: none; transform: scale(1.25, 1.25);">
+<!-- Interactive Viewfinder Crosshairs -->
+<div class="absolute inset-0 pointer-events-none flex items-center justify-center">
+<div class="w-48 h-48 border border-primary-container/40 rounded-full flex items-center justify-center">
+<div class="w-2 h-2 bg-primary-container rounded-full animate-ping"></div>
+</div>
+<div class="absolute w-full h-[1px] bg-primary-container/20"></div>
+<div class="absolute h-full w-[1px] bg-primary-container/20"></div>
+</div>
+<!-- Coordinate HUD Overlay -->
+<div class="absolute bottom-4 left-4 font-label-xs text-label-xs bg-surface-container-lowest/90 px-3 py-1.5 text-primary backdrop-blur-md">
+<span class="">MAGNIFICATION // 4.8X OPTICAL ZOOM</span>
+</div>
+<div class="absolute top-4 right-4 font-label-xs text-label-xs bg-surface-container-lowest/90 px-3 py-1.5 text-tertiary-fixed-dim backdrop-blur-md">
+<span class="">SCAN VALIDATED // NO WEAKNESS DETECTED</span>
+</div>
+</div>
+</div>
+<!-- Right: Diagnostic Matrix Cards -->
+<div class="lg:col-span-5 flex flex-col gap-4">
+<div class="p-5 bg-surface-container-low transition-all hover:bg-surface-container hover:shadow-[0_0_20px_rgba(0,240,255,0.15)] group cursor-pointer" onclick="updateDetailView('collar')">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-xs text-label-xs text-primary font-bold tracking-widest">SUB-SYSTEM 01 // COLLAR GASKET</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">[INSPECT]</span>
+</div>
+<div class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">AEROSPACE CHASSIS SEAL</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Dual-wall neodymium thermal baffle prevents ingress during sub-zero exposure.</p>
+<div class="mt-4 pt-3 flex justify-between font-label-xs text-label-xs text-outline">
+<span class="">TENSILE COMPRESSION: 1,420 MPA</span>
+<span class="text-tertiary-fixed-dim">STATUS: NOMINAL</span>
+</div>
+</div>
+<div class="p-5 bg-surface-container-low transition-all hover:bg-surface-container hover:shadow-[0_0_20px_rgba(0,240,255,0.15)] group cursor-pointer" onclick="updateDetailView('chest')">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-xs text-label-xs text-secondary font-bold tracking-widest">SUB-SYSTEM 02 // HARDWARE</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">[INSPECT]</span>
+</div>
+<div class="font-headline-sm text-headline-sm text-on-surface group-hover:text-secondary-fixed transition-colors">FIDLOCK TITANIUM COUPLING</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">CNC-machined grade 5 titanium hardware engineered for single-hand gloves-on actuation.</p>
+<div class="mt-4 pt-3 flex justify-between font-label-xs text-label-xs text-outline">
+<span class="">LATCH LOAD RATING: 220 KGF</span>
+<span class="text-primary-container">ZERO RETENTION LAG</span>
+</div>
+</div>
+<div class="p-5 bg-surface-container-low transition-all hover:bg-surface-container hover:shadow-[0_0_20px_rgba(0,240,255,0.15)] group cursor-pointer" onclick="updateDetailView('seams')">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-xs text-label-xs text-tertiary-fixed-dim font-bold tracking-widest">SUB-SYSTEM 03 // SEAMS</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">[INSPECT]</span>
+</div>
+<div class="font-headline-sm text-headline-sm text-on-surface group-hover:text-tertiary transition-colors">ULTRASONIC LASER WELD 0.4MM</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Stitchless molecular bond with liquid polyurethane tape reinforcement along high-stress pivots.</p>
+<div class="mt-4 pt-3 flex justify-between font-label-xs text-label-xs text-outline">
+<span class="">SEAM THICKNESS: 0.4 MM</span>
+<span class="text-tertiary-fixed-dim">HYDROSTATIC: 28,000 MM</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SCENE 03: COLLECTIONS // COLORWAY CHROMATICS & VARIANT BAYS -->
+<!-- ========================================================================= -->
+<section class="relative w-full py-28 px-margin-mobile lg:px-margin bg-surface" id="scene-collections">
+<div class="max-w-7xl mx-auto flex flex-col gap-12">
+<!-- Section Title & Chromatic Switcher -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6">
+<div>
+<span class="font-label-xs text-label-xs text-primary-container tracking-widest block mb-2">[03 // TACTICAL VARIANTS]</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface uppercase tracking-tight">
+            COLORWAY CHROMATICS &amp; <span class="text-primary">BAY DEPLOYMENT</span>
+</h2>
+</div>
+<div class="flex items-center gap-2 font-label-xs text-label-xs">
+<span class="text-outline">SELECT CHROMATIC SPECTRUM:</span>
+<span class="px-2 py-1 bg-surface-container-high text-primary font-bold">ALL 04 VARIANTS STAGED</span>
+</div>
+</div>
+<!-- 4 Horizontal Bays Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- BAY 01: ACID TACTICAL (Green) -->
+<div class="group relative bg-surface-container-low p-5 flex flex-col justify-between transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(107,255,131,0.25)]">
+<div class="flex justify-between items-start font-label-xs text-label-xs text-tertiary-fixed-dim mb-4">
+<span class="font-bold tracking-widest">BAY // 01</span>
+<span class="px-1.5 py-0.5 bg-surface-container-high text-tertiary-fixed">CHLORO-01</span>
+</div>
+<div class="relative w-full aspect-square flex items-center justify-center p-2 mb-6 overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-tertiary-fixed-dim/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<img alt="Aethel Astralis Acid Tactical Green" class="w-full h-full object-contain filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)] group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr0K1sX43pEZ63rnto9-fpnpJTL2K1vS_Xqt133pByb8LTZkTh9e4DJYKOQNCZShS0Pxl5xzPYDU4iZcr5FL4pD1qtPNKu4ypjwrA9h6R2fpnaDRgr3Y3UeHsp0HXlLG8ZXYlpI0JWtMmFG3JSrWLGSyE1YjeaBdXWOvkhjQCxUmgjUSX_DAP-x7XChmBnIVwkz4VcU-j-h4FA1b1NYc0O6Dnn3cNsHIiQ6nW2C7WQuGZtysFYmkhw">
+</div>
+<div class="flex flex-col gap-2">
+<div class="font-headline-sm text-headline-sm text-on-surface uppercase tracking-wide group-hover:text-tertiary transition-colors">ACID TACTICAL</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Luminescent high-visibility membrane for nocturnal hazard operating conditions.</span>
+<div class="mt-4 pt-3 flex items-center justify-between font-label-xs text-label-xs text-outline">
+<span class="">WEIGHT // 412G</span>
+<span class="text-tertiary-fixed-dim font-bold">IN STOCK [18 PCS]</span>
+</div>
+<button class="mt-3 w-full py-2.5 bg-surface-container-high font-label-xs text-label-xs text-on-surface font-bold tracking-widest uppercase hover:bg-tertiary-container hover:text-on-tertiary-container transition-colors">
+              SELECT VARIANT
+            </button>
+</div>
+</div>
+<!-- BAY 02: HYPERION GLOW (Magenta Pink) -->
+<div class="group relative bg-surface-container-low p-5 flex flex-col justify-between transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(239,219,255,0.25)]">
+<div class="flex justify-between items-start font-label-xs text-label-xs text-secondary mb-4">
+<span class="font-bold tracking-widest">BAY // 02</span>
+<span class="px-1.5 py-0.5 bg-surface-container-high text-secondary-fixed">MAGENTA-02</span>
+</div>
+<div class="relative w-full aspect-square flex items-center justify-center p-2 mb-6 overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-secondary-container/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<img alt="Aethel Astralis Magenta Hyperion Glow" class="w-full h-full object-contain filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)] group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRB-EYPDEyYtGDw3E4tWoZ29kpVcFdQAV1CEhNpjnuyH6bExYTz5uaywx6nJ6_Fzf3GQKbCMUXWwhACMnTRrz8jlEpNVnSdlCL_w8oG5rf-MM9FECse7NjD4hYdZvyl8aV75LmehxgtsGsKkWRhU-kd729LeDsIOXukUlcGbuzhhpXqXXicd6DwhCwqG52pifjg_jGAie8YELEAxFCFA3qDImmZMPi7ocAAeD5cEYNcpR9reLMql_R">
+</div>
+<div class="flex flex-col gap-2">
+<div class="font-headline-sm text-headline-sm text-on-surface uppercase tracking-wide group-hover:text-secondary transition-colors">HYPERION GLOW</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Dual-anodized synthetic sheath with spectrum refraction finish.</span>
+<div class="mt-4 pt-3 flex items-center justify-between font-label-xs text-label-xs text-outline">
+<span class="">WEIGHT // 428G</span>
+<span class="text-secondary font-bold">LIMITED [09 PCS]</span>
+</div>
+<button class="mt-3 w-full py-2.5 bg-surface-container-high font-label-xs text-label-xs text-on-surface font-bold tracking-widest uppercase hover:bg-secondary-container hover:text-on-secondary-container transition-colors">
+              SELECT VARIANT
+            </button>
+</div>
+</div>
+<!-- BAY 03: THERMAL HAZARD (Orange) -->
+<div class="group relative bg-surface-container-low p-5 flex flex-col justify-between transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(255,180,171,0.25)]">
+<div class="flex justify-between items-start font-label-xs text-label-xs text-error mb-4">
+<span class="font-bold tracking-widest">BAY // 03</span>
+<span class="px-1.5 py-0.5 bg-surface-container-high text-error">APOLLO-03</span>
+</div>
+<div class="relative w-full aspect-square flex items-center justify-center p-2 mb-6 overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-error-container/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<img alt="Aethel Astralis Apollo Thermal Hazard Orange" class="w-full h-full object-contain filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)] group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA45cbSUwkWHyBbqLCB_lR9b9TmVzXM5CuwqE5OiDPobl6tl9wPAoU6KnHPluB183YFH4_ePxD_0kJ4LkgjG62FxXmWmCmBL9IuzXm1MKWO8Name6gf4GC59cZDP5LqJrUckce-e-ssHIFLi3UK1WZ--boLtiDTNcF1BG-3vb1aky1fjHK-pGvbC0hNB6g_UhJThBq1ZR8XmrcP7VK0PRX0snPJk0-iPjt4i5RJ9SG08bQukeX0J_ya">
+</div>
+<div class="flex flex-col gap-2">
+<div class="font-headline-sm text-headline-sm text-on-surface uppercase tracking-wide group-hover:text-error transition-colors">THERMAL HAZARD</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">High-visibility offshore radar reflective rescue and alpine spec.</span>
+<div class="mt-4 pt-3 flex items-center justify-between font-label-xs text-label-xs text-outline">
+<span class="">WEIGHT // 436G</span>
+<span class="text-error font-bold">ALLOCATED [04 PCS]</span>
+</div>
+<button class="mt-3 w-full py-2.5 bg-surface-container-high font-label-xs text-label-xs text-on-surface font-bold tracking-widest uppercase hover:bg-error-container hover:text-on-error-container transition-colors">
+              SELECT VARIANT
+            </button>
+</div>
+</div>
+<!-- BAY 04: OBSIDIAN CORE (Blue/Black) -->
+<div class="group relative bg-surface-container-low p-5 flex flex-col justify-between transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(0,240,255,0.25)]">
+<div class="flex justify-between items-start font-label-xs text-label-xs text-primary-container mb-4">
+<span class="font-bold tracking-widest">BAY // 04</span>
+<span class="px-1.5 py-0.5 bg-surface-container-high text-primary-fixed">NEBULA-04</span>
+</div>
+<div class="relative w-full aspect-square flex items-center justify-center p-2 mb-6 overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<img alt="Aethel Astralis Nebula Obsidian Core Blue" class="w-full h-full object-contain filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)] group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAr3mPjH4KHdVxnMz0TGVqrVS19dyKhIzGrL3G_oUv5hOCqHg2zrbMadnVW5T1lKJDr3KB76j4wXptlGq8Bv8Pu_UwhWwta7P--Z9IrBuEaO0CPLwbnipi-l3d-yOjB681i1XUfYKIwHIFkzrOowKv7bhL3UtxI5tpISe20a2JB2P9twC9sTfdM5Opmi7a8KvpgdtXdczazkQ-QWCBy9FIruIZbo1XzDZRNcH7kO3F7Ar39Y8uu-9hV">
+</div>
+<div class="flex flex-col gap-2">
+<div class="font-headline-sm text-headline-sm text-on-surface uppercase tracking-wide group-hover:text-primary transition-colors">OBSIDIAN CORE</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Pure covert carbon armor with active cyan electroluminescent piping.</span>
+<div class="mt-4 pt-3 flex items-center justify-between font-label-xs text-label-xs text-outline">
+<span class="">WEIGHT // 398G</span>
+<span class="text-primary-container font-bold">PRE-ORDER [BATCH 1]</span>
+</div>
+<button class="mt-3 w-full py-2.5 bg-primary-container text-on-primary-container font-label-xs text-label-xs font-bold tracking-widest uppercase hover:bg-primary transition-colors">
+              SELECT VARIANT
+            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SCENE 04: TECHNOLOGY ENGINEERED TO ENDURE // EXPLODED ISOMETRIC LATTICE -->
+<!-- ========================================================================= -->
+<section class="relative w-full py-28 px-margin-mobile lg:px-margin bg-surface-container-lowest overflow-hidden" id="scene-technology">
+<div class="max-w-7xl mx-auto flex flex-col gap-16">
+<!-- Headline & Introduction -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6">
+<div>
+<span class="font-label-xs text-label-xs text-primary-container tracking-widest block mb-2">[04 // ATOMIC LATTICE STACK]</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface uppercase tracking-tight">
+            TECHNOLOGY <span class="text-primary">ENGINEERED</span> TO ENDURE
+          </h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+          Deconstructed isometric cross-section revealing the 4-layer aerospace composite matrix engineered for deep-freeze orbital descent and terrestrial typhoons.
+        </p>
+</div>
+<!-- Exploded Stack Presentation -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+<!-- Left: Exploded Stack Photographic Visual -->
+<div class="lg:col-span-7 relative flex items-center justify-center p-4 bg-surface-container-low">
+<!-- Ambient ultraviolet glow behind exploded stack -->
+<div class="absolute inset-0 bg-secondary-container/15 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="relative w-full max-w-lg aspect-square">
+<img alt="Aethel Astralis Exploded Material Stack Composite" class="w-full h-full object-contain filter drop-shadow-[0_20px_40px_rgba(119,1,208,0.35)] select-none" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDte53ep3x0XirA8oJYtpZZKu6yyzRh7cXsjN0iTqzQhbs5Q3UQr8BhYvFwq_jyE0xGvqte2HdPWFX2YkGjrdFQD0j5f22JOENCEHFnEir68C_fDCYLdgkU2gmVf_V_upoEpuNzw9iLAmEXUl80I8YLPH2OPg-zfY9i3l9Ftp1uQVOZD3pZgXAvfI9CNYYxCOe3Jt76PBmHjzoIm77qqQZbfg4tJ_UMlrEg-ZDgYmJsP3PaB-poYdn5">
+</div>
+</div>
+<!-- Right: Layer-by-Layer Interactive Decomposition Cards -->
+<div class="lg:col-span-5 flex flex-col gap-3">
+<!-- Layer 01 -->
+<div class="p-4 bg-surface-container-low transition-colors hover:bg-surface-container flex items-start gap-4">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">01</span>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-primary-fixed tracking-wider font-bold">HYDROPHOBIC AEROSPACE MEMBRANE (0.02MM)</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Micro-porous PTFE structure rejects exterior liquid droplet entry while venting vaporized internal body condensation.</p>
+<span class="font-label-xs text-label-xs text-outline mt-1">CONTACT ANGLE: 162° // SUPERHYDROPHOBIC</span>
+</div>
+</div>
+<!-- Layer 02 -->
+<div class="p-4 bg-surface-container-low transition-colors hover:bg-surface-container flex items-start gap-4">
+<span class="font-headline-sm text-headline-sm text-secondary font-bold">02</span>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-secondary-fixed tracking-wider font-bold">HEXAGONAL MICRO-MESH LATTICE</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Structural force-distribution polygon grid dissipates focal impact stresses across adjacent geometric cells.</p>
+<span class="font-label-xs text-label-xs text-outline mt-1">RUPTURE STRENGTH: 980 N/CM²</span>
+</div>
+</div>
+<!-- Layer 03 -->
+<div class="p-4 bg-surface-container-low transition-colors hover:bg-surface-container flex items-start gap-4">
+<span class="font-headline-sm text-headline-sm text-tertiary font-bold">03</span>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-tertiary-fixed-dim tracking-wider font-bold">TECHNICAL AEROGEL THERMAL BUFFER</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Ultralight solid synthetic aerogel composed of 99.8% air pores eliminates conductive heat radiation losses.</p>
+<span class="font-label-xs text-label-xs text-outline mt-1">THERMAL CONDUCTIVITY: 0.013 W/M·K</span>
+</div>
+</div>
+<!-- Layer 04 -->
+<div class="p-4 bg-surface-container-low transition-colors hover:bg-surface-container flex items-start gap-4">
+<span class="font-headline-sm text-headline-sm text-outline font-bold">04</span>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface tracking-wider font-bold">CARBON-WEAVE EXOSKELETON</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Pre-impregnated high modulus carbon filament weave provides torsional elasticity and anti-abrasion skin.</p>
+<span class="font-label-xs text-label-xs text-outline mt-1">YARN DENSITY: 3,000 FILAMENTS / TOW</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SCENE 05: NEED TO KNOW // SPECIFICATIONS & ALLOCATION PROTOCOL -->
+<!-- ========================================================================= -->
+<section class="relative w-full py-28 px-margin-mobile lg:px-margin bg-surface" id="scene-specs">
+<div class="max-w-7xl mx-auto flex flex-col gap-16">
+<!-- Section Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6">
+<div>
+<span class="font-label-xs text-label-xs text-primary-container tracking-widest block mb-2">[05 // PROCUREMENT DOSSIER]</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface uppercase tracking-tight">
+            NEED <span class="text-primary">TO KNOW.</span>
+</h2>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-4 py-2 bg-surface-container-high font-label-xs text-label-xs text-primary hover:text-white transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">download</span>
+<span class="">DOWNLOAD FULL CAD BLUEPRINT</span>
+</button>
+</div>
+</div>
+<!-- Specification Cards & Cryptographic NFC Ledger -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1: Climate & Atmospheric Envelopes -->
+<div class="p-6 bg-surface-container-low flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 font-label-xs text-label-xs text-primary-container mb-3">
+<span class="material-symbols-outlined text-[16px]">thermostat</span>
+<span class="">CLIMATIC OPERATING ENVELOPE</span>
+</div>
+<div class="font-headline-sm text-headline-sm text-on-surface uppercase mb-3">SUB-ZERO TO VOLATILE HEAT</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6">
+              Rated for Arctic expeditions, sub-polar wind blasts, and high-altitude radiation exposure without structural degradation.
+            </p>
+</div>
+<div class="space-y-2 pt-4 font-label-xs text-label-xs">
+<div class="flex justify-between text-outline">
+<span class="">MIN AMBIENT TEMP</span>
+<span class="text-primary font-bold">-40.0°C</span>
+</div>
+<div class="flex justify-between text-outline">
+<span class="">MAX AMBIENT TEMP</span>
+<span class="text-error font-bold">+85.0°C</span>
+</div>
+<div class="flex justify-between text-outline">
+<span class="">WIND REJECTION</span>
+<span class="text-tertiary-fixed-dim font-bold">160 KM/H GALE FORCE</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Cryptographic NFC Authenticator -->
+<div class="p-6 bg-surface-container-low flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 font-label-xs text-label-xs text-secondary mb-3">
+<span class="material-symbols-outlined text-[16px]">fingerprint</span>
+<span class="">CRYPTOGRAPHIC NFC CHIP</span>
+</div>
+<div class="font-headline-sm text-headline-sm text-on-surface uppercase mb-3">IMMUTABLE HEM INTEGRATION</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6">
+              Embedded NTAG 424 DNA cryptographic transponder in right cuff ensures zero counterfeiting and logs garment maintenance telemetry.
+            </p>
+</div>
+<div class="space-y-2 pt-4 font-label-xs text-label-xs">
+<div class="flex justify-between text-outline">
+<span class="">CIPHER PROTOCOL</span>
+<span class="text-secondary-fixed font-bold">AES-128 CMAC</span>
+</div>
+<div class="flex justify-between text-outline">
+<span class="">WARRANTY STATUS</span>
+<span class="text-tertiary-fixed-dim font-bold">LIFETIME FIELD REPLACEMENT</span>
+</div>
+<div class="flex justify-between text-outline">
+<span class="">SCAN FREQUENCY</span>
+<span class="text-on-surface font-bold">13.56 MHZ RFID</span>
+</div>
+</div>
+</div>
+<!-- Card 3: Care Protocols & Allocation Window -->
+<div class="p-6 bg-surface-container-low flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 font-label-xs text-label-xs text-tertiary mb-3">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span class="">LIMITED ALLOCATION RUN</span>
+</div>
+<div class="font-headline-sm text-headline-sm text-on-surface uppercase mb-3">BATCH 01 ALLOTMENT</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6">
+              Only 150 individually indexed units constructed globally. Hand-calibrated in our Tokyo prototyping precinct.
+            </p>
+</div>
+<div class="space-y-2 pt-4 font-label-xs text-label-xs">
+<div class="flex justify-between text-outline">
+<span class="">TOTAL PRODUCTION</span>
+<span class="text-on-surface font-bold">150 NUMBERED UNITS</span>
+</div>
+<div class="flex justify-between text-outline">
+<span class="">REMAINING SLOTS</span>
+<span class="text-primary font-bold">34 SLOTS UNCLAIMED</span>
+</div>
+<div class="flex justify-between text-outline">
+<span class="">MSRP / VALUE</span>
+<span class="text-tertiary-fixed-dim font-bold">$2,850 USD</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Confirmation Drawer -->
+<div class="p-8 bg-surface-container-high flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-primary uppercase">REQUEST SERIALIZED ALLOCATION</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Priority queue open for verified Aethel Terminal keyholders. Instant biometric reservation.</span>
+</div>
+<div class="flex items-center gap-4 w-full md:w-auto">
+<button class="w-full md:w-auto px-8 py-3 bg-primary-container text-on-primary-container font-label-sm text-label-sm font-bold tracking-widest uppercase hover:bg-primary transition-all shadow-[0_0_20px_rgba(0,240,255,0.3)]">
+            [REQUEST ALLOCATION NOW]
+          </button>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SCENE 06: LAPTOP SHOWCASE // ARCHITECTURAL PEDESTAL -->
+<!-- ========================================================================= -->
+<section class="relative w-full py-28 px-margin-mobile lg:px-margin bg-surface-container-lowest overflow-hidden" id="scene-laptop">
+<!-- Ambient Cold Rim Light -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-primary-container/10 rounded-full blur-[140px] pointer-events-none"></div>
+<div class="max-w-6xl mx-auto flex flex-col items-center gap-12 text-center">
+<div class="flex flex-col items-center">
+<span class="font-label-xs text-label-xs text-primary-container tracking-widest block mb-2">[06 // VIRTUAL TERMINAL DEMO]</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface uppercase tracking-tight">
+          RESPONSIVE HARDWARE <span class="text-primary">SIMULATION</span>
+</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl mt-2">
+          Experience the Aethel Astralis web interface directly inside the titanium workstation simulator. Select scenes below to preview viewport states.
+        </p>
+</div>
+<!-- Interactive Scene Tabs for Laptop -->
+<div class="flex flex-wrap justify-center gap-2 font-label-xs text-label-xs">
+<button class="laptop-tab-btn active px-4 py-2 bg-primary-container text-on-primary-container font-bold tracking-wider uppercase transition-colors" onclick="setLaptopPreview('hero')">
+          01 // HERO JACKET
+        </button>
+<button class="laptop-tab-btn px-4 py-2 bg-surface-container-high text-on-surface hover:text-primary tracking-wider uppercase transition-colors" onclick="setLaptopPreview('details')">
+          02 // ANATOMY
+        </button>
+<button class="laptop-tab-btn px-4 py-2 bg-surface-container-high text-on-surface hover:text-primary tracking-wider uppercase transition-colors" onclick="setLaptopPreview('variants')">
+          03 // COLORWAYS
+        </button>
+<button class="laptop-tab-btn px-4 py-2 bg-surface-container-high text-on-surface hover:text-primary tracking-wider uppercase transition-colors" onclick="setLaptopPreview('stack')">
+          04 // AEROSPACE STACK
+        </button>
+</div>
+<!-- 3D Styled Realistic Laptop Frame -->
+<div class="w-full max-w-4xl relative pt-4 pb-12 flex flex-col items-center select-none">
+<!-- Laptop Display Bezel -->
+<div class="w-full aspect-[16/10] bg-[#0c0d10] p-3 sm:p-5 shadow-[0_30px_90px_rgba(0,0,0,0.9)] flex flex-col relative overflow-hidden">
+<!-- Web Camera and Notch Sensor -->
+<div class="absolute top-2 left-1/2 -translate-x-1/2 flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-surface-container-highest"></span>
+<span class="w-1 h-1 rounded-full bg-primary-container/60"></span>
+</div>
+<!-- Glass Refraction Sheen -->
+<div class="pointer-events-none absolute inset-0 bg-gradient-to-tr from-white/[0.03] via-transparent to-transparent z-30"></div>
+<!-- Simulated Screen Internal Viewport -->
+<div class="w-full h-full bg-[#050505] overflow-hidden relative flex flex-col justify-between p-4 sm:p-6 transition-all duration-500" id="laptop-screen-content">
+<!-- Simulated Nav -->
+<div class="flex items-center justify-between font-label-xs text-label-xs text-outline pb-2">
+<span class="text-primary font-bold">AETHEL // ASTRALIS PROTOTYPE VIEW</span>
+<span class="text-tertiary-fixed-dim">ONLINE • 60 FPS</span>
+</div>
+<!-- Screen Center Dynamically Changed via JS -->
+<div class="my-auto flex items-center justify-center" id="laptop-viewport-inner">
+<img alt="Terminal Preview" class="max-h-56 sm:max-h-72 object-contain drop-shadow-[0_10px_30px_rgba(0,240,255,0.3)] transition-all duration-500" id="laptop-inner-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAr3mPjH4KHdVxnMz0TGVqrVS19dyKhIzGrL3G_oUv5hOCqHg2zrbMadnVW5T1lKJDr3KB76j4wXptlGq8Bv8Pu_UwhWwta7P--Z9IrBuEaO0CPLwbnipi-l3d-yOjB681i1XUfYKIwHIFkzrOowKv7bhL3UtxI5tpISe20a2JB2P9twC9sTfdM5Opmi7a8KvpgdtXdczazkQ-QWCBy9FIruIZbo1XzDZRNcH7kO3F7Ar39Y8uu-9hV">
+</div>
+<!-- Simulated Footer Telemetry inside screen -->
+<div class="flex items-center justify-between font-label-xs text-label-xs text-outline pt-2">
+<span id="laptop-caption-left" class="">MODEL // NEBULA-04 OBSIDIAN</span>
+<span id="laptop-caption-right" class="">SYS STATUS: ALL SYSTEMS NOMINAL</span>
+</div>
+</div>
+</div>
+<!-- Laptop Hinge & Deck Base -->
+<div class="w-[108%] h-4 bg-gradient-to-b from-[#24272e] to-[#0e1014] rounded-b-lg shadow-2xl relative flex items-center justify-center">
+<!-- Center finger indent notch -->
+<div class="w-20 h-1.5 bg-[#050608] rounded-b-md"></div>
+</div>
+<!-- Pedestal Shadow Foundation -->
+<div class="w-[85%] h-6 bg-primary-container/10 blur-xl mt-[-8px]"></div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- SCENE 07: MOBILE VIEWPORT & FOOTER SIGN-OFF -->
+<!-- ========================================================================= -->
+<section class="relative w-full py-28 px-margin-mobile lg:px-margin bg-surface overflow-hidden" id="scene-mobile">
+<!-- Warm / Amber Rim Glow Background for dramatic shift -->
+<div class="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-secondary-container/15 rounded-full blur-[140px] pointer-events-none"></div>
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Left: Mobile Device Simulator -->
+<div class="lg:col-span-5 flex justify-center">
+<!-- Smartphone Chassis Frame -->
+<div class="relative w-72 sm:w-80 aspect-[9/19] bg-[#0d0f14] p-3 shadow-[0_25px_80px_rgba(0,0,0,0.9)] flex flex-col justify-between overflow-hidden">
+<!-- Dynamic Island Notch -->
+<div class="absolute top-4 left-1/2 -translate-x-1/2 w-24 h-5 bg-[#050608] rounded-full z-30 flex items-center justify-end px-3">
+<span class="w-2 h-2 rounded-full bg-primary-container/80"></span>
+</div>
+<!-- Glass Refraction Overlay -->
+<div class="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/[0.04] via-transparent to-transparent z-20"></div>
+<!-- Internal Screen Screen Content -->
+<div class="w-full h-full bg-[#050505] flex flex-col justify-between p-4 pt-10 overflow-hidden relative">
+<div class="flex items-center justify-between font-label-xs text-label-xs text-outline pb-2">
+<span class="text-primary font-bold">AETHEL MOBILE</span>
+<span class="text-tertiary-fixed-dim">5G TACTICAL</span>
+</div>
+<!-- Mobile Rotating Jacket Display -->
+<div class="my-auto flex flex-col items-center">
+<span class="font-headline-sm text-headline-sm text-on-surface uppercase mb-1">ASTRALIS</span>
+<span class="font-label-xs text-label-xs text-primary-container mb-4">BATCH 01 ALLOCATION</span>
+<img alt="Mobile Viewport Product Preview" class="w-48 h-48 object-contain filter drop-shadow-[0_10px_25px_rgba(220,184,255,0.35)] transition-all duration-700" id="mobile-jacket-preview" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRB-EYPDEyYtGDw3E4tWoZ29kpVcFdQAV1CEhNpjnuyH6bExYTz5uaywx6nJ6_Fzf3GQKbCMUXWwhACMnTRrz8jlEpNVnSdlCL_w8oG5rf-MM9FECse7NjD4hYdZvyl8aV75LmehxgtsGsKkWRhU-kd729LeDsIOXukUlcGbuzhhpXqXXicd6DwhCwqG52pifjg_jGAie8YELEAxFCFA3qDImmZMPi7ocAAeD5cEYNcpR9reLMql_R">
+</div>
+<button class="w-full py-2.5 bg-primary-container text-on-primary-container font-label-xs text-label-xs font-bold tracking-widest uppercase hover:bg-primary transition-colors">
+              [TAP TO ORDER // $2,850]
+            </button>
+</div>
+</div>
+</div>
+<!-- Right: Technical Sign-Off & Order Dispatch -->
+<div class="lg:col-span-7 flex flex-col gap-6">
+<div>
+<span class="font-label-xs text-label-xs text-primary-container tracking-widest block mb-2">[07 // READY FOR DEPLOYMENT]</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface uppercase tracking-tight">
+            FIELD READY <span class="text-primary">ARCHITECTURAL SPEC</span>
+</h2>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+          Every Astralis garment is handcrafted to order and certified against cryogenic and extreme precipitation standards. Registered owners receive access to confidential seasonal module add-ons.
+        </p>
+<!-- Dispatch Telemetry Data Table -->
+<div class="bg-surface-container-low p-5 space-y-3 font-label-xs text-label-xs">
+<div class="flex items-center justify-between pb-2">
+<span class="text-outline">FACILITY OF MANUFACTURE</span>
+<span class="text-on-surface font-bold">PRECINCT 09 // TOKYO METROPOLITAN</span>
+</div>
+<div class="flex items-center justify-between pb-2">
+<span class="text-outline">LEAD PRODUCTION TIMEFRAME</span>
+<span class="text-primary font-bold">14 WORKING DAYS + CUSTOM FITTING</span>
+</div>
+<div class="flex items-center justify-between pb-2">
+<span class="text-outline">GLOBAL DISPATCH METHOD</span>
+<span class="text-tertiary-fixed-dim font-bold">SEALED CLIMATE-CONTROLLED COURIER</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-outline">AUTHENTICATION STANDARD</span>
+<span class="text-secondary font-bold">MIL-STD 810H &amp; EN 343 CLASS 4:4</span>
+</div>
+</div>
+<!-- Allocation Form Bar -->
+<div class="flex flex-col sm:flex-row gap-3 pt-2">
+<input class="px-4 py-3 bg-surface-container-high text-on-surface placeholder-outline font-label-xs text-label-xs tracking-wider flex-grow focus:outline-none focus:ring-1 focus:ring-primary-container" placeholder="ENTER OPERATOR CALLSIGN OR EMAIL" type="email">
+<button class="px-6 py-3 bg-primary-container text-on-primary-container font-label-sm text-label-sm font-bold tracking-widest uppercase hover:bg-primary transition-colors flex items-center justify-center gap-2">
+<span class="">TRANSMIT ALLOCATION</span>
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+</button>
+</div>
+<div class="flex items-center gap-4 text-outline font-label-xs text-label-xs">
+<span class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></span>
+            ALL ENCRYPTION PROTOCOLS CERTIFIED
+          </span>
+<span class="">•</span>
+<span class="">STRICT PRIVACY POLICY SEC. 04</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- INLINE VANILLA JAVASCRIPT: GSAP SCROLLTRIGGER & INTERACTION SCRIPTS -->
+<!-- ========================================================================= -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Register ScrollTrigger plugin safely
+      if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 1. Scene Hero Jacket Subtle Floating & Rotation
+        gsap.to(".hero-jacket-img", {
+          y: -15,
+          duration: 3,
+          repeat: -1,
+          yoyo: true,
+          ease: "power1.inOut"
+        });
+
+        // 2. Telemetry Scan bar animation
+        gsap.to("#telemetry-scan-bar", {
+          x: 64,
+          duration: 1.8,
+          repeat: -1,
+          yoyo: true,
+          ease: "power2.inOut"
+        });
+
+        // 3. Telemetry Angle increment on scroll
+        window.addEventListener("scroll", function() {
+          const scrollPercent = Math.min(Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 360), 360);
+          const angleEl = document.getElementById("telemetry-angle");
+          if (angleEl) {
+            angleEl.textContent = String(scrollPercent).padStart(3, '0') + "°";
+          }
+        });
+
+        // 4. Parallax scroll reveal on Scene 2 details
+        gsap.from("#detail-focus-img", {
+          scrollTrigger: {
+            trigger: "#scene-details",
+            start: "top 70%",
+            end: "bottom 80%",
+            scrub: 1
+          },
+          scale: 1.05,
+          ease: "none"
+        });
+      }
+    });
+
+    // Laptop Virtual Terminal Interactive Preview Switcher
+    function setLaptopPreview(view) {
+      const laptopImg = document.getElementById('laptop-inner-img');
+      const captionLeft = document.getElementById('laptop-caption-left');
+      const captionRight = document.getElementById('laptop-caption-right');
+      const buttons = document.querySelectorAll('.laptop-tab-btn');
+
+      buttons.forEach(btn => {
+        btn.classList.remove('bg-primary-container', 'text-on-primary-container', 'font-bold');
+        btn.classList.add('bg-surface-container-high', 'text-on-surface');
+      });
+
+      if (event && event.currentTarget) {
+        event.currentTarget.classList.remove('bg-surface-container-high', 'text-on-surface');
+        event.currentTarget.classList.add('bg-primary-container', 'text-on-primary-container', 'font-bold');
+      }
+
+      laptopImg.style.opacity = '0';
+      laptopImg.style.transform = 'scale(0.92)';
+
+      setTimeout(() => {
+        if (view === 'hero') {
+          laptopImg.src = "https://lh3.googleusercontent.com/aida-public/AB6AXuAr3mPjH4KHdVxnMz0TGVqrVS19dyKhIzGrL3G_oUv5hOCqHg2zrbMadnVW5T1lKJDr3KB76j4wXptlGq8Bv8Pu_UwhWwta7P--Z9IrBuEaO0CPLwbnipi-l3d-yOjB681i1XUfYKIwHIFkzrOowKv7bhL3UtxI5tpISe20a2JB2P9twC9sTfdM5Opmi7a8KvpgdtXdczazkQ-QWCBy9FIruIZbo1XzDZRNcH7kO3F7Ar39Y8uu-9hV";
+          captionLeft.textContent = "MODEL // NEBULA-04 OBSIDIAN";
+          captionRight.textContent = "SYS STATUS: ALL SYSTEMS NOMINAL";
+        } else if (view === 'details') {
+          laptopImg.src = "https://lh3.googleusercontent.com/aida-public/AB6AXuAr3mPjH4KHdVxnMz0TGVqrVS19dyKhIzGrL3G_oUv5hOCqHg2zrbMadnVW5T1lKJDr3KB76j4wXptlGq8Bv8Pu_UwhWwta7P--Z9IrBuEaO0CPLwbnipi-l3d-yOjB681i1XUfYKIwHIFkzrOowKv7bhL3UtxI5tpISe20a2JB2P9twC9sTfdM5Opmi7a8KvpgdtXdczazkQ-QWCBy9FIruIZbo1XzDZRNcH7kO3F7Ar39Y8uu-9hV";
+          captionLeft.textContent = "INSPECTION // DECONSTRUCTED CAD";
+          captionRight.textContent = "TENSILE RATING: 1,420 MPA";
+        } else if (view === 'variants') {
+          laptopImg.src = "https://lh3.googleusercontent.com/aida-public/AB6AXuCr0K1sX43pEZ63rnto9-fpnpJTL2K1vS_Xqt133pByb8LTZkTh9e4DJYKOQNCZShS0Pxl5xzPYDU4iZcr5FL4pD1qtPNKu4ypjwrA9h6R2fpnaDRgr3Y3UeHsp0HXlLG8ZXYlpI0JWtMmFG3JSrWLGSyE1YjeaBdXWOvkhjQCxUmgjUSX_DAP-x7XChmBnIVwkz4VcU-j-h4FA1b1NYc0O6Dnn3cNsHIiQ6nW2C7WQuGZtysFYmkhw";
+          captionLeft.textContent = "CHROMATIC // CHLORO-01 ACID TACTICAL";
+          captionRight.textContent = "LUMINESCENT MATRIX: ACTIVE";
+        } else if (view === 'stack') {
+          laptopImg.src = "https://lh3.googleusercontent.com/aida-public/AB6AXuDte53ep3x0XirA8oJYtpZZKu6yyzRh7cXsjN0iTqzQhbs5Q3UQr8BhYvFwq_jyE0xGvqte2HdPWFX2YkGjrdFQD0j5f22JOENCEHFnEir68C_fDCYLdgkU2gmVf_V_upoEpuNzw9iLAmEXUl80I8YLPH2OPg-zfY9i3l9Ftp1uQVOZD3pZgXAvfI9CNYYxCOe3Jt76PBmHjzoIm77qqQZbfg4tJ_UMlrEg-ZDgYmJsP3PaB-poYdn5";
+          captionLeft.textContent = "STACK // 4-LAYER AEROSPACE LATTICE";
+          captionRight.textContent = "THERMAL BUFFER: 0.013 W/M·K";
+        }
+        laptopImg.style.opacity = '1';
+        laptopImg.style.transform = 'scale(1)';
+      }, 250);
+    }
+
+    // Detail view inspector zoom target
+    function updateDetailView(target) {
+      const detailImg = document.getElementById('detail-focus-img');
+      if (!detailImg) return;
+      detailImg.style.transform = 'scale(1.4)';
+      setTimeout(() => {
+        detailImg.style.transform = 'scale(1.25)';
+      }, 400);
+    }
+  </script>
+</div></main><div class="fixed bottom-space-md left-space-md pointer-events-none z-40 hidden md:flex items-center gap-space-xs font-label-xs text-label-xs text-on-surface-variant/70 tracking-widest bg-surface-container-lowest/80 px-space-sm py-space-xs backdrop-blur-sm"><span class="text-primary-container">+</span><span class="">POS: 35.6762° N / 139.6503° E</span><span class="text-outline-variant">//</span><span class="">ALT: 42M</span></div><div class="fixed bottom-space-md right-space-md pointer-events-none z-40 hidden md:flex items-center gap-space-xs font-label-xs text-label-xs text-on-surface-variant/70 tracking-widest bg-surface-container-lowest/80 px-space-sm py-space-xs backdrop-blur-sm"><span class="">SEC_SIG: [0x7FF9_CYBER]</span><span class="text-outline-variant">//</span><span class="text-tertiary-fixed-dim">NOMINAL</span><span class="text-primary-container">+</span></div><footer class="w-full bg-surface-container-lowest py-space-xl relative z-20"><div class="w-full px-gutter-mobile lg:px-margin flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex flex-col gap-space-xs"><span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">AETHEL TACTICAL ARCHITECTURE // LABS CORP.</span><span class="font-label-xs text-label-xs text-on-surface-variant">HIGH-SPEC COMPOSITE SYSTEMS • SPEC 28,000MM • ZERO MASS RETENTION</span></div><div class="flex items-center gap-space-lg"><a class="font-label-xs text-label-xs text-on-surface-variant hover:text-primary transition-colors tracking-wider" data-path="system" href="#">SECURITY PROTOCOLS</a><a class="font-label-xs text-label-xs text-on-surface-variant hover:text-primary transition-colors tracking-wider" data-path="specifications" href="#">CALIBRATION SPEC</a><a class="font-label-xs text-label-xs text-on-surface-variant hover:text-primary transition-colors tracking-wider" data-path="archive" href="#">CLASSIFIED ARCHIVE</a></div><div class="font-label-xs text-label-xs text-on-surface-variant text-right tracking-widest">© 2025 AETHEL LABS. ALL TELEMETRY RECORDED.</div></div></footer>
+
+</body></html>

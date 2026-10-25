@@ -65,6 +65,10 @@ Every design folder contains:
 - [Zenos](<E-Commerce Web Designs/Zenos>)
 - [Spark](<E-Commerce Web Designs/Spark>)
 
+### 📰 Blog & News Web Designs
+
+- [SUPER](<Blog & News Web Designs/SUPER>)
+
 ---
 ---
 

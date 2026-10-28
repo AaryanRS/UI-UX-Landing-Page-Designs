@@ -46,6 +46,7 @@ Every design folder contains:
 - [Jerry](<Portfolio Web Designs/Jerry>)
 - [Kaien Studio](<Portfolio Web Designs/Kaien Studio>)
 - [Kai Rennard](<Portfolio Web Designs/Kai Rennard>)
+- [Raymond](<Portfolio Web Designs/Raymond>)
 
 ### 🧑‍💼 Service Page Designs
 - [Archetype](<Service Web Designs/Archetype>)

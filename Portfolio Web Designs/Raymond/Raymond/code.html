@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"surface-container-highest":"#eae2d3","tertiary-fixed":"#ffdbc8","rule-hairline":"#26221F","surface-container-low":"#fbf3e3","on-tertiary-fixed":"#2e1504","tertiary-fixed-dim":"#edbca1","on-error":"#ffffff","paper-elevated":"#EFE8DC","secondary-fixed-dim":"#ffb59e","primary-fixed-dim":"#c8c6c5","outline-variant":"#c4c7c7","accent-ochre":"#C8A57A","surface-bright":"#fff8f0","paper-base":"#E7DFD0","surface-container-high":"#efe7d8","on-secondary":"#ffffff","secondary":"#8e4c38","error":"#ba1a1a","on-error-container":"#93000a","primary-fixed":"#e5e2e1","on-tertiary-fixed-variant":"#613f2a","error-container":"#ffdad6","accent-terracotta":"#A55F49","inverse-on-surface":"#f8f0e0","surface":"#fff8f0","secondary-fixed":"#ffdbd0","on-secondary-container":"#793c28","surface-tint":"#5f5e5e","outline":"#747878","paper-subtle":"#CDC6BE","inverse-surface":"#343026","background":"#fff8f0","surface-container-lowest":"#ffffff","on-secondary-fixed":"#390c01","on-secondary-fixed-variant":"#713623","on-primary-fixed":"#1c1b1b","primary-container":"#1c1b1b","primary":"#000000","on-tertiary-container":"#a57b62","inverse-primary":"#c8c6c5","ink-primary":"#111111","on-primary":"#ffffff","surface-container":"#f5edde","on-surface":"#1f1b12","on-tertiary":"#ffffff","on-primary-container":"#858383","ink-secondary":"#35312D","accent-leather":"#62402B","on-background":"#1f1b12","secondary-container":"#fea98f","ink-muted":"#746E66","surface-variant":"#eae2d3","tertiary":"#000000","surface-dim":"#e1d9ca","on-primary-fixed-variant":"#474646","tertiary-container":"#2e1504","on-surface-variant":"#444748"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-sm":"0.5rem","margin-mobile":"1rem","space-xl":"2.5rem","space-xs":"0.25rem","space-lg":"1.5rem","space-2xl":"4rem","space-md":"1rem","gutter-mobile":"0.75rem","margin":"2.5rem","gutter":"1.5rem"},"fontFamily":{"body-dense":["Inter"],"lead-paragraph":["Bodoni Moda"],"label-mono":["Inter"],"label-uppercase":["Inter"],"masthead":["Bodoni Moda"],"headline-editorial":["Bodoni Moda"],"headline-display-mobile":["Bodoni Moda"],"subhead-serif":["Bodoni Moda"],"headline-display":["Bodoni Moda"],"body-default":["Inter"],"caption":["Inter"],"masthead-mobile":["Bodoni Moda"]},"fontSize":{"body-dense":["13px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"400"}],"lead-paragraph":["19px",{"lineHeight":"30px","fontWeight":"400"}],"label-mono":["10px",{"lineHeight":"12px","letterSpacing":"0.18em","fontWeight":"500"}],"label-uppercase":["11px",{"lineHeight":"14px","letterSpacing":"0.14em","fontWeight":"600"}],"masthead":["112px",{"lineHeight":"104px","letterSpacing":"-0.03em","fontWeight":"900"}],"headline-editorial":["32px",{"lineHeight":"38px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-display-mobile":["36px",{"lineHeight":"40px","letterSpacing":"-0.01em","fontWeight":"700"}],"subhead-serif":["22px",{"lineHeight":"28px","fontWeight":"400"}],"headline-display":["64px",{"lineHeight":"68px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-default":["15px",{"lineHeight":"24px","letterSpacing":"0.01em","fontWeight":"400"}],"caption":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"400"}],"masthead-mobile":["52px",{"lineHeight":"52px","letterSpacing":"-0.02em","fontWeight":"900"}]}}}}</script></head><body class="bg-paper-base text-ink-primary font-body-default min-h-screen selection:bg-ink-primary selection:text-paper-base"><div class="min-h-screen flex flex-col border-l border-r border-rule-hairline max-w-7xl mx-auto shadow-[0_0_0_1px_rgba(38,34,31,0.06)]"><header class="fixed top-0 left-0 right-0 z-50 bg-paper-base/95 backdrop-blur-sm border-b border-rule-hairline"><div class="max-w-7xl mx-auto px-margin flex items-center justify-between h-20"><div class="flex items-baseline space-x-6"><a class="font-masthead text-headline-editorial tracking-tighter text-ink-primary hover:opacity-80 transition-opacity" data-path="paintings" href="#">RAYMOND</a><span class="hidden md:inline-block font-label-mono text-label-mono text-ink-muted uppercase border-l border-rule-hairline pl-4">EDITION NO. 01 — 2026</span></div><div class="flex items-center space-x-8"><nav class="flex items-center space-x-1 md:space-x-2" data-active-classes="bg-ink-primary text-paper-base"><a aria-current="page" class="px-3 py-1.5 font-label-uppercase transition-colors bg-ink-primary text-paper-base" data-path="paintings" href="#">PAINTINGS</a><a class="px-3 py-1.5 font-label-uppercase text-label-uppercase text-ink-secondary hover:text-ink-primary transition-colors" data-path="about" href="#">ABOUT</a><a class="px-3 py-1.5 font-label-uppercase text-label-uppercase text-ink-secondary hover:text-ink-primary transition-colors" data-path="recognitions" href="#">RECOGNITIONS</a><a class="px-3 py-1.5 font-label-uppercase text-label-uppercase text-ink-secondary hover:text-ink-primary transition-colors" data-path="contact" href="#">CONTACT</a></nav><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full flex-1 pt-20 bg-paper-base"><div class="flex flex-col w-full">
+<!-- PERSPECTIVE / UNROLLING CONTROL BAR -->
+<div class="w-full bg-paper-elevated border-b border-rule-hairline py-2 px-margin flex items-center justify-between text-ink-primary select-none">
+<div class="flex items-center space-x-4">
+<span class="inline-block w-2 h-2 bg-accent-terracotta"></span>
+<span class="font-label-mono text-label-mono text-ink-muted uppercase tracking-widest">
+        ARCHIVAL PRINT FORMAT: 578 × 820 MM (BROADSHEET FOLIO)
+      </span>
+</div>
+<div class="flex items-center space-x-4">
+<span class="font-label-mono text-label-mono text-ink-muted hidden sm:inline uppercase">VIEW MODE:</span>
+<button class="border border-rule-hairline px-3 py-1 font-label-uppercase text-label-uppercase text-ink-primary hover:bg-ink-primary hover:text-paper-base transition-colors flex items-center space-x-2" id="toggle-perspective">
+<span class="material-symbols-outlined text-[14px]">view_in_ar</span>
+<span id="perspective-btn-text">DESK PERSPECTIVE</span>
+</button>
+<button class="border border-rule-hairline px-3 py-1 font-label-uppercase text-label-uppercase text-ink-secondary hover:text-ink-primary hover:border-ink-primary transition-colors hidden md:inline-block" onclick="window.scrollTo({top: document.getElementById('manifesto-section').offsetTop - 80, behavior: 'smooth'})">
+        READ DISPATCH ↓
+      </button>
+</div>
+</div>
+<!-- MAIN NEWSPAPER CANVAS CONTAINER -->
+<div class="w-full transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] origin-top" id="newspaper-perspective-wrapper">
+<div class="w-full bg-paper-base transition-transform duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]" id="newspaper-canvas">
+<!-- ================= 1. MASTHEAD & RUNNING HEADER ================= -->
+<section class="border-b-4 border-ink-primary">
+<!-- Newspaper Micro-Top Header Band -->
+<div class="border-b border-rule-hairline px-margin py-2 flex flex-wrap items-center justify-between font-label-mono text-label-mono text-ink-muted uppercase">
+<div class="flex items-center space-x-4">
+<span class="font-bold text-ink-primary">THE CONTEMPORARY ART JOURNAL</span>
+<span>/</span>
+<span>VOL. IV — NO. 28</span>
+</div>
+<div class="hidden md:flex items-center space-x-6 tracking-widest">
+<span>PARIS, ATELIER SAINT-GERMAIN</span>
+<span>•</span>
+<span>NEW YORK, CHELSEA ANNEX</span>
+</div>
+<div class="flex items-center space-x-4">
+<span class="text-accent-terracotta font-semibold">EDITION NO. 01 — 2026</span>
+<span>/</span>
+<span>PRICELESS ARCHIVAL ISSUE</span>
+</div>
+</div>
+<!-- Monumental Serif Masthead Title -->
+<div class="px-margin py-4 md:py-8 border-b border-rule-hairline text-center overflow-hidden">
+<h1 class="font-masthead text-[14vw] md:text-[13.5vw] leading-[0.88] tracking-[-0.04em] text-ink-primary uppercase select-none transition-all">
+            RAYMOND
+          </h1>
+<div class="w-full flex justify-between items-baseline mt-3 pt-2 border-t border-rule-hairline font-label-mono text-label-mono uppercase text-ink-muted tracking-widest px-1">
+<span>SPECIAL MONOGRAPH EDITION</span>
+<span class="hidden sm:inline">CRITICAL SURVEY &amp; IMPASTO ARCHIVE</span>
+<span>OCTOBER — NOVEMBER 2026</span>
+</div>
+</div>
+<!-- Front Page 3-Column Lead Teaser Bar -->
+<div class="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-rule-hairline">
+<div class="md:col-span-3 p-4 md:p-6 bg-paper-base flex flex-col justify-between">
+<div>
+<span class="font-label-mono text-label-mono text-accent-terracotta uppercase">DISPATCH 01 / ESSAY</span>
+<h2 class="font-headline-editorial text-subhead-serif text-ink-primary mt-2">
+                TACTILE GESTURE &amp; THE CHROMATIC VOID
+              </h2>
+<p class="font-body-dense text-body-dense text-ink-secondary mt-3">
+                Examining the tectonic weight of Raymond’s raw linen grounds, wherein carbon soot and iron oxide redefine the geometry of contemplative space.
+              </p>
+</div>
+<div class="mt-6 pt-3 border-t border-rule-hairline font-label-mono text-label-mono text-ink-muted">
+              BY DR. MARCUS VANE — SORBONNE CHAIR OF AESTHETICS
+            </div>
+</div>
+<div class="md:col-span-6 p-4 md:p-6 bg-paper-elevated relative group">
+<div class="relative overflow-hidden border border-rule-hairline aspect-[16/10]">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Fine art photograph of Raymond's monumental abstract painting UNTITLED II in an architectural gallery space. Thick architectural charcoal black cross impasto intersecting with golden ochre and burnt terracotta earth tones across raw unbleached linen canvas. Warm gallery spotlighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdTO_GFS3putk91OhQOo1Bp0n-vEaFX2vs-dDSVtKt6JwpXH0DNm2OKejxYiTuhCJPIw1wY68KM4Cd0xoaV2e4Z5rVxegbFKpMWBb1BTh9RtKNA69l_40l_VVDcYBswYzQgGOc05Aq77JfhtXreLltJ6FwIoUoBW5mVCHkXdEGH1a_xJV5zGuUQM-N1Dn7WdjmnlJQ2rKas58OTfBE6XQwhNJEXXQQwHw6sVTZPT4p"/>
+<div class="absolute top-3 left-3 bg-ink-primary text-paper-base px-2 py-1 font-label-mono text-label-mono uppercase">
+                COVER MONOGRAPH: UNTITLED II
+              </div>
+</div>
+<div class="flex items-center justify-between mt-3 font-label-mono text-label-mono text-ink-muted">
+<span>PLATE 01 — 280 × 190 CM</span>
+<span class="text-accent-terracotta uppercase">PERMANENT REPOSITORY</span>
+<span>2026 COLLECTION</span>
+</div>
+</div>
+<div class="md:col-span-3 p-4 md:p-6 bg-paper-base flex flex-col justify-between">
+<div>
+<span class="font-label-mono text-label-mono text-ink-muted uppercase">CURATORIAL INDEX</span>
+<ul class="mt-3 space-y-3 font-body-dense text-body-dense">
+<li class="pb-2 border-b border-rule-hairline flex justify-between items-baseline">
+<span class="font-label-uppercase text-label-uppercase">I. TECTONIC FORM</span>
+<span class="font-label-mono text-label-mono text-ink-muted">PAGE 03</span>
+</li>
+<li class="pb-2 border-b border-rule-hairline flex justify-between items-baseline">
+<span class="font-label-uppercase text-label-uppercase">II. RECENT WORKS</span>
+<span class="font-label-mono text-label-mono text-ink-muted">PAGE 07</span>
+</li>
+<li class="pb-2 border-b border-rule-hairline flex justify-between items-baseline">
+<span class="font-label-uppercase text-label-uppercase">III. MUSEUM HONORS</span>
+<span class="font-label-mono text-label-mono text-ink-muted">PAGE 12</span>
+</li>
+<li class="flex justify-between items-baseline">
+<span class="font-label-uppercase text-label-uppercase">IV. ATELIER DOSSIER</span>
+<span class="font-label-mono text-label-mono text-ink-muted">PAGE 18</span>
+</li>
+</ul>
+</div>
+<div class="mt-6 bg-ink-primary text-paper-base p-4">
+<span class="font-label-mono text-label-mono tracking-widest text-accent-ochre block uppercase">CRITICAL NOTE</span>
+<p class="font-caption text-caption mt-1 italic text-paper-elevated">
+                “A radical reassertion of physical matter against the ethereal vanity of the digital screen.”
+              </p>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= 2. ABSTRACT ARTIST! HERO MANIFESTO ================= -->
+<section class="border-b-2 border-ink-primary" id="manifesto-section">
+<div class="bg-paper-base p-margin md:py-16 md:px-margin border-b border-rule-hairline">
+<div class="flex items-center space-x-3 mb-4">
+<span class="w-3 h-3 bg-ink-primary"></span>
+<span class="font-label-mono text-label-mono uppercase tracking-[0.25em] text-ink-primary">STATEMENT OF PURPOSE — NO. 04</span>
+</div>
+<h2 class="font-headline-display text-[8.5vw] md:text-[7.2vw] leading-[0.92] tracking-[-0.03em] uppercase text-ink-primary font-bold">
+            ABSTRACT ARTIST!
+          </h2>
+<div class="mt-4 flex flex-col md:flex-row md:items-center justify-between border-t-2 border-ink-primary pt-3 gap-4">
+<span class="font-subhead-serif text-subhead-serif italic text-ink-secondary">
+              Raymond — Contemporary Visual Research &amp; Monumental Color Fields
+            </span>
+<span class="font-label-mono text-label-mono text-ink-muted uppercase">
+              PARIS 1991 — ACTIVE ATELIER NEW YORK &amp; PROVENCE
+            </span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-rule-hairline">
+<!-- Column A: Detailed Manifesto Text -->
+<div class="md:col-span-5 p-margin flex flex-col justify-between bg-paper-base">
+<div class="space-y-6">
+<div class="inline-block border border-rule-hairline px-3 py-1 font-label-mono text-label-mono uppercase bg-paper-elevated">
+                MATERIAL INTEGRITY / 01
+              </div>
+<p class="font-lead-paragraph text-lead-paragraph text-ink-primary leading-relaxed">
+                Painting is neither illustration nor illusion. It is mineral matter deposited with violent precision upon coarse woven linen, demanding that the viewer confront mass, gravity, and duration.
+              </p>
+<div class="space-y-4 font-body-default text-body-default text-ink-secondary">
+<p>
+                  In an era dominated by dematerialized surfaces and fleeting retinal stimuli, Raymond constructs towering physical monuments. Each canvas functions like a tectonic fault line: thick layers of burnt sienna, cold carbon impasto, and raw ochre pigments are carved into with heavy steel trowels, creating reliefs that physically cast shadows as gallery light shifts throughout the diurnal cycle.
+                </p>
+<p>
+                  The works refuse narrative decoration. Instead, they operate as raw environmental presences that command silent contemplation and recalibrate human physical scale.
+                </p>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-rule-hairline flex items-center justify-between">
+<div>
+<span class="font-label-mono text-label-mono text-ink-muted uppercase block">STUDIO LOCATION</span>
+<span class="font-label-uppercase text-label-uppercase text-ink-primary">RUE DE TURENNE, MARAIS</span>
+</div>
+<div class="text-right">
+<span class="font-label-mono text-label-mono text-ink-muted uppercase block">CURATORIAL REG.</span>
+<span class="font-label-uppercase text-label-uppercase text-ink-primary">FR-75003-RAYM</span>
+</div>
+</div>
+</div>
+<!-- Column B: Large Lead Artwork Plate (Untitled I) -->
+<div class="md:col-span-7 p-margin bg-paper-elevated flex flex-col justify-between">
+<div class="border border-rule-hairline bg-paper-base p-4">
+<div class="relative overflow-hidden group">
+<img class="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-[1.02]" data-alt="Archival art photograph of Raymond's massive abstract masterpiece UNTITLED I hanging on an unadorned concrete museum gallery wall. Horizontal expansive composition with violent gestural palette-knife slabs of pitch black carbon impasto intersecting with vibrant terracotta, raw umber, and unbleached cotton linen weave." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0zCCvMoNzQWsl2zklnfH9Q9LxVmAgnPVllduqQ21JRE0xqXwATXF-NAlhzuBsGoi0Lpyn1VFk8pDe8TbcC5kYAl1we2LiRs5OFMunPDw2Ob_nfljA-ku3afMfmNEZcnVtcB79kGkhByv4jQ60J00TlNpLvnsQtWliC35VJpPiytQHW1tFE0mLtBTvhUzGCQXvwU9Bx810CP-BfRnSihcxhrhElp2s25oFaiTlsjmR"/>
+<div class="absolute bottom-3 right-3 bg-paper-base/90 backdrop-blur-sm border border-rule-hairline px-3 py-1 font-label-mono text-label-mono uppercase">
+                  ARCHIVE REG: #2026-UN01
+                </div>
+</div>
+<div class="mt-4 pt-3 border-t border-rule-hairline flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div>
+<h3 class="font-headline-editorial text-subhead-serif text-ink-primary font-bold">UNTITLED I (TECTONIC HORIZON)</h3>
+<p class="font-caption text-caption text-ink-muted">Raw Terracotta, Carbon Ink, and Cold Wax on Belgian Linen</p>
+</div>
+<div class="font-label-mono text-label-mono text-accent-terracotta uppercase border-l sm:border-l-0 sm:border-r border-rule-hairline pl-3 sm:pl-0 sm:pr-3">
+                  DIMENSIONS: 310 × 220 CM
+                </div>
+</div>
+</div>
+<div class="mt-6 flex items-center justify-between font-label-mono text-label-mono text-ink-muted border-t border-rule-hairline pt-4">
+<span>PHOTO: JEAN-LUC BRUNEL, PARIS</span>
+<span>LIGHTING SPECIFICATION: 3000K SPOT</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= 3. MONUMENTAL BROADSHEET POSTER STATEMENT ================= -->
+<section class="border-b-4 border-ink-primary bg-ink-primary text-paper-base py-16 md:py-24 px-margin text-center overflow-hidden relative">
+<div class="max-w-6xl mx-auto space-y-6">
+<div class="flex items-center justify-center space-x-4">
+<span class="h-px w-12 bg-paper-subtle"></span>
+<span class="font-label-mono text-label-mono tracking-[0.3em] uppercase text-accent-ochre">AESTHETIC AXIOM</span>
+<span class="h-px w-12 bg-paper-subtle"></span>
+</div>
+<h2 class="font-masthead text-[10vw] md:text-[8vw] leading-[0.9] tracking-[-0.03em] uppercase text-paper-base font-bold">
+            FORM. COLOR. EMOTION.
+          </h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto pt-8 border-t border-ink-secondary/40 text-left font-body-dense text-body-dense text-paper-elevated">
+<div class="space-y-2">
+<span class="font-label-mono text-label-mono text-accent-terracotta uppercase tracking-wider block">01 / SILENCE</span>
+<p>The canvas does not speak; it silences the surrounding room, commanding an absolute suspension of verbal description.</p>
+</div>
+<div class="space-y-2">
+<span class="font-label-mono text-label-mono text-accent-terracotta uppercase tracking-wider block">02 / MATTER</span>
+<p>Weight, friction, and resistance. Pigment behaves not as shade or tint, but as physical stone brought to fluid threshold.</p>
+</div>
+<div class="space-y-2">
+<span class="font-label-mono text-label-mono text-accent-terracotta uppercase tracking-wider block">03 / RESONANCE</span>
+<p>Scale operates as an embrace: larger than human arm span, demanding spatial engagement rather than isolated viewing.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= 4. "ALL PAINTINGS!" ASYMMETRIC BROADSHEET SPREAD ================= -->
+<section class="border-b-2 border-ink-primary" id="paintings-section">
+<!-- Section Newspaper Bar Header -->
+<div class="border-b border-rule-hairline px-margin py-6 bg-paper-base flex flex-col md:flex-row md:items-baseline justify-between gap-4">
+<div>
+<span class="font-label-mono text-label-mono text-accent-terracotta uppercase tracking-widest block">CATALOGUE RAISONNÉ / SECTION II</span>
+<h2 class="font-headline-display text-[7vw] md:text-[5vw] leading-[0.95] tracking-tight uppercase text-ink-primary mt-1">
+              ALL PAINTINGS!
+            </h2>
+</div>
+<div class="flex items-center space-x-4">
+<span class="font-label-mono text-label-mono text-ink-muted uppercase">ACTIVE FILTER: MONOCHROME &amp; OCHRE ARCHIVE</span>
+<div class="border border-rule-hairline px-3 py-1 font-label-mono text-label-mono bg-paper-elevated">
+              TOTAL PLATES: 04 / 04
+            </div>
+</div>
+</div>
+<!-- Asymmetric Newspaper Grid Layout (6-3-4-5 column rhythm) -->
+<div class="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-rule-hairline">
+<!-- PLATE 01: Hero 7-Column Span -->
+<div class="md:col-span-7 p-6 md:p-8 bg-paper-base group flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-center pb-3 border-b border-rule-hairline mb-4 font-label-mono text-label-mono text-ink-muted">
+<span>CATALOGUE NO. RM-2026-02</span>
+<span class="text-ink-primary font-bold">FOLIO SPREAD I</span>
+<span>OCTOBER 2026</span>
+</div>
+<div class="border border-rule-hairline overflow-hidden relative">
+<img class="w-full aspect-[16/11] object-cover transition-transform duration-500 group-hover:scale-[1.015]" data-alt="Full view photograph of Raymond's monumental impasto painting UNTITLED II in natural museum light. Dominant black cruciform structures layered over earthy raw ochre and burnt terracotta fields. Rich, tangible oil paste texture and linen texture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuL6lCWhWByhJBECDOnt40kUO2DZWffF4rk9XQrOy_yeBojtanh36TL5BX4hZ6tGkRgnP6eZ7fxuIfUE2AixWoN56n6pmWcZ4-O_4ZvO__n-u6OtDbdrukwJ_PF2YwpKIGc8bKxf8-MkSLJIgGnJHiS2g2i6yCV1XwyH63nWt9Bdwd_8gujbhBulP-Y_l8TwwSAIA3z94vvrJKcsleHw7qvvSnpoX58V1cf_SNw0fV"/>
+<div class="absolute bottom-0 left-0 right-0 bg-ink-primary/80 backdrop-blur-sm p-3 text-paper-base flex justify-between items-center">
+<span class="font-headline-editorial text-subhead-serif">UNTITLED II (CROSS FORMATION)</span>
+<span class="font-label-mono text-label-mono text-accent-ochre uppercase">ACQUISITION STATUS: COMMITTED</span>
+</div>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-rule-hairline grid grid-cols-1 sm:grid-cols-3 gap-4 font-body-dense text-body-dense text-ink-secondary">
+<div>
+<span class="font-label-mono text-label-mono text-ink-muted uppercase block">MEDIUM</span>
+                Oil, soot &amp; raw ash on raw French linen
+              </div>
+<div>
+<span class="font-label-mono text-label-mono text-ink-muted uppercase block">SCALE</span>
+                280 × 190 cm / 110 × 75 in
+              </div>
+<div>
+<span class="font-label-mono text-label-mono text-ink-muted uppercase block">PROVENANCE</span>
+                Fondation Louis Vuitton Special Loan
+              </div>
+</div>
+</div>
+<!-- PLATE 02: 5-Column Span (Vertical Monumental Untitled IV) -->
+<div class="md:col-span-5 p-6 md:p-8 bg-paper-elevated group flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-center pb-3 border-b border-rule-hairline mb-4 font-label-mono text-label-mono text-ink-muted">
+<span>CATALOGUE NO. RM-2026-04</span>
+<span class="text-accent-terracotta font-bold">NEW ACQUISITION</span>
+<span>MAY 2026</span>
+</div>
+<div class="border border-rule-hairline overflow-hidden relative">
+<img alt="Fine art museum photograph of a minimalist yet deeply textured abstract painting titled UNTITLED IV by Raymond. Bold architectural composition, heavy textured impasto in monochrome black, graphite, and warm ivory paper tones with a singular rust-red gestural accent line. Studio wall setting, archival gallery lighting." class="w-full aspect-[3/4] object-cover transition-transform duration-500 group-hover:scale-[1.015]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrqtmD9PnefLjhiohXIdKKGw8KqeunOv1tmfDmTTy9bN9-EoQE_zz62_myGDLNQtFlVh0RP16NU3VmdYAYw-liET6094Cz2Me7mxFMEGDI6PaYy6W8n-U0QFTFJxDq8PS5zYDjBNuV4o6X0M5zYapP2JBLbcP60gyzB-DhFUL-dBexO1fOTXmynRrI96Edf0HMUy30wHTwNB-YBOGcSM1Nb0BM9whlU0ocIi6tg3Ze"/>
+<div class="absolute top-3 left-3 bg-paper-base border border-rule-hairline px-2 py-1 font-label-mono text-label-mono uppercase text-ink-primary">
+                  FIG. 02B
+                </div>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-rule-hairline">
+<div class="flex items-baseline justify-between">
+<h3 class="font-headline-editorial text-subhead-serif text-ink-primary">UNTITLED IV (MONOCHROME TECTONICS)</h3>
+<span class="font-label-mono text-label-mono text-ink-muted uppercase">2026</span>
+</div>
+<p class="font-body-dense text-body-dense text-ink-secondary mt-2">
+                A radical departure into structural restraint. Heavy monochrome impasto layered with powdered graphite, unground chalk, and a singular rust gestural counter-strike.
+              </p>
+<div class="mt-4 flex items-center justify-between font-label-mono text-label-mono text-ink-muted border-t border-rule-hairline pt-2">
+<span>210 × 160 CM</span>
+<span class="text-ink-primary">STUDIO DOSSIER: PARIS</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Lower Two Plates: Split 6 & 6 columns -->
+<div class="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-rule-hairline border-t border-rule-hairline">
+<!-- PLATE 03: Untitled III -->
+<div class="md:col-span-6 p-6 md:p-8 bg-paper-elevated group flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-center pb-3 border-b border-rule-hairline mb-4 font-label-mono text-label-mono text-ink-muted">
+<span>CATALOGUE NO. RM-2025-11</span>
+<span>FOLIO SPREAD III</span>
+<span>PARIS 2025</span>
+</div>
+<div class="border border-rule-hairline overflow-hidden">
+<img alt="Editorial art gallery capture of an expressive abstract painting titled UNTITLED III by Raymond. Dynamic layered composition with textured palette knife scraping, dark charcoal ink washes, subtle warm rust pigments, and raw parchment tones on heavy archival canvas. Sophisticated, refined, contemporary fine art." class="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-[1.015]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaEwwUkgN1AWAoDGs1jy1ULecMR7hejH_2zDCSdoIRKekLMZ12ApAuYS8KEKfa0zGpMLez7Diqa7VD1YFCkp-OP4bSMsEqkkazFezF-CdpBnbuI55LmPa8dtl5unTWbs9qPSHMmXbtZrfH5pHlQC1TCJCAKP71TyFD06_RKmuzxS8LohYPiP8NA-WrXdhU1rN2FSTjqry919ywn-oSkpNDfiuIf8JpqfvLHPZNyWFr"/>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-rule-hairline">
+<div class="flex items-baseline justify-between">
+<h3 class="font-headline-editorial text-subhead-serif text-ink-primary">UNTITLED III (CHARCOAL WASH &amp; RUST)</h3>
+<span class="font-label-mono text-label-mono text-ink-muted uppercase">195 × 145 CM</span>
+</div>
+<p class="font-body-dense text-body-dense text-ink-secondary mt-2">
+                Expressive, scraping transitions between burnt vine charcoal and oxidized copper grounds, evoking archaeological strata exposed through elemental erosion.
+              </p>
+</div>
+</div>
+<!-- PLATE 04: Untitled I Secondary Detail -->
+<div class="md:col-span-6 p-6 md:p-8 bg-paper-base group flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-center pb-3 border-b border-rule-hairline mb-4 font-label-mono text-label-mono text-ink-muted">
+<span>CATALOGUE NO. RM-2026-01</span>
+<span class="text-accent-terracotta font-semibold">MONUMENTAL TRIPTYCH</span>
+<span>MARCH 2026</span>
+</div>
+<div class="border border-rule-hairline overflow-hidden">
+<img class="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-[1.015]" data-alt="Detailed perspective photograph of Raymond's painting UNTITLED I installed along a minimalist museum gallery wall in Chelsea, New York. Warm side lighting accentuating the three-dimensional impasto peaks and raw woven linen texture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcTGmrUafSfvOdXM861vuZXRT94MzDdEzz3_LmbwesJ2fPaV3uLW7eV6aKinUGgFMs2uO9Ufxpukx2HOpn7LvhgqJIrLrM8cAsZY_NOvH3knSX-0KWuuGSTpf0ZYyDcBcbGNxNIFEZ-pJJ6p0xnm1rM6io1nWaX1ZMVnQhnOwk7HtYpp7EVtsKg19CnuB1aRPuj87wT4RsMDoHEQLl35QSkxvDZN_u_9oQECf8_czD"/>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-rule-hairline">
+<div class="flex items-baseline justify-between">
+<h3 class="font-headline-editorial text-subhead-serif text-ink-primary">UNTITLED I (GALLERY INSTALLATION VIEW)</h3>
+<span class="font-label-mono text-label-mono text-ink-muted uppercase">310 × 220 CM</span>
+</div>
+<p class="font-body-dense text-body-dense text-ink-secondary mt-2">
+                Documented at the Chelsea Project Space. Demonstrating the complete transformation of room acoustics and ambient light bounce created by the unvarnished linen boundaries.
+              </p>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= 5. "LATEST PAINTINGS!" ASYMMETRIC BANNER SPREAD ================= -->
+<section class="border-b-2 border-ink-primary bg-paper-base">
+<div class="border-b border-rule-hairline px-margin py-8 md:py-12 bg-paper-elevated text-center">
+<span class="font-label-mono text-label-mono text-ink-muted uppercase tracking-[0.2em] block mb-2">CURATORIAL BULLETIN — AUTUMN PROGRAM</span>
+<h2 class="font-masthead text-[7.5vw] md:text-[6.5vw] leading-[0.9] tracking-tight uppercase text-ink-primary font-bold">
+            LATEST PAINTINGS!
+          </h2>
+<p class="font-subhead-serif text-subhead-serif italic text-ink-secondary max-w-2xl mx-auto mt-4">
+            Recent tectonic developments from the Saint-Germain studio, exploring heightened impasto relief and unbleached cotton grounds.
+          </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-rule-hairline">
+<div class="p-6 flex flex-col justify-between">
+<span class="font-label-mono text-label-mono text-ink-muted uppercase">STUDY RM-88 / IMPASTO DENSITY</span>
+<div class="my-6 border border-rule-hairline aspect-video overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Macro extreme close-up of thick oil paint impasto by Raymond. Deep black and burnt orange oil ridges showing palette knife furrows and raw pigment dust trapped in the paint surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_x0l73-8LHkKuMet6o54fcByVwTPST-jK1CJloivj-6EqbFJbhd8CqzmgI3ITEOIRwQ4mxOTw67Zg3Bxkf34iYQGTYPAePa7yXmJ7RIjt2tF4x-NDI55Cdxeme2In3a2NJX_msBE1tPzCWggYzCuGI-ophwZNf4sBYu5vaEZiHfET2aOPQdscT0nHVnPgWDLn6Nw2GAkqZyIA5w32lQa95YUH9se1JDgz_Hpb7Dtp"/>
+</div>
+<div class="font-body-dense text-body-dense text-ink-secondary">
+<span class="font-label-uppercase text-label-uppercase text-ink-primary block mb-1">DENSITY INDEX: 14MM RELIEF</span>
+              High-build oil pigment requiring upwards of eighteen months to achieve internal molecular cure.
+            </div>
+</div>
+<div class="p-6 flex flex-col justify-between bg-paper-elevated">
+<span class="font-label-mono text-label-mono text-ink-muted uppercase">STUDY RM-89 / MINERAL EXTRACTION</span>
+<div class="my-6 border border-rule-hairline aspect-video overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Artisan studio table in Raymond's atelier with glass jars of ground raw pigment in iron oxide, burnt sienna, umber, and dry bone black charcoal alongside heavy palette knives and linen swatches." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpyyo5Ufwozl1pg80Y41WR5Qd0N_5j3eYvGPDBCVNs2qtzTBF5Pochv0Y42Lwy2gntFE2tDMC3E6zPbx0Po2nqtRUOqKhJHiH6BSzZh5xlYjt9d3JCdoyR1jw-cOqjhxEmO37JLA0x9ixiIvS9K-sk0yEfPOCERT5aidkam7twx8kELq-x3oWY4-q_LWoSWt2SjtZdaJFEPoG_NdqRbAUKcsO4X4JFReOE7IIe99Sc"/>
+</div>
+<div class="font-body-dense text-body-dense text-ink-secondary">
+<span class="font-label-uppercase text-label-uppercase text-ink-primary block mb-1">ORIGIN: PROVENCE QUARRY</span>
+              Natural earth oxides sourced directly from regional French quarries, hand-milled with cold-pressed walnut oil.
+            </div>
+</div>
+<div class="p-6 flex flex-col justify-between">
+<span class="font-label-mono text-label-mono text-ink-muted uppercase">STUDY RM-90 / SCALE &amp; ARCHITECTURE</span>
+<div class="my-6 border border-rule-hairline aspect-video overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Raymond standing in a vast sunlit Parisian studio facing a towering unfinished 4-meter abstract canvas, holding an elongated wooden spatula, surrounded by paint buckets on paint-splattered wooden floorboards." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBC2BKQwkvG1nAhsxkImhPW6-pMlc-qgcd_8KkbRdAz-tqJJ1Oy7oPhccoLvZpdBLPyNxLAAmr_Db7nTpS9YZjBSe33xL_f6YC1FJqqfm5ZBEx4d3pbxuyI50f8GAQuqB7T86DnoN2y0KlS-uYngrBED-xu8WD9GuIKTRS6AS89jYR8ZH58JS7vIlsOMPc4CHLlFxUV_jtBEm1RwrYLp83557IUJHytQj7eSXO1yc2C"/>
+</div>
+<div class="font-body-dense text-body-dense text-ink-secondary">
+<span class="font-label-uppercase text-label-uppercase text-ink-primary block mb-1">FIELD SCALE: 4.2 METERS</span>
+              Works conceived exclusively to interface with brutalist and high-volume modernist architectural enclosures.
+            </div>
+</div>
+</div>
+</section>
+<!-- ================= 6. "PERFECT ARTISAN" FEATURE ESSAY SPREAD ================= -->
+<section class="border-b-2 border-ink-primary">
+<div class="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-rule-hairline">
+<!-- Left Column: Monumental Feature Art & Essay Lead -->
+<div class="md:col-span-6 p-margin md:p-12 bg-paper-base flex flex-col justify-between">
+<div>
+<div class="flex items-center space-x-3 mb-4">
+<span class="w-2 h-2 bg-accent-terracotta"></span>
+<span class="font-label-mono text-label-mono uppercase tracking-widest text-ink-muted">CRITICAL MONOGRAPH FEATURE</span>
+</div>
+<h2 class="font-headline-display text-[7.5vw] md:text-[5.5vw] leading-[0.95] tracking-tight uppercase text-ink-primary font-bold">
+                PERFECT ARTISAN.
+              </h2>
+<p class="font-lead-paragraph text-lead-paragraph text-ink-primary mt-6 leading-relaxed italic border-l-2 border-ink-primary pl-4">
+                “He does not compose melodies; he hews monuments out of the chromatic silence.”
+              </p>
+</div>
+<div class="my-8 border border-rule-hairline overflow-hidden">
+<img alt="Fine art museum photograph of a minimalist yet deeply textured abstract painting titled UNTITLED IV by Raymond. Bold architectural composition, heavy textured impasto in monochrome black, graphite, and warm ivory paper tones with a singular rust-red gestural accent line. Studio wall setting, archival gallery lighting." class="w-full aspect-[4/5] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrqtmD9PnefLjhiohXIdKKGw8KqeunOv1tmfDmTTy9bN9-EoQE_zz62_myGDLNQtFlVh0RP16NU3VmdYAYw-liET6094Cz2Me7mxFMEGDI6PaYy6W8n-U0QFTFJxDq8PS5zYDjBNuV4o6X0M5zYapP2JBLbcP60gyzB-DhFUL-dBexO1fOTXmynRrI96Edf0HMUy30wHTwNB-YBOGcSM1Nb0BM9whlU0ocIi6tg3Ze"/>
+<div class="p-3 bg-paper-elevated border-t border-rule-hairline flex justify-between font-label-mono text-label-mono text-ink-muted">
+<span>FIG 04: UNTITLED IV STUDY</span>
+<span>ATELIER REGISTRATION #992</span>
+</div>
+</div>
+<div class="font-label-mono text-label-mono text-ink-muted border-t border-rule-hairline pt-3 flex justify-between">
+<span>ESSAY FIRST PUBLISHED IN ‘OCTOBRE’</span>
+<span>ISSUE NO. 11 — 2026</span>
+</div>
+</div>
+<!-- Right Column: Rigorous 2-Column Catalog Critique -->
+<div class="md:col-span-6 p-margin md:p-12 bg-paper-elevated flex flex-col justify-between">
+<div class="space-y-8">
+<div class="border-b border-rule-hairline pb-4 flex justify-between items-baseline font-label-mono text-label-mono">
+<span class="text-ink-primary uppercase tracking-widest font-bold">SECTION CRITIQUE: L'ESPACE BRUT</span>
+<span class="text-ink-muted">PARIS, 2026</span>
+</div>
+<!-- Two Column Text Layout Inside Right Panel -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 font-body-dense text-body-dense text-ink-secondary leading-relaxed">
+<div class="space-y-4">
+<p>
+<span class="float-left font-headline-display text-4xl leading-none mr-2 font-bold text-ink-primary">T</span>
+                    he artisan status claimed by Raymond is not an ironical nod to historical guild traditions; it is a literal ethical commitment to manual labor in an age of frictionless optical simulations.
+                  </p>
+<p>
+                    Every canvas begins with the stretching of unprimed raw flax, pulled taut over heavy kiln-dried ash stretchers built in the atelier. The ground is treated not with industrial gesso, but with custom bone-glue size and precipitated chalk, allowing the microscopic teeth of the fibers to grip the first tectonic pass of paint.
+                  </p>
+<p>
+                    When carbon black touches the ground, there is no preliminary sketch, no pentimento masked under subsequent layers. The action is absolute.
+                  </p>
+</div>
+<div class="space-y-4">
+<p>
+                    What distinguishes Raymond from the historic abstract expressionists of the mid-20th century is his refusal of theatrical emotionalism. There is no bravura performance here; the gesture is slow, architectural, almost geological in its patient deposition.
+                  </p>
+<p>
+                    The resulting planes feel like fragments torn from a collapsed temple or sea walls encrusted with mineral deposits. To stand before them is to experience an ontological reset: human scale is gently restored, the noise of external communication evaporates, and matter asserts its indisputable presence.
+                  </p>
+<div class="p-4 bg-paper-base border border-rule-hairline mt-4">
+<span class="font-label-mono text-label-mono text-accent-terracotta uppercase block mb-1">CRITIC SUMMARY</span>
+<p class="font-caption text-caption italic text-ink-primary">
+                      “An unyielding monument to the endurance of physical painting in the twenty-first century.”
+                    </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Signature Block -->
+<div class="mt-8 pt-6 border-t-2 border-ink-primary flex items-center justify-between">
+<div>
+<span class="font-label-uppercase text-label-uppercase text-ink-primary block">CLAUDE LEMAIRE</span>
+<span class="font-caption text-caption text-ink-muted">Chief Editor, Gazette des Beaux-Arts</span>
+</div>
+<div class="font-label-mono text-label-mono text-ink-muted uppercase border border-rule-hairline px-3 py-1">
+                SEALED ARCHIVE
+              </div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= 7. ARCHIVAL AWARDS & EXHIBITIONS BROADSHEET TABLE ================= -->
+<section class="border-b-2 border-ink-primary bg-paper-base" id="recognitions-section">
+<!-- Section Header Bar -->
+<div class="border-b border-rule-hairline px-margin py-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<div class="flex items-center space-x-2 mb-2">
+<span class="w-2 h-2 bg-ink-primary"></span>
+<span class="font-label-mono text-label-mono uppercase tracking-[0.25em] text-ink-muted">REGISTRATION OF HONORS &amp; PUBLIC RECORD</span>
+</div>
+<h2 class="font-headline-display text-[6.5vw] md:text-[5vw] leading-[0.95] tracking-tight uppercase text-ink-primary font-bold">
+              ARCHIVAL METRICS.
+            </h2>
+</div>
+<span class="font-label-mono text-label-mono text-ink-muted uppercase">FOLIO AUDIT COMPLETED: THIRD QUARTER 2026</span>
+</div>
+<!-- 4 Monumental Metric Blocks -->
+<div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-rule-hairline border-b border-rule-hairline bg-paper-elevated">
+<div class="p-6 md:p-8">
+<span class="font-masthead text-5xl md:text-7xl font-black text-ink-primary block leading-none">07</span>
+<span class="font-label-uppercase text-label-uppercase text-ink-primary block mt-3">SOLO EXHIBITIONS</span>
+<p class="font-caption text-caption text-ink-muted mt-1">Palais de Tokyo, Venice Biennale Collateral, Tate Modern Project Space</p>
+</div>
+<div class="p-6 md:p-8">
+<span class="font-masthead text-5xl md:text-7xl font-black text-ink-primary block leading-none">14</span>
+<span class="font-label-uppercase text-label-uppercase text-ink-primary block mt-3">PUBLIC COLLECTIONS</span>
+<p class="font-caption text-caption text-ink-muted mt-1">Musée d'Art Moderne, Fondazione Prada, Guggenheim Bilbao Annex</p>
+</div>
+<div class="p-6 md:p-8">
+<span class="font-masthead text-5xl md:text-7xl font-black text-ink-primary block leading-none">05</span>
+<span class="font-label-uppercase text-label-uppercase text-ink-primary block mt-3">MONOGRAPHIC HONORS</span>
+<p class="font-caption text-caption text-ink-muted mt-1">Prix de Rome Finalist, International Abstract Laureate, Basel Medal</p>
+</div>
+<div class="p-6 md:p-8">
+<span class="font-masthead text-5xl md:text-7xl font-black text-ink-primary block leading-none">12</span>
+<span class="font-label-uppercase text-label-uppercase text-ink-primary block mt-3">MONOGRAPH VOLUMES</span>
+<p class="font-caption text-caption text-ink-muted mt-1">Phaidon Survey, Hatje Cantz Clothbound, Artforum Focus</p>
+</div>
+</div>
+<!-- Rigorous Archival Exhibition List Items -->
+<div class="divide-y divide-rule-hairline">
+<div class="px-margin py-4 md:py-6 flex flex-col md:flex-row md:items-center justify-between hover:bg-paper-elevated transition-colors gap-3 group">
+<div class="flex items-center space-x-6 md:space-x-12">
+<span class="font-label-mono text-label-mono text-accent-terracotta uppercase">NO. 01</span>
+<span class="font-label-mono text-label-mono text-ink-muted">2026</span>
+<h3 class="font-headline-editorial text-subhead-serif text-ink-primary font-bold group-hover:translate-x-1 transition-transform">
+                LE SILENCE DES MATIÈRES (SOLO MONOGRAPH)
+              </h3>
+</div>
+<div class="flex items-center space-x-6 md:space-x-12 font-label-mono text-label-mono text-ink-muted">
+<span>PALAIS DE TOKYO, PARIS</span>
+<span class="text-ink-primary">CURATED BY HÉLÈNE VAUCLAIRE</span>
+</div>
+</div>
+<div class="px-margin py-4 md:py-6 flex flex-col md:flex-row md:items-center justify-between hover:bg-paper-elevated transition-colors gap-3 group">
+<div class="flex items-center space-x-6 md:space-x-12">
+<span class="font-label-mono text-label-mono text-accent-terracotta uppercase">NO. 02</span>
+<span class="font-label-mono text-label-mono text-ink-muted">2025</span>
+<h3 class="font-headline-editorial text-subhead-serif text-ink-primary font-bold group-hover:translate-x-1 transition-transform">
+                TECTONIC FIELDS &amp; RAW CARBON (PROJECT ROOM)
+              </h3>
+</div>
+<div class="flex items-center space-x-6 md:space-x-12 font-label-mono text-label-mono text-ink-muted">
+<span>TATE MODERN, LONDON</span>
+<span class="text-ink-primary">CURATED BY DR. ARCHER FINCH</span>
+</div>
+</div>
+<div class="px-margin py-4 md:py-6 flex flex-col md:flex-row md:items-center justify-between hover:bg-paper-elevated transition-colors gap-3 group">
+<div class="flex items-center space-x-6 md:space-x-12">
+<span class="font-label-mono text-label-mono text-accent-terracotta uppercase">NO. 03</span>
+<span class="font-label-mono text-label-mono text-ink-muted">2024</span>
+<h3 class="font-headline-editorial text-subhead-serif text-ink-primary font-bold group-hover:translate-x-1 transition-transform">
+                THE WEIGHT OF PIGMENT (BIENNALE COLLATERAL)
+              </h3>
+</div>
+<div class="flex items-center space-x-6 md:space-x-12 font-label-mono text-label-mono text-ink-muted">
+<span>PALAZZO GRASSI, VENICE</span>
+<span class="text-ink-primary">COMMISSION BY FONDAZIONE PRADA</span>
+</div>
+</div>
+<div class="px-margin py-4 md:py-6 flex flex-col md:flex-row md:items-center justify-between hover:bg-paper-elevated transition-colors gap-3 group">
+<div class="flex items-center space-x-6 md:space-x-12">
+<span class="font-label-mono text-label-mono text-accent-terracotta uppercase">NO. 04</span>
+<span class="font-label-mono text-label-mono text-ink-muted">2023</span>
+<h3 class="font-headline-editorial text-subhead-serif text-ink-primary font-bold group-hover:translate-x-1 transition-transform">
+                UNBLEACHED GROUNDS: THREE PAINTERS
+              </h3>
+</div>
+<div class="flex items-center space-x-6 md:space-x-12 font-label-mono text-label-mono text-ink-muted">
+<span>DIA BEACON, NEW YORK</span>
+<span class="text-ink-primary">INSTITUTIONAL RETROSPECTIVE</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= 8. CURATORIAL & COLLECTOR TESTIMONIALS ================= -->
+<section class="border-b-2 border-ink-primary bg-paper-elevated">
+<div class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-rule-hairline">
+<div class="p-margin md:p-12 flex flex-col justify-between space-y-6">
+<div class="flex items-center space-x-3">
+<span class="font-label-mono text-label-mono text-accent-terracotta uppercase">CURATORIAL TESTIMONY / PARIS</span>
+</div>
+<blockquote class="font-headline-editorial text-2xl md:text-3xl text-ink-primary font-semibold leading-snug">
+              “RAYMOND’S MONUMENTAL WORK ALTERS THE PHYSICAL TEMPERATURE OF ARCHITECTURAL SPACE. THE VIEWER DOES NOT MERELY OBSERVE; ONE EXPERIENCES VISCERAL GRAVITATIONAL SHIFT.”
+            </blockquote>
+<div class="pt-4 border-t border-rule-hairline flex items-center justify-between font-label-mono text-label-mono">
+<span class="text-ink-primary font-bold uppercase">HÉLÈNE VAUCLAIRE</span>
+<span class="text-ink-muted">CHIEF CURATOR, PALAIS DES ARTS, PARIS</span>
+</div>
+</div>
+<div class="p-margin md:p-12 flex flex-col justify-between space-y-6 bg-paper-base">
+<div class="flex items-center space-x-3">
+<span class="font-label-mono text-label-mono text-accent-ochre uppercase">COLLECTOR DISPATCH / NEW YORK</span>
+</div>
+<blockquote class="font-headline-editorial text-2xl md:text-3xl text-ink-primary font-semibold leading-snug">
+              “AN UNCOMPROMISING DIALOGUE BETWEEN RAW TEXTURE AND MONUMENTAL SCALE. IN AN ART WORLD INFESTED WITH TRIVIAL NOVELTY, RAYMOND STANDS AS AN ANCHOR OF UNYIELDING CRAFT.”
+            </blockquote>
+<div class="pt-4 border-t border-rule-hairline flex items-center justify-between font-label-mono text-label-mono">
+<span class="text-ink-primary font-bold uppercase">JULIAN STERLING</span>
+<span class="text-ink-muted">FOUNDER, THE BREADTH COLLECTION</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= 9. FINAL CALL TO ACTION & CONTACT BROADSHEET ================= -->
+<section class="border-b-4 border-ink-primary bg-paper-base" id="contact-section">
+<div class="p-margin md:py-20 md:px-margin text-center border-b border-rule-hairline">
+<span class="font-label-mono text-label-mono text-accent-terracotta uppercase tracking-[0.25em] block mb-3">
+            PRIVATE ACQUISITION &amp; CURATORIAL INQUIRIES
+          </span>
+<h2 class="font-masthead text-[9vw] md:text-[7.5vw] leading-[0.9] tracking-tight uppercase text-ink-primary font-bold">
+            LET’S TALK ABOUT ART.
+          </h2>
+<p class="font-subhead-serif text-subhead-serif italic text-ink-secondary max-w-xl mx-auto mt-4">
+            Studio visits by curatorial appointment only. For acquisition portfolios, institutional loans, or monographs dispatch:
+          </p>
+<div class="mt-8">
+<a class="inline-block font-headline-display text-2xl md:text-4xl text-ink-primary hover:text-accent-terracotta transition-colors underline decoration-2 underline-offset-8" href="mailto:studio@raymond-atelier.com">
+              STUDIO@RAYMOND-ATELIER.COM
+            </a>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-rule-hairline font-label-mono text-label-mono text-ink-muted p-margin md:p-6 bg-paper-elevated text-center md:text-left">
+<div class="py-2 md:py-0">
+<span class="text-ink-primary font-bold block uppercase mb-1">PARIS ATELIER</span>
+            14 RUE DE TURENNE, 75003 PARIS<br/>TEL: +33 (0)1 42 78 90 22
+          </div>
+<div class="py-2 md:py-0 md:px-6">
+<span class="text-ink-primary font-bold block uppercase mb-1">NEW YORK ARCHIVE</span>
+            520 WEST 24TH STREET, NEW YORK, NY<br/>TEL: +1 (212) 589-4400
+          </div>
+<div class="py-2 md:py-0 md:px-6 text-center md:text-right">
+<span class="text-ink-primary font-bold block uppercase mb-1">REPRESENTATION DOSSIER</span>
+            REQUEST PRIVATE CATALOGUE VOL. IV<br/>PRINTED DISPATCH ONLY
+          </div>
+</div>
+</section>
+</div>
+</div>
+</div>
+<script>
+  // Perspective broadsheet toggle interaction
+  const perspectiveWrapper = document.getElementById('newspaper-perspective-wrapper');
+  const perspectiveCanvas = document.getElementById('newspaper-canvas');
+  const toggleBtn = document.getElementById('toggle-perspective');
+  const toggleBtnText = document.getElementById('perspective-btn-text');
+
+  let isPerspective = false;
+
+  toggleBtn.addEventListener('click', () => {
+    isPerspective = !isPerspective;
+    if (isPerspective) {
+      perspectiveWrapper.style.perspective = '1600px';
+      perspectiveWrapper.style.padding = '2rem 1rem';
+      perspectiveCanvas.style.transform = 'rotateX(8deg) rotateZ(-1.5deg) scale(0.92)';
+      perspectiveCanvas.style.boxShadow = '0 25px 60px -15px rgba(25, 20, 15, 0.25), 0 0 0 1px #26221F';
+      toggleBtnText.textContent = 'READ FLAT CANVAS';
+      toggleBtn.classList.add('bg-ink-primary', 'text-paper-base');
+    } else {
+      perspectiveWrapper.style.perspective = 'none';
+      perspectiveWrapper.style.padding = '0';
+      perspectiveCanvas.style.transform = 'none';
+      perspectiveCanvas.style.boxShadow = 'none';
+      toggleBtnText.textContent = 'DESK PERSPECTIVE';
+      toggleBtn.classList.remove('bg-ink-primary', 'text-paper-base');
+    }
+  });
+
+  // Smooth unrolling reveal on initial load
+  window.addEventListener('DOMContentLoaded', () => {
+    perspectiveCanvas.style.opacity = '0';
+    perspectiveCanvas.style.transform = 'translateY(16px)';
+    setTimeout(() => {
+      perspectiveCanvas.style.transition = 'opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1), transform 1.2s cubic-bezier(0.22, 1, 0.36, 1)';
+      perspectiveCanvas.style.opacity = '1';
+      perspectiveCanvas.style.transform = 'translateY(0)';
+    }, 150);
+  });
+</script></main><footer class="w-full bg-paper-base border-t border-rule-hairline mt-auto"><div class="px-margin py-space-xl"><div class="border-b border-rule-hairline pb-space-lg mb-space-lg flex flex-col md:flex-row justify-between items-start md:items-end gap-6"><div class="space-y-2"><span class="font-headline-editorial text-subhead-serif text-ink-primary">RAYMOND STUDIO GAZETTE</span><p class="font-label-mono text-label-mono text-ink-muted uppercase tracking-widest">PHYSICAL COMPOSITION, TECTONIC IMPASTO &amp; LINEN ARCHIVE</p></div><div class="font-label-mono text-label-mono text-ink-muted uppercase text-right space-y-1"><div>FOLIO REGISTRATION: 45.228.09 / N.Y.C. &amp; PARIS</div><div>PRINTED ON UNBLEACHED COTTON RAG SPECIFICATION</div></div></div><div class="grid grid-cols-1 md:grid-cols-4 gap-gutter font-body-dense text-body-dense text-ink-secondary"><div class="space-y-2"><div class="font-label-uppercase text-label-uppercase text-ink-primary">COLOPHON</div><p class="font-caption text-caption text-ink-muted">Printed and composed with Bodoni Moda and Inter letterforms. Hand-indexed cataloging under curated direction.</p></div><div class="space-y-2"><div class="font-label-uppercase text-label-uppercase text-ink-primary">STUDIO ARCHIVE</div><p class="font-caption text-caption text-ink-muted">Permanent monographs deposited with the Bibliothèque Nationale &amp; Cooper Hewitt Design Archives.</p></div><div class="space-y-2"><div class="font-label-uppercase text-label-uppercase text-ink-primary">REPRESENTATION</div><p class="font-caption text-caption text-ink-muted">Private curatorial inquiries and acquisition requests strictly via gallery dossier dispatch.</p></div><div class="space-y-2 md:text-right"><div class="font-label-uppercase text-label-uppercase text-ink-primary">© 2026 RAYMOND</div><p class="font-caption text-caption text-ink-muted">ALL RIGHTS RESERVED. BROADSHEET FORMAT.</p></div></div></div></footer></div></body></html>

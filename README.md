@@ -61,6 +61,7 @@ Every design folder contains:
 - [Parker](<Product Web Designs/Parker>)
 - [Flora](<Product Web Designs/Flora>)
 - [CROM](<Product Web Designs/CROM>)
+- [Kromatik](<Product Web Designs/Kromatik>)
 
 ### 🏬 E-Commerce Page Designs
 - [Zenos](<E-Commerce Web Designs/Zenos>)

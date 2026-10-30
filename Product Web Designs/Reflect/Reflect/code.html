@@ -1,0 +1,671 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REFLECT — Industrial Disruptor</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Ranchers, Space Mono, Plus Jakarta Sans, Archivo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800;1,500;1,700&amp;family=Ranchers&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;family=Archivo:wght@800;900&amp;display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            volt: '#CCFF00',
+            darkgrey: '#121212',
+            pureblack: '#000000',
+          },
+          fontFamily: {
+            ranchers: ['Ranchers', 'cursive'],
+            mono: ['"Space Mono"', 'monospace'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            archivo: ['Archivo', 'sans-serif'],
+          },
+          boxShadow: {
+            'neo-black': '8px 8px 0px #000000',
+            'neo-white': '8px 8px 0px #FFFFFF',
+            'neo-volt': '8px 8px 0px #CCFF00',
+            'neo-black-sm': '4px 4px 0px #000000',
+            'neo-white-sm': '4px 4px 0px #FFFFFF',
+            'neo-black-lg': '12px 12px 0px #000000',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Neo-Brutalist utility classes and typography enforcement */
+    .vertical-rl {
+      writing-mode: vertical-rl;
+    }
+    .text-outline-black {
+      -webkit-text-stroke: 3px #000000;
+    }
+    .text-outline-volt {
+      -webkit-text-stroke: 2px #CCFF00;
+    }
+    .btn-brutalist {
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .btn-brutalist:hover {
+      transform: translate(4px, 4px);
+      box-shadow: 4px 4px 0px #000000;
+    }
+    .btn-brutalist:active {
+      transform: translate(8px, 8px);
+      box-shadow: 0px 0px 0px #000000;
+    }
+    .btn-brutalist-white:hover {
+      transform: translate(4px, 4px);
+      box-shadow: 4px 4px 0px #FFFFFF;
+    }
+    .btn-brutalist-white:active {
+      transform: translate(8px, 8px);
+      box-shadow: 0px 0px 0px #FFFFFF;
+    }
+    /* Smooth ticker / marquee styling */
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      display: flex;
+      width: 200%;
+      animation: marquee 22s linear infinite;
+    }
+  </style>
+</head>
+<body class="bg-darkgrey text-white font-sans antialiased overflow-x-hidden selection:bg-volt selection:text-black">
+
+  <!-- ======================================================== -->
+  <!-- FIXED RIGHT STRUCTURAL BLUEPRINT SIDEBAR (200px on lg+) -->
+  <!-- ======================================================== -->
+  <aside class="hidden lg:flex fixed top-0 right-0 h-screen w-[200px] z-50 pointer-events-none select-none border-l-8 border-black bg-white">
+    <!-- Strip 1: DESIGN -->
+    <div class="flex-1 h-full border-r-4 border-black flex flex-col justify-between items-center py-8 bg-white pointer-events-auto">
+      <span class="font-mono text-xs font-bold text-black uppercase tracking-widest">[01]</span>
+      <div class="vertical-rl font-archivo font-black text-2xl tracking-[0.25em] text-black rotate-180">// DESIGN //</div>
+      <div class="w-3 h-3 bg-black"></div>
+    </div>
+    <!-- Strip 2: BUILD -->
+    <div class="flex-1 h-full border-r-4 border-black flex flex-col justify-between items-center py-8 bg-volt pointer-events-auto">
+      <span class="font-mono text-xs font-bold text-black uppercase tracking-widest">[02]</span>
+      <div class="vertical-rl font-archivo font-black text-2xl tracking-[0.25em] text-black rotate-180">// BUILD //</div>
+      <div class="w-3 h-3 bg-black"></div>
+    </div>
+    <!-- Strip 3: SHIP -->
+    <div class="flex-1 h-full flex flex-col justify-between items-center py-8 bg-black pointer-events-auto">
+      <span class="font-mono text-xs font-bold text-volt uppercase tracking-widest">[03]</span>
+      <div class="vertical-rl font-archivo font-black text-2xl tracking-[0.25em] text-volt rotate-180">// SHIP //</div>
+      <div class="w-3 h-3 bg-volt"></div>
+    </div>
+  </aside>
+
+  <!-- ======================================================== -->
+  <!-- MAIN CONTENT CONTAINER (Adjusted right margin for sidebar) -->
+  <!-- ======================================================== -->
+  <div class="lg:mr-[200px] min-h-screen flex flex-col">
+
+    <!-- TOP RUNNING TICKER -->
+    <div class="w-full bg-volt text-black border-b-4 border-black overflow-hidden py-1.5 flex items-center font-mono font-bold text-xs uppercase tracking-widest z-40">
+      <div class="animate-marquee whitespace-nowrap flex space-x-8 items-center">
+        <span class="">● REFLECT PROTOCOL 2.4 LIVE</span>
+        <span class="">■ SYSTEM DISRUPTION: ACTIVE</span>
+        <span class="">▲ ZERO-LATENCY INTERFACE DEPLOYMENT</span>
+        <span class="">◆ MAXIMUM INDUSTRIAL EFFICIENCY</span>
+        <span class="">● BUILT FOR ENGINEERS &amp; BRUTALIST CREATORS</span>
+        <span class="">■ HIGH VOLTAGE HARDWARE TEST PASSED</span>
+        <span class="">● REFLECT PROTOCOL 2.4 LIVE</span>
+        <span class="">■ SYSTEM DISRUPTION: ACTIVE</span>
+        <span class="">▲ ZERO-LATENCY INTERFACE DEPLOYMENT</span>
+        <span class="">◆ MAXIMUM INDUSTRIAL EFFICIENCY</span>
+      </div>
+    </div>
+
+    <!-- 1. STICKY HEADER NAVIGATION -->
+    <header class="sticky top-0 z-40 bg-white border-b-4 border-black text-black">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <!-- Logo Left -->
+        <div class="flex items-center space-x-4">
+          <div class="w-12 h-12 bg-black border-4 border-black flex items-center justify-center rotate-3 shadow-[4px_4px_0px_#CCFF00]">
+            <!-- White Icon -->
+            <svg class="w-6 h-6 text-white transform -rotate-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+              <path d="M4 4h16v16H4z" stroke-linejoin="miter"></path>
+              <path d="M4 4l16 16M20 4L4 20" stroke-width="2.5"></path>
+            </svg>
+          </div>
+          <span class="font-sans font-extrabold text-[30px] tracking-tighter text-black uppercase">
+            REFLECT<span class="text-volt bg-black px-1.5 ml-1 inline-block text-xl">SYS</span>
+          </span>
+        </div>
+
+        <!-- Center Nav Links -->
+        <nav class="hidden md:flex items-center space-x-8 font-mono text-sm font-bold uppercase tracking-wider">
+          <a href="#hero" class="hover:bg-volt hover:px-2 transition-all">Overview</a>
+          <a href="#comparison" class="hover:bg-volt hover:px-2 transition-all">Comparison</a>
+          <a href="#blueprint" class="hover:bg-volt hover:px-2 transition-all">Blueprint</a>
+          <a href="#waitlist" class="hover:bg-volt hover:px-2 transition-all">Access</a>
+        </nav>
+
+        <!-- Right Side: Badge & Beta Button -->
+        <div class="flex items-center space-x-5">
+          <div class="hidden sm:flex items-center bg-darkgrey text-volt font-mono font-bold text-xs uppercase px-3.5 py-2 border-4 border-black shadow-[4px_4px_0px_#000000]">
+            <span class="w-2 h-2 bg-volt animate-ping mr-2 inline-block"></span>
+            SYS_ONLINE v2.4
+          </div>
+          <a href="#waitlist" class="btn-brutalist inline-flex items-center justify-center font-mono font-bold text-sm uppercase bg-volt text-black px-6 py-2.5 rounded-lg border-4 border-black shadow-neo-black tracking-wider">
+            JOIN BETA →
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. HERO SECTION -->
+    <section id="hero" class="relative bg-darkgrey border-b-8 border-black pt-16 pb-20 px-6 sm:px-12 overflow-hidden">
+      <!-- Blueprint Grid Background Lines -->
+      <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: linear-gradient(#CCFF00 1px, transparent 1px), linear-gradient(90deg, #CCFF00 1px, transparent 1px); background-size: 40px 40px;"></div>
+
+      <div class="max-w-6xl mx-auto relative z-10 flex flex-col items-start">
+        
+        <!-- Sticker Badge above Headline -->
+        <div class="inline-block bg-white text-black font-mono font-bold text-xs md:text-sm uppercase tracking-widest px-4 py-2 border-4 border-black shadow-neo-black -rotate-2 mb-6">
+          ⚡ INDUSTRIAL DISRUPTOR PROTOCOL // SPEED x HIGH-OUTPUT
+        </div>
+
+        <!-- Massive Headline in Ranchers (150px - 180px responsive) -->
+        <h1 class="font-ranchers text-white uppercase text-[88px] sm:text-[130px] lg:text-[170px] leading-[0.85] tracking-tight mb-8 drop-shadow-[8px_8px_0px_#000000]">
+          SHIP AT <br>
+          <span class="text-volt drop-shadow-[8px_8px_0px_#000000]">VOLT SPEED.</span>
+        </h1>
+
+        <!-- Subheadline: 2xl Italic -->
+        <p class="text-white/95 text-xl sm:text-2xl font-sans italic font-medium max-w-3xl mb-10 leading-relaxed border-l-4 border-volt pl-5">
+          "Eradicate bloated dependencies and frictionless mediocrity. Built on raw architectural horsepower, zero-latency feedback, and industrial brutalist precision."
+        </p>
+
+        <!-- Brutalist Form: White input + Black button fused with 4px border & 8px black shadow -->
+        <div class="w-full max-w-2xl mb-12">
+          <form class="flex flex-col sm:flex-row items-stretch bg-white border-4 border-black shadow-neo-black">
+            <div class="flex-1 flex items-center px-4 py-3 bg-white">
+              <span class="font-mono text-black font-bold mr-2 text-sm">INPUT_SYS:</span>
+              <input type="email" placeholder="ENTER_DEV_EMAIL@DOMAIN.IO" class="w-full bg-transparent font-mono text-sm uppercase text-black placeholder-neutral-500 font-bold focus:outline-none" required="">
+            </div>
+            <button type="submit" class="bg-black hover:bg-volt hover:text-black text-white font-mono font-bold uppercase text-base px-8 py-4 sm:border-l-4 border-t-4 sm:border-t-0 border-black transition-colors duration-150 flex items-center justify-center space-x-2 whitespace-nowrap cursor-pointer">
+              <span class="">INITIALIZE_BETA</span>
+              <span class="text-lg">→</span>
+            </button>
+          </form>
+          <div class="flex items-center justify-between mt-3 font-mono text-xs text-neutral-400">
+            <span class="">[NO CREDIT CARD REQUIRED]</span>
+            <span class="text-volt">INVITES REMAINING: 42/500</span>
+          </div>
+        </div>
+
+        <!-- SPECIAL COMPONENT: BRUTALIST COUNTDOWN TIMER -->
+        <div class="w-full pt-8 border-t-4 border-neutral-800">
+          <div class="flex items-center space-x-3 mb-4">
+            <span class="w-3 h-3 bg-volt inline-block"></span>
+            <span class="font-mono text-xs uppercase tracking-widest text-volt font-bold">NEXT PRODUCTION DROP CYCLES IN:</span>
+          </div>
+          <div class="flex flex-wrap gap-4 items-center">
+            <!-- Box 1: Days -->
+            <div class="bg-white text-black border-4 border-black p-4 min-w-[100px] text-center shadow-neo-black">
+              <div class="font-archivo font-black text-[40px] leading-none mb-1">04</div>
+              <div class="font-mono text-[11px] font-bold uppercase tracking-wider text-neutral-700">DAYS</div>
+            </div>
+            <span class="font-ranchers text-white text-3xl">:</span>
+            <!-- Box 2: Hours -->
+            <div class="bg-white text-black border-4 border-black p-4 min-w-[100px] text-center shadow-neo-black">
+              <div class="font-archivo font-black text-[40px] leading-none mb-1">17</div>
+              <div class="font-mono text-[11px] font-bold uppercase tracking-wider text-neutral-700">HOURS</div>
+            </div>
+            <span class="font-ranchers text-white text-3xl">:</span>
+            <!-- Box 3: Minutes -->
+            <div class="bg-white text-black border-4 border-black p-4 min-w-[100px] text-center shadow-neo-black">
+              <div class="font-archivo font-black text-[40px] leading-none mb-1">42</div>
+              <div class="font-mono text-[11px] font-bold uppercase tracking-wider text-neutral-700">MINS</div>
+            </div>
+            <span class="font-ranchers text-white text-3xl">:</span>
+            <!-- Box 4: Seconds -->
+            <div class="bg-volt text-black border-4 border-black p-4 min-w-[100px] text-center shadow-neo-black">
+              <div class="font-archivo font-black text-[40px] leading-none mb-1">09</div>
+              <div class="font-mono text-[11px] font-bold uppercase tracking-wider text-black">SECS</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. SOCIAL PROOF STICKER BAR -->
+    <section class="bg-white text-black border-b-8 border-black py-12 px-6 overflow-hidden">
+      <div class="max-w-7xl mx-auto">
+        <!-- Section Header Label -->
+        <div class="flex items-center justify-between mb-8 pb-3 border-b-4 border-black">
+          <span class="font-mono font-bold text-xs uppercase tracking-widest bg-black text-white px-3 py-1">
+            VERIFIED OPERATOR TELEMETRY
+          </span>
+          <span class="font-mono font-bold text-xs uppercase tracking-widest text-black">
+            99.998% UPTIME / 12,400+ WORKERS
+          </span>
+        </div>
+
+        <!-- Distributed Tilted Sticker Cards (-2 to 2 degrees) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch pt-2 pb-4">
+          
+          <!-- Sticker 1 (-2 deg) -->
+          <div class="bg-white border-4 border-black p-6 shadow-neo-black transform -rotate-2 hover:rotate-0 transition-transform duration-200 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center space-x-3 mb-4 pb-3 border-b-2 border-black">
+                <div class="w-12 h-12 bg-black border-2 border-black text-volt font-mono font-bold flex items-center justify-center text-lg shadow-[2px_2px_0px_#CCFF00]">
+                  AX
+                </div>
+                <div>
+                  <div class="font-mono font-bold text-sm uppercase">ALEX V. // ARCHITECT</div>
+                  <div class="font-mono text-xs text-neutral-500">KINETIC DEFENSE LABS</div>
+                </div>
+              </div>
+              <p class="font-mono font-bold text-xs leading-relaxed uppercase tracking-wider text-neutral-900">
+                "DEPLOY TIME CUT FROM 45 MINUTES TO 8 SECONDS FLAT. REFLECT IS THE HARDEST INDUSTRIAL TOOLCHAIN WE HAVE INTEGRATED THIS DECADE."
+              </p>
+            </div>
+            <div class="mt-4 pt-2 flex justify-between items-center text-[10px] font-mono text-neutral-500 font-bold border-t border-neutral-300">
+              <span class="">LATENCY: 1.2MS</span>
+              <span class="text-black bg-volt px-1.5">VERIFIED PASS</span>
+            </div>
+          </div>
+
+          <!-- Sticker 2 (+1.5 deg) -->
+          <div class="bg-volt border-4 border-black p-6 shadow-neo-black transform rotate-1 hover:rotate-0 transition-transform duration-200 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center space-x-3 mb-4 pb-3 border-b-2 border-black">
+                <div class="w-12 h-12 bg-white border-2 border-black text-black font-mono font-bold flex items-center justify-center text-lg shadow-[2px_2px_0px_#000000]">
+                  MK
+                </div>
+                <div>
+                  <div class="font-mono font-bold text-sm uppercase text-black">MIRA K. // FOUNDER</div>
+                  <div class="font-mono text-xs text-black/70">NEO-SYNTH PROTOCOL</div>
+                </div>
+              </div>
+              <p class="font-mono font-bold text-xs leading-relaxed uppercase tracking-wider text-black">
+                "NO SOFT PASTEL FLUFF. JUST BRUTAL RAW POWER AND INSTANT RELIABILITY. WE REPLACED OUR ENTIRE DASHBOARD ECOSYSTEM IN 3 DAYS."
+              </p>
+            </div>
+            <div class="mt-4 pt-2 flex justify-between items-center text-[10px] font-mono text-black font-bold border-t border-black/30">
+              <span class="">THROUGHPUT: 180K REQ/S</span>
+              <span class="bg-black text-white px-1.5">TOP TIER</span>
+            </div>
+          </div>
+
+          <!-- Sticker 3 (-1.5 deg) -->
+          <div class="bg-white border-4 border-black p-6 shadow-neo-black transform -rotate-1 hover:rotate-0 transition-transform duration-200 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center space-x-3 mb-4 pb-3 border-b-2 border-black">
+                <div class="w-12 h-12 bg-black border-2 border-black text-white font-mono font-bold flex items-center justify-center text-lg shadow-[2px_2px_0px_#CCFF00]">
+                  DR
+                </div>
+                <div>
+                  <div class="font-mono font-bold text-sm uppercase">DAN R. // LEAD SRE</div>
+                  <div class="font-mono text-xs text-neutral-500">ORBITAL COMPUTE CO</div>
+                </div>
+              </div>
+              <p class="font-mono font-bold text-xs leading-relaxed uppercase tracking-wider text-neutral-900">
+                "THE NEO-BRUTALIST ARCHITECTURE ELIMINATES UNNECESSARY DOM OVERHEAD. SHIPPING TO CLIENTS FEELS LIKE RUNNING BARE METAL."
+              </p>
+            </div>
+            <div class="mt-4 pt-2 flex justify-between items-center text-[10px] font-mono text-neutral-500 font-bold border-t border-neutral-300">
+              <span class="">MEMORY: 14MB STEADY</span>
+              <span class="text-black bg-volt px-1.5">VERIFIED PASS</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. HIGH-IMPACT COMPARISON SECTION -->
+    <section id="comparison" class="bg-black border-b-8 border-black">
+      <div class="max-w-7xl mx-auto px-6 py-16">
+        
+        <!-- Header -->
+        <div class="mb-12">
+          <div class="inline-block bg-volt text-black font-mono font-bold text-xs uppercase px-3 py-1.5 border-2 border-black shadow-[4px_4px_0px_#FFFFFF] -rotate-1 mb-4">
+            BENCHMARK EVALUATION // THE DICHOTOMY
+          </div>
+          <h2 class="font-ranchers text-white uppercase text-5xl sm:text-7xl tracking-tight">
+            OLD DECAY VS INDUSTRIAL VELOCITY
+          </h2>
+          <p class="font-mono text-sm text-neutral-400 uppercase tracking-widest mt-2">
+            SIDE-BY-SIDE ARCHITECTURAL DECONSTRUCTION
+          </p>
+        </div>
+
+        <!-- Grid of Split Rows: Left Black with Muted Grey (The Old Way) vs Right Volt Green with Black (The Better Way) -->
+        <div class="space-y-6">
+
+          <!-- Row 1: SPEED -->
+          <div class="border-4 border-black grid grid-cols-1 md:grid-cols-2 shadow-neo-white">
+            <!-- Left Side: Old Way -->
+            <div class="bg-pureblack p-8 sm:p-10 border-b-4 md:border-b-0 md:border-r-4 border-black flex flex-col justify-between">
+              <div>
+                <span class="font-mono text-xs uppercase font-bold text-slate-500 tracking-widest mb-2 block">
+                  [STATUS: DEPRECATED] // THE OLD WAY
+                </span>
+                <div class="font-ranchers text-slate-500 uppercase text-[60px] sm:text-[80px] leading-none mb-4">
+                  SLUGGISH BLOAT
+                </div>
+                <p class="font-sans text-slate-500 text-base font-normal">
+                  Heavy 12MB bundle sizes, endless hydration lag, layered CSS abstractions, and slow runtime re-renders that stall mission-critical workflows.
+                </p>
+              </div>
+              <div class="mt-6 font-mono text-xs text-slate-600 font-bold">
+                BENCHMARK: 3.4S FIRST CONTENTFUL PAINT
+              </div>
+            </div>
+            <!-- Right Side: The Better Way (Volt Green) -->
+            <div class="bg-volt p-8 sm:p-10 text-black flex flex-col justify-between">
+              <div>
+                <span class="font-mono text-xs uppercase font-bold text-black tracking-widest mb-2 block">
+                  [STATUS: ACCELERATED] // THE BETTER WAY
+                </span>
+                <div class="font-ranchers text-black uppercase text-[60px] sm:text-[80px] leading-none mb-4">
+                  INSTANT SHIP
+                </div>
+                <p class="font-sans text-black text-base font-bold">
+                  Zero hydration friction, atomic CSS primitives, 4px solid borders, and instant compilation that executes in under 24 milliseconds.
+                </p>
+              </div>
+              <div class="mt-6 font-mono text-xs text-black font-bold bg-white inline-block px-3 py-1 border-2 border-black w-max">
+                BENCHMARK: 0.08S FIRST CONTENTFUL PAINT
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 2: RELIABILITY -->
+          <div class="border-4 border-black grid grid-cols-1 md:grid-cols-2 shadow-neo-white">
+            <!-- Left Side -->
+            <div class="bg-pureblack p-8 sm:p-10 border-b-4 md:border-b-0 md:border-r-4 border-black flex flex-col justify-between">
+              <div>
+                <span class="font-mono text-xs uppercase font-bold text-slate-500 tracking-widest mb-2 block">
+                  [STATUS: FRAGILE] // THE OLD WAY
+                </span>
+                <div class="font-ranchers text-slate-500 uppercase text-[60px] sm:text-[80px] leading-none mb-4">
+                  FRAGILE CHAOS
+                </div>
+                <p class="font-sans text-slate-500 text-base font-normal">
+                  Cascade conflicts, silent CSS regressions, breaking micro-releases, and runtime errors hidden behind soft pastel drop-shadows.
+                </p>
+              </div>
+              <div class="mt-6 font-mono text-xs text-slate-600 font-bold">
+                INCIDENTS: 14 POST-MORTEMS / MONTH
+              </div>
+            </div>
+            <!-- Right Side -->
+            <div class="bg-volt p-8 sm:p-10 text-black flex flex-col justify-between">
+              <div>
+                <span class="font-mono text-xs uppercase font-bold text-black tracking-widest mb-2 block">
+                  [STATUS: IMMUTABLE] // THE BETTER WAY
+                </span>
+                <div class="font-ranchers text-black uppercase text-[60px] sm:text-[80px] leading-none mb-4">
+                  HARDENED CORE
+                </div>
+                <p class="font-sans text-black text-base font-bold">
+                  Strict brutalist contracts, deterministic component models, solid offset neo-shadows, and rock-solid state isolation.
+                </p>
+              </div>
+              <div class="mt-6 font-mono text-xs text-black font-bold bg-white inline-block px-3 py-1 border-2 border-black w-max">
+                INCIDENTS: 0 DOWNTIME EVENTS REPORTED
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 3: OUTPUT -->
+          <div class="border-4 border-black grid grid-cols-1 md:grid-cols-2 shadow-neo-white">
+            <!-- Left Side -->
+            <div class="bg-pureblack p-8 sm:p-10 border-b-4 md:border-b-0 md:border-r-4 border-black flex flex-col justify-between">
+              <div>
+                <span class="font-mono text-xs uppercase font-bold text-slate-500 tracking-widest mb-2 block">
+                  [STATUS: STALLED] // THE OLD WAY
+                </span>
+                <div class="font-ranchers text-slate-500 uppercase text-[60px] sm:text-[80px] leading-none mb-4">
+                  DESIGN DEBT
+                </div>
+                <p class="font-sans text-slate-500 text-base font-normal">
+                  Wasted weeks redesigning blurry Figma mockups, ambiguous tokens, and debating gradients while your competitors capture market share.
+                </p>
+              </div>
+              <div class="mt-6 font-mono text-xs text-slate-600 font-bold">
+                CYCLE TIME: 6 WEEKS PER RELEASE
+              </div>
+            </div>
+            <!-- Right Side -->
+            <div class="bg-volt p-8 sm:p-10 text-black flex flex-col justify-between">
+              <div>
+                <span class="font-mono text-xs uppercase font-bold text-black tracking-widest mb-2 block">
+                  [STATUS: DOMINANT] // THE BETTER WAY
+                </span>
+                <div class="font-ranchers text-black uppercase text-[60px] sm:text-[80px] leading-none mb-4">
+                  MAX OUTPUT
+                </div>
+                <p class="font-sans text-black text-base font-bold">
+                  High-voltage contrast, instant visual hierarchy, bold architectural presence, and code shipped straight from the industrial spec.
+                </p>
+              </div>
+              <div class="mt-6 font-mono text-xs text-black font-bold bg-white inline-block px-3 py-1 border-2 border-black w-max">
+                CYCLE TIME: CONTINUOUS 1-DAY DISRUPTIONS
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. PROCESS BLUEPRINT SECTION -->
+    <section id="blueprint" class="bg-darkgrey border-b-8 border-black py-20 px-6 sm:px-12 relative">
+      <div class="max-w-7xl mx-auto">
+
+        <!-- Title -->
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-16 pb-6 border-b-4 border-black">
+          <div>
+            <div class="inline-block bg-white text-black font-mono font-bold text-xs uppercase tracking-widest px-3 py-1 border-2 border-black mb-3">
+              SYSTEM PIPELINE
+            </div>
+            <h2 class="font-ranchers text-white uppercase text-5xl sm:text-7xl leading-tight">
+              THE 3-STAGE BLUEPRINT
+            </h2>
+          </div>
+          <div class="font-mono text-sm text-volt font-bold uppercase mt-4 sm:mt-0 tracking-wider">
+            [ ARCHITECTURE SPEC v4.09 ]
+          </div>
+        </div>
+
+        <!-- 3-Column Grid: White cards, 8px black border, white neo-shadow (#FFFFFF) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+          <!-- Card 1 -->
+          <div class="relative bg-white text-black border-8 border-black p-8 shadow-neo-white flex flex-col justify-between overflow-hidden min-h-[380px]">
+            <!-- Giant 3% opacity watermark step number in Ranchers -->
+            <div class="absolute -right-4 -bottom-10 font-ranchers text-[180px] text-black opacity-[0.05] pointer-events-none select-none leading-none">
+              01
+            </div>
+
+            <!-- Content -->
+            <div class="relative z-10">
+              <!-- Volt Green 'Step' tag at top-left, slightly rotated -->
+              <div class="inline-block bg-volt text-black font-mono font-bold text-xs uppercase px-3 py-1.5 border-4 border-black shadow-neo-black -rotate-3 mb-6">
+                STEP // 01: INGEST
+              </div>
+              <h3 class="font-ranchers text-black text-4xl uppercase tracking-tight mb-4">
+                EXTRACT &amp; DECONSTRUCT
+              </h3>
+              <p class="font-sans text-neutral-800 text-sm leading-relaxed mb-6">
+                Feed raw UI tokens, legacy Figma schemas, or markdown specifications. REFLECT parses the architectural skeleton, discarding decorative bloat.
+              </p>
+            </div>
+
+            <div class="relative z-10 pt-4 border-t-2 border-black font-mono text-xs font-bold flex justify-between items-center text-black">
+              <span class="">STAGE: COMPILER_IN</span>
+              <span class="bg-black text-volt px-2 py-0.5">READY</span>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="relative bg-white text-black border-8 border-black p-8 shadow-neo-white flex flex-col justify-between overflow-hidden min-h-[380px]">
+            <!-- Giant 3% opacity watermark step number in Ranchers -->
+            <div class="absolute -right-4 -bottom-10 font-ranchers text-[180px] text-black opacity-[0.05] pointer-events-none select-none leading-none">
+              02
+            </div>
+
+            <!-- Content -->
+            <div class="relative z-10">
+              <!-- Volt Green 'Step' tag at top-left, slightly rotated -->
+              <div class="inline-block bg-volt text-black font-mono font-bold text-xs uppercase px-3 py-1.5 border-4 border-black shadow-neo-black rotate-2 mb-6">
+                STEP // 02: SYNTHESIZE
+              </div>
+              <h3 class="font-ranchers text-black text-4xl uppercase tracking-tight mb-4">
+                FORGE NEO-SYSTEMS
+              </h3>
+              <p class="font-sans text-neutral-800 text-sm leading-relaxed mb-6">
+                Rebuild components with 4px/8px high-tension borders, Ranchers typographic hierarchy, Space Mono metrics, and strict zero-blur neo-shadows.
+              </p>
+            </div>
+
+            <div class="relative z-10 pt-4 border-t-2 border-black font-mono text-xs font-bold flex justify-between items-center text-black">
+              <span class="">STAGE: KERNEL_FORGE</span>
+              <span class="bg-black text-volt px-2 py-0.5">ACTIVE</span>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="relative bg-white text-black border-8 border-black p-8 shadow-neo-white flex flex-col justify-between overflow-hidden min-h-[380px]">
+            <!-- Giant 3% opacity watermark step number in Ranchers -->
+            <div class="absolute -right-4 -bottom-10 font-ranchers text-[180px] text-black opacity-[0.05] pointer-events-none select-none leading-none">
+              03
+            </div>
+
+            <!-- Content -->
+            <div class="relative z-10">
+              <!-- Volt Green 'Step' tag at top-left, slightly rotated -->
+              <div class="inline-block bg-volt text-black font-mono font-bold text-xs uppercase px-3 py-1.5 border-4 border-black shadow-neo-black -rotate-2 mb-6">
+                STEP // 03: DEPLOY
+              </div>
+              <h3 class="font-ranchers text-black text-4xl uppercase tracking-tight mb-4">
+                SHIP WITHOUT FRICTION
+              </h3>
+              <p class="font-sans text-neutral-800 text-sm leading-relaxed mb-6">
+                Export battle-tested code directly to production clusters. No translation layer, no design handoff drift, and guaranteed 100% fidelity.
+              </p>
+            </div>
+
+            <div class="relative z-10 pt-4 border-t-2 border-black font-mono text-xs font-bold flex justify-between items-center text-black">
+              <span class="">STAGE: CLUSTER_PUSH</span>
+              <span class="bg-black text-volt px-2 py-0.5">DEPLOYED</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. INTEGRATED WAITLIST FORM & FINAL CALL TO ACTION -->
+    <section id="waitlist" class="bg-volt text-black border-b-8 border-black py-20 px-6 sm:px-12">
+      <div class="max-w-4xl mx-auto">
+        
+        <div class="border-8 border-black bg-white p-8 sm:p-14 shadow-neo-black relative">
+          <!-- Tilted Decorative Badge -->
+          <div class="absolute -top-6 right-6 bg-black text-volt font-mono font-bold text-xs uppercase px-4 py-2 border-4 border-black rotate-3 shadow-[4px_4px_0px_#CCFF00]">
+            ⚡ STRICT INVITATION ONLY
+          </div>
+
+          <div class="mb-8">
+            <span class="font-mono text-xs font-bold uppercase tracking-widest text-neutral-600 block mb-2">
+              TERMINAL ACCESS // COHORT 04
+            </span>
+            <h2 class="font-ranchers text-black text-5xl sm:text-7xl uppercase leading-none mb-4">
+              COMMENCE DISRUPTION.
+            </h2>
+            <p class="font-sans text-neutral-800 text-base sm:text-lg font-medium max-w-xl">
+              Gain immediate priority access to the REFLECT toolchain. Enter your developer handle or corporate email below to generate your keys.
+            </p>
+          </div>
+
+          <!-- SPECIAL COMPONENT: INTEGRATED WAITLIST FORM (4px border, 8px solid shadow, no internal borders, mono placeholder, Ranchers button with hover flip) -->
+          <form class="w-full">
+            <div class="flex flex-col md:flex-row items-stretch border-4 border-black shadow-neo-black bg-white">
+              <!-- High-precision input field -->
+              <input type="email" placeholder="OPERATOR_EMAIL@ENTERPRISE.CORP" class="flex-1 px-6 py-5 bg-white text-black font-mono text-sm uppercase placeholder-neutral-400 font-bold focus:outline-none border-0" required="">
+              <!-- 4px vertical line divider (represented on md screens via border-l-4) -->
+              <button type="submit" class="md:border-l-4 border-t-4 md:border-t-0 border-black bg-black text-white hover:bg-white hover:text-black font-ranchers text-2xl uppercase tracking-wider px-10 py-5 transition-colors duration-150 flex items-center justify-center space-x-3 cursor-pointer">
+                <span class="">REQUEST KEYS</span>
+                <span class="font-sans font-bold text-xl">→</span>
+              </button>
+            </div>
+            
+            <div class="mt-4 flex flex-col sm:flex-row sm:items-center justify-between text-xs font-mono font-bold text-neutral-600 gap-2">
+              <div class="flex items-center space-x-2">
+                <span class="w-2.5 h-2.5 bg-black inline-block"></span>
+                <span class="">SYSTEM ARCHITECTURE: ZERO EXTERNAL RUNTIME DEPENDENCIES</span>
+              </div>
+              <span class="text-black uppercase">ENCRYPTION: 4096-BIT ED25519</span>
+            </div>
+          </form>
+
+          <!-- Terminal Spec Box -->
+          <div class="mt-8 p-4 bg-darkgrey text-volt border-4 border-black font-mono text-xs">
+            <div class="text-neutral-400 mb-1">$ reflect init --spec=neo-brutalist-disruptor --high-output</div>
+            <div class="text-volt">✓ Verified 4px stroke borders</div>
+            <div class="text-volt">✓ Ranchers 180px headline cache mounted</div>
+            <div class="text-volt">✓ Neo-shadow offsets locked to [8px, 8px]</div>
+            <div class="text-white mt-1">STATUS: WAITING_FOR_OPERATOR_AUTHENTICATION...</div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 7. INDUSTRIAL FOOTER -->
+    <footer class="bg-black text-white py-12 px-6 sm:px-12">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+        
+        <div>
+          <div class="flex items-center space-x-3 mb-2">
+            <div class="w-8 h-8 bg-volt text-black font-ranchers text-xl flex items-center justify-center border-2 border-white">
+              R
+            </div>
+            <span class="font-ranchers text-3xl tracking-wider text-white uppercase">REFLECT</span>
+          </div>
+          <p class="font-mono text-xs text-neutral-400 uppercase tracking-widest">
+            THE 'DISRUPTOR' NEO-BRUTALIST FRAMEWORK // SPEED. PRECISION. OUTPUT.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-6 font-mono text-xs font-bold uppercase tracking-wider text-neutral-300">
+          <a href="#" class="hover:text-volt hover:underline">PRIVACY_SPEC</a>
+          <a href="#" class="hover:text-volt hover:underline">TELEMETRY_LOGS</a>
+          <a href="#" class="hover:text-volt hover:underline">GITHUB_REPO</a>
+          <a href="#" class="hover:text-volt hover:underline">DISCORD_OPS</a>
+        </div>
+
+        <div class="font-mono text-xs text-neutral-500 font-bold border-l-2 border-neutral-700 pl-4">
+          © 2025 REFLECT SYSTEMS INC.<br>
+          ALL SOLID SHADOWS RESERVED.
+        </div>
+
+      </div>
+    </footer>
+
+  </div>
+
+
+
+
+
+</body></html>
